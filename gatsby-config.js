@@ -3,15 +3,22 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `konspekt`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Конспект — онлайн-курс академического письма будущего`,
+    description: ``,
+    siteUrl: `https://konspekt.io`,
   },
-  plugins: ["gatsby-plugin-styled-components", "gatsby-plugin-google-gtag", "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "images",
-      "path": "./src/images/"
+  plugins: [
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'assets',
+        path: './src/assets/',
+      },
+      __key: 'assets',
     },
-    __key: "images"
-  }]
+  ],
 };
