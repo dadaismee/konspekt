@@ -36,8 +36,8 @@ export default Hero;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  height: 100vh;
+  justify-content: space-evenly;
+  height: 90%;
 `;
 
 const Tagline = styled.div`

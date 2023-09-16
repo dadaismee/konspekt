@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
 
 export const Heading = styled.h1`
@@ -32,7 +33,7 @@ export const MainText = styled.p`
   margin: 0px;
 `;
 
-export const MenuAndFootnote = styled.p`
+export const MenuAndFootnote = styled(motion.p)`
   color: var(--text);
   font-size: 24px;
   line-height: 105%; /* 136.5px */

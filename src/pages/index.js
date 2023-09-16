@@ -3,6 +3,7 @@ import {
   Author,
   BasicSection,
   Contact,
+  FAQ,
   Header,
   Hero,
   HowWorks,
@@ -16,6 +17,7 @@ import {
   audience,
   author,
   contact,
+  faq,
   hero,
   outcomes,
   pricing,
@@ -29,8 +31,10 @@ import '../styles/layout.css';
 const IndexPage = () => {
   return (
     <>
-      <Header />
-      <Hero data={hero} />
+      <div style={{ height: '100vh' }}>
+        <Header />
+        <Hero data={hero} />
+      </div>
       <BasicSection id='about' pageData={about} grids={grids_4} />
       <BasicSection pageData={audience} grids={grids_4} />
       <ListSection pageData={outcomes} />
@@ -39,7 +43,7 @@ const IndexPage = () => {
       <Program id='program' pageData={program} />
       <Pricing id='pricing' pageData={pricing} />
       <Author pageData={author} />
-      {/* <FAQ /> */}
+      <FAQ pageData={faq} />
       <RequestForm id='form' grids={grids_3} pageData={requestForm} />
       <Contact pageData={contact} />
       {/* <Footer />  */}

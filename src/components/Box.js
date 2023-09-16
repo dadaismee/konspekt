@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import { styled } from 'styled-components';
 import { Text } from './ColoredText';
@@ -29,7 +30,7 @@ const Box = ({ children, grid, type, fontSize }) => {
 
 export default Box;
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   border-radius: 15px;
   border: 3px solid #000;
   padding: 30px;
