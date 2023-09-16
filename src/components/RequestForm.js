@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Confetti } from 'react-confetti';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { SectionHeading } from '../styles/TextStyles';
@@ -44,7 +43,6 @@ const RequestForm = ({ pageData, grids, id }) => {
         {Boolean(isSubmitted) ? (
           <div style={{ height: '100%' }}>
             <Box>
-              <Confetti />
               <ColoredText data={boxes[1]} />
             </Box>
           </div>
