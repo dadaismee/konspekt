@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import {
@@ -31,7 +31,7 @@ const FAQ = ({ pageData, id }) => {
         {questions.map((faqItem, index) => {
           const { question, answer } = faqItem;
           return (
-            <Box key={index}>
+            <Box key={index} isOpen={isOpen[index]}>
               <VertFlex>
                 <HorFlex>
                   <Toggle
@@ -44,11 +44,26 @@ const FAQ = ({ pageData, id }) => {
                     {question}
                   </Question>
                 </HorFlex>
-                {isOpen[index] && (
+                {/* {isOpen[index] && (
                   <Answer initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                     {answer}
                   </Answer>
-                )}
+                )} */}
+                <AnimatePresence>
+                  {isOpen[index] && (
+                    <Answer
+                      key='answer'
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{
+                        ease: [0.165, 0.84, 0.44, 1],
+                        duration: 0.5,
+                      }}>
+                      {answer}
+                    </Answer>
+                  )}
+                </AnimatePresence>
               </VertFlex>
             </Box>
           );
@@ -66,7 +81,6 @@ const Toggle = styled(motion.div)`
   font-size: 60px;
   display: flex;
   justify-self: start;
-  /* margin-right: 1rem; */
   cursor: pointer;
 `;
 
@@ -77,12 +91,6 @@ const Question = styled(MainText)`
 `;
 
 const Answer = styled(MenuAndFootnote)``;
-
-const Close = styled.div`
-  font-size: 1.5rem;
-  margin-left: auto;
-  cursor: pointer;
-`;
 
 const VertFlex = styled.div`
   display: flex;

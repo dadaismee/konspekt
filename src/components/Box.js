@@ -20,9 +20,31 @@ const types = {
   },
 };
 
-const Box = ({ children, grid, type, fontSize }) => {
+const Box = ({ children, grid, type, fontSize, isOpen }) => {
   return (
-    <Wrapper fontSize={fontSize} type={type} grid={grid}>
+    <Wrapper
+      initial={{
+        opacity: 0,
+        y: 20,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      exit={{
+        opacity: 0,
+        y: 20,
+      }}
+      transition={{
+        ease: [0.165, 0.84, 0.44, 1],
+        duration: 1,
+        delay: 0.25,
+      }}
+      viewport={{ once: true }}
+      style={{ maxHeight: isOpen ? 'auto' : 'auto' }}
+      fontSize={fontSize}
+      type={type}
+      grid={grid}>
       {children}
     </Wrapper>
   );
