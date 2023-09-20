@@ -2,6 +2,7 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React from 'react';
 import { styled } from 'styled-components';
 import Typewriter from 'typewriter-effect';
+import { mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText } from '../styles/TextStyles';
 
 const Hero = ({ data }) => {
@@ -38,6 +39,11 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   height: 90%;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    justify-content: start;
+    height: auto;
+  }
 `;
 
 const Tagline = styled.div`
@@ -46,6 +52,11 @@ const Tagline = styled.div`
   gap: 20px;
   align-items: end;
   margin: 150px 0;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    /* display: block; */
+    /* width: 100%; */
+  }
 `;
 
 const SiteHeading = styled(Heading)`
@@ -62,6 +73,10 @@ export const FlexContainer = styled.div`
   display: flex;
   gap: 20px;
   align-items: center;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    flex-direction: column;
+  }
 `;
 
 const Description = styled(MainText)`

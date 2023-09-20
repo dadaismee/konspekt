@@ -1,9 +1,11 @@
 import React from 'react';
+import SEO from '../components/SEO';
 import {
   Author,
   BasicSection,
   Contact,
   FAQ,
+  Footer,
   Header,
   Hero,
   HowWorks,
@@ -46,14 +48,14 @@ const IndexPage = () => {
       <FAQ pageData={faq} />
       <RequestForm id='form' grids={grids_3} pageData={requestForm} />
       <Contact pageData={contact} />
-      {/* <Footer />  */}
+      <Footer />
     </>
   );
 };
 
 export default IndexPage;
 
-export const Head = () => <title>Home Page</title>;
+export const Head = () => <SEO />;
 
 const grids_4 = [
   '1 / 1 / 1 / 3',

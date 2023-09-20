@@ -33,6 +33,7 @@ const RequestForm = ({ pageData, grids, id }) => {
       }),
     });
     setIsSubmitted(true);
+    window.open('https://self.payanyway.ru/1693655679114', '_blank');
   };
 
   return (
@@ -41,8 +42,8 @@ const RequestForm = ({ pageData, grids, id }) => {
 
       <CTA onSubmit={handleSubmit(onSubmit)}>
         {Boolean(isSubmitted) ? (
-          <div style={{ height: '100%' }}>
-            <Box>
+          <div>
+            <Box height='50vh'>
               <ColoredText data={boxes[1]} />
             </Box>
           </div>

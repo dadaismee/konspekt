@@ -11,3 +11,7 @@ export const Flex = styled.div`
   display: flex;
   gap: 20px;
 `;
+
+export const mediaQueries = {
+  phone: '768px',
+};

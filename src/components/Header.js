@@ -2,6 +2,7 @@ import { Link } from 'gatsby';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React from 'react';
 import { styled } from 'styled-components';
+import { mediaQueries } from '../styles/GlobalStyles';
 
 const Header = () => {
   const links = [
@@ -56,11 +57,19 @@ const Logo = styled.p`
   font-size: 32px;
   transition: var(--transition);
   color: var(--accent);
+
+  @media (max-width: ${mediaQueries.phone}) {
+    font-size: 6vw;
+  }
 `;
 
 const Navbar = styled.nav`
   display: flex;
   gap: 40px;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    display: none;
+  }
 `;
 
 const AnchorLinkEl = styled(AnchorLink)`

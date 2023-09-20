@@ -161,3 +161,9 @@ body {
   margin: 30px 60px 20px;
   font-family: 'Coolvetica';
 }
+
+@media (max-width: 768px) {
+  body {
+    margin: 20px;
+  }
+}
