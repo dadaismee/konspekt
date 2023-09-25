@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import { styled } from 'styled-components';
+import { mediaQueries } from '../styles/GlobalStyles';
 import { Text } from './ColoredText';
 
 const types = {
@@ -68,6 +69,10 @@ const Wrapper = styled(motion.div)`
 
     ${Text} {
       font-size: ${({ fontSize }) => fontSize || '64px'};
+
+      @media (max-width: ${mediaQueries.phone}) {
+        font-size: 6vw;
+      }
     }
   }
 `;

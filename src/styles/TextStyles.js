@@ -2,24 +2,26 @@ import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
 import { mediaQueries } from './GlobalStyles';
 
-export const Heading = styled.h1`
+export const Heading = styled(motion.h1)`
   color: var(--text);
-  font-size: 130px;
+  font-size: 9vw; //130px;
   line-height: 105%; /* 136.5px */
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 10vw;
+    font-size: 12vw;
+    text-align: left;
   }
 `;
 
-export const SectionHeading = styled.h2`
+export const SectionHeading = styled(motion.h2)`
   color: var(--text);
   font-size: 96px;
   line-height: 105%; /* 136.5px */
   margin: 180px 0 30px;
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 6.66vw;
+    font-size: 12vw;
+    margin: 16.6vh 0 30px;
   }
 `;
 
@@ -43,14 +45,14 @@ export const Button = styled.button`
   }
 `;
 
-export const MainText = styled.p`
+export const MainText = styled(motion.p)`
   color: var(--text);
   font-size: 40px;
   line-height: 110%;
   margin: 0px;
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 2.77vw;
+    font-size: 6vw;
   }
 `;
 

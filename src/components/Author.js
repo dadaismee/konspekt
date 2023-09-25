@@ -1,8 +1,9 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import styled from 'styled-components';
 import author from '../assets/author.png';
 import { Box, ColoredText } from '../components/index';
-import { Flex } from '../styles/GlobalStyles';
+import { Flex, mediaQueries } from '../styles/GlobalStyles';
 import { MainFeature, SectionHeading } from '../styles/TextStyles';
 import { Asterisk } from './ListSection';
 
@@ -11,9 +12,48 @@ const Author = ({ pageData, id }) => {
   // const img = getImage(author);
   return (
     <Wrapper id={id}>
-      <SectionHeading>{title}</SectionHeading>
+      <SectionHeading
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        exit={{
+          opacity: 0,
+          y: 20,
+        }}
+        transition={{
+          ease: [0.165, 0.84, 0.44, 1],
+          duration: 1,
+          delay: 0.1,
+        }}
+        viewport={{ once: true }}>
+        {title}
+      </SectionHeading>
       <Flex>
-        <Image src={author}></Image>
+        <Image
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            y: 20,
+          }}
+          transition={{
+            ease: [0.165, 0.84, 0.44, 1],
+            duration: 1,
+            delay: 0.15,
+          }}
+          viewport={{ once: true }}
+          src={author}></Image>
         <Box type='author' fontSize='40px'>
           <MainFeature
             style={{
@@ -39,8 +79,13 @@ export default Author;
 
 const Wrapper = styled.section``;
 
-const Image = styled.img`
-  width: 515px;
-  height: 515px;
+const Image = styled(motion.img)`
+  width: 35.7vw; //515px;
+  height: 35.7vw;
   border-radius: 15px;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    width: 100%;
+    height: 100%;
+  }
 `;

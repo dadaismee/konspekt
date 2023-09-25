@@ -12,3 +12,4 @@ export { default as ListSection } from './ListSection';
 export { default as Pricing } from './Pricing';
 export { default as Program } from './Program';
 export { default as RequestForm } from './RequestForm';
+export { default as SEO } from './SEO';

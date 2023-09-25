@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
@@ -38,7 +39,27 @@ const RequestForm = ({ pageData, grids, id }) => {
 
   return (
     <Wrapper id={id}>
-      <SectionHeading>{title}</SectionHeading>
+      <SectionHeading
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        exit={{
+          opacity: 0,
+          y: 20,
+        }}
+        transition={{
+          ease: [0.165, 0.84, 0.44, 1],
+          duration: 1,
+          delay: 0.1,
+        }}
+        viewport={{ once: true }}>
+        {title}
+      </SectionHeading>
 
       <CTA onSubmit={handleSubmit(onSubmit)}>
         {Boolean(isSubmitted) ? (
@@ -95,7 +116,27 @@ const RequestForm = ({ pageData, grids, id }) => {
               </Box>
             </div>
             <div style={{ width: 'var(--right-column-width' }}>
-              <Button type='submit' height='100%'>
+              <Button
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                transition={{
+                  ease: [0.165, 0.84, 0.44, 1],
+                  duration: 1,
+                  delay: 0.25,
+                }}
+                viewport={{ once: true }}
+                type='submit'
+                height='100%'>
                 Отправить заявку и оплатить
               </Button>
             </div>
@@ -133,7 +174,7 @@ const FlexVertical = styled.div`
   width: 100%;
 `;
 
-const Button = styled.button`
+const Button = styled(motion.button)`
   display: flex;
   justify-content: center;
   align-items: center;

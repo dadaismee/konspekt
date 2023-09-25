@@ -1,4 +1,4 @@
-import { AnchorLink } from 'gatsby-plugin-anchor-links';
+import { motion } from 'framer-motion';
 import React from 'react';
 import { styled } from 'styled-components';
 import Typewriter from 'typewriter-effect';
@@ -11,8 +11,27 @@ const Hero = ({ data }) => {
   return (
     <Wrapper>
       <Tagline>
-        <SiteHeading>{title}</SiteHeading>
-        <SiteHeading>
+        <SiteHeading
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            y: 20,
+          }}
+          transition={{
+            ease: [0.165, 0.84, 0.44, 1],
+            duration: 1,
+            delay: 0.25,
+          }}
+          viewport={{ once: true }}>
+          {title}
+
           <Typewriter
             options={{
               strings: typeWriterText,
@@ -23,8 +42,47 @@ const Hero = ({ data }) => {
         </SiteHeading>
       </Tagline>
       <FlexContainer>
-        <Description>{description}</Description>
-        <Button style={{ width: 'var(--right-column-width' }} to='#form'>
+        <Description
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            y: 20,
+          }}
+          transition={{
+            ease: [0.165, 0.84, 0.44, 1],
+            duration: 1,
+            delay: 0.25,
+          }}
+          viewport={{ once: true }}>
+          {description}
+        </Description>
+        <Button
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            y: 20,
+          }}
+          transition={{
+            ease: [0.165, 0.84, 0.44, 1],
+            duration: 1,
+            delay: 0.35,
+          }}
+          viewport={{ once: true }}
+          to='#form'>
           {buttonText}
         </Button>
       </FlexContainer>
@@ -50,19 +108,25 @@ const Tagline = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  align-items: end;
+  align-items: start;
   margin: 150px 0;
 
   @media (max-width: ${mediaQueries.phone}) {
-    /* display: block; */
-    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 16vh 0 12vh;
   }
 `;
 
 const SiteHeading = styled(Heading)`
   padding: 0;
   margin: 0;
-  height: 86px;
+  line-height: 85%;
+
+  // here
+  /* height: 6.25vw; */
+  // here
 
   span {
     color: var(--accent);
@@ -76,14 +140,20 @@ export const FlexContainer = styled.div`
 
   @media (max-width: ${mediaQueries.phone}) {
     flex-direction: column;
+    align-items: start;
+    gap: 2vh;
   }
 `;
 
 const Description = styled(MainText)`
   width: var(--left-column-width);
+
+  @media (max-width: ${mediaQueries.phone}) {
+    width: 100%;
+  }
 `;
 
-export const Button = styled(AnchorLink)`
+export const Button = styled(motion.AnchorLink)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,5 +173,10 @@ export const Button = styled(AnchorLink)`
     color: var(--text);
     box-shadow: 0px 0px 40px rgba(235, 235, 235, 0.5);
     cursor: pointer;
+  }
+
+  @media (max-width: ${mediaQueries.phone}) {
+    width: 100%;
+    font-size: 7vw;
   }
 `;

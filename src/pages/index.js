@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '../components/SEO';
+import styled from 'styled-components';
 import {
   Author,
   BasicSection,
@@ -13,6 +13,7 @@ import {
   Pricing,
   Program,
   RequestForm,
+  SEO,
 } from '../components/index';
 import {
   about,
@@ -33,10 +34,10 @@ import '../styles/layout.css';
 const IndexPage = () => {
   return (
     <>
-      <div style={{ height: '100vh' }}>
+      <FirstScreen>
         <Header />
         <Hero data={hero} />
-      </div>
+      </FirstScreen>
       <BasicSection id='about' pageData={about} grids={grids_4} />
       <BasicSection pageData={audience} grids={grids_4} />
       <ListSection pageData={outcomes} />
@@ -47,7 +48,7 @@ const IndexPage = () => {
       <Author pageData={author} />
       <FAQ pageData={faq} />
       <RequestForm id='form' grids={grids_3} pageData={requestForm} />
-      <Contact pageData={contact} />
+      <Contact id='contact' pageData={contact} />
       <Footer />
     </>
   );
@@ -65,3 +66,7 @@ const grids_4 = [
 ];
 
 const grids_3 = ['1 / 1 / 1 / 3', '2 / 1 / 2 / 3', '1 / 3 / 3 / 6'];
+
+const FirstScreen = styled.div`
+  height: 100vh;
+`;

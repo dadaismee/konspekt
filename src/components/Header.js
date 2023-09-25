@@ -1,5 +1,5 @@
+import { motion } from 'framer-motion';
 import { Link } from 'gatsby';
-import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React from 'react';
 import { styled } from 'styled-components';
 import { mediaQueries } from '../styles/GlobalStyles';
@@ -29,14 +29,53 @@ const Header = () => {
   ];
 
   return (
-    <Wrapper>
+    <Wrapper
+      initial={{
+        opacity: 0,
+        y: 20,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      exit={{
+        opacity: 0,
+        y: 20,
+      }}
+      transition={{
+        ease: [0.165, 0.84, 0.44, 1],
+        duration: 1,
+        delay: 0.1,
+      }}
+      viewport={{ once: true }}>
       <Link to='/'>
         <Logo>Конспект</Logo>
+        {/* <Image src={logo} alt='Logo' /> */}
       </Link>
 
       <Navbar>
-        {links.map((link) => (
-          <AnchorLinkEl key={link.name} to={link.url}>
+        {links.map((link, index) => (
+          <AnchorLinkEl
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: 20,
+            }}
+            transition={{
+              ease: [0.165, 0.84, 0.44, 1],
+              duration: 1,
+              delay: 0.1 + index * 0.05,
+            }}
+            viewport={{ once: true }}
+            key={link.name}
+            to={link.url}>
             {link.name}
           </AnchorLinkEl>
         ))}
@@ -47,7 +86,7 @@ const Header = () => {
 
 export default Header;
 
-const Wrapper = styled.header`
+const Wrapper = styled(motion.header)`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,11 +111,16 @@ const Navbar = styled.nav`
   }
 `;
 
-const AnchorLinkEl = styled(AnchorLink)`
+const AnchorLinkEl = styled(motion.AnchorLink)`
   font-size: 24px;
   transition: var(--transition);
 
   &:hover {
     color: var(--accent);
   }
+`;
+
+const Image = styled.img`
+  width: 40px;
+  height: 100%;
 `;

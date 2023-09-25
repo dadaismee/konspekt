@@ -14,7 +14,27 @@ const BasicSection = ({ pageData, grids, id }) => {
 
   return (
     <Wrapper id={id}>
-      <SectionHeading>{title}</SectionHeading>
+      <SectionHeading
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        exit={{
+          opacity: 0,
+          y: 20,
+        }}
+        transition={{
+          ease: [0.165, 0.84, 0.44, 1],
+          duration: 1,
+          delay: 0.1,
+        }}
+        viewport={{ once: true }}>
+        {title}
+      </SectionHeading>
       {Boolean(type === 'basic') && (
         <GridContainer>
           {data.map((box) => (
