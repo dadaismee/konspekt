@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import styled from 'styled-components';
 import { SectionHeading } from '../styles/TextStyles';
@@ -30,33 +31,31 @@ const Contact = ({ pageData, id }) => {
         {title}
       </SectionHeading>
 
-      <div style={{ width: 'var(--left-column-width)' }}>
+      <ButtonWrapper
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        exit={{
+          opacity: 0,
+          y: 20,
+        }}
+        transition={{
+          ease: [0.165, 0.84, 0.44, 1],
+          duration: 1,
+          delay: 0.3,
+        }}
+        viewport={{ once: true }}>
         <a
           href='mailto:valerii.s.shevchenko@gmail.com?subject=Конспект&body=Добрый день! %0D%0A %0D%0A У меня есть вопрос про курс «Академическое письмо будущего»: …'
           target='_blank'>
-          <Button
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              y: 20,
-            }}
-            transition={{
-              ease: [0.165, 0.84, 0.44, 1],
-              duration: 1,
-              delay: 0.25,
-            }}
-            viewport={{ once: true }}>
-            Написать письмо
-          </Button>
+          <Button>Написать письмо</Button>
         </a>
-      </div>
+      </ButtonWrapper>
     </Wrapper>
   );
 };
@@ -64,3 +63,5 @@ const Contact = ({ pageData, id }) => {
 export default Contact;
 
 const Wrapper = styled.section``;
+
+const ButtonWrapper = styled(motion.div)``;

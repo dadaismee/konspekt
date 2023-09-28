@@ -37,9 +37,7 @@ const Program = ({ pageData, id }) => {
           <ListItem>
             <Circle>{index + 1}</Circle>
             <Flex>
-              <Text style={{ fontSize: '64px' }} key={box.mainText}>
-                {box.mainText}
-              </Text>
+              <Text key={box.mainText}>{box.mainText}</Text>
               {Boolean(box.subText) && (
                 <Asterisk style={{ color: '#3D4E3E', margin: '5px 0' }}>
                   {box.subText}

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
+import { mediaQueries } from '../styles/GlobalStyles';
 import { SectionHeading } from '../styles/TextStyles';
 import ColoredText from './ColoredText';
 import { Asterisk } from './ListSection';
@@ -69,14 +70,8 @@ const RequestForm = ({ pageData, grids, id }) => {
             </Box>
           </div>
         ) : (
-          <>
-            <div
-              style={{
-                width: 'var(--left-column-width)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '20px',
-              }}>
+          <FormWrapper>
+            <BoxWrapper>
               <Box grid={grids[0]}>
                 <ColoredText data={boxes[0]}></ColoredText>
               </Box>
@@ -114,8 +109,8 @@ const RequestForm = ({ pageData, grids, id }) => {
                   {errors.email && <p>Введите адрес почты</p>}
                 </FlexVertical>
               </Box>
-            </div>
-            <div style={{ width: 'var(--right-column-width' }}>
+            </BoxWrapper>
+            <ButtonWrapper>
               <Button
                 initial={{
                   opacity: 0,
@@ -139,8 +134,8 @@ const RequestForm = ({ pageData, grids, id }) => {
                 height='100%'>
                 Отправить заявку и оплатить
               </Button>
-            </div>
-          </>
+            </ButtonWrapper>
+          </FormWrapper>
         )}
       </CTA>
 
@@ -160,6 +155,10 @@ const Input = styled.input`
   /* width: 100%; */
   font-size: 24px;
   font-family: Coolvetica;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    font-size: 20px;
+  }
 `;
 
 const CTA = styled.form`
@@ -172,6 +171,26 @@ const FlexVertical = styled.div`
   flex-direction: column;
   gap: 20px;
   width: 100%;
+`;
+
+const BoxWrapper = styled.div`
+  width: var(--left-column-width);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    width: auto;
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  width: var(--right-column-width);
+  height: 100%;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    width: auto;
+  }
 `;
 
 const Button = styled(motion.button)`
@@ -194,5 +213,19 @@ const Button = styled(motion.button)`
     color: var(--text);
     box-shadow: 0px 0px 40px rgba(235, 235, 235, 0.5);
     cursor: pointer;
+  }
+
+  @media (max-width: ${mediaQueries.phone}) {
+    font-size: 40px;
+    padding: 16px;
+  }
+`;
+
+const FormWrapper = styled.div`
+  gap: 20px;
+  display: flex;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    flex-direction: column;
   }
 `;

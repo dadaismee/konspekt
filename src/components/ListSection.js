@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Box, ColoredText } from '../components/index';
+import { mediaQueries } from '../styles/GlobalStyles';
 import { MenuAndFootnote, SectionHeading } from '../styles/TextStyles';
 
 const PageSection = ({ pageData, id }) => {
@@ -49,6 +50,7 @@ const Wrapper = styled.section``;
 
 export const Asterisk = styled(MenuAndFootnote)`
   margin-top: 16px;
+  width: 100%;
   color: #3d4e3e;
 `;
 
@@ -57,16 +59,27 @@ export const ListItem = styled.ol`
   gap: 20px;
   align-items: center;
   align-self: flex-start;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    align-items: center;
+  }
 `;
 
 export const Circle = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 64px;
   min-width: 64px;
+  max-width: 64px;
   height: 64px;
   border-radius: 100%;
   background-color: var(--accent);
   font-size: 40px;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    min-width: 40px;
+    max-width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
 `;

@@ -31,7 +31,7 @@ export const MainFeature = styled.h3`
   line-height: 95%; /* 136.5px */
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 4.44vw;
+    font-size: 24px;
   }
 `;
 
@@ -52,7 +52,7 @@ export const MainText = styled(motion.p)`
   margin: 0px;
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 6vw;
+    font-size: 24px;
   }
 `;
 
@@ -62,7 +62,7 @@ export const MenuAndFootnote = styled(motion.p)`
   line-height: 105%; /* 136.5px */
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 1.66vw;
+    font-size: 16px;
   }
 `;
 

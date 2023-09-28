@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Box, ColoredText } from '../components/index';
-import { GridContainer } from '../styles/GlobalStyles';
+import { GridContainer, mediaQueries } from '../styles/GlobalStyles';
 import { MainFeature, SectionHeading } from '../styles/TextStyles';
 import { Asterisk } from './ListSection';
 
@@ -65,4 +65,8 @@ const FlexWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    gap: 1vh;
+  }
 `;

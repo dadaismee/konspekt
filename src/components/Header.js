@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'gatsby';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React from 'react';
 import { styled } from 'styled-components';
 import { mediaQueries } from '../styles/GlobalStyles';
@@ -111,7 +112,7 @@ const Navbar = styled.nav`
   }
 `;
 
-const AnchorLinkEl = styled(motion.AnchorLink)`
+const AnchorLinkEl = styled(AnchorLink)`
   font-size: 24px;
   transition: var(--transition);
 

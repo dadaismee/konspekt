@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React from 'react';
 import { styled } from 'styled-components';
 import Typewriter from 'typewriter-effect';
@@ -63,7 +64,7 @@ const Hero = ({ data }) => {
           viewport={{ once: true }}>
           {description}
         </Description>
-        <Button
+        <ButtonWrapper
           initial={{
             opacity: 0,
             y: 20,
@@ -81,10 +82,9 @@ const Hero = ({ data }) => {
             duration: 1,
             delay: 0.35,
           }}
-          viewport={{ once: true }}
-          to='#form'>
-          {buttonText}
-        </Button>
+          viewport={{ once: true }}>
+          <Button to='#form'>{buttonText}</Button>
+        </ButtonWrapper>
       </FlexContainer>
     </Wrapper>
   );
@@ -99,8 +99,9 @@ const Wrapper = styled.div`
   height: 90%;
 
   @media (max-width: ${mediaQueries.phone}) {
-    justify-content: start;
-    height: auto;
+    justify-content: center;
+    align-items: stretch;
+    /* height: auto; */
   }
 `;
 
@@ -115,7 +116,6 @@ const Tagline = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 16vh 0 12vh;
   }
 `;
 
@@ -123,10 +123,6 @@ const SiteHeading = styled(Heading)`
   padding: 0;
   margin: 0;
   line-height: 85%;
-
-  // here
-  /* height: 6.25vw; */
-  // here
 
   span {
     color: var(--accent);
@@ -153,12 +149,11 @@ const Description = styled(MainText)`
   }
 `;
 
-export const Button = styled(motion.AnchorLink)`
+export const Button = styled(AnchorLink)`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: var(--right-column-width);
   height: ${({ height }) => height || '115px'};
   font-size: 48px;
   font-family: Coolvetica;
@@ -179,4 +174,14 @@ export const Button = styled(motion.AnchorLink)`
     width: 100%;
     font-size: 7vw;
   }
+`;
+
+export const ButtonWrapper = styled(motion.button)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: var(--right-column-width);
+  background-color: transparent;
+  border: none;
 `;
