@@ -120,7 +120,7 @@ export const process = {
     },
     {
       mainText: 'Одно занятие — часовой видеозвонок в Telegram',
-      spanText: ['часовой видео-звонок в Telegram'],
+      spanText: ['часовой видеозвонок в Telegram'],
     },
     {
       mainText: '80% практики:',
