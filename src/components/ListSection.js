@@ -51,7 +51,7 @@ const Wrapper = styled.section``;
 export const Asterisk = styled(MenuAndFootnote)`
   margin-top: 16px;
   width: 100%;
-  color: #3d4e3e;
+  color: var(--asterisk);
 `;
 
 export const ListItem = styled.ol`

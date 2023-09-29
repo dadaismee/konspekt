@@ -8,16 +8,16 @@ import { mediaQueries } from '../styles/GlobalStyles';
 const Header = () => {
   const links = [
     {
-      name: 'о чём курс',
-      url: '#about',
-    },
-    {
       name: 'результат',
       url: '#results',
     },
     {
       name: 'процесс',
       url: '#process',
+    },
+    {
+      name: 'программа',
+      url: '#program',
     },
     {
       name: 'тарифы',
@@ -90,7 +90,7 @@ export default Header;
 const Wrapper = styled(motion.header)`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
 `;
 
 const Logo = styled.p`
@@ -105,7 +105,7 @@ const Logo = styled.p`
 
 const Navbar = styled.nav`
   display: flex;
-  gap: 40px;
+  gap: 30px;
 
   @media (max-width: ${mediaQueries.phone}) {
     display: none;

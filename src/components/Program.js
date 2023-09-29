@@ -39,7 +39,7 @@ const Program = ({ pageData, id }) => {
             <Flex>
               <Text key={box.mainText}>{box.mainText}</Text>
               {Boolean(box.subText) && (
-                <Asterisk style={{ color: '#3D4E3E', margin: '5px 0' }}>
+                <Asterisk style={{ color: 'var(--asterisk)', margin: '0' }}>
                   {box.subText}
                 </Asterisk>
               )}

@@ -48,8 +48,8 @@ export const Button = styled.button`
 export const MainText = styled(motion.p)`
   color: var(--text);
   font-size: 40px;
-  line-height: 110%;
-  margin: 0px;
+  line-height: 100%;
+  margin-bottom: 10px;
 
   @media (max-width: ${mediaQueries.phone}) {
     font-size: 24px;
