@@ -4,11 +4,15 @@ import code from '../assets/code.png';
 import palette from '../assets/palette.png';
 import { mediaQueries } from '../styles/GlobalStyles';
 import { FooterText } from '../styles/TextStyles';
+import { StyledLink } from './RequestForm';
 
 const Footer = () => {
   return (
     <Wrapper>
       <Copy>Конспект © {new Date().getFullYear()}</Copy>
+      <StyledLink href='/privacy' target='_blank' rel='noopener noreferrer'>
+        <Copy>Политика конфиденциальности</Copy>
+      </StyledLink>
       <Branding>
         <Image src={palette} />
         /

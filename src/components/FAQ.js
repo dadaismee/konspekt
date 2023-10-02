@@ -107,7 +107,7 @@ const Toggle = styled(motion.div)`
 const Question = styled(MainText)`
   cursor: pointer;
   width: 100%;
-  text-align: center;
+  text-align: left;
 `;
 
 const Answer = styled(MenuAndFootnote)``;
@@ -119,9 +119,10 @@ const VertFlex = styled.div`
   width: 100%;
 `;
 
-const HorFlex = styled.div`
+export const HorFlex = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  gap: 20px;
 `;

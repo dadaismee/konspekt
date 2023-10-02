@@ -93,7 +93,7 @@ const Wrapper = styled(motion.header)`
   align-items: baseline;
 `;
 
-const Logo = styled.p`
+export const Logo = styled.p`
   font-size: 32px;
   transition: var(--transition);
   color: var(--accent);

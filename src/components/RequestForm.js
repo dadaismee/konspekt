@@ -75,38 +75,71 @@ const RequestForm = ({ pageData, grids, id }) => {
               <Box grid={grids[0]}>
                 <ColoredText data={boxes[0]}></ColoredText>
               </Box>
-              <Box>
+              <Box fontSize='20px'>
                 <FlexVertical>
-                  <Input
-                    type='text'
-                    placeholder='Имя'
-                    {...register('name', {
-                      required: true,
-                      maxLength: 20,
-                      pattern: /^[a-zA-Z]+/g,
-                    })}
-                  />
-                  {errors.name && <p>Введите имя</p>}
-                  <Input
-                    type='text'
-                    placeholder='Telegram'
-                    {...register('telegram', {
-                      required: true,
-                      maxLength: 20,
-                      pattern: /^[a-zA-Z]+/g,
-                    })}
-                  />
-                  {errors.telegram && <p>Введите ник в Telegram (без @)</p>}
-                  <Input
-                    type='email'
-                    placeholder='Почта'
-                    {...register('email', {
-                      required: true,
-                      pattern:
-                        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    })}
-                  />
-                  {errors.email && <p>Введите адрес почты</p>}
+                  <InputItem>
+                    <Input
+                      type='text'
+                      placeholder='Имя'
+                      {...register('name', {
+                        required: true,
+                        maxLength: 20,
+                        pattern: /^[а-яА-ЯЁё]+/g,
+                      })}
+                    />
+                    {errors.name && <p>Введите имя</p>}
+                  </InputItem>
+                  <InputItem>
+                    <Input
+                      type='text'
+                      placeholder='Telegram'
+                      {...register('telegram', {
+                        required: true,
+                        maxLength: 20,
+                        pattern: /^[a-zA-Z]+/g,
+                      })}
+                    />
+                    {errors.telegram && <p>Введите ник в Telegram (без @)</p>}
+                  </InputItem>
+                  <InputItem>
+                    <Input
+                      type='email'
+                      placeholder='Почта'
+                      {...register('email', {
+                        required: true,
+                        pattern:
+                          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                      })}
+                    />
+                    {errors.email && <p>Введите адрес почты</p>}
+                  </InputItem>
+                  <InputItem>
+                    <FlexContainer>
+                      <Checkbox
+                        type='checkbox'
+                        {...register('policy', {
+                          required: true,
+                        })}
+                      />
+                      <StyledLink
+                        href='/privacy'
+                        target='_blank'
+                        rel='noopener noreferrer'>
+                        <ColoredText
+                          data={{
+                            mainText: 'Принимаю политику конфиденциальности',
+                            spanText: ['политику конфиденциальности'],
+                          }}
+                        />
+                      </StyledLink>
+                    </FlexContainer>
+                    {errors.policy && (
+                      <p>
+                        <strong>↑</strong> Поставьте галочку (лучше
+                        предварительно прочитав)
+                      </p>
+                    )}
+                  </InputItem>
                 </FlexVertical>
               </Box>
             </BoxWrapper>
@@ -228,4 +261,31 @@ const FormWrapper = styled.div`
   @media (max-width: ${mediaQueries.phone}) {
     flex-direction: column;
   }
+`;
+
+const Checkbox = styled.input`
+  height: 32px;
+  width: 32px;
+  border: 3px solid var(--text);
+
+  @media (max-width: ${mediaQueries.phone}) {
+    width: 48px;
+    height: 48px;
+  }
+`;
+
+export const StyledLink = styled.a`
+  display: flex;
+  align-self: center;
+`;
+
+const InputItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+export const FlexContainer = styled.div`
+  display: flex;
+  gap: 20px;
 `;
