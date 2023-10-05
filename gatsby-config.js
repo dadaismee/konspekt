@@ -14,6 +14,12 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-transformer-remark',
     {
+      resolve: 'gatsby-plugin-anchor-links',
+      options: {
+        offset: -50,
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'assets',
