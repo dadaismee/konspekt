@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import 'swiper/css';
 import { Box } from '../components/index';
 import { Flex, mediaQueries } from '../styles/GlobalStyles';
 import { MainFeature, MainText, SectionHeading } from '../styles/TextStyles';
 import { Button, ButtonWrapper } from './Hero';
 import { Asterisk } from './ListSection';
 
-const Pricing = ({ pageData, grids, id }) => {
+const Pricing = ({ pageData, id }) => {
   const { title, asterisk } = pageData;
   const tariffs = pageData.tariffs.map((tariff) => tariff);
 
