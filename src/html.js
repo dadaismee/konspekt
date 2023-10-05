@@ -9,7 +9,6 @@ const Html = ({ headComponents, body, postBodyComponents }) => (
         type='text/javascript'
         dangerouslySetInnerHTML={{
           __html: `
-        <!-- Yandex.Metrica counter -->
         <script type="text/javascript" >
             (function (m, e, t, r, i, k, a) {
                 m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
@@ -17,15 +16,14 @@ const Html = ({ headComponents, body, postBodyComponents }) => (
             })
             (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-            ym(95127959, "init", {
+            ym(${process.env.YANDEX_METRICA}, "init", {
                 clickmap: true,
                 trackLinks: true,
                 accurateTrackBounce: true,
                 webvisor: true
             });
         </script>
-        <noscript><div><img src="https://mc.yandex.ru/watch/YOUR_YANDEX_METRICA_TRACKING_ID" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-        <!-- /Yandex.Metrica counter -->
+        <noscript><div><img src="https://mc.yandex.ru/watch/${process.env.YANDEX_METRICA}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
       `,
         }}
       />
