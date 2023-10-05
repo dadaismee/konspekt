@@ -9,14 +9,13 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-yandex-metrica`,
+      resolve: `gatsby-plugin-yandex-metrika`,
       options: {
-        trackingId: '95127959',
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-        trackHash: true,
+        trackingId: process.env.YANDEX_METRICA,
         webvisor: true,
+        defer: false,
+        afterBody: true,
+        trackHash: true,
       },
     },
     'gatsby-plugin-styled-components',
