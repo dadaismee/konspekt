@@ -17,7 +17,7 @@ const Html = ({ headComponents, body, postBodyComponents }) => (
             })
             (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-            ym(${process.env.YANDEX_METRICA}, "init", {
+            ym(95127959, "init", {
                 clickmap: true,
                 trackLinks: true,
                 accurateTrackBounce: true,
