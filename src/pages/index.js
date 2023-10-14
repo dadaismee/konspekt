@@ -9,6 +9,7 @@ import {
   Header,
   Hero,
   HowWorks,
+  Layout,
   ListSection,
   Pricing,
   Program,
@@ -33,7 +34,7 @@ import '../styles/layout.css';
 
 const IndexPage = () => {
   return (
-    <>
+    <Layout>
       <FirstScreen>
         <Header />
         <Hero data={hero} />
@@ -50,7 +51,7 @@ const IndexPage = () => {
       <RequestForm id='form' grids={grids_3} pageData={requestForm} />
       <Contact id='contact' pageData={contact} />
       <Footer />
-    </>
+    </Layout>
   );
 };
 
