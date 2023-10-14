@@ -4,10 +4,21 @@
 module.exports = {
   siteMetadata: {
     title: `Конспект — онлайн-курс академического письма`,
-    description: `На курсе вы научитесь оптимизировать процесс создания научных статей — от чтения литературы до автоматической сборки готовой к публикации статьи`,
+    description: `Здесь вы научитесь оптимизировать процесс создания научных статей — от чтения литературы до автоматической сборки готовой к публикации статьи`,
     siteUrl: `https://konspekt.io`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-yandex-metrica`,
+      options: {
+        trackingId: process.env.YANDEX_METRICA,
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        trackHash: true,
+        webvisor: true,
+      },
+    },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
