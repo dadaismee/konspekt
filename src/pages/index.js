@@ -59,7 +59,7 @@ export default IndexPage;
 export const Head = () => (
   <>
     <SEO />
-    <script
+    {/* <script
       type='text/javascript'
       dangerouslySetInnerHTML={{
         __html: `
@@ -76,7 +76,7 @@ export const Head = () => (
           });
         `,
       }}
-    />
+    /> */}
   </>
 );
 
