@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import SEO from './SEO';
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
     <div>
       <Helmet>
@@ -24,6 +25,8 @@ const Layout = () => {
           }}
         />
       </Helmet>
+      <SEO />
+      {children}
     </div>
   );
 };
