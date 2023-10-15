@@ -59,17 +59,7 @@ export default IndexPage;
 export const Head = () => (
   <>
     <SEO />
-
-    <meta
-      property='og:title'
-      content='Конспект — онлайн-курс академического письма'
-    />
-    <meta
-      property='og:description'
-      content='Здесь вы научитесь оптимизировать процесс создания научных статей — от чтения литературы до автоматической сборки готовой к публикации статьи'
-    />
-    <meta property='og:image' content='../assets/og.png' />
-
+    <meta property='og:image' content='https://postimg.cc/7C05ZKg5/19dd5d47' />
     <meta name='twitter:card' content='summary_large_image' />
     <meta property='twitter:domain' content='konspekt.io' />
     <meta property='twitter:url' content='https://konspekt.io/' />
@@ -81,7 +71,7 @@ export const Head = () => (
       name='twitter:description'
       content='Здесь вы научитесь оптимизировать процесс создания научных статей — от чтения литературы до автоматической сборки готовой к публикации статьи'
     />
-    <meta name='twitter:image' content='../assets/og.png' />
+    <meta name='twitter:image' content='https://postimg.cc/7C05ZKg5/19dd5d47' />
   </>
 );
 
