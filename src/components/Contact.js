@@ -51,7 +51,7 @@ const Contact = ({ pageData, id }) => {
         }}
         viewport={{ once: true }}>
         <a
-          href='mailto:valerii.s.shevchenko@gmail.com?subject=Конспект&body=Добрый день! %0D%0A %0D%0A У меня есть вопрос про курс «Академическое письмо будущего»: …'
+          href='mailto:konspekt.school@yandex.ru?subject=Конспект&body=Добрый день! %0D%0A %0D%0A У меня есть вопрос про курс «Академическое письмо будущего»: …'
           target='_blank'>
           <Button>Написать письмо</Button>
         </a>
