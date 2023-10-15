@@ -101,7 +101,6 @@ const Wrapper = styled.div`
   @media (max-width: ${mediaQueries.phone}) {
     justify-content: center;
     align-items: stretch;
-    /* height: auto; */
   }
 `;
 

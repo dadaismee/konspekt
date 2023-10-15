@@ -258,7 +258,7 @@ const FormWrapper = styled.div`
   gap: 20px;
   display: flex;
 
-  @media (max-width: ${mediaQueries.phone}) {
+  @media (max-width: ${mediaQueries.phone}) and (max-height: 1600px) {
     flex-direction: column;
   }
 `;
