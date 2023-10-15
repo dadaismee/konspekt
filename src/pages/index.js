@@ -59,7 +59,7 @@ export default IndexPage;
 export const Head = () => (
   <>
     <SEO />
-    <script
+    {/* <script
       type='text/javascript'
       dangerouslySetInnerHTML={{
         __html: `
@@ -70,13 +70,14 @@ export const Head = () => (
           })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
 
           ym(${process.env.YANDEX_METRICA}, 'init', {
-            clickmap: true,
-            trackLinks: true,
-            accurateTrackBounce: true,
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
           });
         `,
       }}
-    />
+    /> */}
   </>
 );
 

@@ -27,6 +27,7 @@ const SEO = ({ title, description, keywords, pathname, children }) => {
       <meta name='keywords' content={seo.keywords} />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
       <meta name='robots' content='index, follow' />
+      {children}
     </>
   );
 };

@@ -10,6 +10,16 @@ module.exports = {
     siteUrl: `https://konspekt.io`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-yandex-metrika`,
+      options: {
+        trackingId: process.env.YANDEX_METRICA,
+        webvisor: true,
+        trackHash: true,
+        afterBody: true,
+        defer: false,
+      },
+    },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
