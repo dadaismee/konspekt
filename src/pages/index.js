@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import og from '../assets/og.png';
 import {
   Author,
   BasicSection,
@@ -60,9 +59,29 @@ export default IndexPage;
 export const Head = () => (
   <>
     <SEO />
-    <meta property='og:image' content={og} />
-    <meta property='og:image:width' content='400' />
-    <meta property='og:image:height' content='50' />
+
+    <meta
+      property='og:title'
+      content='Конспект — онлайн-курс академического письма'
+    />
+    <meta
+      property='og:description'
+      content='Здесь вы научитесь оптимизировать процесс создания научных статей — от чтения литературы до автоматической сборки готовой к публикации статьи'
+    />
+    <meta property='og:image' content='../assets/og.png' />
+
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta property='twitter:domain' content='konspekt.io' />
+    <meta property='twitter:url' content='https://konspekt.io/' />
+    <meta
+      name='twitter:title'
+      content='Конспект — онлайн-курс академического письма'
+    />
+    <meta
+      name='twitter:description'
+      content='Здесь вы научитесь оптимизировать процесс создания научных статей — от чтения литературы до автоматической сборки готовой к публикации статьи'
+    />
+    <meta name='twitter:image' content='../assets/og.png' />
   </>
 );
 
