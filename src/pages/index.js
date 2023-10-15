@@ -56,7 +56,14 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head = () => <SEO />;
+export const Head = () => (
+  <>
+    <SEO />
+    <meta property='og:image' content={domain + '/src/assets/og.png'} />
+    <meta property='og:image:width' content='400' />
+    <meta property='og:image:width' content='50' />
+  </>
+);
 
 const grids_4 = [
   '1 / 1 / 1 / 3',
