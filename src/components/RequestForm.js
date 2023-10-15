@@ -87,7 +87,7 @@ const RequestForm = ({ pageData, grids, id }) => {
                         pattern: /^[а-яА-ЯЁё]+/g,
                       })}
                     />
-                    {errors.name && <p>Введите имя</p>}
+                    {errors.name && <p>Введите имя кириллицей</p>}
                   </InputItem>
                   <InputItem>
                     <Input
