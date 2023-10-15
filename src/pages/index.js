@@ -56,24 +56,7 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head = () => (
-  <>
-    <SEO />
-    <meta property='og:image' content='https://postimg.cc/7C05ZKg5/19dd5d47' />
-    <meta name='twitter:card' content='summary_large_image' />
-    <meta property='twitter:domain' content='konspekt.io' />
-    <meta property='twitter:url' content='https://konspekt.io/' />
-    <meta
-      name='twitter:title'
-      content='Конспект — онлайн-курс академического письма'
-    />
-    <meta
-      name='twitter:description'
-      content='Здесь вы научитесь оптимизировать процесс создания научных статей — от чтения литературы до автоматической сборки готовой к публикации статьи'
-    />
-    <meta name='twitter:image' content='https://postimg.cc/7C05ZKg5/19dd5d47' />
-  </>
-);
+export const Head = () => <SEO />;
 
 const grids_4 = [
   '1 / 1 / 1 / 3',
