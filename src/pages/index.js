@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import og from '../assets/og.png';
 import {
   Author,
   BasicSection,
@@ -10,7 +11,6 @@ import {
   Hero,
   HowWorks,
   ListSection,
-  OpenGraphImage,
   Pricing,
   Program,
   RequestForm,
@@ -60,7 +60,9 @@ export default IndexPage;
 export const Head = () => (
   <>
     <SEO />
-    <OpenGraphImage />
+    <meta property='og:image' content={og} />
+    <meta property='og:image:width' content='400' />
+    <meta property='og:image:height' content='50' />
   </>
 );
 
