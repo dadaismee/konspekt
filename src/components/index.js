@@ -9,6 +9,7 @@ export { default as Header } from './Header';
 export { default as Hero } from './Hero';
 export { default as HowWorks } from './HowWorks';
 export { default as ListSection } from './ListSection';
+export { default as OpenGraphImage } from './OpenGraphImage';
 export { default as Pricing } from './Pricing';
 export { default as Program } from './Program';
 export { default as RequestForm } from './RequestForm';

@@ -20,7 +20,6 @@
     "gatsby": "^5.12.1",
     "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-image": "^3.12.0",
-    "gatsby-plugin-open-graph-images": "^0.1.8",
     "gatsby-plugin-react-helmet": "^6.12.0",
     "gatsby-plugin-sharp": "^5.12.0",
     "gatsby-plugin-styled-components": "^6.12.0",

@@ -10,6 +10,7 @@ import {
   Hero,
   HowWorks,
   ListSection,
+  OpenGraphImage,
   Pricing,
   Program,
   RequestForm,
@@ -59,9 +60,7 @@ export default IndexPage;
 export const Head = () => (
   <>
     <SEO />
-    <meta property='og:image' content={domain + '/src/assets/og.png'} />
-    <meta property='og:image:width' content='400' />
-    <meta property='og:image:width' content='50' />
+    <OpenGraphImage />
   </>
 );
 
