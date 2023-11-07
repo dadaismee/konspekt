@@ -35,7 +35,8 @@ const RequestForm = ({ pageData, grids, id }) => {
       }),
     });
     setIsSubmitted(true);
-    window.open('https://self.payanyway.ru/1693655679114', '_blank');
+    // Убрал открытие витрины для выбора тарифа и оплаты
+    // window.open('https://self.payanyway.ru/1693655679114', '_blank');
   };
 
   return (
@@ -165,7 +166,7 @@ const RequestForm = ({ pageData, grids, id }) => {
                 viewport={{ once: true }}
                 type='submit'
                 height='100%'>
-                Отправить заявку и оплатить
+                Отправить заявку
               </Button>
             </ButtonWrapper>
           </FormWrapper>
