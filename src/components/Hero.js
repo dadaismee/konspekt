@@ -137,7 +137,7 @@ const SiteHeading = styled(Heading)`
 export const FlexContainer = styled.div`
   display: flex;
   gap: 20px;
-  align-items: center;
+  align-items: end;
 
   @media (max-width: ${mediaQueries.phone}) {
     flex-direction: column;
@@ -171,7 +171,7 @@ export const Button = styled(AnchorLink)`
   transition: var(--transition);
 
   &:hover {
-    box-shadow: 0px 0px 60px rgba(235, 235, 235, 0.5);
+    box-shadow: 0px 0px 50px rgba(235, 235, 235, 0.5);
     cursor: pointer;
   }
 

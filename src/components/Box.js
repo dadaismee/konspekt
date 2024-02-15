@@ -21,7 +21,7 @@ const types = {
   },
 };
 
-const Box = ({ children, grid, type, fontSize, isOpen, height }) => {
+const Box = ({ children, grid, type, padding, fontSize, isOpen, height }) => {
   return (
     <Wrapper
       initial={{
@@ -45,6 +45,7 @@ const Box = ({ children, grid, type, fontSize, isOpen, height }) => {
       style={{ maxHeight: isOpen ? 'auto' : 'auto' }}
       height={height}
       fontSize={fontSize}
+      padding={padding}
       type={type}
       grid={grid}>
       {children}
@@ -57,7 +58,7 @@ export default Box;
 const Wrapper = styled(motion.div)`
   border-radius: 15px;
   border: 3px solid #000;
-  padding: 30px;
+  padding: ${({ padding }) => padding || '30px'};
   grid-area: ${({ grid }) => grid};
   ${({ type }) => types[`${type}`]}
   height: ${({ height }) => height || 'auto'};

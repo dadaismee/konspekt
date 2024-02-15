@@ -38,11 +38,11 @@ const IndexPage = () => {
         <Header />
         <Hero data={hero} />
       </FirstScreen>
-      <BasicSection id='about' pageData={about} grids={grids_4} />
+      <BasicSection id='about' pageData={about} grids={grids_3} />
       <BasicSection pageData={audience} grids={grids_4} />
       <ListSection pageData={outcomes} />
       <BasicSection id='results' pageData={results} grids={grids_3} />
-      <HowWorks id='process' pageData={process} grids={grids_4} />
+      <HowWorks id='process' pageData={process} grids={grids_3} />
       <Program id='program' pageData={program} />
       <Pricing id='pricing' pageData={pricing} />
       <Author pageData={author} />

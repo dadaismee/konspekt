@@ -38,8 +38,9 @@ const BasicSection = ({ pageData, grids, id }) => {
       {Boolean(type === 'basic') && (
         <GridContainer>
           {data.map((box) => (
-            <Box grid={box.grid} key={box.mainText}>
-              <ColoredText data={box} key={box.mainText} />
+            <Box grid={box.grid} padding={box.padding} key={box.mainText}>
+              {Boolean(box.mainText) && <ColoredText data={box} key={box.mainText} />}
+              {Boolean(box.video) && <div style={{width: '100%', height: '100%'}}><IFrame src={box.video} frameborder="0" allow="autoplay; fullscreen; picture-in-picture"  title="Random Walk"/></div>}
             </Box>
           ))}
         </GridContainer>
@@ -52,3 +53,9 @@ const BasicSection = ({ pageData, grids, id }) => {
 export default BasicSection;
 
 const Wrapper = styled.section``;
+
+const IFrame = styled.iframe`
+  width: 100%;
+  height: 100%;
+  }
+`
