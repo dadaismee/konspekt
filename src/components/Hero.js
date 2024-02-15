@@ -4,7 +4,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import Typewriter from 'typewriter-effect';
 import { mediaQueries } from '../styles/GlobalStyles';
-import { Heading, MainText } from '../styles/TextStyles';
+import { Heading, MainText, Features } from '../styles/TextStyles';
 
 const Hero = ({ data }) => {
   const { title, typeWriterText, description, buttonText } = data;
@@ -83,6 +83,12 @@ const Hero = ({ data }) => {
             delay: 0.35,
           }}
           viewport={{ once: true }}>
+          <div style={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
+            <Features>8 онлайн-воркшопов</Features>
+            <Features>10+ уроков</Features>
+            <Features>1 месяц</Features>
+            <Features>1 текст в портфолио</Features>
+          </div>
           <Button to='#form'>{buttonText}</Button>
         </ButtonWrapper>
       </FlexContainer>
@@ -96,7 +102,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 90%;
+  height: 80%;
 
   @media (max-width: ${mediaQueries.phone}) {
     justify-content: center;
@@ -109,7 +115,7 @@ const Tagline = styled.div`
   flex-direction: column;
   gap: 20px;
   align-items: start;
-  margin: 150px 0;
+  margin: 120px 0;
 
   @media (max-width: ${mediaQueries.phone}) {
     display: flex;
@@ -156,16 +162,16 @@ export const Button = styled(AnchorLink)`
   height: ${({ height }) => height || '115px'};
   font-size: 48px;
   font-family: Coolvetica;
-  color: var(--accent);
-  background-color: transparent;
+  /* color: var(--accent); */
+  color: var(--text);
+  background-color: var(--accent);
+  /* background-color: transparent; */
   border-radius: 15px;
   border: 3px solid var(--accent);
   transition: var(--transition);
 
   &:hover {
-    background-color: var(--accent);
-    color: var(--text);
-    box-shadow: 0px 0px 40px rgba(235, 235, 235, 0.5);
+    box-shadow: 0px 0px 60px rgba(235, 235, 235, 0.5);
     cursor: pointer;
   }
 
@@ -177,7 +183,9 @@ export const Button = styled(AnchorLink)`
 
 export const ButtonWrapper = styled(motion.button)`
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  gap: 15px;
   align-items: center;
   width: 100%;
   max-width: var(--right-column-width);

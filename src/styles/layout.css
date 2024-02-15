@@ -154,7 +154,7 @@ section {
   --accent: #fafafa;
   --left-column-width: 516px;
   --right-column-width: 784px;
-  --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --transition: all 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 body {

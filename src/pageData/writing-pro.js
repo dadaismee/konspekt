@@ -3,7 +3,7 @@ export const hero = {
   typeWriterText: ['на стероидах', 'как алгоритм', 'здорового человека'],
   description:
     'Онлайн-лаборатория продвинутого академического письма',
-  buttonText: 'Предзапись на второй поток',
+  buttonText: 'Начать учиться 4 марта',
 };
 
 export const about = {

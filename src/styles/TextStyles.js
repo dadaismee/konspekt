@@ -66,6 +66,12 @@ export const MenuAndFootnote = styled(motion.p)`
   }
 `;
 
+export const Features = styled(motion.p)`
+  color: var(--accent);
+  font-family: 'Coolvetica';
+  font-size: 20px;
+`
+
 export const FooterText = styled.p`
   color: var(--text);
   font-size: 16px;
