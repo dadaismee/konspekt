@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Box } from '../components/index';
-import { Flex, mediaQueries } from '../styles/GlobalStyles';
-import { MainFeature, MainText, SectionHeading } from '../styles/TextStyles';
-import { Button, ButtonWrapper } from './Hero';
-import { Asterisk } from './ListSection';
+import React from "react";
+import styled from "styled-components";
+import { Box, ColoredText } from "../components/index";
+import { Flex, mediaQueries } from "../styles/GlobalStyles";
+import { MainFeature, MainText, SectionHeading } from "../styles/TextStyles";
+import { Button, ButtonWrapper } from "./Hero";
+import { Asterisk } from "./ListSection";
 
 const Pricing = ({ pageData, id }) => {
-  const { title, asterisk } = pageData;
+  const { title, asterisk, boxes } = pageData;
   const tariffs = pageData.tariffs.map((tariff) => tariff);
 
   return (
@@ -30,7 +30,8 @@ const Pricing = ({ pageData, id }) => {
           duration: 1,
           delay: 0.1,
         }}
-        viewport={{ once: true }}>
+        viewport={{ once: true }}
+      >
         {title}
       </SectionHeading>
 
@@ -40,17 +41,19 @@ const Pricing = ({ pageData, id }) => {
             <Box>
               <MainFeature
                 style={{
-                  color: 'var(--accent)',
-                  textAlign: 'center',
-                }}>
+                  marginBottom: "30px"
+
+                }}
+              >
                 {tariff.title}
               </MainFeature>
-            </Box>
-            <Box>
+ 
               {tariff.features.map((feature) => (
-                <MainText>{feature}</MainText>
+               <ColoredText data={feature} key={feature.mainText} />
               ))}
             </Box>
+
+
             <ButtonWrapper
               initial={{
                 opacity: 0,
@@ -69,8 +72,9 @@ const Pricing = ({ pageData, id }) => {
                 duration: 1,
                 delay: 0.3 + index * 0.1,
               }}
-              viewport={{ once: true }}>
-              <Button to='#form'>{tariff.price}</Button>
+              viewport={{ once: true }}
+            >
+              <Button to="#form">{tariff.price}</Button>
             </ButtonWrapper>
           </FlexContainer>
         ))}

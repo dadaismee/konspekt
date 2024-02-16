@@ -55,14 +55,14 @@ const Author = ({ pageData, id }) => {
           viewport={{ once: true }}
           src={author}></Image>
         <Box type='author' fontSize='40px'>
-          <MainFeature
+          {Boolean(boxes.mainText) && <MainFeature
             style={{
               color: 'var(--accent)',
               display: 'flex',
               alignSelf: 'start',
             }}>
             {boxes.mainText}
-          </MainFeature>
+          </MainFeature>}
           <div style={{ display: 'grid', gap: '3px' }}>
             {boxes.steps.map((step) => (
               <ColoredText data={step} key={step.mainText} />
