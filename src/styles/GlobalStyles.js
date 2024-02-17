@@ -25,3 +25,27 @@ export const Flex = styled.div`
     flex-direction: column;
   }
 `;
+
+export const VertFlex = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`
+
+export const FlexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: var(--left-column-width);
+
+  &:last-child {
+  width: ${({ type }) => type === 'review' ? 'var(--left-column-width)' : 'var(--right-column-width)'};
+  }
+
+  @media (max-width: ${mediaQueries.phone}) {
+    width: auto;
+    &:last-child {
+      width: auto;
+    }
+  }
+`;

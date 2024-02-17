@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { Box, ColoredText } from "../components/index";
-import { Flex, mediaQueries } from "../styles/GlobalStyles";
+import { Flex, mediaQueries, FlexContainer } from "../styles/GlobalStyles";
 import { MainFeature, MainText, SectionHeading } from "../styles/TextStyles";
 import { Button, ButtonWrapper } from "./Hero";
 import { Asterisk } from "./ListSection";
 
 const Pricing = ({ pageData, id }) => {
-  const { title, asterisk, boxes } = pageData;
+  const { title, type, asterisk, boxes } = pageData;
   const tariffs = pageData.tariffs.map((tariff) => tariff);
 
   return (
@@ -88,21 +88,3 @@ const Pricing = ({ pageData, id }) => {
 export default Pricing;
 
 const Wrapper = styled.section``;
-
-const FlexContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: var(--left-column-width);
-
-  &:last-child {
-    width: var(--right-column-width);
-  }
-
-  @media (max-width: ${mediaQueries.phone}) {
-    width: auto;
-    &:last-child {
-      width: auto;
-    }
-  }
-`;

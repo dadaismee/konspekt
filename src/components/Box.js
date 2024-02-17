@@ -21,7 +21,7 @@ const types = {
   },
 };
 
-const Box = ({ children, grid, type, padding, fontSize, isOpen, height }) => {
+const Box = ({ children, grid, type, padding, fontSize, isOpen, height, width }) => {
   return (
     <Wrapper
       initial={{
@@ -44,6 +44,7 @@ const Box = ({ children, grid, type, padding, fontSize, isOpen, height }) => {
       viewport={{ once: true }}
       style={{ maxHeight: isOpen ? 'auto' : 'auto' }}
       height={height}
+      width={width}
       fontSize={fontSize}
       padding={padding}
       type={type}
@@ -62,9 +63,10 @@ const Wrapper = styled(motion.div)`
   grid-area: ${({ grid }) => grid};
   ${({ type }) => types[`${type}`]}
   height: ${({ height }) => height || 'auto'};
+  width: ${({ width }) => width || 'auto'};
 
   &:last-child {
-    display: flex;
+    display: ${({ type }) => type !== 'review' ? 'flex' : 'block' };
     justify-content: center;
     align-items: center;
 
