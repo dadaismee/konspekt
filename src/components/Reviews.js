@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { MainFeature, MainText, SectionHeading } from "../styles/TextStyles";
+import { MainFeature, MenuAndFootnote, MainText,SectionHeading } from "../styles/TextStyles";
 import Box from "./Box";
-import { GridContainer, FlexContainer } from "../styles/GlobalStyles.js";
+import { GridContainer, FlexContainer, mediaQueries } from "../styles/GlobalStyles.js";
 import ColoredText from "./ColoredText";
 import { motion } from 'framer-motion';
+import { Button } from './Hero.js'
 
 const Reviews = ({ pageData, id }) => {
   const { title, reviewItems } = pageData;
@@ -33,23 +34,28 @@ const Reviews = ({ pageData, id }) => {
       >
         {title}
       </SectionHeading>
-      <FlexContainer type="review">
+      <BoxesWrapper>
         {reviewItems.map((reviewItem, index) => {
           const { author, image, score, data } = reviewItem;
           return (
-            <Box type='review' fontSize='24px'> 
-              <div style={{display: 'flex', alignItems: 'start', justifyContent: 'space-between' }}>
+              <Box type='review' height='466px' fontSize='24px'> 
+              <FlexContainer type="review">
+                <div style={{display: 'flex', alignItems: 'start', justifyContent: 'space-between' }}>
                 <Container>
                   <Avatar src={image} />
                   <MainText>{reviewItem.author}</MainText>
                 </Container>
                 <Score>{score}</Score>
               </div>
-              <ColoredText data={data} />>
+              <ColoredText component='MenuAndFootnote' data={data} />
+              <div style={{ display: 'flex', justifyContent: 'end'}}>
+              <Button width='206px' fontSize='24px' height='56px'>Читать целиком</Button>
+              </div>
+            </FlexContainer>
             </Box>
           );
         })}
-      </FlexContainer>
+      </BoxesWrapper>
     </Wrapper>
   );
 };
@@ -72,5 +78,26 @@ const Container = styled.div`
 display: flex;
 gap: 20px;
 align-items: center;
-
 `
+
+export const BoxesWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 1.38vw; 
+  overflow-x: scroll;
+  overflow-y: none;
+  padding: 10px -60px 20px -60px;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: ${mediaQueries.phone}) {
+    padding: 10px 20px 10px 20px;
+    gap: 20px;
+  }
+`;
+

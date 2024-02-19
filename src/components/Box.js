@@ -19,6 +19,9 @@ const types = {
     flexDirection: 'column',
     gap: '30px',
   },
+  review: {
+    fontSize: '24px',
+  }
 };
 
 const Box = ({ children, grid, type, padding, fontSize, isOpen, height, width }) => {
@@ -71,7 +74,7 @@ const Wrapper = styled(motion.div)`
     align-items: center;
 
     ${Text} {
-      font-size: ${({ fontSize }) => fontSize || '64px'};
+      font-size:  ${({ fontSize }) => fontSize || '64px'};
 
       @media (max-width: ${mediaQueries.phone}) {
         font-size: 24px;

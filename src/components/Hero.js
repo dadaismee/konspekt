@@ -158,9 +158,9 @@ export const Button = styled(AnchorLink)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: ${({ width }) => width || '100%'} ;
   height: ${({ height }) => height || '115px'};
-  font-size: 48px;
+  font-size: ${({ fontSize }) => fontSize  || '48px'};
   font-family: Coolvetica;
   /* color: var(--accent); */
   color: var(--text);
