@@ -38,12 +38,12 @@ const Reviews = ({ pageData, id }) => {
         {reviewItems.map((reviewItem, index) => {
           const { author, image, score, data } = reviewItem;
           return (
-              <Box type='review' height='466px' fontSize='24px'> 
-              <FlexContainer type="review">
-                <div style={{display: 'flex', alignItems: 'start', justifyContent: 'space-between' }}>
+              <Box type='review' fontSize='24px'> 
+              <FlexContainer type="review" style={{ width: 'calc(var(--left-column-width) - 60px)', height: 'calc(var(--left-column-width) - 60px)'}}>
+                <div style={{display: 'flex', alignItems: 'start', justifyContent: 'space-between', gap: '20px'}}>
                 <Container>
                   <Avatar src={image} />
-                  <MainText>{reviewItem.author}</MainText>
+                  <MainText style={{ color: 'var(--accent)'}} >{reviewItem.author}</MainText>
                 </Container>
                 <Score>{score}</Score>
               </div>
@@ -81,13 +81,12 @@ align-items: center;
 `
 
 export const BoxesWrapper = styled.div`
-  width: 100%;
-  height: 100%;
   display: flex;
   gap: 1.38vw; 
   overflow-x: scroll;
-  overflow-y: none;
-  padding: 10px -60px 20px -60px;
+  overflow-y: hidden;
+  margin: 10px -60px 20px -60px;
+  padding: 0px 60px;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 

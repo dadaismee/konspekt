@@ -80,8 +80,8 @@ export default Author;
 const Wrapper = styled.section``;
 
 const Image = styled(motion.img)`
-  width: 35.7vw; //515px;
-  height: 35.7vw;
+  width: var(--left-column-width);
+  height: var(--left-column-width);
   border-radius: 15px;
 
   @media (max-width: ${mediaQueries.phone}) {

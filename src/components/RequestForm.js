@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import { mediaQueries } from '../styles/GlobalStyles';
 import { SectionHeading } from '../styles/TextStyles';
 import ColoredText from './ColoredText';
@@ -165,6 +166,7 @@ const RequestForm = ({ pageData, grids, id }) => {
                 }}
                 viewport={{ once: true }}
                 type='submit'
+                onClick={() => window.open('https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs', '_blank')}
                 height='100%'>
                 Отправить заявку
               </Button>
