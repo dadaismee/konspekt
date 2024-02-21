@@ -35,7 +35,8 @@ export const VertFlex = styled.div`
 export const FlexContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  /* justify-content: space-between; */
+  gap: ${({type}) => type === 'review' ? '20px' : '10px' };
   width: var(--left-column-width);
 
   &:last-child {

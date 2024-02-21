@@ -66,7 +66,8 @@ const Wrapper = styled(motion.div)`
   grid-area: ${({ grid }) => grid};
   ${({ type }) => types[`${type}`]}
   height: ${({ height }) => height || 'auto'};
-  width: ${({ width }) => width || '100%'};
+  width: ${({ width }) => width || 'auto'};
+  line-height: 110%;
 
   &:last-child {
     display: ${({ type }) => type !== 'review' ? 'flex' : 'block' };

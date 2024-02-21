@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { MainFeature, MenuAndFootnote, MainText,SectionHeading } from "../styles/TextStyles";
+import { MainFeature, MenuAndFootnote, MainText, SectionHeading } from "../styles/TextStyles";
 import Box from "./Box";
 import { GridContainer, FlexContainer, mediaQueries } from "../styles/GlobalStyles.js";
 import ColoredText from "./ColoredText";
@@ -36,22 +36,22 @@ const Reviews = ({ pageData, id }) => {
       </SectionHeading>
       <BoxesWrapper>
         {reviewItems.map((reviewItem, index) => {
-          const { author, image, score, data } = reviewItem;
+          const { author, image, score, data, longText } = reviewItem;
           return (
               <Box type='review' fontSize='24px'> 
-              <FlexContainer type="review" style={{ width: 'calc(var(--left-column-width) - 60px)', height: 'calc(var(--left-column-width) - 60px)'}}>
+              <FlexContainer type='review' style={{ width: 'calc(var(--left-column-width) - 60px)', height: 'calc(var(--left-column-width) - 60px)' }}>
                 <div style={{display: 'flex', alignItems: 'start', justifyContent: 'space-between', gap: '20px'}}>
-                <Container>
-                  <Avatar src={image} />
-                  <MainText style={{ color: 'var(--accent)'}} >{reviewItem.author}</MainText>
-                </Container>
-                <Score>{score}</Score>
-              </div>
-              <ColoredText component='MenuAndFootnote' data={data} />
-              <div style={{ display: 'flex', justifyContent: 'end'}}>
-              <Button width='206px' fontSize='24px' height='56px'>Читать целиком</Button>
-              </div>
-            </FlexContainer>
+                  <Container>
+                    <Avatar src={image} />
+                    <MainText style={{ color: 'var(--accent)'}} >{reviewItem.author}</MainText>
+                  </Container>
+                  <Score>{score}</Score>
+                </div>
+                <ColoredText type='review' height='auto' component='MenuAndFootnote' data={data} />
+                {Boolean(longText) && <div style={{ display: 'flex', justifyContent: 'end' }}>
+                ↓
+                </div>}
+              </FlexContainer>
             </Box>
           );
         })}
@@ -85,7 +85,8 @@ export const BoxesWrapper = styled.div`
   gap: 1.38vw; 
   overflow-x: scroll;
   overflow-y: hidden;
-  margin: 10px -60px 20px -60px;
+  height: auto;
+  margin: 10px -60px 0px -60px;
   padding: 0px 60px;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
