@@ -72,107 +72,126 @@ const RequestForm = ({ pageData, grids, id }) => {
             </Box>
           </div>
         ) : (
-          <FormWrapper>
-            <BoxWrapper>
-              <Box grid={grids[0]}>
-                <ColoredText data={boxes[0]}></ColoredText>
-              </Box>
-              <Box fontSize='20px'>
-                <FlexVertical>
-                  <InputItem>
-                    <Input
-                      type='text'
-                      placeholder='Имя'
-                      {...register('name', {
-                        required: true,
-                        maxLength: 20,
-                        pattern: /^[а-яА-ЯЁё]+/g,
-                      })}
-                    />
-                    {errors.name && <p>Введите имя кириллицей</p>}
-                  </InputItem>
-                  <InputItem>
-                    <Input
-                      type='text'
-                      placeholder='Telegram'
-                      {...register('telegram', {
-                        required: true,
-                        maxLength: 20,
-                        pattern: /^[a-zA-Z]+/g,
-                      })}
-                    />
-                    {errors.telegram && <p>Введите ник в Telegram (без @)</p>}
-                  </InputItem>
-                  <InputItem>
-                    <Input
-                      type='email'
-                      placeholder='Почта'
-                      {...register('email', {
-                        required: true,
-                        pattern:
-                          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                      })}
-                    />
-                    {errors.email && <p>Введите адрес почты</p>}
-                  </InputItem>
-                  <InputItem>
-                    <FlexContainer>
-                      <Checkbox
-                        type='checkbox'
-                        {...register('policy', {
+            <FormWrapper>
+              <BoxWrapper>
+                <Box grid={grids[0]}>
+                  <ColoredText data={boxes[0]}></ColoredText>
+                </Box>
+                <Box fontSize='20px'>
+                  <FlexVertical>
+                    <InputItem>
+                      <Input
+                        type='text'
+                        placeholder='Имя'
+                        {...register('name', {
                           required: true,
+                          maxLength: 20,
+                          pattern: /^[а-яА-ЯЁё]+/g,
                         })}
                       />
-                      <StyledLink
-                        href='/privacy'
-                        target='_blank'
-                        rel='noopener noreferrer'>
-                        <ColoredText
-                          data={{
-                            mainText: 'Принимаю политику конфиденциальности',
-                            spanText: ['политику конфиденциальности'],
-                          }}
+                      {errors.name && <p>Введите имя кириллицей</p>}
+                    </InputItem>
+                    <InputItem>
+                      <Input
+                        type='text'
+                        placeholder='Telegram'
+                        {...register('telegram', {
+                          required: true,
+                          maxLength: 20,
+                          pattern: /^[a-zA-Z]+/g,
+                        })}
+                      />
+                      {errors.telegram && <p>Введите ник в Telegram (без @)</p>}
+                    </InputItem>
+                    <InputItem>
+                      <Input
+                        type='email'
+                        placeholder='Почта'
+                        {...register('email', {
+                          required: true,
+                          pattern:
+                          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                        })}
+                      />
+                      {errors.email && <p>Введите адрес почты</p>}
+                    </InputItem>
+                    <InputItem>
+                      <InputSelect
+                        name='Формат'
+                      >  
+                        <option value="" disabled selected>Формат</option>
+                        <option value="day">Активный</option>
+                        <option value="evening">Пассивный</option>
+                      </InputSelect>
+                    </InputItem>
+
+                    <InputItem>
+                      <InputSelect
+                        name='Поток'
+                      >  
+                        <option value="" disabled selected>Поток</option>
+                        <option value="day">Дневной — 14:00-15:30 (МСК)</option>
+                        <option value="evening">Вечерний — 19:00-20:30 (МСК)</option>
+                      </InputSelect>
+                    </InputItem>
+                    <InputItem>
+                      <FlexContainer>
+                        <Checkbox
+                          type='checkbox'
+                          {...register('policy', {
+                            required: true,
+                          })}
                         />
-                      </StyledLink>
-                    </FlexContainer>
-                    {errors.policy && (
-                      <p>
-                        <strong>↑</strong> Поставьте галочку (лучше
-                        предварительно прочитав)
-                      </p>
-                    )}
-                  </InputItem>
-                </FlexVertical>
-              </Box>
-            </BoxWrapper>
-            <ButtonWrapper>
-              <Button
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                exit={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                transition={{
-                  ease: [0.165, 0.84, 0.44, 1],
-                  duration: 1,
-                  delay: 0.25,
-                }}
-                viewport={{ once: true }}
-                type='submit'
-                onClick={() => window.open('https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs', '_blank')}
-                height='100%'>
-                Отправить заявку
-              </Button>
-            </ButtonWrapper>
-          </FormWrapper>
-        )}
+                        <StyledLink
+                          href='/privacy'
+                          target='_blank'
+                          rel='noopener noreferrer'>
+                          <ColoredText
+                            data={{
+                              mainText: 'Принимаю политику конфиденциальности',
+                              spanText: ['политику конфиденциальности'],
+                            }}
+                          />
+                        </StyledLink>
+                      </FlexContainer>
+                      {errors.policy && (
+                        <p>
+                          <strong>↑</strong> Поставьте галочку (лучше
+                          предварительно прочитав)
+                        </p>
+                      )}
+                    </InputItem>
+                  </FlexVertical>
+                </Box>
+              </BoxWrapper>
+              <ButtonWrapper>
+                <Button
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  transition={{
+                    ease: [0.165, 0.84, 0.44, 1],
+                    duration: 1,
+                    delay: 0.25,
+                  }}
+                  viewport={{ once: true }}
+                  type='submit'
+                  onClick={() => isSubmitted ? window.open('https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs', '_blank') : ''}
+                  height='100%'>
+                  Отправить заявку
+                </Button>
+              </ButtonWrapper>
+            </FormWrapper>
+          )}
       </CTA>
 
       {Boolean(asterisk) && <Asterisk>{asterisk}</Asterisk>}
@@ -185,7 +204,7 @@ export default RequestForm;
 const Wrapper = styled.section``;
 
 const Input = styled.input`
-  padding: 20px;
+  padding: 15px;
   border-radius: 15px;
   border: none;
   /* width: 100%; */
@@ -197,6 +216,25 @@ const Input = styled.input`
   }
 `;
 
+const InputSelect = styled.select`
+padding: 15px;
+border-radius: 15px;
+border: none;
+/* width: 100%; */
+font-size: 24px;
+font-family: Coolvetica;
+
+  &:first-child {
+    color: grey;
+    
+}
+
+@media (max-width: ${mediaQueries.phone}) {
+  font-size: 20px;
+}
+`;
+
+
 const CTA = styled.form`
   display: flex;
   gap: 20px;
@@ -205,7 +243,7 @@ const CTA = styled.form`
 const FlexVertical = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   width: 100%;
 `;
 
@@ -213,7 +251,7 @@ const BoxWrapper = styled.div`
   width: var(--left-column-width);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 
   @media (max-width: ${mediaQueries.phone}) {
     width: auto;

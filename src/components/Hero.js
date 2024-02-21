@@ -171,6 +171,7 @@ export const Button = styled(AnchorLink)`
   transition: var(--transition);
 
   &:hover {
+    transform: translateY(-5px);
     box-shadow: 0px 0px 50px rgba(235, 235, 235, 0.5);
     cursor: pointer;
   }

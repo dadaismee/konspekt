@@ -41,6 +41,7 @@ const Pricing = ({ pageData, id }) => {
             <Box>
               <MainFeature
                 style={{
+                  color: 'var(--accent)',
                   marginBottom: "30px"
 
                 }}
