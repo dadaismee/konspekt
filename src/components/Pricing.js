@@ -6,7 +6,7 @@ import { MainFeature, MainText, SectionHeading } from "../styles/TextStyles";
 import { Button, ButtonWrapper } from "./Hero";
 import { Asterisk } from "./ListSection";
 
-const Pricing = ({ pageData, id }) => {
+const Pricing = ({ pageData, id, handleClick }) => {
   const { title, type, asterisk, boxes } = pageData;
   const tariffs = pageData.tariffs.map((tariff) => tariff);
 
@@ -50,7 +50,7 @@ const Pricing = ({ pageData, id }) => {
               </MainFeature>
  
               {tariff.features.map((feature) => (
-               <ColoredText data={feature} key={feature.mainText} />
+               <ColoredText lineHeight='100%' data={feature} key={feature.mainText} />
               ))}
             </Box>
 
@@ -75,7 +75,11 @@ const Pricing = ({ pageData, id }) => {
               }}
               viewport={{ once: true }}
             >
-              <Button to="#form">{tariff.price}</Button>
+              <Button to="#form">
+                <a style={{ width: '100%'}} href='' onClick={() => handleClick(tariff.name)}>
+                  {tariff.price}
+                </a>
+              </Button>
             </ButtonWrapper>
           </FlexContainer>
         ))}

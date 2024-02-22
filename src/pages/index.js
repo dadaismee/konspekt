@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import {
   Author,
@@ -34,6 +34,12 @@ import {
 import "../styles/layout.css";
 
 const IndexPage = () => {
+  const [selectedTariff, setSelectedTariff] = useState('');
+
+  const handleClick = (tariffName) => {
+    setSelectedTariff(tariffName);
+  }
+
   return (
     <>
       <FirstScreen>
@@ -46,11 +52,11 @@ const IndexPage = () => {
       <BasicSection id="results" pageData={results} grids={grids_3} />
       <HowWorks id="process" pageData={process} grids={grids_3} />
       <Program id="program" pageData={program} />
-      <Pricing id="pricing" pageData={pricing} />
+      <Pricing id="pricing" pageData={pricing} selectedTariff={selectedTariff} handleClick={handleClick} />
       <Author pageData={author} />
       <Reviews id="reviews" pageData={reviews} />
       <FAQ pageData={faq} />
-      <RequestForm id="form" grids={grids_3} pageData={requestForm} />
+      <RequestForm id="form" grids={grids_3} pageData={requestForm} selectedTariff={selectedTariff} />
       <Contact id="contact" pageData={contact} />
       <Footer />
     </>

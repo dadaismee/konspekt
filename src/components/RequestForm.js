@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
@@ -9,7 +9,7 @@ import ColoredText from './ColoredText';
 import { Asterisk } from './ListSection';
 import { Box } from './index';
 
-const RequestForm = ({ pageData, grids, id }) => {
+const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
   const { title, asterisk } = pageData;
   const boxes = pageData.boxes.map((box) => box);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -24,6 +24,8 @@ const RequestForm = ({ pageData, grids, id }) => {
   let name = watch('name');
   let email = watch('email');
   let telegram = watch('telegram');
+  let stream = watch('stream');
+  let tariff = watch('tariff');
 
   const onSubmit = () => {
     fetch('/.netlify/functions/sendToSheets', {
@@ -33,6 +35,8 @@ const RequestForm = ({ pageData, grids, id }) => {
         Email: email,
         Telegram: telegram,
         Date: Date(),
+        Stream: stream,
+        Tariff: tariff,
       }),
     });
     setIsSubmitted(true);
@@ -117,23 +121,28 @@ const RequestForm = ({ pageData, grids, id }) => {
                     </InputItem>
                     <InputItem>
                       <InputSelect
-                        name='Формат'
+                        name='Тариф'
+                        {...register('tariff', {
+                          required: true,
+                        })}
                       >  
-                        <option value="" disabled selected>Формат</option>
-                        <option value="day">Активный</option>
-                        <option value="evening">Пассивный</option>
+                        <option value="" disabled selected>Тариф</option>
+                        <option value="passive">«Курс» (уроки на платформе)</option>
+                        <option value="active">«Лаборатория» (уроки + воркшопы)</option>
                       </InputSelect>
                     </InputItem>
-
-                    <InputItem>
+                    {selectedTariff == 'active'|| tariff == 'active' && <InputItem>
                       <InputSelect
                         name='Поток'
+                        {...register('stream', {
+                          required: true,
+                        })}
                       >  
                         <option value="" disabled selected>Поток</option>
                         <option value="day">Дневной — 14:00-15:30 (МСК)</option>
                         <option value="evening">Вечерний — 19:00-20:30 (МСК)</option>
                       </InputSelect>
-                    </InputItem>
+                    </InputItem>}
                     <InputItem>
                       <FlexContainer>
                         <Checkbox
@@ -185,7 +194,6 @@ const RequestForm = ({ pageData, grids, id }) => {
                   }}
                   viewport={{ once: true }}
                   type='submit'
-                  onClick={() => isSubmitted ? window.open('https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs', '_blank') : ''}
                   height='100%'>
                   Отправить заявку
                 </Button>

@@ -40,9 +40,8 @@ const HowWorks = ({ pageData, grids, id }) => {
           <Box grid={box.grid} key={box.mainText}>
             {Boolean(box.steps) ? (
               <FlexWrapper>
-                <ColoredText data={box} key={box.mainText} />
                 {box.steps.map((step) => (
-                  <MainFeature>{step}</MainFeature>
+                  <ColoredText data={step} key={step.mainText} />
                 ))}
               </FlexWrapper>
             ) : (

@@ -9,7 +9,7 @@ import { StyledLink } from './RequestForm';
 const Footer = () => {
   return (
     <Wrapper>
-      <Copy>Конспект © {new Date().getFullYear()}</Copy>
+      <Copy>Онлайн-школа «Конспект» © {new Date().getFullYear()}</Copy>
       <StyledLink href='/privacy' target='_blank' rel='noopener noreferrer'>
         <Copy>Политика конфиденциальности</Copy>
       </StyledLink>
@@ -20,7 +20,7 @@ const Footer = () => {
         <Copy>
           by{' '}
           <a href='https://valerii.sh' target='_blank'>
-            v-sh
+            v—sh
           </a>
         </Copy>
       </Branding>
