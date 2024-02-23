@@ -7,7 +7,7 @@ import { mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
 
 const Hero = ({ data }) => {
-  const { title, typeWriterText, description, buttonText } = data;
+  const { title, typeWriterText, description, buttonText, features } = data;
 
   return (
     <Wrapper>
@@ -83,12 +83,18 @@ const Hero = ({ data }) => {
             delay: 0.35,
           }}
           viewport={{ once: true }}>
-          <div style={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
-            <Features>8 онлайн-воркшопов</Features>
-            <Features>10+ уроков</Features>
-            <Features>1 месяц</Features>
-            <Features>1 текст в портфолио</Features>
-          </div>
+          <FeaturesContainer>
+            {features.map(feature => (
+              <Features key={feature}>{feature}</Features> 
+            ))}
+          </FeaturesContainer>
+          <MobileFeaturesContainer>
+            {features.map(feature => (
+              <MobileFeatureBorder>
+              <Features key={feature}>{feature}</Features> 
+              </MobileFeatureBorder>
+            ))}
+          </MobileFeaturesContainer>
           <Button to='#form'>{buttonText}</Button>
         </ButtonWrapper>
       </FlexContainer>
@@ -105,7 +111,7 @@ const Wrapper = styled.div`
   height: 80%;
 
   @media (max-width: ${mediaQueries.phone}) {
-    justify-content: center;
+    justify-content: space-between;
     align-items: stretch;
   }
 `;
@@ -121,6 +127,7 @@ const Tagline = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+    /* margin: 40px 0px; */
   }
 `;
 
@@ -132,6 +139,7 @@ const SiteHeading = styled(Heading)`
   span {
     color: var(--accent);
   }
+  
 `;
 
 export const FlexContainer = styled.div`
@@ -141,8 +149,7 @@ export const FlexContainer = styled.div`
 
   @media (max-width: ${mediaQueries.phone}) {
     flex-direction: column;
-    align-items: start;
-    gap: 2vh;
+    align-items: space-between;
   }
 `;
 
@@ -178,7 +185,7 @@ export const Button = styled(AnchorLink)`
 
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;
-    font-size: 7vw;
+    font-size: 8vw;
   }
 `;
 
@@ -186,10 +193,38 @@ export const ButtonWrapper = styled(motion.button)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
   align-items: center;
   width: 100%;
   max-width: var(--right-column-width);
   background-color: transparent;
   border: none;
 `;
+
+const FeaturesContainer = styled.div`
+display: flex; 
+justify-content: space-between; 
+width: 100%;
+
+  @media (max-width: ${mediaQueries.phone}) {
+  display: none;
+}
+`
+
+const MobileFeaturesContainer = styled.div`
+  display: none;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(2, auto);
+    gap: 5px;
+    width: 100%;
+  }
+`
+
+const MobileFeatureBorder = styled.div`
+  border: 3px solid var(--accent);
+  padding: 10px;
+  border-radius: 15px;
+`

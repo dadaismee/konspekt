@@ -35,17 +35,18 @@ export const VertFlex = styled.div`
 export const FlexContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   gap: ${({type}) => type === 'review' ? '20px' : '10px' };
-  width: var(--left-column-width);
+  width: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) - 60px)' : 'auto' };
+  height: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) - 60px)' : 'auto' };
 
-  &:last-child {
+  &::last-child {
   width: ${({ type }) => type === 'review' ? 'var(--left-column-width)' : 'var(--right-column-width)'};
   }
 
   @media (max-width: ${mediaQueries.phone}) {
-    width: auto;
-    &:last-child {
+    height: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) / 1.25)' : '100%'};
+    width: 100%;
+    &::last-child {
       width: auto;
     }
   }

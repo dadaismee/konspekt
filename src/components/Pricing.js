@@ -76,7 +76,7 @@ const Pricing = ({ pageData, id, handleClick }) => {
               viewport={{ once: true }}
             >
               <Button to="#form">
-                <a style={{ width: '100%'}} href='' onClick={() => handleClick(tariff.name)}>
+                <a style={{ width: 'auto'}} href='' onClick={() => handleClick(tariff.name)}>
                   {tariff.price}
                 </a>
               </Button>

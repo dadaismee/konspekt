@@ -68,6 +68,9 @@ const Wrapper = styled(motion.div)`
   height: ${({ height }) => height || 'auto'};
   width: ${({ width }) => width || 'auto'};
   line-height: 110%;
+  display: flex;
+  flex-direction: column;
+  /* gap: 20px; */
 
   &:last-child {
     display: ${({ type }) => type !== 'review' ? 'flex' : 'block' };

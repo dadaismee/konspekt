@@ -262,7 +262,7 @@ const BoxWrapper = styled.div`
   gap: 10px;
 
   @media (max-width: ${mediaQueries.phone}) {
-    width: auto;
+    width: 100%;
   }
 `;
 
@@ -305,6 +305,7 @@ const Button = styled(motion.button)`
 
 const FormWrapper = styled.div`
   gap: 20px;
+  width: 100%;
   display: flex;
 
   @media (max-width: ${mediaQueries.phone}) and (max-height: 1600px) {

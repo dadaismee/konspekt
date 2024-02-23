@@ -38,8 +38,8 @@ const Reviews = ({ pageData, id }) => {
         {reviewItems.map((reviewItem, index) => {
           const { author, image, score, data, longText } = reviewItem;
           return (
-              <Box type='review' fontSize='24px'> 
-              <FlexContainer type='review' style={{ width: 'calc(var(--left-column-width) - 60px)', height: 'calc(var(--left-column-width) - 60px)' }}>
+            <Box type='review' fontSize='24px'> 
+              <FlexContainer type='review' >
                 <div style={{display: 'flex', alignItems: 'start', justifyContent: 'space-between', gap: '20px'}}>
                   <Container>
                     <Avatar src={image} />
@@ -63,8 +63,12 @@ const Reviews = ({ pageData, id }) => {
 export default Reviews;
 
 const Wrapper = styled.section`
-position: relative;
-`;
+  position: relative;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    width: 100%;
+  }
+  `;
 
 const Avatar = styled(motion.img)`
 width: 100px;
@@ -80,12 +84,13 @@ gap: 20px;
 align-items: center;
 `
 
-export const BoxesWrapper = styled.div`
+export const BoxesWrapper = styled(motion.div)`
   display: flex;
   gap: 1.38vw; 
   overflow-x: scroll;
   overflow-y: hidden;
   height: auto;
+  width: 100%;
   margin: 10px -60px 0px -60px;
   padding: 0px 60px;
   -ms-overflow-style: none; /* IE and Edge */
@@ -96,8 +101,9 @@ export const BoxesWrapper = styled.div`
   }
 
   @media (max-width: ${mediaQueries.phone}) {
-    padding: 10px 20px 10px 20px;
-    gap: 20px;
+    padding: 0 20px;
+    margin: 0px 20px 0px -20px;
+    gap: 10px;
   }
 `;
 

@@ -21,7 +21,7 @@ export const SectionHeading = styled(motion.h2)`
 
   @media (max-width: ${mediaQueries.phone}) {
     font-size: 12vw;
-    margin: 16.6vh 0 30px;
+    margin: 90px 0 20px;
   }
 `;
 
@@ -31,7 +31,7 @@ export const MainFeature = styled.h3`
   line-height: 95%; /* 136.5px */
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 24px;
+    font-size: 10vw;
   }
 `;
 
@@ -70,6 +70,10 @@ export const Features = styled(motion.p)`
   color: var(--accent);
   font-family: 'Coolvetica';
   font-size: 20px;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    font-size: 16px;
+  }
 `
 
 export const FooterText = styled.p`
