@@ -171,7 +171,7 @@ export const pricing = {
   title: "Тарифы",
   tariffs: [
     {
-      title: "Курс",
+      title: "Self-paced",
       name: "passive",
       features: [
         {
