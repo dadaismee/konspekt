@@ -44,15 +44,16 @@ const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
     setIsSubmitted(true);
     // Убрал открытие витрины для выбора тарифа и оплаты
     // window.open('https://self.payanyway.ru/1693655679114', '_blank');
-    tariff === "active"
-      ? window.open(
-          "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
-          "_self",
-        )
-      : window.open(
-          "https://konspekt.zenclass.ru/public/t/cdd3c94c-f791-4b5c-b5f0-b754e9d3d998",
-          "_self",
-        );
+    //
+    // tariff === "active"
+    //   ? window.open(
+    //       "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
+    //       "_self",
+    //     )
+    //   : window.open(
+    //       "https://konspekt.zenclass.ru/public/t/cdd3c94c-f791-4b5c-b5f0-b754e9d3d998",
+    //       "_self",
+    //     );
   };
 
   return (
@@ -138,11 +139,11 @@ const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
                       required: true,
                     })}
                   >
-                    <option value="" disabled selected>
+                    <option value="" disabled selected={selectedTariff !== 'passive' || tariff !== 'active'}>
                       Тариф
                     </option>
-                    <option value="passive">«Курс» (уроки на платформе)</option>
-                    <option value="active">
+                    <option value="passive" selected={selectedTariff === 'passive' ? true : false}>«Курс» (уроки на платформе)</option>
+                    <option value="active" selected={selectedTariff === 'active' ? true : false}>
                       «Лаборатория» (уроки + воркшопы)
                     </option>
                   </InputSelect>

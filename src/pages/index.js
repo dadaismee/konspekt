@@ -38,6 +38,7 @@ const IndexPage = () => {
 
   const handleClick = (tariffName) => {
     setSelectedTariff(tariffName);
+    console.log(selectedTariff);
   }
 
   return (
