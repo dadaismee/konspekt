@@ -56,6 +56,6 @@ const PlayIcon = styled.img`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); /* Center the icon */
-  opacity: 0.7; /* Adjust transparency for better visibility */
+  opacity: 0.5; /* Adjust transparency for better visibility */
   cursor: pointer; /* Make it clickable */
 `

@@ -159,9 +159,9 @@ const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
                         <option value="" disabled selected>
                           Поток
                         </option>
-                        <option value="day">Дневной — 14:00-15:30 (МСК)</option>
+                        <option value="day">Дневной — 15:00-16:30 (МСК)</option>
                         <option value="evening">
-                          Вечерний — 19:00-20:30 (МСК)
+                          Вечерний — 19:30-21:00 (МСК)
                         </option>
                       </InputSelect>
                     </InputItem>
