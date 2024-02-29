@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box, ColoredText } from '../components/index';
+import { Box, ColoredText, VideoPlayer } from '../components/index';
+import { mediaQueries } from '../styles/GlobalStyles.js'
 import { GridContainer } from '../styles/GlobalStyles';
 import { SectionHeading } from '../styles/TextStyles';
 import { Asterisk } from './ListSection';
@@ -40,7 +41,7 @@ const BasicSection = ({ pageData, grids, id }) => {
           {data.map((box) => (
             <Box grid={box.grid} padding={box.padding} key={box.mainText}>
               {Boolean(box.mainText) && <ColoredText data={box} key={box.mainText} />}
-              {Boolean(box.video) && <div style={{width: '100%', height: '100%'}}><IFrame src={box.video} frameborder="0" allow="autoplay; fullscreen; picture-in-picture"  title="Random Walk"/></div>}
+              {Boolean(box.video) && <div style={{width: '100%', height: '100%'}}><VideoPlayer videoSrc={box.video}/></div>}
             </Box>
           ))}
         </GridContainer>
@@ -54,8 +55,3 @@ export default BasicSection;
 
 const Wrapper = styled.section``;
 
-const IFrame = styled.iframe`
-  width: 100%;
-  height: 100%;
-  }
-`

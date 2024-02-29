@@ -148,7 +148,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
                     </option>
                   </InputSelect>
                 </InputItem>
-                {selectedTariff === "active" || tariff === 'active' && (
+                {(Boolean(selectedTariff === "active") || Boolean(tariff === "active")) && (
                     <InputItem>
                       <InputSelect
                         name="Поток"

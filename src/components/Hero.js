@@ -196,8 +196,7 @@ export const ButtonWrapper = styled(motion.button)`
   justify-content: center;
   gap: 10px;
   align-items: center;
-  width: 100%;
-  max-width: var(--right-column-width);
+  width: ${({ width }) => width || 'var(--right-column-width)' };
   background-color: transparent;
   border: none;
 `;

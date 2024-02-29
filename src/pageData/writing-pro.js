@@ -2,7 +2,7 @@ export const hero = {
   title: "Академическое письмо",
   typeWriterText: ["на стероидах", "как алгоритм", "as it should be"],
   description: "Онлайн-лаборатория продвинутого академического письма",
-  buttonText: "Начать учиться 4 марта",
+  buttonText: "Начать учиться 14 марта",
   features: ["8 онлайн-воркшопов", "10+ уроков", "1 месяц", "1 текст в портфолио"],
 };
 
@@ -23,7 +23,7 @@ export const about = {
     {
       padding: "0px",
       video:
-        "https://player.vimeo.com/video/490655996?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+        "/video/output.mp4",
     },
   ],
 };
