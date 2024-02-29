@@ -10,23 +10,23 @@ const Header = () => {
   const links = [
     {
       name: 'результат',
-      url: '#results',
+      url: '/#results',
     },
     {
       name: 'процесс',
-      url: '#process',
+      url: '/#process',
     },
     {
       name: 'программа',
-      url: '#program',
+      url: '/#program',
     },
     {
       name: 'тарифы',
-      url: '#pricing',
+      url: '/#pricing',
     },
     {
       name: 'контакты',
-      url: '#contact',
+      url: '/#contact',
     },
   ];
 

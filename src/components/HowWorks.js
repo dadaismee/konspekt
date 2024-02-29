@@ -51,7 +51,27 @@ const HowWorks = ({ pageData, grids, id }) => {
         ))}
       </GridContainer>
 
-      {Boolean(asterisk) && <Asterisk>{asterisk}</Asterisk>}
+      {Boolean(asterisk) && <Asterisk 
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        exit={{
+          opacity: 0,
+          y: 20,
+        }}
+        transition={{
+          ease: [0.165, 0.84, 0.44, 1],
+          duration: 1,
+          delay: 0.4,
+        }}
+        viewport={{ once: true }}>
+
+        {asterisk}</Asterisk>}
     </Wrapper>
   );
 };

@@ -146,6 +146,7 @@ export const FlexContainer = styled.div`
   display: flex;
   gap: 20px;
   align-items: end;
+  width: 100%;
 
   @media (max-width: ${mediaQueries.phone}) {
     flex-direction: column;
@@ -174,7 +175,7 @@ export const Button = styled(AnchorLink)`
   background-color: var(--accent);
   /* background-color: transparent; */
   border-radius: 15px;
-  border: 3px solid var(--accent);
+  /* border: 3px solid var(--accent); */
   transition: var(--transition);
 
   &:hover {

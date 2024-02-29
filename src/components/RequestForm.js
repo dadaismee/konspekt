@@ -45,15 +45,15 @@ const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
     // Убрал открытие витрины для выбора тарифа и оплаты
     // window.open('https://self.payanyway.ru/1693655679114', '_blank');
     //
-    // tariff === "active"
-    //   ? window.open(
-    //       "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
-    //       "_self",
-    //     )
-    //   : window.open(
-    //       "https://konspekt.zenclass.ru/public/t/cdd3c94c-f791-4b5c-b5f0-b754e9d3d998",
-    //       "_self",
-    //     );
+    selectedTariff === 'active' || tariff === 'active'
+      ? window.open(
+          "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
+          "_self",
+        )
+      : window.open(
+          "https://konspekt.zenclass.ru/public/t/cdd3c94c-f791-4b5c-b5f0-b754e9d3d998",
+          "_self",
+        );
   };
 
   return (
@@ -148,8 +148,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
                     </option>
                   </InputSelect>
                 </InputItem>
-                {selectedTariffState == "active" ||
-                  (tariff == "active" && (
+                {selectedTariff === "active" || tariff === 'active' && (
                     <InputItem>
                       <InputSelect
                         name="Поток"
@@ -166,7 +165,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
                         </option>
                       </InputSelect>
                     </InputItem>
-                  ))}
+                  )}
                 <InputItem>
                   <FlexContainer>
                     <Checkbox
@@ -290,7 +289,7 @@ const BoxWrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-  width: var(--right-column-width);
+  width: 100%; 
   height: 100%;
 
   @media (max-width: ${mediaQueries.phone}) {
