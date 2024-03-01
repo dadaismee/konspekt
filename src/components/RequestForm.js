@@ -9,12 +9,14 @@ import ColoredText from "./ColoredText";
 import { Asterisk } from "./ListSection";
 import { Box } from "./index";
 
-const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
+const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, buttonText }) => {
   const { title, asterisk } = pageData;
   const boxes = pageData.boxes.map((box) => box);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedTariffState, setSelectedTariffState] =
-    useState(selectedTariff);
+  useState(selectedTariff);
+
+  const types = ['landing', 'register'];
 
   const {
     register,
@@ -77,6 +79,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
           delay: 0.1,
         }}
         viewport={{ once: true }}
+        margin={margin}
       >
         {title}
       </SectionHeading>
@@ -91,12 +94,12 @@ const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
         ) : ( */}
         <FormWrapper>
           <BoxWrapper>
-            <Box grid={grids[0]}>
+            {Boolean(type === 'landing') && <Box grid={grids[0]}>
               <ColoredText data={boxes[0]}></ColoredText>
-            </Box>
+            </Box>}
             <Box fontSize="20px">
               <FlexVertical>
-                <InputItem>
+                {Boolean(type === 'landing') && <InputItem>
                   <Input
                     type="text"
                     placeholder="Имя"
@@ -107,8 +110,8 @@ const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
                     })}
                   />
                   {errors.name && <p>Введите имя кириллицей</p>}
-                </InputItem>
-                <InputItem>
+                </InputItem>}
+                {Boolean(type === 'landing') && <InputItem>
                   <Input
                     type="text"
                     placeholder="Telegram"
@@ -119,7 +122,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
                     })}
                   />
                   {errors.telegram && <p>Введите ник в Telegram (без @)</p>}
-                </InputItem>
+                </InputItem>}
                 <InputItem>
                   <Input
                     type="email"
@@ -166,7 +169,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
                       </InputSelect>
                     </InputItem>
                   )}
-                <InputItem>
+                {Boolean(type === 'landing') && <InputItem>
                   <FlexContainer>
                     <Checkbox
                       type="checkbox"
@@ -193,7 +196,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
                       прочитав)
                     </p>
                   )}
-                </InputItem>
+                </InputItem>}
               </FlexVertical>
             </Box>
           </BoxWrapper>
@@ -220,7 +223,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff }) => {
               type="submit"
               height="100%"
             >
-              Отправить заявку
+              {buttonText || 'Отправить заявку и оплатить'}
             </Button>
           </ButtonWrapper>
         </FormWrapper>
@@ -302,7 +305,7 @@ const Button = styled(motion.button)`
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: var(--right-column-width);
+  /* max-width: var(--right-column-width); */
   height: ${({ height }) => height || "115px"};
   font-size: 48px;
   font-family: Coolvetica;

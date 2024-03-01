@@ -18,6 +18,7 @@ export const SectionHeading = styled(motion.h2)`
   font-size: 96px;
   line-height: 105%; /* 136.5px */
   margin: 180px 0 20px;
+  margin-top: ${({ margin }) => margin };
 
   @media (max-width: ${mediaQueries.phone}) {
     font-size: 12vw;

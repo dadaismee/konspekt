@@ -33,7 +33,7 @@ export default Footer;
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 180px;
+  margin: 120px 0 20px;
   gap: 5px;
 
   @media (max-width: ${mediaQueries.phone}) {

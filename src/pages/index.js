@@ -57,7 +57,7 @@ const IndexPage = () => {
       <Author pageData={author} />
       <Reviews id="reviews" pageData={reviews} />
       <FAQ pageData={faq} />
-      <RequestForm id="form" grids={grids_3} pageData={requestForm} selectedTariff={selectedTariff} />
+      <RequestForm id="form" grids={grids_3} pageData={requestForm} selectedTariff={selectedTariff} type="landing"/>
       <Contact id="contact" pageData={contact} />
       <Footer />
     </>
@@ -75,7 +75,7 @@ const grids_4 = [
   "1 / 3 / 4 / 6",
 ];
 
-const grids_3 = ["1 / 1 / 1 / 3", "2 / 1 / 2 / 3", "1 / 3 / 3 / 6"];
+export const grids_3 = ["1 / 1 / 1 / 3", "2 / 1 / 2 / 3", "1 / 3 / 3 / 6"];
 
 const FirstScreen = styled.div`
   height: 100dvh;
