@@ -157,6 +157,10 @@ section {
   --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+html {
+  position: relative;
+}
+
 body {
   background-color: var(--main);
   margin: 30px 60px 20px;

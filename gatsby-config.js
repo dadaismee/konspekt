@@ -3,10 +3,10 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Конспект — онлайн-курс академического письма`,
-    description: `Научитесь писать статьи быстрее и глубже — от чтения литературы до автоматической сборки драфта`,
+    title: `Курс «Академическое письмо на стероидах» | Школа «Конспект»`,
+    description: `Онлайн-лаборатория продвинутого академического письма. Научитесь писать статьи быстрее и глубже — от чтения литературы до автоматической сборки черновика`,
     keywords:
-      'академическое письмо, метанавыки, написать статью, написать текст, Pandoc, Zotero, Obsidian, Markdown, нон-фикшн',
+      'академическое письмо, курс, курс академического письма, написать статью, написать текст, zettelkasten, цеттелькастен, зеттелькастен, продуктивность, научная статья, Pandoc, Zotero, Obsidian, Markdown, нон-фикшн',
     siteUrl: `https://konspekt.io`,
   },
   plugins: [
@@ -19,6 +19,12 @@ module.exports = {
         afterBody: true,
         defer: false,
       },
+    },
+     {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        "icon": "src/assets/logo-with-bg.png"
+      }
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-image',

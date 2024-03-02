@@ -56,8 +56,9 @@ export default Program;
 
 const Wrapper = styled.section``;
 
-const Flex = styled.div`
+export const Flex = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
+  width: 100%;
 `;

@@ -55,14 +55,14 @@ const Author = ({ pageData, id }) => {
           viewport={{ once: true }}
           src={author}></Image>
         <Box type='author' fontSize='40px'>
-          <MainFeature
+          {Boolean(boxes.mainText) && <MainFeature
             style={{
               color: 'var(--accent)',
               display: 'flex',
               alignSelf: 'start',
             }}>
             {boxes.mainText}
-          </MainFeature>
+          </MainFeature>}
           <div style={{ display: 'grid', gap: '3px' }}>
             {boxes.steps.map((step) => (
               <ColoredText data={step} key={step.mainText} />
@@ -80,8 +80,8 @@ export default Author;
 const Wrapper = styled.section``;
 
 const Image = styled(motion.img)`
-  width: 35.7vw; //515px;
-  height: 35.7vw;
+  width: var(--left-column-width);
+  height: var(--left-column-width);
   border-radius: 15px;
 
   @media (max-width: ${mediaQueries.phone}) {

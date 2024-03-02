@@ -19,9 +19,12 @@ const types = {
     flexDirection: 'column',
     gap: '30px',
   },
+  review: {
+    fontSize: '24px',
+  }
 };
 
-const Box = ({ children, grid, type, fontSize, isOpen, height }) => {
+const Box = ({ children, grid, type, padding, fontSize, isOpen, height, width }) => {
   return (
     <Wrapper
       initial={{
@@ -44,7 +47,9 @@ const Box = ({ children, grid, type, fontSize, isOpen, height }) => {
       viewport={{ once: true }}
       style={{ maxHeight: isOpen ? 'auto' : 'auto' }}
       height={height}
+      width={width}
       fontSize={fontSize}
+      padding={padding}
       type={type}
       grid={grid}>
       {children}
@@ -57,18 +62,23 @@ export default Box;
 const Wrapper = styled(motion.div)`
   border-radius: 15px;
   border: 3px solid #000;
-  padding: 30px;
+  padding: ${({ padding }) => padding || '30px'};
   grid-area: ${({ grid }) => grid};
   ${({ type }) => types[`${type}`]}
   height: ${({ height }) => height || 'auto'};
+  width: ${({ width }) => width || 'auto'};
+  line-height: 110%;
+  display: flex;
+  flex-direction: column;
+  /* gap: 20px; */
 
   &:last-child {
-    display: flex;
+    display: ${({ type }) => type !== 'review' ? 'flex' : 'block' };
     justify-content: center;
     align-items: center;
 
     ${Text} {
-      font-size: ${({ fontSize }) => fontSize || '64px'};
+      font-size:  ${({ fontSize }) => fontSize || '64px'};
 
       @media (max-width: ${mediaQueries.phone}) {
         font-size: 24px;

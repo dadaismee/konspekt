@@ -18,10 +18,11 @@ export const SectionHeading = styled(motion.h2)`
   font-size: 96px;
   line-height: 105%; /* 136.5px */
   margin: 180px 0 20px;
+  margin-top: ${({ margin }) => margin };
 
   @media (max-width: ${mediaQueries.phone}) {
     font-size: 12vw;
-    margin: 16.6vh 0 30px;
+    margin: 90px 0 20px;
   }
 `;
 
@@ -31,7 +32,7 @@ export const MainFeature = styled.h3`
   line-height: 95%; /* 136.5px */
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 24px;
+    font-size: 10vw;
   }
 `;
 
@@ -65,6 +66,16 @@ export const MenuAndFootnote = styled(motion.p)`
     font-size: 16px;
   }
 `;
+
+export const Features = styled(motion.p)`
+  color: var(--accent);
+  font-family: 'Coolvetica';
+  font-size: 20px;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    font-size: 16px;
+  }
+`
 
 export const FooterText = styled.p`
   color: var(--text);

@@ -1,31 +1,32 @@
 import { motion } from 'framer-motion';
-import { Link } from 'gatsby';
+import { Link, GatsbyImage } from 'gatsby';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React from 'react';
 import { styled } from 'styled-components';
 import { mediaQueries } from '../styles/GlobalStyles';
+import logo from '../assets/logo-with-bg.png';
 
 const Header = () => {
   const links = [
     {
       name: 'результат',
-      url: '#results',
+      url: '/#results',
     },
     {
       name: 'процесс',
-      url: '#process',
+      url: '/#process',
     },
     {
       name: 'программа',
-      url: '#program',
+      url: '/#program',
     },
     {
       name: 'тарифы',
-      url: '#pricing',
+      url: '/#pricing',
     },
     {
       name: 'контакты',
-      url: '#contact',
+      url: '/#contact',
     },
   ];
 
@@ -49,9 +50,9 @@ const Header = () => {
         delay: 0.1,
       }}
       viewport={{ once: true }}>
+
       <Link to='/'>
-        <Logo>Конспект</Logo>
-        {/* <Image src={logo} alt='Logo' /> */}
+        <Logo src={logo} alt={logo}/>
       </Link>
 
       <Navbar>
@@ -90,13 +91,14 @@ export default Header;
 const Wrapper = styled(motion.header)`
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 `;
 
-export const Logo = styled.p`
-  font-size: 32px;
+export const Logo = styled.img`
+  width: 60px;
+  height:60px;
+  border-radius: 15px;
   transition: var(--transition);
-  color: var(--accent);
 
   @media (max-width: ${mediaQueries.phone}) {
     font-size: 6vw;

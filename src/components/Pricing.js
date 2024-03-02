@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Box } from '../components/index';
-import { Flex, mediaQueries } from '../styles/GlobalStyles';
-import { MainFeature, MainText, SectionHeading } from '../styles/TextStyles';
-import { Button, ButtonWrapper } from './Hero';
-import { Asterisk } from './ListSection';
+import React from "react";
+import styled from "styled-components";
+import { Box, ColoredText } from "../components/index";
+import { Flex, mediaQueries, FlexContainer } from "../styles/GlobalStyles";
+import { MainFeature, MainText, SectionHeading } from "../styles/TextStyles";
+import { Button, ButtonWrapper } from "./Hero";
+import { Asterisk } from "./ListSection";
 
-const Pricing = ({ pageData, id }) => {
-  const { title, asterisk } = pageData;
+const Pricing = ({ pageData, id, handleClick }) => {
+  const { title, type, asterisk, boxes } = pageData;
   const tariffs = pageData.tariffs.map((tariff) => tariff);
 
   return (
@@ -30,7 +30,8 @@ const Pricing = ({ pageData, id }) => {
           duration: 1,
           delay: 0.1,
         }}
-        viewport={{ once: true }}>
+        viewport={{ once: true }}
+      >
         {title}
       </SectionHeading>
 
@@ -40,17 +41,20 @@ const Pricing = ({ pageData, id }) => {
             <Box>
               <MainFeature
                 style={{
-                  color: 'var(--accent)',
-                  textAlign: 'center',
-                }}>
+                  // color: 'var(--accent)',
+                  marginBottom: "30px"
+
+                }}
+              >
                 {tariff.title}
               </MainFeature>
-            </Box>
-            <Box>
+ 
               {tariff.features.map((feature) => (
-                <MainText>{feature}</MainText>
+               <ColoredText lineHeight='100%' data={feature} key={feature.mainText} />
               ))}
             </Box>
+
+
             <ButtonWrapper
               initial={{
                 opacity: 0,
@@ -69,14 +73,38 @@ const Pricing = ({ pageData, id }) => {
                 duration: 1,
                 delay: 0.3 + index * 0.1,
               }}
-              viewport={{ once: true }}>
-              <Button to='#form'>{tariff.price}</Button>
+              viewport={{ once: true }}
+              onClick={() => handleClick(tariff.name)}
+              width='100%'              >
+                <Button to="#form" >
+                  {tariff.price}
+                </Button>
             </ButtonWrapper>
           </FlexContainer>
         ))}
       </Flex>
 
-      {Boolean(asterisk) && <Asterisk>{asterisk}</Asterisk>}
+      {Boolean(asterisk) && <Asterisk
+        initial={{
+          opacity: 0,
+                y: 20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+                y: 20,
+              }}
+              transition={{
+                ease: [0.165, 0.84, 0.44, 1],
+                duration: 1,
+                delay: 0.4,
+              }}
+              viewport={{ once: true }}
+
+      >{asterisk}</Asterisk>}
     </Wrapper>
   );
 };
@@ -84,21 +112,3 @@ const Pricing = ({ pageData, id }) => {
 export default Pricing;
 
 const Wrapper = styled.section``;
-
-const FlexContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: var(--left-column-width);
-
-  &:last-child {
-    width: var(--right-column-width);
-  }
-
-  @media (max-width: ${mediaQueries.phone}) {
-    width: auto;
-    &:last-child {
-      width: auto;
-    }
-  }
-`;
