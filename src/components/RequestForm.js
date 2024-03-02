@@ -145,9 +145,9 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
                     <option value="" disabled selected={selectedTariff !== 'passive' || tariff !== 'active'}>
                       Тариф
                     </option>
-                    <option value="passive" selected={selectedTariff === 'passive' ? true : false}>«Курс» (уроки на платформе)</option>
+                    <option value="passive" selected={selectedTariff === 'passive' ? true : false}>«Сам(-а)» (уроки на платформе)</option>
                     <option value="active" selected={selectedTariff === 'active' ? true : false}>
-                      «Лаборатория» (уроки + воркшопы)
+                      «С преподавателем» (уроки на платформе + воркшопы)
                     </option>
                   </InputSelect>
                 </InputItem>
