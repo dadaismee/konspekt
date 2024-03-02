@@ -1,18 +1,16 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import { SEO } from '../components';
-import { Logo } from '../components/Header';
+import { SEO, Header, Footer } from '../components';
 
 const privacy = ({ data }) => {
   const { html } = data.markdownRemark;
 
   return (
     <Wrapper>
-      <Link to='/' target='_blank'>
-        <Logo>Конспект</Logo>
-      </Link>
+      <Header/>
       <Block dangerouslySetInnerHTML={{ __html: html }} />
+      <Footer/>
     </Wrapper>
   );
 };
