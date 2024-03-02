@@ -29,7 +29,8 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
   let email = watch("email");
   let telegram = watch("telegram");
   let stream = watch("stream");
-  let tariff = watch("tariff");
+  let tariff = watch("tariff") || selectedTariff;
+  console.log(tariff);
 
   const onSubmit = () => {
     fetch("/.netlify/functions/sendToSheets", {
