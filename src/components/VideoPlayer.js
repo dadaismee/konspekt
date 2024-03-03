@@ -46,7 +46,7 @@ const Video = styled.video`
   cursor: pointer; /* Make it clickable */
 
   @media (max-width: ${mediaQueries.phone}) {
-    object-fit: none;
+    object-fit: fit;
   }
 `
 const PlayIcon = styled.img`
