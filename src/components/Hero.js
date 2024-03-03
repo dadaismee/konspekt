@@ -82,7 +82,8 @@ const Hero = ({ data }) => {
             duration: 1,
             delay: 0.35,
           }}
-          viewport={{ once: true }}>
+          viewport={{ once: true }}
+          width='var(--right-column-width)'>
           <FeaturesContainer>
             {features.map(feature => (
               <Features key={feature}>{feature}</Features> 
@@ -186,7 +187,7 @@ export const Button = styled(AnchorLink)`
 
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;
-    font-size: 8vw;
+    font-size: 32px;
   }
 `;
 
@@ -196,9 +197,14 @@ export const ButtonWrapper = styled(motion.button)`
   justify-content: center;
   gap: 10px;
   align-items: center;
-  width: ${({ width }) => width || 'var(--right-column-width)' };
+  width: ${({ width }) => width || '100%' };
   background-color: transparent;
   border: none;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    width: 100%;
+  }
+
 `;
 
 const FeaturesContainer = styled.div`

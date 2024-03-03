@@ -324,7 +324,7 @@ const Button = styled(motion.button)`
   }
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 40px;
+    font-size: 32px;
     padding: 16px;
   }
 `;
