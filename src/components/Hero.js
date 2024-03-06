@@ -147,6 +147,7 @@ export const FlexContainer = styled.div`
   display: flex;
   gap: 20px;
   align-items: end;
+  justify-content: space-between;
   width: 100%;
 
   @media (max-width: ${mediaQueries.phone}) {
