@@ -8,7 +8,6 @@ import { SectionHeading } from "../styles/TextStyles";
 import ColoredText from "./ColoredText";
 import { Asterisk } from "./ListSection";
 import { Box, Loader } from "./index";
-import loading from "../assets/Settings.gif";
 
 const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, buttonText }) => {
   const { title, asterisk } = pageData;
