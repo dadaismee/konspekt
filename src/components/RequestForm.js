@@ -7,14 +7,14 @@ import { mediaQueries } from "../styles/GlobalStyles";
 import { SectionHeading } from "../styles/TextStyles";
 import ColoredText from "./ColoredText";
 import { Asterisk } from "./ListSection";
-import { Box } from "./index";
+import { Box, Loader } from "./index";
+import loading from "../assets/Settings.gif";
 
 const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, buttonText }) => {
   const { title, asterisk } = pageData;
   const boxes = pageData.boxes.map((box) => box);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [selectedTariffState, setSelectedTariffState] =
-  useState(selectedTariff);
+  const [isLoading, setIsLoading] = useState(false);
 
   const types = ['landing', 'register'];
 
@@ -32,8 +32,9 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
   let tariff = watch("tariff") || selectedTariff;
   console.log(tariff);
 
-  const onSubmit = () => {
-    fetch("/.netlify/functions/sendToSheets", {
+  const onSubmit = async () => {
+    setIsLoading(true);
+    await fetch("/.netlify/functions/sendToSheets", {
       method: "POST",
       body: JSON.stringify({
         Name: name,
@@ -100,7 +101,8 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
             </Box>}
             <Box fontSize="20px">
               <FlexVertical>
-                {Boolean(type === 'landing') && <InputItem>
+                {Boolean(type === 'landing') && (
+                  <InputItem>
                   <Input
                     type="text"
                     placeholder="Имя"
@@ -111,7 +113,8 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
                     })}
                   />
                   {errors.name && <p>Введите имя кириллицей</p>}
-                </InputItem>}
+                </InputItem>
+                )}
                 {Boolean(type === 'landing') && <InputItem>
                   <Input
                     type="text"
@@ -119,10 +122,10 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
                     {...register("telegram", {
                       required: true,
                       maxLength: 20,
-                      pattern: /^[a-zA-Z]+/g,
+                      pattern: /^@[ea-zA-Z]+/g,
                     })}
                   />
-                  {errors.telegram && <p>Введите ник в Telegram (без @)</p>}
+                  {errors.telegram && <p>Введите ник в Telegram c @ в начале)</p>}
                 </InputItem>}
                 <InputItem>
                   <Input
@@ -224,7 +227,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
               type="submit"
               height="100%"
             >
-              {buttonText || 'Отправить заявку и оплатить'}
+              { Boolean(isLoading) ? <Loader/> : buttonText || 'Отправить заявку и оплатить'}
             </Button>
           </ButtonWrapper>
         </FormWrapper>
