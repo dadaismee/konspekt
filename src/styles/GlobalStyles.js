@@ -8,6 +8,7 @@ export const GridContainer = styled.div`
   display: grid;
   row-gap: 10px;
   column-gap: 20px;
+  justify-content: space-between;
   grid-template-columns: repeat(5, 17.2vw);
 
   @media (max-width: ${mediaQueries.phone}) {
