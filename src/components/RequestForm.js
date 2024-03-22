@@ -50,13 +50,13 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
     //
     selectedTariff === 'active' || tariff === 'active'
       ? window.open(
-          "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
-          "_self",
-        )
+        "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
+        "_self",
+      )
       : window.open(
-          "https://konspekt.zenclass.ru/public/t/cdd3c94c-f791-4b5c-b5f0-b754e9d3d998",
-          "_self",
-        );
+        "https://konspekt.zenclass.ru/public/t/cdd3c94c-f791-4b5c-b5f0-b754e9d3d998",
+        "_self",
+      );
   };
 
   return (
@@ -102,17 +102,17 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
               <FlexVertical>
                 {Boolean(type === 'landing') && (
                   <InputItem>
-                  <Input
-                    type="text"
-                    placeholder="Имя"
-                    {...register("name", {
-                      required: true,
-                      maxLength: 20,
-                      pattern: /^[а-яА-ЯЁё]+/g,
-                    })}
-                  />
-                  {errors.name && <p>Введите имя кириллицей</p>}
-                </InputItem>
+                    <Input
+                      type="text"
+                      placeholder="Имя"
+                      {...register("name", {
+                        required: true,
+                        maxLength: 20,
+                        pattern: /^[а-яА-ЯЁё]+/g,
+                      })}
+                    />
+                    {errors.name && <p>Введите имя кириллицей</p>}
+                  </InputItem>
                 )}
                 {Boolean(type === 'landing') && <InputItem>
                   <Input
@@ -133,7 +133,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
                     {...register("email", {
                       required: true,
                       pattern:
-                        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                     })}
                   />
                   {errors.email && <p>Введите адрес почты</p>}
@@ -154,24 +154,24 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
                     </option>
                   </InputSelect>
                 </InputItem>
-                {(Boolean(selectedTariff === "active") || Boolean(tariff === "active")) && (
-                    <InputItem>
-                      <InputSelect
-                        name="Поток"
-                        {...register("stream", {
-                          required: true,
-                        })}
-                      >
-                        <option value="" disabled selected>
-                          Поток
-                        </option>
-                        <option value="day">Дневной — 15:00-16:30 (МСК)</option>
-                        <option value="evening">
-                          Вечерний — 19:30-21:00 (МСК)
-                        </option>
-                      </InputSelect>
-                    </InputItem>
-                  )}
+                {/* {(Boolean(selectedTariff === "active") || Boolean(tariff === "active")) && (
+                  <InputItem>
+                    <InputSelect
+                      name="Поток"
+                      {...register("stream", {
+                        required: true,
+                      })}
+                    >
+                      <option value="" disabled selected>
+                        Поток
+                      </option>
+                      <option value="day">Дневной — 15:00-16:30 (МСК)</option>
+                      <option value="evening">
+                        Вечерний — 19:30-21:00 (МСК)
+                      </option>
+                    </InputSelect>
+                  </InputItem>
+                )} */}
                 {Boolean(type === 'landing') && <InputItem>
                   <FlexContainer>
                     <Checkbox
@@ -226,7 +226,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
               type="submit"
               height="100%"
             >
-              { Boolean(isLoading) ? <Loader/> : buttonText || 'Отправить заявку и оплатить'}
+              { Boolean(isLoading) ? <Loader/> : buttonText || 'Отправить заявку'}
             </Button>
           </ButtonWrapper>
         </FormWrapper>
@@ -242,128 +242,128 @@ export default RequestForm;
 const Wrapper = styled.section``;
 
 const Input = styled.input`
-  padding: 15px;
-  border-radius: 15px;
-  border: none;
-  /* width: 100%; */
-  font-size: 24px;
-  font-family: Coolvetica;
+padding: 15px;
+border-radius: 15px;
+border: none;
+/* width: 100%; */
+font-size: 24px;
+font-family: Coolvetica;
 
-  @media (max-width: ${mediaQueries.phone}) {
-    font-size: 20px;
-  }
+@media (max-width: ${mediaQueries.phone}) {
+  font-size: 20px;
+}
 `;
 
 const InputSelect = styled.select`
-  padding: 15px;
-  border-radius: 15px;
-  border: none;
-  /* width: 100%; */
-  font-size: 24px;
-  font-family: Coolvetica;
+padding: 15px;
+border-radius: 15px;
+border: none;
+/* width: 100%; */
+font-size: 24px;
+font-family: Coolvetica;
 
-  &:first-child {
-    color: grey;
-  }
+&:first-child {
+  color: grey;
+}
 
-  @media (max-width: ${mediaQueries.phone}) {
-    font-size: 20px;
-  }
+@media (max-width: ${mediaQueries.phone}) {
+  font-size: 20px;
+}
 `;
 
 const CTA = styled.form`
-  display: flex;
-  gap: 20px;
+display: flex;
+gap: 20px;
 `;
 
 const FlexVertical = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
+display: flex;
+flex-direction: column;
+gap: 10px;
+width: 100%;
 `;
 
 const BoxWrapper = styled.div`
-  width: var(--left-column-width);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+width: var(--left-column-width);
+display: flex;
+flex-direction: column;
+gap: 10px;
 
-  @media (max-width: ${mediaQueries.phone}) {
-    width: 100%;
-  }
+@media (max-width: ${mediaQueries.phone}) {
+  width: 100%;
+}
 `;
 
 const ButtonWrapper = styled.div`
-  width: 100%; 
-  height: 100%;
+width: 100%;
+height: 100%;
 
-  @media (max-width: ${mediaQueries.phone}) {
-    width: auto;
-  }
+@media (max-width: ${mediaQueries.phone}) {
+  width: auto;
+}
 `;
 
 const Button = styled(motion.button)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  /* max-width: var(--right-column-width); */
-  height: ${({ height }) => height || "115px"};
-  font-size: 48px;
-  font-family: Coolvetica;
-  color: var(--accent);
-  background-color: transparent;
-  border-radius: 15px;
-  border: 3px solid var(--accent);
-  transition: var(--transition);
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+/* max-width: var(--right-column-width); */
+height: ${({ height }) => height || "115px"};
+font-size: 48px;
+font-family: Coolvetica;
+color: var(--accent);
+background-color: transparent;
+border-radius: 15px;
+border: 3px solid var(--accent);
+transition: var(--transition);
 
-  &:hover {
-    background-color: var(--accent);
-    color: var(--text);
-    box-shadow: 0px 0px 40px rgba(235, 235, 235, 0.5);
-    cursor: pointer;
-  }
+&:hover {
+  background-color: var(--accent);
+  color: var(--text);
+  box-shadow: 0px 0px 40px rgba(235, 235, 235, 0.5);
+  cursor: pointer;
+}
 
-  @media (max-width: ${mediaQueries.phone}) {
-    font-size: 32px;
-    padding: 16px;
-  }
+@media (max-width: ${mediaQueries.phone}) {
+  font-size: 32px;
+  padding: 16px;
+}
 `;
 
 const FormWrapper = styled.div`
-  gap: 20px;
-  width: 100%;
-  display: flex;
+gap: 20px;
+width: 100%;
+display: flex;
 
-  @media (max-width: ${mediaQueries.phone}) and (max-height: 1600px) {
-    flex-direction: column;
-  }
+@media (max-width: ${mediaQueries.phone}) and (max-height: 1600px) {
+  flex-direction: column;
+}
 `;
 
 const Checkbox = styled.input`
-  height: 32px;
-  width: 32px;
-  border: 3px solid var(--text);
+height: 32px;
+width: 32px;
+border: 3px solid var(--text);
 
-  @media (max-width: ${mediaQueries.phone}) {
-    width: 48px;
-    height: 48px;
-  }
+@media (max-width: ${mediaQueries.phone}) {
+  width: 48px;
+  height: 48px;
+}
 `;
 
 export const StyledLink = styled.a`
-  display: flex;
-  align-self: center;
+display: flex;
+align-self: center;
 `;
 
 const InputItem = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+display: flex;
+flex-direction: column;
+gap: 10px;
 `;
 
 export const FlexContainer = styled.div`
-  display: flex;
-  gap: 20px;
+display: flex;
+gap: 20px;
 `;
