@@ -96,7 +96,7 @@ const Hero = ({ data }) => {
               </MobileFeatureBorder>
             ))}
           </MobileFeaturesContainer>
-          <Button to='#form'>{buttonText}</Button>
+          <Button to='#pricing'>{buttonText}</Button>
         </ButtonWrapper>
       </FlexContainer>
     </Wrapper>
