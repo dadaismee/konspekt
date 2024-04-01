@@ -67,7 +67,7 @@ const Wrapper = styled(motion.div)`
   ${({ type }) => types[`${type}`]}
   height: ${({ height }) => height || 'auto'};
   width: ${({ width }) => width || 'auto'};
-  line-height: 110%;
+  gap: 00px;
   display: flex;
   flex-direction: column;
   /* gap: 20px; */
