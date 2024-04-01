@@ -40,14 +40,21 @@ export const FlexContainer = styled.div`
   width: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) - 60px)' : 'auto' };
   height: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) - 60px)' : 'auto' };
 
-  &::last-child {
+  &:first-child {
+    width: var(--left-column-width);
+  }
+
+  &:last-child {
   width: ${({ type }) => type === 'review' ? 'var(--left-column-width)' : 'var(--right-column-width)'};
   }
 
   @media (max-width: ${mediaQueries.phone}) {
     height: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) / 1.25)' : '100%'};
     width: 100%;
-    &::last-child {
+    &:first-child {
+      width: auto;
+    }
+    &:last-child {
       width: auto;
     }
   }

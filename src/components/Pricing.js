@@ -42,8 +42,7 @@ const Pricing = ({ pageData, id, handleClick }) => {
               <MainFeature
                 style={{
                   // color: 'var(--accent)',
-                  marginBottom: "30px"
-
+                  marginBottom: "30px",
                 }}
               >
                 {tariff.title}
