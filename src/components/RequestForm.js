@@ -226,7 +226,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
               type="submit"
               height="100%"
             >
-              { Boolean(isLoading) ? <Loader/> : buttonText || 'Отправить заявку и оплатить'}
+              { Boolean(isLoading) ? <Loader/> : buttonText || 'Отправить заявку'}
             </Button>
           </ButtonWrapper>
         </FormWrapper>

@@ -96,7 +96,10 @@ const Hero = ({ data }) => {
               </MobileFeatureBorder>
             ))}
           </MobileFeaturesContainer>
-          <Button to='#pricing'>{buttonText}</Button>
+          <ButtonsWrapper>
+          <Button fontSize="40px" width="var(--left-column-width)" to='#pricing'>{buttonText}</Button>
+          <Button type="ghost" fontSize="24px" width="calc(var(--right-column-width) - var(--left-column-width))" to='#form'>Получить 1 урок</Button>
+          </ButtonsWrapper>
         </ButtonWrapper>
       </FlexContainer>
     </Wrapper>
@@ -171,18 +174,18 @@ export const Button = styled(AnchorLink)`
   width: ${({ width }) => width || '100%'} ;
   height: ${({ height }) => height || '115px'};
   font-size: ${({ fontSize }) => fontSize  || '48px'};
-  font-family: Coolvetica;
-  /* color: var(--accent); */
+  background-color: ${({ type }) => type === "ghost" ? "transparent" : "var(--accent)"};
+  box-sizing: border-box;
   color: var(--text);
-  background-color: var(--accent);
-  /* background-color: transparent; */
+  ${({ type }) => type === "ghost" ? 
+    "border: 3px solid var(--text)" : "border: none"}; 
+  font-family: Coolvetica;
   border-radius: 15px;
-  /* border: 3px solid var(--accent); */
   transition: var(--transition);
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 0px 50px rgba(235, 235, 235, 0.5);
+    box-shadow: ${({ type }) => type === "ghost" ? "none" : "0px 0px 50px rgba(235, 235, 235, 0.5)"};
     cursor: pointer;
   }
 
@@ -205,8 +208,13 @@ export const ButtonWrapper = styled(motion.button)`
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;
   }
-
 `;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  gap: 20px;
+`
+
 
 const FeaturesContainer = styled.div`
 display: flex; 
