@@ -300,14 +300,14 @@ export const reviews = {
   ],
 };
 
-export const requestForm = {
+export const requestFormBuy = {
   title: "Заявка на курс",
   type: "basic",
   boxes: [
     {
       mainText:
         "Пришлём информацию к старту курса. Если есть вопросы, пишите на почту ниже.",
-      spanText: ["Второй поток будет в марте", "пишите на почту ниже."],
+      spanText: ["пишите на почту ниже."],
     },
     {
       mainText:
@@ -331,6 +331,37 @@ export const requestForm = {
   ],
 };
 
+
+export const requestFormFree = {
+  title: "Бесплатный урок",
+  type: "basic",
+  boxes: [
+    {
+      mainText:
+        "Оставьте свою почту, и мы пришлём на неё бесплатный урок, чтобы бы могли оценить, решает ли курс вашу проблему",
+      spanText: ["Оставьте свою почту", "пришлём", "бесплатный урок"],
+    },
+    {
+      mainText:
+        "Спасибо! Проверьте почту — там чек и письмо для создания личного кабинета. Пожалуйста, нажмите в письме «подтвердить email». К началу курса пришлём инструкции для старта, а также добавим в Telegram-чат. До встречи!",
+      spanText: ["Проверьте почту ", "чек ", "создания личного кабинета", "нажмите в письме «подтвердить email»", "пришлём письмо с инструкциями", "добавим в Telegram-чат"],
+    },
+  ],
+  forms: [
+    {
+      type: "form",
+      placeholder: "Имя",
+    },
+    {
+      type: "form",
+      placeholder: "Telegram",
+    },
+    {
+      type: "form",
+      placeholder: "Почта",
+    },
+  ],
+};
 export const contact = {
   title: "Контакты",
   type: "basic",

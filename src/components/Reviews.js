@@ -38,7 +38,7 @@ const Reviews = ({ pageData, id }) => {
         {reviewItems.map((reviewItem, index) => {
           const { author, image, score, data, longText } = reviewItem;
           return (
-            <Box type='review' fontSize='24px'> 
+            <Box type='review' width='35.8vw' fontSize='24px'> 
               <FlexContainer type='review' >
                 <div style={{display: 'flex', alignItems: 'start', justifyContent: 'space-between', gap: '20px'}}>
                   <Container>

@@ -114,7 +114,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
                     {errors.name && <p>Введите имя кириллицей</p>}
                   </InputItem>
                 )}
-                {Boolean(type === 'landing') && <InputItem>
+                {Boolean(type === 'landing' && selectedTariff !== 'promo') && <InputItem>
                   <Input
                     type="text"
                     placeholder="Telegram"
@@ -138,7 +138,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
                   />
                   {errors.email && <p>Введите адрес почты</p>}
                 </InputItem>
-                <InputItem>
+                {Boolean(selectedTariff !== "promo") && <InputItem>
                   <InputSelect
                     name="Тариф"
                     {...register("tariff", {
@@ -153,7 +153,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
                       «С преподавателем» (уроки на платформе + воркшопы)
                     </option>
                   </InputSelect>
-                </InputItem>
+                </InputItem>}
                 {/* {(Boolean(selectedTariff === "active") || Boolean(tariff === "active")) && (
                   <InputItem>
                     <InputSelect
@@ -284,7 +284,8 @@ width: 100%;
 `;
 
 const BoxWrapper = styled.div`
-width: var(--left-column-width);
+width: 100%;
+max-width: 35.8vw; 
 display: flex;
 flex-direction: column;
 gap: 10px;

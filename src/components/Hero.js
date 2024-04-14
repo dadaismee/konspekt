@@ -6,7 +6,7 @@ import Typewriter from 'typewriter-effect';
 import { mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
 
-const Hero = ({ data }) => {
+const Hero = ({ data, handleClick }) => {
   const { title, typeWriterText, description, buttonText, features } = data;
 
   return (
@@ -96,9 +96,16 @@ const Hero = ({ data }) => {
               </MobileFeatureBorder>
             ))}
           </MobileFeaturesContainer>
-          <ButtonsWrapper>
+          <ButtonsWrapper
+            onClick={() => handleClick("promo")}
+          >
           <Button fontSize="40px" width="var(--left-column-width)" to='#pricing'>{buttonText}</Button>
-          <Button type="ghost" fontSize="24px" width="calc(var(--right-column-width) - var(--left-column-width))" to='#form'>Получить 1 урок</Button>
+            <Button 
+              type="ghost" 
+              fontSize="24px" 
+              width="calc(var(--right-column-width) - var(--left-column-width))" 
+              to='#form'>Получить 1 урок
+            </Button>
           </ButtonsWrapper>
         </ButtonWrapper>
       </FlexContainer>
@@ -186,6 +193,8 @@ export const Button = styled(AnchorLink)`
   &:hover {
     transform: translateY(-5px);
     box-shadow: ${({ type }) => type === "ghost" ? "none" : "0px 0px 50px rgba(235, 235, 235, 0.5)"};
+    background-color: ${({ type }) => type === "ghost" ? "var(--accent)" : "none"};
+    border: none;
     cursor: pointer;
   }
 
