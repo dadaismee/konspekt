@@ -29,7 +29,6 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
   let telegram = watch("telegram");
   let stream = watch("stream");
   let tariff = watch("tariff") || selectedTariff;
-  console.log(tariff);
 
   const onSubmit = async () => {
     setIsLoading(true);
