@@ -9,8 +9,8 @@ import ColoredText from "./ColoredText";
 import { Asterisk } from "./ListSection";
 import { Box, Loader } from "./index";
 
-const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, buttonText }) => {
-  const { title, asterisk } = pageData;
+const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
+  const { title, asterisk, buttonText } = pageData;
   const boxes = pageData.boxes.map((box) => box);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -48,16 +48,19 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
     // Убрал открытие витрины для выбора тарифа и оплаты
     // window.open('https://self.payanyway.ru/1693655679114', '_blank');
     //
-    selectedTariff === 'active' || tariff === 'active'
-      ? window.open(
+
+    Boolean(selectedTariff === 'promo' || tariff === 'promo') && window.open("https://youtu.be/i7EZbRWHHBE", "_self");
+
+    Boolean(selectedTariff === 'active' || tariff === 'active') && window.open(
         "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
         "_self",
       )
-      : window.open(
+
+    Boolean(selectedTariff === 'passive' || tariff === 'passive') && window.open(
         "https://konspekt.zenclass.ru/public/t/cdd3c94c-f791-4b5c-b5f0-b754e9d3d998",
         "_self",
       );
-  };
+  }; 
 
   return (
     <Wrapper id={id}>
@@ -114,7 +117,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
                     {errors.name && <p>Введите имя кириллицей</p>}
                   </InputItem>
                 )}
-                {Boolean(type === 'landing') && <InputItem>
+                {Boolean(type === 'landing' && selectedTariff !== 'promo') && <InputItem>
                   <Input
                     type="text"
                     placeholder="Telegram"
@@ -138,7 +141,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
                   />
                   {errors.email && <p>Введите адрес почты</p>}
                 </InputItem>
-                <InputItem>
+                {Boolean(selectedTariff !== "promo") && <InputItem>
                   <InputSelect
                     name="Тариф"
                     {...register("tariff", {
@@ -153,7 +156,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
                       «С преподавателем» (уроки на платформе + воркшопы)
                     </option>
                   </InputSelect>
-                </InputItem>
+                </InputItem>}
                 {/* {(Boolean(selectedTariff === "active") || Boolean(tariff === "active")) && (
                   <InputItem>
                     <InputSelect
@@ -226,7 +229,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin, button
               type="submit"
               height="100%"
             >
-              { Boolean(isLoading) ? <Loader/> : buttonText || 'Отправить заявку и оплатить'}
+              { Boolean(isLoading) ? <Loader/> : buttonText || 'Отправить заявку'}
             </Button>
           </ButtonWrapper>
         </FormWrapper>
@@ -284,13 +287,15 @@ width: 100%;
 `;
 
 const BoxWrapper = styled.div`
-width: var(--left-column-width);
+width: 100%;
+max-width: 35.8vw; 
 display: flex;
 flex-direction: column;
 gap: 10px;
 
 @media (max-width: ${mediaQueries.phone}) {
   width: 100%;
+  max-width: 100%; 
 }
 `;
 

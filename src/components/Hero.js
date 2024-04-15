@@ -6,7 +6,7 @@ import Typewriter from 'typewriter-effect';
 import { mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
 
-const Hero = ({ data }) => {
+const Hero = ({ data, handleClick }) => {
   const { title, typeWriterText, description, buttonText, features } = data;
 
   return (
@@ -96,7 +96,17 @@ const Hero = ({ data }) => {
               </MobileFeatureBorder>
             ))}
           </MobileFeaturesContainer>
-          <Button to='#pricing'>{buttonText}</Button>
+          <ButtonsWrapper
+            onClick={() => handleClick("promo")}
+          >
+          <Button fontSize="40px" width="var(--left-column-width)" to='#pricing'>{buttonText}</Button>
+            <Button 
+              type="ghost" 
+              fontSize="24px" 
+              width="calc(var(--right-column-width) - var(--left-column-width))" 
+              to='#form'>Получить 1 урок
+            </Button>
+          </ButtonsWrapper>
         </ButtonWrapper>
       </FlexContainer>
     </Wrapper>
@@ -171,18 +181,21 @@ export const Button = styled(AnchorLink)`
   width: ${({ width }) => width || '100%'} ;
   height: ${({ height }) => height || '115px'};
   font-size: ${({ fontSize }) => fontSize  || '48px'};
+  background-color: ${({ type }) => type === "ghost" ? "transparent" : "var(--accent)"};
+  box-sizing: border-box;
+color: ${({ type }) => type === "ghost" ? "var(--accent)" : "var(--text)"};
+  ${({ type }) => type === "ghost" ? 
+    "border: 3px solid var(--accent)" : "border: none"}; 
   font-family: Coolvetica;
-  /* color: var(--accent); */
-  color: var(--text);
-  background-color: var(--accent);
-  /* background-color: transparent; */
   border-radius: 15px;
-  /* border: 3px solid var(--accent); */
   transition: var(--transition);
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 0px 50px rgba(235, 235, 235, 0.5);
+    box-shadow: ${({ type }) => type === "ghost" ? "none" : "0px 0px 50px rgba(235, 235, 235, 0.5)"};
+    background-color: ${({ type }) => type === "ghost" ? "var(--accent)" : "none"};
+    color: var(--text);
+    border: none;
     cursor: pointer;
   }
 
@@ -205,8 +218,13 @@ export const ButtonWrapper = styled(motion.button)`
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;
   }
-
 `;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  gap: 20px;
+`
+
 
 const FeaturesContainer = styled.div`
 display: flex; 

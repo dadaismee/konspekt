@@ -27,7 +27,8 @@ import {
   pricing,
   process,
   program,
-  requestForm,
+  requestFormBuy,
+  requestFormFree,
   results,
   reviews,
 } from "../pageData/writing-pro.js";
@@ -38,14 +39,14 @@ const IndexPage = () => {
 
   const handleClick = (tariffName) => {
     setSelectedTariff(tariffName);
-    // console.log(selectedTariff);
+    console.log(selectedTariff);
   }
 
   return (
     <>
       <FirstScreen>
         <Header />
-        <Hero data={hero} />
+        <Hero data={hero} selectedTariff={selectedTariff} handleClick={handleClick}/>
       </FirstScreen>
       <BasicSection id="about" pageData={about} grids={grids_3} />
       <BasicSection pageData={audience} grids={grids_4} />
@@ -57,7 +58,7 @@ const IndexPage = () => {
       <Author pageData={author} />
       <Reviews id="reviews" pageData={reviews} />
       <FAQ pageData={faq} />
-      <RequestForm id="form" grids={grids_3} pageData={requestForm} selectedTariff={selectedTariff} type="landing"/>
+      <RequestForm id="form" grids={grids_3} pageData={selectedTariff === 'promo' ? requestFormFree : requestFormBuy} selectedTariff={selectedTariff} type="landing"/>
       <Contact id="contact" pageData={contact} />
       <Footer />
     </>
