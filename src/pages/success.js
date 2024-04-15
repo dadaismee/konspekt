@@ -2,18 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import Box from "../components/Box.js";
 import ColoredText from "../components/ColoredText.js";
-import { requestForm } from "../pageData/writing-pro.js";
+import { requestFormBuy, requestFormFree } from "../pageData/writing-pro.js";
 import { Header, Footer } from "../components/index.js";
 
-const SuccessPage = ({ pageData }) => {
-  const boxes = requestForm.boxes.map((box) => box);
+const SuccessPage = ({ pageData, selectedTariff }) => {
+  const freeBoxes = requestFormFree.boxes.map((box) => box);
+  const buyBoxes = requestFormBuy.boxes.map((box) => box);
 
   return (
     <>
       <Header />
       <Wrapper>
         <Box height='50vh'>
-          <ColoredText data={boxes[1]} />
+          <ColoredText data={selectedTariff === "promo" ? freeBoxes[1] : buyBoxes[1]} />
         </Box>
       </Wrapper>
       <Footer />

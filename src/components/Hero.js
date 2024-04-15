@@ -183,9 +183,9 @@ export const Button = styled(AnchorLink)`
   font-size: ${({ fontSize }) => fontSize  || '48px'};
   background-color: ${({ type }) => type === "ghost" ? "transparent" : "var(--accent)"};
   box-sizing: border-box;
-  color: var(--text);
+color: ${({ type }) => type === "ghost" ? "var(--accent)" : "var(--text)"};
   ${({ type }) => type === "ghost" ? 
-    "border: 3px solid var(--text)" : "border: none"}; 
+    "border: 3px solid var(--accent)" : "border: none"}; 
   font-family: Coolvetica;
   border-radius: 15px;
   transition: var(--transition);
@@ -194,6 +194,7 @@ export const Button = styled(AnchorLink)`
     transform: translateY(-5px);
     box-shadow: ${({ type }) => type === "ghost" ? "none" : "0px 0px 50px rgba(235, 235, 235, 0.5)"};
     background-color: ${({ type }) => type === "ghost" ? "var(--accent)" : "none"};
+    color: var(--text);
     border: none;
     cursor: pointer;
   }
