@@ -33,7 +33,7 @@ export const audience = {
   type: "basic",
   boxes: [
     {
-      mainText: "студентам / аспирантам",
+      mainText: "PhD-студентам / аспирантам",
       spanText: [""],
     },
     {
@@ -41,7 +41,7 @@ export const audience = {
       spanText: [""],
     },
     {
-      mainText: "энтузиастам «второго мозга»",
+      mainText: "писателям ",
       spanText: [""],
     },
     {
@@ -207,7 +207,7 @@ export const pricing = {
           spanText: ["Обратная связь"],
         },
       ],
-      price: "29 990 ₽",
+      price: "24 990",
     },
   ],
   /* asterisk: "*материалы доступны два месяца с даты старта", */
