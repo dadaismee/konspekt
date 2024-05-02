@@ -11,6 +11,25 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-amplitude-analytics`,
+      options: {
+        apiKey: "85f4e64dc470c0cf2d82b5e53b906d40",
+        head: true,
+        respectDNT: true,
+        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        eventTypes: {
+          outboundLinkClick: 'OUTBOUND_LINK_CLICK',
+          pageView: 'PAGE_VIEW',
+        },
+        amplitudeConfig: {
+          saveEvents: true,
+          includeUtm: true,
+          includeReferrer: true
+        },
+        environments: ["production"],
+      },
+    },
+    {
       resolve: `gatsby-plugin-yandex-metrika`,
       options: {
         trackingId: process.env.YANDEX_METRICA,

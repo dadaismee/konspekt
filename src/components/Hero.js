@@ -99,13 +99,13 @@ const Hero = ({ data, handleClick }) => {
           <ButtonsWrapper
             onClick={() => handleClick("promo")}
           >
-          <Button fontSize="40px" width="var(--left-column-width)" to='#pricing'>{buttonText}</Button>
-            <Button 
+          <Button fontSize="40px" width="var(--right-column-width)" to='#pricing'>{buttonText}</Button>
+            {/* <Button 
               type="ghost" 
               fontSize="24px" 
               width="calc(var(--right-column-width) - var(--left-column-width))" 
               to='#form'>Получить 1 урок
-            </Button>
+            </Button> */}
           </ButtonsWrapper>
         </ButtonWrapper>
       </FlexContainer>
@@ -167,7 +167,7 @@ export const FlexContainer = styled.div`
 `;
 
 const Description = styled(MainText)`
-  width: var(--left-column-width);
+  width: calc(var(--left-column-width) - 20px);
 
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;
