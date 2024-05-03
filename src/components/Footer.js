@@ -9,7 +9,7 @@ import { StyledLink } from './RequestForm';
 const Footer = () => {
   return (
     <Wrapper>
-      <Copy>Онлайн-школа «Конспект» © {new Date().getFullYear()}</Copy>
+      <Copy>ИП Шевченко Валерий Сергеевич © {new Date().getFullYear()}</Copy>
       <StyledLink href='/privacy' target='_blank' rel='noopener noreferrer'>
         <Copy>Политика конфиденциальности</Copy>
       </StyledLink>
