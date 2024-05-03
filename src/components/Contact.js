@@ -51,7 +51,7 @@ const Contact = ({ pageData, id }) => {
         }}
         viewport={{ once: true }}>
         <a
-          href='mailto:info@konspekt.io?subject=Курс «Академическое письмо на стероидах»&body=Добрый день! %0D%0A %0D%0A У меня есть вопрос про курс «Академическое письмо на стероидах»: …'
+          href='mailto:konspekt.school@yandex.ru?subject=Курс «Академическое письмо на стероидах»&body=Добрый день! %0D%0A %0D%0A У меня есть вопрос про курс «Академическое письмо на стероидах»: …'
           target='_blank'>
           <Button>Написать письмо</Button>
         </a>
