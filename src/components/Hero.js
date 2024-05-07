@@ -167,7 +167,7 @@ export const FlexContainer = styled.div`
 `;
 
 const Description = styled(MainText)`
-  width: calc(var(--left-column-width) - 20px);
+  width: calc(var(--left-column-width) - 30px);
 
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;

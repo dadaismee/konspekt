@@ -1,9 +1,9 @@
 export const hero = {
-  title: "Академическое письмо",
-  typeWriterText: ["на стероидах", "без нервов", "как алгоритм", "as it should be"],
-  description: "Онлайн-лаборатория оптимизации процессов академического письма",
-  buttonText: "Выбрать тариф",
-  features: ["30 уроков","(+ 8 онлайн-воркшопов)", "1 месяц", "1 текст в портфолио"],
+  title: "Academic writing",
+  typeWriterText: ["on steroids", "on chill", "as an algorithm", "as it should be"],
+  description: "Online lab for writing process optimization",
+  buttonText: "Start May 20th",
+  features: ["8 online workshops", "30 lessons", "1 month", "1 text in portfolio"],
 };
 
 export const about = {
@@ -124,8 +124,8 @@ export const process = {
       spanText: [""],
       steps: [
         {
-          mainText: "1. Смотрите видеоуроки на платформе",
-          spanText: ["Смотрите видеоуроки"],
+          mainText: "1. Перед занятиями изучаете тему в уроках на платформе",
+          spanText: ["изучаете тему в уроках на платформе"],
         },
         {
           mainText: "2. На воркшопах делаете задания в группах и проверяете друг друга",
