@@ -359,6 +359,7 @@ border: 3px solid var(--text);
 export const StyledLink = styled.a`
 display: flex;
 align-self: center;
+color: var(--accent);
 `;
 
 const InputItem = styled.div`
