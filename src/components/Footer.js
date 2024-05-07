@@ -11,22 +11,14 @@ import oferta from '../assets/agreement.pdf';
 const Footer = () => {
   return (
     <Wrapper>
-      <Copy>Школа «Конспект» © {new Date().getFullYear()}</Copy>
-      <div style={{ gap: '0px', alignContent: 'start'}}>
-        <StyledLink href={policy} target='_blank' rel='noopener noreferrer'>
+            <Copy>Школа «Конспект» © 2023-{new Date().getFullYear()}</Copy>
+        <StyledLink style={{alignSelf: 'end'}} href={policy} target='_blank' rel='noopener noreferrer'>
           <Copy style={{ color: 'var(--accent)'}}>Политика конфиденциальности</Copy>
         </StyledLink>
-        <StyledLink href={oferta} target='_blank' rel='noopener noreferrer'>
+        <StyledLink style={{alignSelf: 'end'}} href={oferta} target='_blank' rel='noopener noreferrer'>
           <Copy style={{ color: 'var(--accent)'}}>Оферта</Copy>
         </StyledLink>
-      </div>
-      <VertFlex style={{ gap: '0px'}}>
-        <Copy style={{ fontSize: '11px'}}>ИП Шевченко Валерий Сергеевич</Copy>
-        <Copy style={{ fontSize: '11px'}}>ИНН 632147018327</Copy>
-        <Copy style={{ fontSize: '11px'}}>ОГРНИП 324632700039473</Copy>
-        <Copy style={{ fontSize: '11px'}}>konspekt@yandex.ru</Copy>
-        <Copy style={{ fontSize: '11px'}}>г. Тольятти</Copy>
-      </VertFlex>
+
       <Branding>
         <Image src={palette} />
         /
@@ -38,6 +30,15 @@ const Footer = () => {
           </a>
         </Copy>
       </Branding>
+      <VertFlex style={{ gap: '0px'}}>
+        <Copy style={{ fontSize: '11px'}}>ИП Шевченко Валерий Сергеевич</Copy>
+        <Copy style={{ fontSize: '11px'}}>ИНН 632147018327</Copy>
+        <Copy style={{ fontSize: '11px'}}>ОГРНИП 324632700039473</Copy>
+        <Copy style={{ fontSize: '11px'}}>konspekt@yandex.ru</Copy>
+        <Copy style={{ fontSize: '11px'}}>+79162243606</Copy>
+        <Copy style={{ fontSize: '11px'}}>г. Тольятти</Copy>
+      </VertFlex>
+
     </Wrapper>
   );
 };
@@ -47,7 +48,7 @@ export default Footer;
 const Wrapper = styled.div`
 display: flex;
 justify-content: space-between;
-align-items: center;
+align-items: end;
 margin: 120px 0 20px;
 gap: 5px;
 
