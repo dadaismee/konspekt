@@ -75,12 +75,14 @@ export const Asterisk = styled(MenuAndFootnote)`
 
 export const ListItem = styled.ol`
   display: flex;
-  gap: 20px;
+  gap: 30px;
   align-items: center;
   align-self: flex-start;
+  margin-bottom: 20px;
 
   @media (max-width: ${mediaQueries.phone}) {
     align-items: center;
+    gap: 20px;
   }
 `;
 
@@ -96,6 +98,7 @@ export const Circle = styled.li`
   font-size: 40px;
 
   @media (max-width: ${mediaQueries.phone}) {
+    display: none;
     min-width: 40px;
     max-width: 40px;
     height: 40px;

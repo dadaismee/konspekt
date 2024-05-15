@@ -13,13 +13,18 @@ const Header = () => {
       url: '/#results',
     },
     {
-      name: 'процесс',
+      name: 'как устроено',
       url: '/#process',
     },
     {
       name: 'программа',
       url: '/#program',
     },
+    {
+      name: 'отзывы',
+      url: '/#reviews',
+    },
+
     {
       name: 'тарифы',
       url: '/#pricing',

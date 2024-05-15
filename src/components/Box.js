@@ -71,9 +71,12 @@ const Wrapper = styled(motion.div)`
   flex-direction: column;
   gap: 10px;
 
+  @media (max-width: ${mediaQueries.phone}) {
+  gap: 10px;
+  }
   &:last-child {
     display: ${({ type }) => type !== 'review' ? 'flex' : 'block' };
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 
     ${Text} {

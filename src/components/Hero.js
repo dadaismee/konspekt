@@ -96,17 +96,17 @@ const Hero = ({ data, handleClick }) => {
               </MobileFeatureBorder>
             ))}
           </MobileFeaturesContainer>
-          <ButtonsWrapper
-            onClick={() => handleClick("promo")}
-          >
-          <Button fontSize="40px" width="var(--right-column-width)" to='#pricing'>{buttonText}</Button>
+          {/* <ButtonsWrapper
+            onClick={() => handleClick("promo")} 
+          > */}
+          <Button fontSize="40px" to='#pricing'>{buttonText}</Button>
             {/* <Button 
               type="ghost" 
               fontSize="24px" 
               width="calc(var(--right-column-width) - var(--left-column-width))" 
               to='#form'>Получить 1 урок
-            </Button> */}
-          </ButtonsWrapper>
+            </Button> 
+          </ButtonsWrapper> */ }
         </ButtonWrapper>
       </FlexContainer>
     </Wrapper>
@@ -167,7 +167,7 @@ export const FlexContainer = styled.div`
 `;
 
 const Description = styled(MainText)`
-  width: calc(var(--left-column-width) - 30px);
+  width: calc(var(--left-column-width) - 80px);
 
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;

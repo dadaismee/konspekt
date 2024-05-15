@@ -38,7 +38,7 @@ const Reviews = ({ pageData, id }) => {
         {reviewItems.map((reviewItem, index) => {
           const { author, image, score, data, longText } = reviewItem;
           return (
-            <Box type='review' width='35.8vw' fontSize='24px'> 
+            <Box type='review' fontSize='24px'> 
               <FlexContainer type='review' >
                 <div style={{display: 'flex', alignItems: 'start', justifyContent: 'space-between', gap: '20px'}}>
                   <Container>
@@ -47,7 +47,7 @@ const Reviews = ({ pageData, id }) => {
                   </Container>
                   <Score>{score}</Score>
                 </div>
-                <ColoredText type='review' height='auto' component='MenuAndFootnote' data={data} />
+                <ColoredText type='review' height='auto' component={MenuAndFootnote} data={data} />
                 {Boolean(longText) && <div style={{ display: 'flex', justifyContent: 'end' }}>
                 ↓
                 </div>}
@@ -66,7 +66,7 @@ const Wrapper = styled.section`
   position: relative;
 
   @media (max-width: ${mediaQueries.phone}) {
-    width: 100%;
+  width: auto;
   }
   `;
 
@@ -74,6 +74,11 @@ const Avatar = styled(motion.img)`
 width: 100px;
 height: 100px;
 border-radius: 100%;
+
+@media (max-width: ${mediaQueries.phone}) {
+width: 60px;
+height: 60px;
+}
 `;
 
 const Score = styled(MainText)``;

@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
-import { Link } from "gatsby";
 import { mediaQueries } from "../styles/GlobalStyles";
 import { SectionHeading } from "../styles/TextStyles";
 import ColoredText from "./ColoredText";
@@ -98,11 +97,12 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
         <FormWrapper>
           <BoxWrapper>
             {Boolean(type === 'landing') && <Box grid={grids[0]}>
-              <ColoredText data={boxes[0]}></ColoredText>
+              {Boolean(selectedTariff) ? <ColoredText data={selectedTariff === 'passive' ? boxes[0] : boxes[2]}></ColoredText> : <ColoredText data
+             ={boxes[0]}></ColoredText>}
             </Box>}
             <Box fontSize="20px">
               <FlexVertical>
-                {Boolean(type === 'landing') && (
+                {Boolean(type === 'landing' && selectedTariff) && (
                   <InputItem>
                     <Input
                       type="text"
@@ -116,7 +116,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
                     {errors.name && <p>Введите имя кириллицей</p>}
                   </InputItem>
                 )}
-                {Boolean(type === 'landing' && selectedTariff !== 'promo') && <InputItem>
+                {Boolean(type === 'landing' && selectedTariff) && <InputItem>
                   <Input
                     type="text"
                     placeholder="Telegram"
@@ -140,7 +140,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
                   />
                   {errors.email && <p>Введите адрес почты</p>}
                 </InputItem>
-                {Boolean(selectedTariff !== "promo") && <InputItem>
+                {Boolean(selectedTariff) && <InputItem>
                   <InputSelect
                     name="Тариф"
                     {...register("tariff", {

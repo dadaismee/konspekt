@@ -30,6 +30,7 @@ export const Flex = styled.div`
 export const VertFlex = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: start;
   gap: 20px;
 `
 
@@ -41,18 +42,18 @@ export const FlexContainer = styled.div`
   height: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) - 60px)' : 'auto' };
 
   &:first-child {
-    width: var(--left-column-width);
+    width: 50%;
   }
 
   &:last-child {
-  width: ${({ type }) => type === 'review' ? 'var(--left-column-width)' : 'var(--right-column-width)'};
+  width: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) - 60px)' : '50%'};
   }
 
   @media (max-width: ${mediaQueries.phone}) {
     height: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) / 1.25)' : '100%'};
     width: 100%;
     &:first-child {
-      width: auto;
+      width: 100%;
     }
     &:last-child {
       width: auto;

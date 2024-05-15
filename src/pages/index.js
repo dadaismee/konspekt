@@ -35,12 +35,13 @@ import {
 import "../styles/layout.css";
 
 const IndexPage = () => {
-  const [selectedTariff, setSelectedTariff] = useState('');
+  const [selectedTariff, setSelectedTariff] = useState();
 
   const handleClick = (tariffName) => {
     setSelectedTariff(tariffName);
-    console.log(selectedTariff);
   }
+
+  console.log(selectedTariff);
 
   return (
     <>
@@ -52,13 +53,13 @@ const IndexPage = () => {
       <BasicSection pageData={audience} grids={grids_4} />
       <ListSection pageData={outcomes} />
       <BasicSection id="results" pageData={results} grids={grids_3} />
-      <HowWorks id="process" pageData={process} grids={grids_3} />
+      <HowWorks id="process" pageData={process} grids={grids_4} />
       <Pricing id="pricing" pageData={pricing} selectedTariff={selectedTariff} handleClick={handleClick} />
       <Program id="program" pageData={program} />
-      <Author pageData={author} />
       <Reviews id="reviews" pageData={reviews} />
+      <Author pageData={author} />
       <FAQ pageData={faq} />
-      <RequestForm id="form" grids={grids_3} pageData={selectedTariff === 'promo' ? requestFormFree : requestFormBuy} selectedTariff={selectedTariff} type="landing"/>
+      <RequestForm id="form" grids={grids_3} pageData={Boolean(selectedTariff) ? requestFormBuy : requestFormFree} selectedTariff={selectedTariff} type="landing"/>
       <Contact id="contact" pageData={contact} />
       <Footer />
     </>
