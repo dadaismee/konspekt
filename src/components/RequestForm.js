@@ -39,7 +39,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
         Telegram: telegram,
         Date: Date(),
         Stream: stream,
-        Tariff: tariff,
+        Tariff: tariff || 'promo',
       }),
     });
     setIsSubmitted(true);
@@ -47,7 +47,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
     // window.open('https://self.payanyway.ru/1693655679114', '_blank');
     //
 
-    Boolean(selectedTariff === 'promo' || tariff === 'promo') && window.open("https://youtu.be/i7EZbRWHHBE", "_self");
+    Boolean(!selectedTariff) && window.open("https://youtu.be/i7EZbRWHHBE", "_self");
 
     Boolean(selectedTariff === 'active' || tariff === 'active') && window.open(
         "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
@@ -102,7 +102,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
             </Box>}
             <Box fontSize="20px">
               <FlexVertical>
-                {Boolean(type === 'landing' && selectedTariff) && (
+                {Boolean(type === 'landing') && (
                   <InputItem>
                     <Input
                       type="text"
