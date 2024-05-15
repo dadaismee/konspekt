@@ -55,7 +55,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
       )
 
     Boolean(selectedTariff === 'passive' || tariff === 'passive') && window.open(
-        "https://konspekt.zenclass.ru/public/t/cdd3c94c-f791-4b5c-b5f0-b754e9d3d998",
+        "https://konspekt.zenclass.ru/public/t/baac62a5-135b-4017-8043-c53e9ab611eb",
         "_self",
       );
   }; 
@@ -150,9 +150,9 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
                     <option value="" disabled selected={selectedTariff !== 'passive' || tariff !== 'active'}>
                       Тариф
                     </option>
-                    <option value="passive" selected={selectedTariff === 'passive' ? true : false}>«Сам(-а)» (уроки на платформе)</option>
+                    <option value="passive" selected={selectedTariff === 'passive' ? true : false}>«Курс» — самостоятельный тариф</option>
                     <option value="active" selected={selectedTariff === 'active' ? true : false}>
-                      «С преподавателем» (уроки на платформе + воркшопы)
+                      «Спринт» — тариф с преподавателем
                     </option>
                   </InputSelect>
                 </InputItem>}
