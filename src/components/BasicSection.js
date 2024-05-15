@@ -41,7 +41,7 @@ const BasicSection = ({ pageData, grids, id }) => {
           {data.map((box) => (
             <Box grid={box.grid} padding={box.padding} key={box.mainText}>
               {Boolean(box.mainText) && <ColoredText data={box} key={box.mainText} />}
-              {Boolean(box.video) && <div style={{width: '100%', height: '100%'}}><VideoPlayer videoSrc={box.video}/></div>}
+              {Boolean(box.video) && <VideoPlayer videoSrc={box.video}/>}
             </Box>
           ))}
         </GridContainer>

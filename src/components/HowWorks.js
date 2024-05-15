@@ -83,9 +83,9 @@ const Wrapper = styled.section``;
 const FlexWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 
   @media (max-width: ${mediaQueries.phone}) {
-    gap: 1vh;
+    gap: 2vh;
   }
 `;

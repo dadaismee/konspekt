@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Box } from '../components/index';
-import { SectionHeading } from '../styles/TextStyles';
+import { MenuAndFootnote, SectionHeading } from '../styles/TextStyles';
 import { Text } from './ColoredText';
 import { Asterisk, Circle, ListItem } from './ListSection';
 
@@ -35,7 +35,7 @@ const Program = ({ pageData, id }) => {
       <Box type='list'>
         {data.map((box, index) => (
           <ListItem>
-            <Circle>{index + 1}</Circle>
+            <Circle>{index}</Circle>
             <Flex>
               <Text key={box.mainText}>{box.mainText}</Text>
               {Boolean(box.subText) && (
@@ -44,6 +44,10 @@ const Program = ({ pageData, id }) => {
                 </Asterisk>
               )}
             </Flex>
+            {/* <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignSelf: 'center', maxWidth: '25%'}}>
+              <MenuAndFootnote style={{ color: 'var(--accent)'}}>Артефакт: </MenuAndFootnote>
+              <MenuAndFootnote>{box.artifact}</MenuAndFootnote>
+            </div> */}
           </ListItem>
         ))}
       </Box>

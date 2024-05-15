@@ -3,7 +3,7 @@ export const hero = {
   typeWriterText: ["on steroids", "on chill", "as an algorithm", "as it should be"],
   description: "Online lab for writing process optimization",
   buttonText: "Start May 20th",
-  features: ["8 online workshops", "30 lessons", "1 month", "1 text in portfolio"],
+  features: ["8 online workshops", "30 lessons", "1 month", "1 текст в портфолио"],
 };
 
 export const about = {
@@ -46,7 +46,7 @@ export const audience = {
     },
     {
       mainText:
-        "всем, кто хочет превратить своё чтение в новые идеи, выраженные в текстах",
+        "всем, кому нужен надёжный алгоритм написания текстов и  хочет превратить своё чтение в новые идеи, выраженные в текстах",
       spanText: ["превратить", "чтение в новые идеи"],
     },
   ],
@@ -58,8 +58,8 @@ export const outcomes = {
   boxes: [
     {
       mainText:
-        "Делать полезные заметки при чтении, обобщать их и собирать из них черновики текстов",
-      spanText: ["Делать полезные заметки"],
+        "Выделять важное и делать заметки при чтении, чтобы вы в любой момент могли понять, почему это выделили",
+      spanText: ["делать заметки при чтении"],
     },
     {
       mainText:
