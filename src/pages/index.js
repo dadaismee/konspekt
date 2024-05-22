@@ -45,10 +45,10 @@ const IndexPage = () => {
 
   return (
     <>
-      <FirstScreen>
+      {/* <FirstScreen> */}
         <Header />
         <Hero data={hero} selectedTariff={selectedTariff} handleClick={handleClick}/>
-      </FirstScreen>
+      {/* </FirstScreen> */}
       <BasicSection id="about" pageData={about} grids={grids_3} />
       <BasicSection pageData={audience} grids={grids_4} />
       <ListSection pageData={outcomes} />

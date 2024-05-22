@@ -3,19 +3,42 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React from 'react';
 import { styled } from 'styled-components';
 import Typewriter from 'typewriter-effect';
+import { Image } from './Author';   
 import { mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
+import test from '../assets/test.gif';
 
 const Hero = ({ data, handleClick }) => {
   const { title, typeWriterText, description, buttonText, features } = data;
 
   return (
     <Wrapper>
-      <Tagline>
-        <SiteHeading
+      <FlexContainer>
+        <Image
           initial={{
             opacity: 0,
             y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            y: 20,
+          }}
+          transition={{
+            ease: [0.165, 0.84, 0.44, 1],
+            duration: 1,
+            delay: 0.15,
+          }}
+          viewport={{ once: true }}
+          src={test}></Image>
+          <Tagline>
+            <SiteHeading
+              initial={{
+                opacity: 0,
+                y: 20,
           }}
           whileInView={{
             opacity: 1,
@@ -41,9 +64,7 @@ const Hero = ({ data, handleClick }) => {
             }}
           />
         </SiteHeading>
-      </Tagline>
-      <FlexContainer>
-        <Description
+        {/* <Description
           initial={{
             opacity: 0,
             y: 20,
@@ -63,7 +84,7 @@ const Hero = ({ data, handleClick }) => {
           }}
           viewport={{ once: true }}>
           {description}
-        </Description>
+        </Description> */}
         <ButtonWrapper
           initial={{
             opacity: 0,
@@ -107,7 +128,8 @@ const Hero = ({ data, handleClick }) => {
               to='#form'>Получить 1 урок
             </Button> 
           </ButtonsWrapper> */ }
-        </ButtonWrapper>
+          </ButtonWrapper>
+        </Tagline>
       </FlexContainer>
     </Wrapper>
   );
@@ -119,7 +141,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 80%;
+  height: 90dvh;
 
   @media (max-width: ${mediaQueries.phone}) {
     justify-content: space-between;
@@ -129,10 +151,9 @@ const Wrapper = styled.div`
 
 const Tagline = styled.div`
   display: flex;
+  height: 100%;
   flex-direction: column;
-  gap: 20px;
-  align-items: start;
-  margin: 120px 0;
+  justify-content: space-between;
 
   @media (max-width: ${mediaQueries.phone}) {
     display: flex;

@@ -79,9 +79,8 @@ export default Author;
 
 const Wrapper = styled.section``;
 
-const Image = styled(motion.img)`
+export const Image = styled(motion.img)`
   width: var(--left-column-width);
-  height: var(--left-column-width);
   border-radius: 15px;
 
   @media (max-width: ${mediaQueries.phone}) {
