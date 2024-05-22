@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Box, ColoredText } from "../components/index";
 import { Flex, mediaQueries, FlexContainer } from "../styles/GlobalStyles";
-import { MainFeature, MainText, SectionHeading } from "../styles/TextStyles";
+import { MainFeature, MainText, MenuAndFootnote, SectionHeading } from "../styles/TextStyles";
 import { Button, ButtonWrapper } from "./Hero";
 import { Asterisk } from "./ListSection";
 
@@ -50,8 +50,8 @@ const Pricing = ({ pageData, id, handleClick }) => {
  
               {tariff.features.map((feature) => (
                 <FlexArrow>
-                  <MainText>→</MainText>
-                  <ColoredText component={MainText} lineHeight='100%' data={feature} key={feature.mainText} />
+                  <MenuAndFootnote>→</MenuAndFootnote>
+                  <ColoredText component={MenuAndFootnote} lineHeight='100%' data={feature} key={feature.mainText} />
                 </FlexArrow>
               ))}
             </Box>
