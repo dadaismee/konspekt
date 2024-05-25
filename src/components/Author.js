@@ -81,6 +81,7 @@ const Wrapper = styled.section``;
 
 export const Image = styled(motion.img)`
   width: var(--left-column-width);
+  max-height: var(--left-column-width);
   border-radius: 15px;
 
   @media (max-width: ${mediaQueries.phone}) {

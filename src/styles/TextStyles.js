@@ -10,7 +10,7 @@ export const Heading = styled(motion.h1)`
   line-height: 105%; /* 136.5px */
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 12vw;
+    font-size: 10vw;
     text-align: left;
   }
 `;

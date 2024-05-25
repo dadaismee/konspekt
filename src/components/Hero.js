@@ -55,7 +55,6 @@ const Hero = ({ data, handleClick }) => {
           }}
           viewport={{ once: true }}>
           {title}
-
           <Typewriter
             options={{
               strings: typeWriterText,
@@ -110,13 +109,13 @@ const Hero = ({ data, handleClick }) => {
               <Features key={feature}>{feature}</Features> 
             ))}
           </FeaturesContainer>
-          <MobileFeaturesContainer>
+            {/* <MobileFeaturesContainer>
             {features.map(feature => (
               <MobileFeatureBorder>
               <Features key={feature}>{feature}</Features> 
               </MobileFeatureBorder>
             ))}
-          </MobileFeaturesContainer>
+          </MobileFeaturesContainer> */}
           {/* <ButtonsWrapper
             onClick={() => handleClick("promo")} 
           > */}
@@ -140,11 +139,10 @@ export default Hero;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  height: 90dvh;
+  justify-content: space-around;
+  height: 85dvh;
 
   @media (max-width: ${mediaQueries.phone}) {
-    justify-content: space-between;
     align-items: stretch;
   }
 `;
@@ -158,7 +156,8 @@ const Tagline = styled.div`
   @media (max-width: ${mediaQueries.phone}) {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 40px;
+    justify-content: start;
     /* margin: 40px 0px; */
   }
 `;
@@ -176,7 +175,7 @@ const SiteHeading = styled(Heading)`
 
 export const FlexContainer = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 10px;
   align-items: end;
   justify-content: space-between;
   width: 100%;
