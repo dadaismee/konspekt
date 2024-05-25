@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Box, ColoredText } from "../components/index";
 import { Flex, mediaQueries, FlexContainer } from "../styles/GlobalStyles";
-import { MainFeature, MainText, SectionHeading } from "../styles/TextStyles";
+import { MainFeature, MainText, MenuAndFootnote, SectionHeading } from "../styles/TextStyles";
 import { Button, ButtonWrapper } from "./Hero";
 import { Asterisk } from "./ListSection";
 
@@ -48,12 +48,14 @@ const Pricing = ({ pageData, id, handleClick }) => {
                 {tariff.title}
               </MainFeature>
  
-              {tariff.features.map((feature) => (
-                <FlexArrow>
-                  <MainText>→</MainText>
-                  <ColoredText component={MainText} lineHeight='100%' data={feature} key={feature.mainText} />
-                </FlexArrow>
-              ))}
+              <BoxGrid>
+                {tariff.features.map((feature) => (
+                  <FlexArrow>
+                    <MenuAndFootnote>→</MenuAndFootnote>
+                    <ColoredText component={MenuAndFootnote} lineHeight='100%' data={feature} key={feature.mainText} />
+                  </FlexArrow>
+                ))}
+              </BoxGrid>
             </Box>
 
             <ButtonWrapper
@@ -118,4 +120,9 @@ const Wrapper = styled.section`
 const FlexArrow = styled.div`
 display: flex;
 gap: 10px;
+`
+const BoxGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
 `
