@@ -34,81 +34,81 @@ const Hero = ({ data, handleClick }) => {
           }}
           viewport={{ once: true }}
           src={test}></Image>
-          <Tagline>
-            <SiteHeading
-              initial={{
-                opacity: 0,
-                y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          exit={{
-            opacity: 0,
-            y: 20,
-          }}
-          transition={{
-            ease: [0.165, 0.84, 0.44, 1],
-            duration: 1,
-            delay: 0.25,
-          }}
-          viewport={{ once: true }}>
-          {title}
-          {/* <Typewriter
+        <Tagline>
+          <SiteHeading
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: 20,
+            }}
+            transition={{
+              ease: [0.165, 0.84, 0.44, 1],
+              duration: 1,
+              delay: 0.25,
+            }}
+            viewport={{ once: true }}>
+            {title}
+            {/* <Typewriter
             options={{
               strings: typeWriterText,
               autoStart: true,
               loop: true,
             }}
           /> */}
-        </SiteHeading>
-        {/* <Description
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          exit={{
-            opacity: 0,
-            y: 20,
-          }}
-          transition={{
-            ease: [0.165, 0.84, 0.44, 1],
-            duration: 1,
-            delay: 0.25,
-          }}
-          viewport={{ once: true }}>
-          {description}
-        </Description> */}
-        <ButtonWrapper
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          exit={{
-            opacity: 0,
-            y: 20,
-          }}
-          transition={{
-            ease: [0.165, 0.84, 0.44, 1],
-            duration: 1,
-            delay: 0.35,
-          }}
-          viewport={{ once: true }}
-          width='var(--right-column-width)'>
-          <FeaturesContainer>
+          </SiteHeading>
+          <Description
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: 20,
+            }}
+            transition={{
+              ease: [0.165, 0.84, 0.44, 1],
+              duration: 1,
+              delay: 0.25,
+            }}
+            viewport={{ once: true }}>
+            {description}
+          </Description> 
+          <ButtonWrapper
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: 20,
+            }}
+            transition={{
+              ease: [0.165, 0.84, 0.44, 1],
+              duration: 1,
+              delay: 0.35,
+            }}
+            viewport={{ once: true }}
+            width='var(--right-column-width)'>
+            {/* <FeaturesContainer>
             {features.map(feature => (
               <Features key={feature}>{feature}</Features> 
             ))}
-          </FeaturesContainer>
+          </FeaturesContainer> */}
             {/* <MobileFeaturesContainer>
             {features.map(feature => (
               <MobileFeatureBorder>
@@ -116,10 +116,10 @@ const Hero = ({ data, handleClick }) => {
               </MobileFeatureBorder>
             ))}
           </MobileFeaturesContainer> */}
-          {/* <ButtonsWrapper
+            {/* <ButtonsWrapper
             onClick={() => handleClick("promo")} 
           > */}
-          <Button fontSize="40px" to='#pricing'>{buttonText}</Button>
+            <Button fontSize="40px" to='#pricing'>{buttonText}</Button>
             {/* <Button 
               type="ghost" 
               fontSize="24px" 
@@ -152,8 +152,7 @@ const Tagline = styled.div`
   display: flex;
   height: 100%;
   flex-direction: column;
-  justify-content: space-around;
-gap: 80px;
+  justify-content: space-between;
 
   @media (max-width: ${mediaQueries.phone}) {
     display: flex;
@@ -189,8 +188,8 @@ export const FlexContainer = styled.div`
 `;
 
 const Description = styled(MainText)`
-  width: calc(var(--left-column-width) - 80px);
-
+  font-family: Coolvetica Lite;
+  line-height: 80%;
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;
   }
