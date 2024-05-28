@@ -83,6 +83,7 @@ export const Image = styled(motion.img)`
   width: var(--left-column-width);
   max-height: var(--left-column-width);
   border-radius: 15px;
+  box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.125);
 
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;

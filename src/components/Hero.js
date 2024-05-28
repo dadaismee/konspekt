@@ -6,7 +6,7 @@ import Typewriter from 'typewriter-effect';
 import { Image } from './Author';   
 import { mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
-import test from '../assets/test.gif';
+import test from '../assets/landing.gif';
 
 const Hero = ({ data, handleClick }) => {
   const { title, typeWriterText, description, buttonText, features } = data;
@@ -55,13 +55,13 @@ const Hero = ({ data, handleClick }) => {
           }}
           viewport={{ once: true }}>
           {title}
-          <Typewriter
+          {/* <Typewriter
             options={{
               strings: typeWriterText,
               autoStart: true,
               loop: true,
             }}
-          />
+          /> */}
         </SiteHeading>
         {/* <Description
           initial={{
@@ -144,6 +144,7 @@ const Wrapper = styled.div`
 
   @media (max-width: ${mediaQueries.phone}) {
     align-items: stretch;
+    height: 100dvh;
   }
 `;
 
@@ -151,7 +152,8 @@ const Tagline = styled.div`
   display: flex;
   height: 100%;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+gap: 80px;
 
   @media (max-width: ${mediaQueries.phone}) {
     display: flex;
@@ -175,9 +177,9 @@ const SiteHeading = styled(Heading)`
 
 export const FlexContainer = styled.div`
   display: flex;
-  gap: 10px;
-  align-items: end;
-  justify-content: space-between;
+  gap: 20px;
+  align-items: strat;
+  justify-content: start;
   width: 100%;
 
   @media (max-width: ${mediaQueries.phone}) {
