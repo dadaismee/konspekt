@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Box, ColoredText } from "../components/index";
-import { Flex, mediaQueries, FlexContainer } from "../styles/GlobalStyles";
+import { Flex, mediaQueries, FlexContainer, VertFlex } from "../styles/GlobalStyles";
 import { MainFeature, MainText, MenuAndFootnote, SectionHeading } from "../styles/TextStyles";
 import { Button, ButtonWrapper } from "./Hero";
 import { Asterisk } from "./ListSection";
@@ -52,7 +52,11 @@ const Pricing = ({ pageData, id, handleClick }) => {
                 {tariff.features.map((feature) => (
                   <FlexArrow>
                     <MenuAndFootnote>→</MenuAndFootnote>
-                    <ColoredText component={MenuAndFootnote} lineHeight='100%' data={feature} key={feature.mainText} />
+                    <VertFlex style={{ gap: '0px'}}>
+                      <MenuAndFootnote>{feature.mainText}</MenuAndFootnote>
+                      <MenuAndFootnote style={{fontFamily: 'Coolvetica Lite', lineHeight: "90%", color: 'var(--asterisk)'}}>{feature.spanText}</MenuAndFootnote>
+                    </VertFlex>
+                    {/* <ColoredText component={MenuAndFootnote} lineHeight='100%' data={feature} key={feature.mainText} /> */}
                   </FlexArrow>
                 ))}
               </BoxGrid>
