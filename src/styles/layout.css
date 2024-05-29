@@ -152,6 +152,7 @@ section {
   font-family: 'Coolvetica Lite';
   src: url(../assets/coolvetica-lite.ttf); 
   font-weight: 400;
+  line-height: 80%;
 }
 
 :root {

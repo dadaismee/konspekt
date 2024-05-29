@@ -4,7 +4,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import Typewriter from 'typewriter-effect';
 import { Image } from './Author';   
-import { mediaQueries } from '../styles/GlobalStyles';
+import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
 import test from '../assets/landing.gif';
 
@@ -35,6 +35,7 @@ const Hero = ({ data, handleClick }) => {
           viewport={{ once: true }}
           src={test}></Image>
         <Tagline>
+          <VertFlex>
           <SiteHeading
             initial={{
               opacity: 0,
@@ -84,6 +85,7 @@ const Hero = ({ data, handleClick }) => {
             viewport={{ once: true }}>
             {description}
           </Description> 
+          </VertFlex>
           <ButtonWrapper
             initial={{
               opacity: 0,
@@ -144,7 +146,6 @@ const Wrapper = styled.div`
 
   @media (max-width: ${mediaQueries.phone}) {
     align-items: stretch;
-    height: 100dvh;
   }
 `;
 
@@ -200,7 +201,7 @@ export const Button = styled(AnchorLink)`
   justify-content: center;
   align-items: center;
   width: ${({ width }) => width || '100%'} ;
-  height: ${({ height }) => height || '115px'};
+  height: ${({ height }) => height || '80px'};
   font-size: ${({ fontSize }) => fontSize  || '48px'};
   background-color: ${({ type }) => type === "ghost" ? "transparent" : "var(--accent)"};
   box-sizing: border-box;
