@@ -3,16 +3,22 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React from 'react';
 import { styled } from 'styled-components';
 import Typewriter from 'typewriter-effect';
-import { mediaQueries } from '../styles/GlobalStyles';
+import { Image } from './Author';   
+import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
+import test from '../assets/landing_final.mp4';
 
 const Hero = ({ data, handleClick }) => {
   const { title, typeWriterText, description, buttonText, features } = data;
 
   return (
     <Wrapper>
-      <Tagline>
-        <SiteHeading
+      <FlexContainer>
+        <Video
+          muted
+          autoPlay
+          playsinline
+          loop
           initial={{
             opacity: 0,
             y: 20,
@@ -28,78 +34,98 @@ const Hero = ({ data, handleClick }) => {
           transition={{
             ease: [0.165, 0.84, 0.44, 1],
             duration: 1,
-            delay: 0.25,
+            delay: 0.15,
           }}
-          viewport={{ once: true }}>
-          {title}
-
-          <Typewriter
+          viewport={{ once: true }}
+          src={test}/>
+        <Tagline>
+          <VertFlex>
+          <SiteHeading
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: 20,
+            }}
+            transition={{
+              ease: [0.165, 0.84, 0.44, 1],
+              duration: 1,
+              delay: 0.25,
+            }}
+            viewport={{ once: true }}>
+            {title}
+            {/* <Typewriter
             options={{
               strings: typeWriterText,
               autoStart: true,
               loop: true,
             }}
-          />
-        </SiteHeading>
-      </Tagline>
-      <FlexContainer>
-        <Description
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          exit={{
-            opacity: 0,
-            y: 20,
-          }}
-          transition={{
-            ease: [0.165, 0.84, 0.44, 1],
-            duration: 1,
-            delay: 0.25,
-          }}
-          viewport={{ once: true }}>
-          {description}
-        </Description>
-        <ButtonWrapper
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          exit={{
-            opacity: 0,
-            y: 20,
-          }}
-          transition={{
-            ease: [0.165, 0.84, 0.44, 1],
-            duration: 1,
-            delay: 0.35,
-          }}
-          viewport={{ once: true }}
-          width='var(--right-column-width)'>
-          <FeaturesContainer>
+          /> */}
+          </SiteHeading>
+          <Description
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: 20,
+            }}
+            transition={{
+              ease: [0.165, 0.84, 0.44, 1],
+              duration: 1,
+              delay: 0.25,
+            }}
+            viewport={{ once: true }}>
+            {description}
+          </Description> 
+          </VertFlex>
+          <ButtonWrapper
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: 20,
+            }}
+            transition={{
+              ease: [0.165, 0.84, 0.44, 1],
+              duration: 1,
+              delay: 0.35,
+            }}
+            viewport={{ once: true }}
+            width='var(--right-column-width)'>
+            {/* <FeaturesContainer>
             {features.map(feature => (
               <Features key={feature}>{feature}</Features> 
             ))}
-          </FeaturesContainer>
-          <MobileFeaturesContainer>
+          </FeaturesContainer> */}
+            {/* <MobileFeaturesContainer>
             {features.map(feature => (
               <MobileFeatureBorder>
               <Features key={feature}>{feature}</Features> 
               </MobileFeatureBorder>
             ))}
-          </MobileFeaturesContainer>
-          {/* <ButtonsWrapper
+          </MobileFeaturesContainer> */}
+            {/* <ButtonsWrapper
             onClick={() => handleClick("promo")} 
           > */}
-          <Button fontSize="40px" to='#pricing'>{buttonText}</Button>
+            <Button fontSize="40px" to='#pricing'>{buttonText}</Button>
             {/* <Button 
               type="ghost" 
               fontSize="24px" 
@@ -107,7 +133,8 @@ const Hero = ({ data, handleClick }) => {
               to='#form'>Получить 1 урок
             </Button> 
           </ButtonsWrapper> */ }
-        </ButtonWrapper>
+          </ButtonWrapper>
+        </Tagline>
       </FlexContainer>
     </Wrapper>
   );
@@ -118,26 +145,25 @@ export default Hero;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  height: 80%;
+  justify-content: space-around;
+  height: 85dvh;
 
   @media (max-width: ${mediaQueries.phone}) {
-    justify-content: space-between;
     align-items: stretch;
   }
 `;
 
 const Tagline = styled.div`
   display: flex;
+  height: 100%;
   flex-direction: column;
-  gap: 20px;
-  align-items: start;
-  margin: 120px 0;
+  justify-content: space-between;
 
   @media (max-width: ${mediaQueries.phone}) {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 40px;
+    justify-content: start;
     /* margin: 40px 0px; */
   }
 `;
@@ -156,8 +182,8 @@ const SiteHeading = styled(Heading)`
 export const FlexContainer = styled.div`
   display: flex;
   gap: 20px;
-  align-items: end;
-  justify-content: space-between;
+  align-items: strat;
+  justify-content: start;
   width: 100%;
 
   @media (max-width: ${mediaQueries.phone}) {
@@ -167,8 +193,8 @@ export const FlexContainer = styled.div`
 `;
 
 const Description = styled(MainText)`
-  width: calc(var(--left-column-width) - 80px);
-
+  font-family: Coolvetica Lite;
+  line-height: 80%;
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;
   }
@@ -179,7 +205,7 @@ export const Button = styled(AnchorLink)`
   justify-content: center;
   align-items: center;
   width: ${({ width }) => width || '100%'} ;
-  height: ${({ height }) => height || '115px'};
+  height: ${({ height }) => height || '80px'};
   font-size: ${({ fontSize }) => fontSize  || '48px'};
   background-color: ${({ type }) => type === "ghost" ? "transparent" : "var(--accent)"};
   box-sizing: border-box;
@@ -253,3 +279,16 @@ const MobileFeatureBorder = styled.div`
   padding: 10px;
   border-radius: 15px;
 `
+
+const Video = styled(motion.video)`
+  width: var(--left-column-width);
+  max-height: var(--left-column-width);
+  border-radius: 15px;
+  box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.125);
+
+  @media (max-width: ${mediaQueries.phone}) {
+    width: 100%;
+    height: 100%;
+  }
+`;
+

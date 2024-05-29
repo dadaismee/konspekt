@@ -42,19 +42,17 @@ const Pricing = ({ pageData, id, handleClick }) => {
               <MainFeature
                 style={{
                   // color: 'var(--accent)',
-                  marginBottom: "20px",
+                  marginBottom: "30px",
                 }}
               >
                 {tariff.title}
               </MainFeature>
  
               {tariff.features.map((feature) => (
-                <FlexArrow>
-                  <MainText>→</MainText>
-                  <ColoredText component={MainText} lineHeight='100%' data={feature} key={feature.mainText} />
-                </FlexArrow>
+               <ColoredText lineHeight='100%' data={feature} key={feature.mainText} />
               ))}
             </Box>
+
 
             <ButtonWrapper
               initial={{
@@ -112,10 +110,4 @@ const Pricing = ({ pageData, id, handleClick }) => {
 
 export default Pricing;
 
-const Wrapper = styled.section`
-`;
-
-const FlexArrow = styled.div`
-display: flex;
-gap: 10px;
-`
+const Wrapper = styled.section``;

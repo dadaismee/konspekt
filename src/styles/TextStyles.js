@@ -4,11 +4,13 @@ import { mediaQueries } from './GlobalStyles';
 
 export const Heading = styled(motion.h1)`
   color: var(--text);
-  font-size: 9vw; //130px;
+  width: var(--column-right-width);
+  font-size: 5.36vw; //130px;
+  font-size: auto;
   line-height: 105%; /* 136.5px */
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 12vw;
+    font-size: 10vw;
     text-align: left;
   }
 `;
@@ -59,7 +61,7 @@ export const MainText = styled(motion.p)`
 
 export const MenuAndFootnote = styled(motion.p)`
   color: var(--text);
-  font-size: 24px;
+  font-size: 20px;
   line-height: 105%; /* 136.5px */
 
   @media (max-width: ${mediaQueries.phone}) {

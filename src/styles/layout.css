@@ -144,7 +144,15 @@ section {
 
 @font-face {
   font-family: 'Coolvetica';
-  src: url(../assets/coolvetica.ttf);
+  src: url(../assets/coolvetica.ttf); 
+  font-weight: 600
+}
+
+@font-face {
+  font-family: 'Coolvetica Lite';
+  src: url(../assets/coolvetica-lite.ttf); 
+  font-weight: 400;
+  line-height: 80%;
 }
 
 :root {
