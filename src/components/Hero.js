@@ -6,7 +6,7 @@ import Typewriter from 'typewriter-effect';
 import { Image } from './Author';   
 import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
-import test from '../assets/landing.gif';
+import test from '../assets/landing_final.mp4';
 
 const Hero = ({ data, handleClick }) => {
   const { title, typeWriterText, description, buttonText, features } = data;
@@ -14,7 +14,11 @@ const Hero = ({ data, handleClick }) => {
   return (
     <Wrapper>
       <FlexContainer>
-        <Image
+        <Video
+          muted
+          autoPlay
+          playsinline
+          loop
           initial={{
             opacity: 0,
             y: 20,
@@ -33,7 +37,7 @@ const Hero = ({ data, handleClick }) => {
             delay: 0.15,
           }}
           viewport={{ once: true }}
-          src={test}></Image>
+          src={test}/>
         <Tagline>
           <VertFlex>
           <SiteHeading
@@ -275,3 +279,16 @@ const MobileFeatureBorder = styled.div`
   padding: 10px;
   border-radius: 15px;
 `
+
+const Video = styled(motion.video)`
+  width: var(--left-column-width);
+  max-height: var(--left-column-width);
+  border-radius: 15px;
+  box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.125);
+
+  @media (max-width: ${mediaQueries.phone}) {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
