@@ -129,4 +129,10 @@ const BoxGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
+
+  @media (max-width: ${mediaQueries.phone}) {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+}
 `

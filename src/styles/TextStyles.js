@@ -63,7 +63,7 @@ export const MenuAndFootnote = styled(motion.p)`
   line-height: 105%; /* 136.5px */
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 16px;
+    font-size: 20px;
   }
 `;
 
