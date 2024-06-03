@@ -4,6 +4,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import Typewriter from 'typewriter-effect';
 import { Image } from './Author';   
+import Box from './Box';
 import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
 import test from '../assets/landing_final.mp4';
@@ -38,58 +39,67 @@ const Hero = ({ data, handleClick }) => {
           }}
           viewport={{ once: true }}
           src={test}/>
-        <Tagline>
-          <VertFlex>
-          <SiteHeading
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              y: 20,
-            }}
-            transition={{
-              ease: [0.165, 0.84, 0.44, 1],
-              duration: 1,
-              delay: 0.25,
-            }}
-            viewport={{ once: true }}>
-            {title}
-            {/* <Typewriter
-            options={{
-              strings: typeWriterText,
-              autoStart: true,
-              loop: true,
-            }}
-          /> */}
-          </SiteHeading>
-          <Description
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              y: 20,
-            }}
-            transition={{
-              ease: [0.165, 0.84, 0.44, 1],
-              duration: 1,
-              delay: 0.25,
-            }}
-            viewport={{ once: true }}>
-            {description}
-          </Description> 
-          </VertFlex>
+        <VertFlex>
+          <Box height="100%">
+            <Tagline>
+              <SiteHeading
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                transition={{
+                  ease: [0.165, 0.84, 0.44, 1],
+                  duration: 1,
+                  delay: 0.25,
+                }}
+                viewport={{ once: true }}>
+                {title}
+
+              </SiteHeading>
+              <Description
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                transition={{
+                  ease: [0.165, 0.84, 0.44, 1],
+                  duration: 1,
+                  delay: 0.25,
+                }}
+                viewport={{ once: true }}>
+                {description}
+              </Description> 
+              <FeaturesContainer>
+                {features.map(feature => (
+                  <Features key={feature}>{feature}</Features> 
+                ))}
+              </FeaturesContainer> 
+
+              {/* <Typewriter
+                options={{
+                  strings: typeWriterText,
+                  autoStart: true,
+                  loop: true,
+                }}
+              /> */}
+        </Tagline>
+          </Box>
           <ButtonWrapper
             initial={{
               opacity: 0,
@@ -110,12 +120,7 @@ const Hero = ({ data, handleClick }) => {
             }}
             viewport={{ once: true }}
             width='var(--right-column-width)'>
-            {/* <FeaturesContainer>
-            {features.map(feature => (
-              <Features key={feature}>{feature}</Features> 
-            ))}
-          </FeaturesContainer> */}
-            {/* <MobileFeaturesContainer>
+                        {/* <MobileFeaturesContainer>
             {features.map(feature => (
               <MobileFeatureBorder>
               <Features key={feature}>{feature}</Features> 
@@ -134,7 +139,7 @@ const Hero = ({ data, handleClick }) => {
             </Button> 
           </ButtonsWrapper> */ }
           </ButtonWrapper>
-        </Tagline>
+          </VertFlex>
       </FlexContainer>
     </Wrapper>
   );

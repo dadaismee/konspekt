@@ -124,7 +124,6 @@ const Navbar = styled.nav`
 `;
 
 const AnchorLinkEl = styled(AnchorLink)`
-  font-family: Coolvetica Lite;
   font-size: 20px;
   transition: var(--transition);
 

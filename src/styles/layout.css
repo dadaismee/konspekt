@@ -159,7 +159,7 @@ section {
   --main: #649567;
   --text: #000;
   --asterisk: #3d4f33;
-  --accent: #fafafa;
+  --accent: #f8f8f8; 
   --left-column-width: 516px;
   --right-column-width: 784px;
   --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
