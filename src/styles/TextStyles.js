@@ -70,8 +70,6 @@ export const MenuAndFootnote = styled(motion.p)`
 `;
 
 export const Features = styled(motion.p)`
-  color: var(--accent);
-  font-family: 'Coolvetica';
   font-size: 20px;
 
   @media (max-width: ${mediaQueries.phone}) {
