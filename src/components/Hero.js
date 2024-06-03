@@ -127,17 +127,18 @@ const Hero = ({ data, handleClick }) => {
               </MobileFeatureBorder>
             ))}
           </MobileFeaturesContainer> */}
-            {/* <ButtonsWrapper
-            onClick={() => handleClick("promo")} 
-          > */}
-            <Button fontSize="40px" to='#pricing'>{buttonText}</Button>
+            <ButtonsWrapper
+              style={{ width: "100%"}}
+            onClick={() => handleClick("passive")} 
+          > 
+            <Button fontSize="40px" to='#form'>{buttonText}</Button>
             {/* <Button 
               type="ghost" 
               fontSize="24px" 
               width="calc(var(--right-column-width) - var(--left-column-width))" 
               to='#form'>Получить 1 урок
-            </Button> 
-          </ButtonsWrapper> */ }
+            </Button>  */}
+          </ButtonsWrapper> 
           </ButtonWrapper>
           </VertFlex>
       </FlexContainer>
@@ -210,7 +211,7 @@ export const Button = styled(AnchorLink)`
   justify-content: center;
   align-items: center;
   width: ${({ width }) => width || '100%'} ;
-  height: ${({ height }) => height || '80px'};
+  height: ${({ height }) => height || '100px'};
   font-size: ${({ fontSize }) => fontSize  || '48px'};
   background-color: ${({ type }) => type === "ghost" ? "transparent" : "var(--accent)"};
   box-sizing: border-box;

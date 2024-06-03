@@ -38,7 +38,7 @@ const Pricing = ({ pageData, id, handleClick }) => {
       <Flex>
         {tariffs.map((tariff, index) => (
           <FlexContainer>
-            <Box height="100%">
+            <Box  height="100%">
               <MainFeature
                 style={{
                   // color: 'var(--accent)',
@@ -49,7 +49,7 @@ const Pricing = ({ pageData, id, handleClick }) => {
               </MainFeature>
  
               {tariff.features.map((feature) => (
-               <ColoredText lineHeight='100%' data={feature} key={feature.mainText} />
+               <ColoredText component={MainText} lineHeight='100%' data={feature} key={feature.mainText} />
               ))}
             </Box>
 
