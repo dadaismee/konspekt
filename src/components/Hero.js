@@ -84,6 +84,8 @@ const Hero = ({ data, handleClick }) => {
                 }}
                 viewport={{ once: true }}>
                 {description}
+              <span style={{ fontFamily: "Coolvetica"}}>
+                            </span>
               </Description> 
               <FeaturesContainer>
                 {features.map(feature => (
@@ -91,13 +93,6 @@ const Hero = ({ data, handleClick }) => {
                 ))}
               </FeaturesContainer> 
 
-              {/* <Typewriter
-                options={{
-                  strings: typeWriterText,
-                  autoStart: true,
-                  loop: true,
-                }}
-              /> */}
         </Tagline>
           </Box>
           <ButtonWrapper
@@ -156,6 +151,7 @@ const Wrapper = styled.div`
 
   @media (max-width: ${mediaQueries.phone}) {
     align-items: stretch;
+    height: auto;
   }
 `;
 
@@ -200,7 +196,7 @@ export const FlexContainer = styled.div`
 
 const Description = styled(MainText)`
   font-family: Coolvetica Lite;
-  line-height: 80%;
+  line-height: 90%;
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;
   }
@@ -211,7 +207,7 @@ export const Button = styled(AnchorLink)`
   justify-content: center;
   align-items: center;
   width: ${({ width }) => width || '100%'} ;
-  height: ${({ height }) => height || '100px'};
+  height: ${({ height }) => height || '80px'};
   font-size: ${({ fontSize }) => fontSize  || '48px'};
   background-color: ${({ type }) => type === "ghost" ? "transparent" : "var(--accent)"};
   box-sizing: border-box;
@@ -234,6 +230,7 @@ color: ${({ type }) => type === "ghost" ? "var(--accent)" : "var(--text)"};
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;
     font-size: 32px;
+    line-height: 80%;
   }
 `;
 
@@ -294,7 +291,8 @@ const Video = styled(motion.video)`
 
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;
-    height: 100%;
+    height: 150px;
+    object-fit: cover;
   }
 `;
 
