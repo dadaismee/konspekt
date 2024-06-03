@@ -69,6 +69,7 @@ const Wrapper = styled(motion.div)`
   width: ${({ width }) => width || 'auto'};
   display: flex;
   flex-direction: column;
+  justify-content: start;
   gap: 10px;
 
   @media (max-width: ${mediaQueries.phone}) {

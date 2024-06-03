@@ -181,7 +181,7 @@ export const program = {
 };
 
 export const pricing = {
-  title: "Тарифы",
+  title: "Сколько стоит",
   tariffs: [
     {
       title: "Курс",
@@ -220,9 +220,9 @@ export const pricing = {
           spanText: ["после — 1 490₽/мес, сообщесво и встречи — бесплатно"],
         },
       ],
-      price: "15 990 ₽",
+      price: "Купить за 15 990 ₽",
     },
-    {
+    /* {
       title: "Спринт",
       name: "active",
       features: [
@@ -248,7 +248,7 @@ export const pricing = {
         }
       ],
       price: "29 990 ₽",
-    },
+    }, */
   ],
   /* asterisk: "*если наберётся группа от 10 человек. Если нет, вернём деньги или запишем вас на следующий поток" */
 };
