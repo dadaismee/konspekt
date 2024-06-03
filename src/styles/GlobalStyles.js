@@ -47,7 +47,7 @@ export const FlexContainer = styled.div`
   }
 
   &:last-child {
-  width: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) - 60px)' : '50%'};
+  width: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) - 60px)' : 'auto'};
   }
 
   @media (max-width: ${mediaQueries.phone}) {
