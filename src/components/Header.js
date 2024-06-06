@@ -26,7 +26,7 @@ const Header = () => {
     },
 
     {
-      name: 'тарифы',
+      name: 'стоимость',
       url: '/#pricing',
     },
     {

@@ -99,8 +99,8 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
         <FormWrapper>
           <BoxWrapper>
             {Boolean(type === 'landing') && <Box grid={grids[0]}>
-              /* {Boolean(selectedTariff) ? <ColoredText data={selectedTariff === 'passive' ? boxes[0] : boxes[2]}></ColoredText> : <ColoredText data
-             ={boxes[0]}></ColoredText>} */
+              {/* Boolean(selectedTariff) ? <ColoredText data={selectedTariff === 'passive' ? boxes[0] : boxes[2]}></ColoredText> : <ColoredText data
+             ={boxes[0]}></ColoredText>*/} 
               <ColoredText data={boxes[0]} />
             </Box>}
             <Box fontSize="20px">
