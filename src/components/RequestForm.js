@@ -140,7 +140,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
                   />
                   {errors.email && <p>Введите адрес почты</p>}
                 </InputItem>
-                {Boolean(selectedTariff) && <InputItem>
+                {/* {Boolean(selectedTariff) && <InputItem>
                   <InputSelect
                     name="Тариф"
                     {...register("tariff", {
@@ -155,7 +155,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
                       «Спринт» — тариф с преподавателем
                     </option>
                   </InputSelect>
-                </InputItem>}
+                </InputItem>} */}
                 {/* {(Boolean(selectedTariff === "active") || Boolean(tariff === "active")) && (
                   <InputItem>
                     <InputSelect

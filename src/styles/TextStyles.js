@@ -61,7 +61,7 @@ export const MainText = styled(motion.p)`
 
 export const MenuAndFootnote = styled(motion.p)`
   color: var(--text);
-  font-size: 20px;
+  font-size: 24px;
   line-height: 105%; /* 136.5px */
 
   @media (max-width: ${mediaQueries.phone}) {
