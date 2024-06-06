@@ -39,7 +39,7 @@ const Pricing = ({ pageData, id, handleClick }) => {
         {tariffs.length > 1 ? 
         tariffs.map((tariff, index) => (
           <FlexContainer>
-            <Box  height="100%">
+            <Box height="100%">
               <MainFeature
                 style={{
                   // color: 'var(--accent)',
@@ -84,7 +84,7 @@ const Pricing = ({ pageData, id, handleClick }) => {
               }}
               viewport={{ once: true }}
               onClick={() => handleClick(tariff.name)}
-              width='100%'              >
+              width='var(--left-column-width)'              >
                 <Button to="#form" >
                   {tariff.price}
                 </Button>
