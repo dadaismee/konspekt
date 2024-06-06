@@ -120,7 +120,7 @@ q:after {
 }
 a,
 a:visited {
-  color: var(--text);
+  color: unset;
   text-decoration: none;
 }
 table {
