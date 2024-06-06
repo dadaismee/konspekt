@@ -49,7 +49,6 @@ const Wrapper = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: end;
-margin: 120px 0 20px;
 gap: 5px;
 
 @media (max-width: ${mediaQueries.phone}) {

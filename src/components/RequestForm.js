@@ -43,11 +43,13 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
       }),
     });
     setIsSubmitted(true);
-    // Убрал открытие витрины для выбора тарифа и оплаты
-    // window.open('https://self.payanyway.ru/1693655679114', '_blank');
     //
-
-    Boolean(!selectedTariff) && window.open("https://youtu.be/i7EZbRWHHBE", "_self");
+    // window.open('https://self.payanyway.ru/1693655679114', '_blank');
+    window.open(
+      "https://konspekt.zenclass.ru/public/t/baac62a5-135b-4017-8043-c53e9ab611eb",
+      "_self",
+      );
+    /* Boolean(!selectedTariff) && window.open("https://youtu.be/i7EZbRWHHBE", "_self");
 
     Boolean(selectedTariff === 'active' || tariff === 'active') && window.open(
         "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
@@ -57,7 +59,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
     Boolean(selectedTariff === 'passive' || tariff === 'passive') && window.open(
         "https://konspekt.zenclass.ru/public/t/baac62a5-135b-4017-8043-c53e9ab611eb",
         "_self",
-      );
+      ); */
   }; 
 
   return (
@@ -97,8 +99,9 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
         <FormWrapper>
           <BoxWrapper>
             {Boolean(type === 'landing') && <Box grid={grids[0]}>
-              {Boolean(selectedTariff) ? <ColoredText data={selectedTariff === 'passive' ? boxes[0] : boxes[2]}></ColoredText> : <ColoredText data
-             ={boxes[0]}></ColoredText>}
+              /* {Boolean(selectedTariff) ? <ColoredText data={selectedTariff === 'passive' ? boxes[0] : boxes[2]}></ColoredText> : <ColoredText data
+             ={boxes[0]}></ColoredText>} */
+              <ColoredText data={boxes[0]} />
             </Box>}
             <Box fontSize="20px">
               <FlexVertical>
@@ -116,7 +119,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
                     {errors.name && <p>Введите имя кириллицей</p>}
                   </InputItem>
                 )}
-                {Boolean(type === 'landing') && <InputItem>
+                <InputItem>
                   <Input
                     type="text"
                     placeholder="Telegram"
@@ -127,7 +130,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
                     })}
                   />
                   {errors.telegram && <p>Введите ник в Telegram c @ в начале)</p>}
-                </InputItem>}
+                </InputItem>
                 <InputItem>
                   <Input
                     type="email"
@@ -174,7 +177,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
                     </InputSelect>
                   </InputItem>
                 )} */}
-                {Boolean(type === 'landing') && <InputItem>
+                <InputItem>
                   <FlexContainer>
                     <Checkbox
                       type="checkbox"
@@ -201,7 +204,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
                       прочитав)
                     </p>
                   )}
-                </InputItem>}
+                </InputItem>
               </FlexVertical>
             </Box>
           </BoxWrapper>
