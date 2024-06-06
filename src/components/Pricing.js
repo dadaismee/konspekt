@@ -39,11 +39,11 @@ const Pricing = ({ pageData, id, handleClick }) => {
         {tariffs.length > 1 ? 
         tariffs.map((tariff, index) => (
           <FlexContainer>
-            <Box height="100%">
+            <Box  height="100%">
               <MainFeature
                 style={{
                   // color: 'var(--accent)',
-                  marginBottom: "20px",
+                  marginBottom: "30px",
                 }}
               >
                 {tariff.title}
@@ -62,6 +62,7 @@ const Pricing = ({ pageData, id, handleClick }) => {
                 ))}
               </BoxGrid>
             </Box>
+
 
             <ButtonWrapper
               initial={{

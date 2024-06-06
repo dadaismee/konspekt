@@ -97,6 +97,10 @@ const Wrapper = styled(motion.header)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+@media (max-width: ${mediaQueries.phone}) {
+ display: none;
+}
 `;
 
 export const Logo = styled.img`
@@ -112,7 +116,7 @@ export const Logo = styled.img`
 
 const Navbar = styled.nav`
   display: flex;
-  gap: 30px;
+  gap: 20px;
 
   @media (max-width: ${mediaQueries.phone}) {
     display: none;
@@ -120,7 +124,7 @@ const Navbar = styled.nav`
 `;
 
 const AnchorLinkEl = styled(AnchorLink)`
-  font-size: 24px;
+  font-size: 20px;
   transition: var(--transition);
 
   &:hover {

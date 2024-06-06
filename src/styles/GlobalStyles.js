@@ -31,6 +31,7 @@ export const VertFlex = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
+  height: 100%;
   gap: 20px;
 `
 
@@ -46,11 +47,12 @@ export const FlexContainer = styled.div`
   }
 
   &:last-child {
-  width: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) - 60px)' : '50%'};
+  width: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) - 60px)' : 'auto'};
   }
 
   @media (max-width: ${mediaQueries.phone}) {
     height: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) / 1.25)' : '100%'};
+    ridth: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) / 1.25)' : '100%'};
     width: 100%;
     &:first-child {
       width: 100%;

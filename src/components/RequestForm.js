@@ -313,7 +313,7 @@ justify-content: center;
 align-items: center;
 width: 100%;
 /* max-width: var(--right-column-width); */
-height: ${({ height }) => height || "115px"};
+height: ${({ height }) => height || "80px"};
 font-size: 48px;
 font-family: Coolvetica;
 color: var(--accent);
