@@ -241,7 +241,6 @@ export const ButtonWrapper = styled(motion.button)`
   gap: 10px;
   align-items: center;
   width: ${({ width }) => width || '100%' };
-  min-width: var(--right-column-width);
   background-color: transparent;
   border: none;
 

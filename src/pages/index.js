@@ -46,8 +46,8 @@ const IndexPage = () => {
   return (
     <>
       {/* <FirstScreen> */}
-        <Header />
-        <Hero data={hero} selectedTariff={selectedTariff} handleClick={handleClick}/>
+      <Header />
+      <Hero data={hero} selectedTariff={selectedTariff} handleClick={handleClick}/>
       {/* </FirstScreen> */}
       <BasicSection id="about" pageData={about} grids={grids_3} />
       <BasicSection pageData={audience} grids={grids_4} />
@@ -55,13 +55,17 @@ const IndexPage = () => {
       <BasicSection id="results" pageData={results} grids={grids_3} /> 
       <HowWorks id="process" pageData={process} grids={grids_3} /> 
       <Pricing id="pricing" pageData={pricing}
-      selectedTariff={selectedTariff} handleClick={handleClick} />
-      <Program id="program" pageData={program} /> <Reviews id="reviews"
-      pageData={reviews} /> <Author pageData={author} /> <FAQ
-      pageData={faq} /> <RequestForm id="form" grids={grids_3}
-      pageData={Boolean(selectedTariff) ? requestFormBuy
-      : requestFormFree} selectedTariff={selectedTariff} type="landing"/>
-      <Contact id="contact" pageData={contact} /> <Footer /> </>); };
+        selectedTariff={selectedTariff} handleClick={handleClick} />
+      <Program id="program" pageData={program} /> 
+      <Reviews id="reviews"
+        pageData={reviews} /> 
+      <Author pageData={author} /> <FAQ
+        pageData={faq} /> 
+      <RequestForm id="form" grids={grids_3}
+        pageData={/* Boolean(selectedTariff) ? requestFormBuy
+          : requestFormFree */ requestFormBuy} selectedTariff={selectedTariff} type="landing"/>
+      <Contact id="contact" pageData={contact} /> 
+      <Footer /> </>); };
 
 export default IndexPage;
 
@@ -77,5 +81,5 @@ const grids_4 = [
 export const grids_3 = ["1 / 1 / 1 / 3", "2 / 1 / 2 / 3", "1 / 3 / 3 / 6"];
 
 const FirstScreen = styled.div`
-  height: 100dvh;
+height: 100dvh;
 `;

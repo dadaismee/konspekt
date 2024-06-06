@@ -116,7 +116,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
                     {errors.name && <p>Введите имя кириллицей</p>}
                   </InputItem>
                 )}
-                {Boolean(type === 'landing' && selectedTariff) && <InputItem>
+                {Boolean(type === 'landing') && <InputItem>
                   <Input
                     type="text"
                     placeholder="Telegram"
