@@ -229,8 +229,11 @@ export const Button = styled(AnchorLink)`
 
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;
+    height: 80px;
     font-size: 32px;
     line-height: 80%;
+    background-color: ${({ type }) => type === "ghost" ? "var(--accent)" : "none"};
+    color: var(--text) !important;
   }
 `;
 

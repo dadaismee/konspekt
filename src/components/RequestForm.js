@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { mediaQueries } from "../styles/GlobalStyles";
-import { SectionHeading } from "../styles/TextStyles";
+import { MenuAndFootnote, SectionHeading } from "../styles/TextStyles";
 import ColoredText from "./ColoredText";
 import { Asterisk } from "./ListSection";
 import { Box, Loader } from "./index";
@@ -191,6 +191,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
                       rel="noopener noreferrer"
                     >
                       <ColoredText
+                        component={MenuAndFootnote}
                         data={{
                           mainText: "Принимаю политику конфиденциальности",
                           spanText: ["политику конфиденциальности"],
@@ -335,6 +336,8 @@ transition: var(--transition);
 @media (max-width: ${mediaQueries.phone}) {
   font-size: 32px;
   padding: 16px;
+  color: var(--text);
+  background-color: var(--accent);
 }
 `;
 
