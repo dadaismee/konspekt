@@ -114,7 +114,7 @@ const Hero = ({ data, handleClick }) => {
               delay: 0.35,
             }}
             viewport={{ once: true }}
-            width='var(--right-column-width)'>
+            >
                         {/* <MobileFeaturesContainer>
             {features.map(feature => (
               <MobileFeatureBorder>
@@ -124,7 +124,7 @@ const Hero = ({ data, handleClick }) => {
           </MobileFeaturesContainer> */}
             <ButtonsWrapper
               style={{ width: "100%"}}
-            onClick={() => handleClick("passive")} 
+              onClick={() => handleClick("passive")} 
           > 
             <Button fontSize="40px" to='#form'>{buttonText}</Button>
             {/* <Button 
@@ -241,6 +241,7 @@ export const ButtonWrapper = styled(motion.button)`
   gap: 10px;
   align-items: center;
   width: ${({ width }) => width || '100%' };
+  min-width: var(--right-column-width);
   background-color: transparent;
   border: none;
 
@@ -252,6 +253,7 @@ export const ButtonWrapper = styled(motion.button)`
 export const ButtonsWrapper = styled.div`
   display: flex;
   gap: 20px;
+  width: 100%;
 `
 
 
