@@ -211,7 +211,7 @@ export const Button = styled(AnchorLink)`
   font-size: ${({ fontSize }) => fontSize  || '48px'};
   background-color: ${({ type }) => type === "ghost" ? "transparent" : "var(--accent)"};
   box-sizing: border-box;
-  color: ${({ type }) => type === "ghost" ? "var(--accent)" : "var(--text)"};
+  color: ${({ type }) => type === "ghost" ? "var(--accent)" : "var(--text)"} !important;
   ${({ type }) => type === "ghost" ? 
     "border: 3px solid var(--accent)" : "border: none"}; 
   font-family: Coolvetica;
@@ -229,8 +229,11 @@ export const Button = styled(AnchorLink)`
 
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;
+    height: 80px;
     font-size: 32px;
     line-height: 80%;
+    background-color: ${({ type }) => type === "ghost" ? "var(--accent)" : "none"};
+    color: var(--text) !important;
   }
 `;
 

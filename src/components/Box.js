@@ -84,7 +84,7 @@ const Wrapper = styled(motion.div)`
       font-size:  ${({ fontSize }) => fontSize || '64px'};
 
       @media (max-width: ${mediaQueries.phone}) {
-        font-size: 24px;
+        font-size: 16px;
       }
     }
   }
