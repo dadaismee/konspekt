@@ -120,7 +120,7 @@ q:after {
 }
 a,
 a:visited {
-  color: unset;
+  color: inherit;
   text-decoration: none;
 }
 table {
