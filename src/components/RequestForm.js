@@ -310,7 +310,7 @@ height: 100%;
 }
 `;
 
-const Button = styled(motion.button)`
+export const Button = styled(motion.button)`
 display: flex;
 justify-content: center;
 align-items: center;
