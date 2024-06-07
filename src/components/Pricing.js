@@ -36,130 +36,129 @@ const Pricing = ({ pageData, id, handleClick }) => {
       </SectionHeading>
 
       <Flex>
-        {tariffs.length > 1 ? 
-        tariffs.map((tariff, index) => (
-          <FlexContainer>
-            <Box height="100%">
-              <MainFeature
-                style={{
-                  // color: 'var(--accent)',
-                  marginBottom: "30px",
+        {tariffs.length > 1 ?
+          tariffs.map((tariff, index) => (
+            <FlexContainer>
+              <Box height="100%">
+                <MainFeature
+                  style={{
+                    // color: 'var(--accent)',
+                    marginBottom: "30px",
+                  }}
+                >
+                  {tariff.title}
+                </MainFeature>
+
+                <BoxGrid>
+                  {tariff.features.map((feature) => (
+                    <FlexArrow>
+                      <MenuAndFootnote>→</MenuAndFootnote>
+                      <VertFlex style={{ gap: '0px' }}>
+                        <MenuAndFootnote>{feature.mainText}</MenuAndFootnote>
+                        <MenuAndFootnote style={{ fontFamily: 'Coolvetica Lite', lineHeight: "90%", color: 'var(--asterisk)' }}>{feature.spanText}</MenuAndFootnote>
+                      </VertFlex>
+                      {/* <ColoredText component={MenuAndFootnote} lineHeight='100%' data={feature} key={feature.mainText} /> */}
+                    </FlexArrow>
+                  ))}
+                </BoxGrid>
+              </Box>
+
+
+              <ButtonWrapper
+                initial={{
+                  opacity: 0,
+                  y: 20,
                 }}
-              >
-                {tariff.title}
-              </MainFeature>
- 
-              <BoxGrid>
-                {tariff.features.map((feature) => (
-                  <FlexArrow>
-                    <MenuAndFootnote>→</MenuAndFootnote>
-                    <VertFlex style={{ gap: '0px'}}>
-                      <MenuAndFootnote>{feature.mainText}</MenuAndFootnote>
-                      <MenuAndFootnote style={{fontFamily: 'Coolvetica Lite', lineHeight: "90%", color: 'var(--asterisk)'}}>{feature.spanText}</MenuAndFootnote>
-                    </VertFlex>
-                    {/* <ColoredText component={MenuAndFootnote} lineHeight='100%' data={feature} key={feature.mainText} /> */}
-                  </FlexArrow>
-                ))}
-              </BoxGrid>
-            </Box>
-
-
-            <ButtonWrapper
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              exit={{
-                opacity: 0,
-                y: 20,
-              }}
-              transition={{
-                ease: [0.165, 0.84, 0.44, 1],
-                duration: 1,
-                delay: 0.3 + index * 0.1,
-              }}
-              viewport={{ once: true }}
-              onClick={() => handleClick(tariff.name)}
-              width='var(--left-column-width)'              >
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                transition={{
+                  ease: [0.165, 0.84, 0.44, 1],
+                  duration: 1,
+                  delay: 0.3 + index * 0.1,
+                }}
+                viewport={{ once: true }}
+                onClick={() => handleClick(tariff.name)}
+                width='var(--left-column-width)'              >
                 <Button to="#form" >
                   {tariff.price}
                 </Button>
-            </ButtonWrapper>
-          </FlexContainer>
-        ))
-        : 
+              </ButtonWrapper>
+            </FlexContainer>
+          ))
+          :
           tariffs.map((tariff, index) => (
             <Flex>
-            <Box>
-              <BoxGrid>
-                {tariff.features.map((feature) => (
-                  <FlexArrow>
-                    <MenuAndFootnote>→</MenuAndFootnote>
-                    <VertFlex style={{ gap: '0px'}}>
-                      <MenuAndFootnote>{feature.mainText}</MenuAndFootnote>
-                      <MenuAndFootnote style={{fontFamily: 'Coolvetica Lite', lineHeight: "90%", color: 'var(--asterisk)'}}>{feature.spanText}</MenuAndFootnote>
-                    </VertFlex>
-                    {/* <ColoredText component={MenuAndFootnote} lineHeight='100%' data={feature} key={feature.mainText} /> */}
-                  </FlexArrow>
-                ))}
-              </BoxGrid>
-            </Box>
+              <Box>
+                <BoxGrid>
+                  {tariff.features.map((feature) => (
+                    <FlexArrow>
+                      <MenuAndFootnote>→</MenuAndFootnote>
+                      <VertFlex style={{ gap: '0px' }}>
+                        <MenuAndFootnote>{feature.mainText}</MenuAndFootnote>
+                        <MenuAndFootnote style={{ fontFamily: 'Coolvetica Lite', lineHeight: "90%", color: 'var(--asterisk)' }}>{feature.spanText}</MenuAndFootnote>
+                      </VertFlex>
+                      {/* <ColoredText component={MenuAndFootnote} lineHeight='100%' data={feature} key={feature.mainText} /> */}
+                    </FlexArrow>
+                  ))}
+                </BoxGrid>
+              </Box>
 
-            <ButtonWrapper
-              style={{ width: "100%"}}
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              exit={{
-                opacity: 0,
-                y: 20,
-              }}
-              transition={{
-                ease: [0.165, 0.84, 0.44, 1],
-                duration: 1,
-                delay: 0.3 + index * 0.1,
-              }}
-              viewport={{ once: true }}
-              onClick={() => handleClick(tariff.name)}
-              width='100%'              >
+              <ButtonWrapper
+                style={{ width: "100%" }}
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                transition={{
+                  ease: [0.165, 0.84, 0.44, 1],
+                  duration: 1,
+                  delay: 0.3 + index * 0.1,
+                }}
+                viewport={{ once: true }}
+                onClick={() => handleClick(tariff.name)}
+                width='100%'>
                 <Button type="ghost" height="100%" to="#form" >
                   {tariff.price}
                 </Button>
-            </ButtonWrapper>
-          </Flex>
-        ))
-
+              </ButtonWrapper>
+            </Flex>
+          ))
         }
       </Flex>
 
       {Boolean(asterisk) && <Asterisk
         initial={{
           opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              exit={{
-                opacity: 0,
-                y: 20,
-              }}
-              transition={{
-                ease: [0.165, 0.84, 0.44, 1],
-                duration: 1,
-                delay: 0.4,
-              }}
-              viewport={{ once: true }}
+          y: 20,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        exit={{
+          opacity: 0,
+          y: 20,
+        }}
+        transition={{
+          ease: [0.165, 0.84, 0.44, 1],
+          duration: 1,
+          delay: 0.4,
+        }}
+        viewport={{ once: true }}
 
       >{asterisk}</Asterisk>}
     </Wrapper>

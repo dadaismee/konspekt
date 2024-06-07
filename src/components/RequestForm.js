@@ -337,7 +337,6 @@ transition: var(--transition);
   font-size: 32px;
   padding: 16px;
   color: var(--text);
-  background-color: var(--accent);
 }
 `;
 
