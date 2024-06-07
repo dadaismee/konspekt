@@ -126,7 +126,7 @@ q:after {
 
 a,
 a:visited {
-  color: var(--text) !important;
+  color: var(--text);
   text-decoration: none;
 }
 
