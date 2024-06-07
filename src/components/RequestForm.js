@@ -8,7 +8,7 @@ import ColoredText from "./ColoredText";
 import { Asterisk } from "./ListSection";
 import { Box, Loader } from "./index";
 
-const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
+const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin }) => {
   const { title, asterisk, buttonText } = pageData;
   const boxes = pageData.boxes.map((box) => box);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -48,7 +48,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
     window.open(
       "https://konspekt.zenclass.ru/public/t/baac62a5-135b-4017-8043-c53e9ab611eb",
       "_self",
-      );
+    );
     /* Boolean(!selectedTariff) && window.open("https://youtu.be/i7EZbRWHHBE", "_self");
 
     Boolean(selectedTariff === 'active' || tariff === 'active') && window.open(
@@ -60,7 +60,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
         "https://konspekt.zenclass.ru/public/t/baac62a5-135b-4017-8043-c53e9ab611eb",
         "_self",
       ); */
-  }; 
+  };
 
   return (
     <Wrapper id={id}>
@@ -100,7 +100,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
           <BoxWrapper>
             {Boolean(type === 'landing') && <Box grid={grids[0]}>
               {/* Boolean(selectedTariff) ? <ColoredText data={selectedTariff === 'passive' ? boxes[0] : boxes[2]}></ColoredText> : <ColoredText data
-             ={boxes[0]}></ColoredText>*/} 
+             ={boxes[0]}></ColoredText>*/}
               <ColoredText data={boxes[0]} />
             </Box>}
             <Box fontSize="20px">
@@ -138,7 +138,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
                     {...register("email", {
                       required: true,
                       pattern:
-                      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                     })}
                   />
                   {errors.email && <p>Введите адрес почты</p>}
@@ -232,7 +232,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin}) => {
               type="submit"
               height="100%"
             >
-              { Boolean(isLoading) ? <Loader/> : buttonText || 'Перейти к оплате'}
+              {Boolean(isLoading) ? <Loader /> : buttonText || 'Перейти к оплате'}
             </Button>
           </ButtonWrapper>
         </FormWrapper>
@@ -320,7 +320,7 @@ width: 100%;
 height: ${({ height }) => height || "80px"};
 font-size: 48px;
 font-family: Coolvetica;
-color: var(--accent);
+color: var(--accent) !important;
 background-color: transparent;
 border-radius: 15px;
 border: 3px solid var(--accent);
@@ -328,7 +328,7 @@ transition: var(--transition);
 
 &:hover {
   background-color: var(--accent);
-  color: var(--text);
+  color: var(--text) !important;
   box-shadow: 0px 0px 40px rgba(235, 235, 235, 0.5);
   cursor: pointer;
 }
