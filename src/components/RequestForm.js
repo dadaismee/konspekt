@@ -1,3 +1,4 @@
+import { navigate } from 'gatsby';
 import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -7,6 +8,8 @@ import { MenuAndFootnote, SectionHeading } from "../styles/TextStyles";
 import ColoredText from "./ColoredText";
 import { Asterisk } from "./ListSection";
 import { Box, Loader } from "./index";
+
+
 
 const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin }) => {
   const { title, asterisk, buttonText } = pageData;
@@ -25,9 +28,9 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin }) => {
 
   let name = watch("name");
   let email = watch("email");
-  let telegram = watch("telegram");
-  let stream = watch("stream");
+  let telegram = watch("telegram") || "—";
   let tariff = watch("tariff") || selectedTariff;
+  // let stream = watch("stream");
 
   const onSubmit = async () => {
     setIsLoading(true);
@@ -38,28 +41,31 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin }) => {
         Email: email,
         Telegram: telegram,
         Date: Date(),
-        Stream: stream,
-        Tariff: tariff || 'promo',
+        Tariff: type === 'free' ? 'lead' : 'buyer',
+        // Stream: stream,
       }),
     });
-    setIsSubmitted(true);
     //
     // window.open('https://self.payanyway.ru/1693655679114', '_blank');
-    window.open(
-      "https://konspekt.zenclass.ru/public/t/baac62a5-135b-4017-8043-c53e9ab611eb",
-      "_self",
-    );
-    /* Boolean(!selectedTariff) && window.open("https://youtu.be/i7EZbRWHHBE", "_self");
 
-    Boolean(selectedTariff === 'active' || tariff === 'active') && window.open(
-        "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
+    // Logic for 2 active and passive tariffs
+
+    // Boolean(selectedTariff === 'active' || tariff === 'active') && window.open(
+    //     "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
+    //     "_self",
+    // Boolean(selectedTariff === 'passive' || tariff === 'passive') && window.open(
+    //   "https://konspekt.zenclass.ru/public/t/baac62a5-135b-4017-8043-c53e9ab611eb",
+    //   "_self",
+    // );
+
+    {
+      Boolean(type !== 'free') && window.open(
+        "https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs",
+        // "https://konspekt.zenclass.ru/public/t/baac62a5-135b-4017-8043-c53e9ab611eb",
         "_self",
       )
-
-    Boolean(selectedTariff === 'passive' || tariff === 'passive') && window.open(
-        "https://konspekt.zenclass.ru/public/t/baac62a5-135b-4017-8043-c53e9ab611eb",
-        "_self",
-      ); */
+    }
+    setIsSubmitted(true);
   };
 
   return (
@@ -89,61 +95,61 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin }) => {
       </SectionHeading>
 
       <CTA onSubmit={handleSubmit(onSubmit)}>
-        {/* {Boolean(isSubmitted) ? (
+        {Boolean(type === 'free' && isSubmitted) ? (
           <div>
-            <Box height='50vh'>
+            <Box height='auto'>
               <ColoredText data={boxes[1]} />
             </Box>
           </div>
-        ) : ( */}
-        <FormWrapper>
-          <BoxWrapper>
-            {Boolean(type === 'landing') && <Box grid={grids[0]}>
-              {/* Boolean(selectedTariff) ? <ColoredText data={selectedTariff === 'passive' ? boxes[0] : boxes[2]}></ColoredText> : <ColoredText data
+        ) : (
+          <FormWrapper>
+            <BoxWrapper>
+              {Boolean(type !== 'register' || selectedTariff) && <Box fontSize="40px" grid={grids[0]}>
+                {/* Boolean(selectedTariff) ? <ColoredText data={selectedTariff === 'passive' ? boxes[0] : boxes[2]}></ColoredText> : <ColoredText data
              ={boxes[0]}></ColoredText>*/}
-              <ColoredText data={boxes[0]} />
-            </Box>}
-            <Box fontSize="20px">
-              <FlexVertical>
-                {Boolean(type === 'landing') && (
-                  <InputItem>
+                <ColoredText data={boxes[0]} />
+              </Box>}
+              <Box fontSize="20px">
+                <FlexVertical>
+                  {Boolean(type !== 'register') && (
+                    <InputItem>
+                      <Input
+                        type="text"
+                        placeholder="Имя"
+                        {...register("name", {
+                          required: true,
+                          maxLength: 20,
+                          pattern: /^[а-яА-ЯЁё]+/g,
+                        })}
+                      />
+                      {errors.name && <p>Введите имя кириллицей</p>}
+                    </InputItem>
+                  )}
+                  {Boolean(type === 'landing') && <InputItem>
                     <Input
                       type="text"
-                      placeholder="Имя"
-                      {...register("name", {
+                      placeholder="Telegram"
+                      {...register("telegram", {
                         required: true,
                         maxLength: 20,
-                        pattern: /^[а-яА-ЯЁё]+/g,
+                        pattern: /^@[ea-zA-Z]+/g,
                       })}
                     />
-                    {errors.name && <p>Введите имя кириллицей</p>}
+                    {errors.telegram && <p>Введите ник в Telegram c @ в начале)</p>}
+                  </InputItem>}
+                  <InputItem>
+                    <Input
+                      type="email"
+                      placeholder="Почта"
+                      {...register("email", {
+                        required: true,
+                        pattern:
+                          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                      })}
+                    />
+                    {errors.email && <p>Введите адрес почты</p>}
                   </InputItem>
-                )}
-                <InputItem>
-                  <Input
-                    type="text"
-                    placeholder="Telegram"
-                    {...register("telegram", {
-                      required: true,
-                      maxLength: 20,
-                      pattern: /^@[ea-zA-Z]+/g,
-                    })}
-                  />
-                  {errors.telegram && <p>Введите ник в Telegram c @ в начале)</p>}
-                </InputItem>
-                <InputItem>
-                  <Input
-                    type="email"
-                    placeholder="Почта"
-                    {...register("email", {
-                      required: true,
-                      pattern:
-                        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    })}
-                  />
-                  {errors.email && <p>Введите адрес почты</p>}
-                </InputItem>
-                {/* {Boolean(selectedTariff) && <InputItem>
+                  {/* {Boolean(selectedTariff) && <InputItem>
                   <InputSelect
                     name="Тариф"
                     {...register("tariff", {
@@ -159,7 +165,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin }) => {
                     </option>
                   </InputSelect>
                 </InputItem>} */}
-                {/* {(Boolean(selectedTariff === "active") || Boolean(tariff === "active")) && (
+                  {/* {(Boolean(selectedTariff === "active") || Boolean(tariff === "active")) && (
                   <InputItem>
                     <InputSelect
                       name="Поток"
@@ -177,65 +183,65 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin }) => {
                     </InputSelect>
                   </InputItem>
                 )} */}
-                <InputItem>
-                  <FlexContainer>
-                    <Checkbox
-                      type="checkbox"
-                      {...register("policy", {
-                        required: true,
-                      })}
-                    />
-                    <StyledLink
-                      href="/privacy"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ColoredText
-                        component={MenuAndFootnote}
-                        data={{
-                          mainText: "Принимаю политику конфиденциальности",
-                          spanText: ["политику конфиденциальности"],
-                        }}
+                  <InputItem>
+                    <FlexContainer>
+                      <Checkbox
+                        type="checkbox"
+                        {...register("policy", {
+                          required: true,
+                        })}
                       />
-                    </StyledLink>
-                  </FlexContainer>
-                  {errors.policy && (
-                    <p>
-                      <strong>↑</strong> Поставьте галочку (лучше предварительно
-                      прочитав)
-                    </p>
-                  )}
-                </InputItem>
-              </FlexVertical>
-            </Box>
-          </BoxWrapper>
-          <ButtonWrapper>
-            <Button
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              exit={{
-                opacity: 0,
-                y: 20,
-              }}
-              transition={{
-                ease: [0.165, 0.84, 0.44, 1],
-                duration: 1,
-                delay: 0.25,
-              }}
-              viewport={{ once: true }}
-              type="submit"
-              height="100%"
-            >
-              {Boolean(isLoading) ? <Loader /> : buttonText || 'Перейти к оплате'}
-            </Button>
-          </ButtonWrapper>
-        </FormWrapper>
+                      <StyledLink
+                        href="/privacy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ColoredText
+                          component={MenuAndFootnote}
+                          data={{
+                            mainText: "Принимаю политику конфиденциальности",
+                            spanText: ["политику конфиденциальности"],
+                          }}
+                        />
+                      </StyledLink>
+                    </FlexContainer>
+                    {errors.policy && (
+                      <p>
+                        <strong>↑</strong> Поставьте галочку (лучше предварительно
+                        прочитав)
+                      </p>
+                    )}
+                  </InputItem>
+                </FlexVertical>
+              </Box>
+            </BoxWrapper>
+            <ButtonWrapper>
+              <Button
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                transition={{
+                  ease: [0.165, 0.84, 0.44, 1],
+                  duration: 1,
+                  delay: 0.25,
+                }}
+                viewport={{ once: true }}
+                type="submit"
+                height="100%"
+              >
+                {Boolean(isLoading) ? <Loader /> : buttonText}
+              </Button>
+            </ButtonWrapper>
+          </FormWrapper>)}
       </CTA>
 
       {Boolean(asterisk) && <Asterisk>{asterisk}</Asterisk>}

@@ -76,7 +76,7 @@ const Wrapper = styled(motion.div)`
   gap: 10px;
   }
   &:last-child {
-    display: ${({ type }) => type !== 'review' ? 'flex' : 'block' };
+    display: ${({ type }) => type !== 'review' ? 'flex' : 'block'};
     justify-content: space-evenly;
     align-items: center;
 
@@ -84,7 +84,7 @@ const Wrapper = styled(motion.div)`
       font-size:  ${({ fontSize }) => fontSize || '64px'};
 
       @media (max-width: ${mediaQueries.phone}) {
-        font-size: 16px;
+        font-size: 24px;
       }
     }
   }

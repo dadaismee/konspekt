@@ -6,35 +6,8 @@ import { styled } from 'styled-components';
 import { mediaQueries } from '../styles/GlobalStyles';
 import logo from '../assets/logo-with-bg.png';
 
-const Header = () => {
-  const links = [
-    {
-      name: 'результат',
-      url: '/#results',
-    },
-    {
-      name: 'как устроено',
-      url: '/#process',
-    },
-    {
-      name: 'программа',
-      url: '/#program',
-    },
-    {
-      name: 'отзывы',
-      url: '/#reviews',
-    },
-
-    {
-      name: 'стоимость',
-      url: '/#pricing',
-    },
-    {
-      name: 'контакты',
-      url: '/#contact',
-    },
-  ];
-
+const Header = ({ data }) => {
+  const links = data;
   return (
     <Wrapper
       initial={{
@@ -57,7 +30,7 @@ const Header = () => {
       viewport={{ once: true }}>
 
       <Link to='/'>
-        <Logo src={logo} alt={logo}/>
+        <Logo src={logo} alt={logo} />
       </Link>
 
       <Navbar>

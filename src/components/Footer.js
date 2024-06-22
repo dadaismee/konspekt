@@ -12,11 +12,11 @@ const Footer = () => {
   return (
     <Wrapper>
       <Copy>Школа «Конспект» © 2023-{new Date().getFullYear()}</Copy>
-      <StyledLink style={{alignSelf: 'end'}} href={policy} target='_blank' rel='noopener noreferrer'>
-        <Copy style={{ color: 'var(--accent)'}}>Политика конфиденциальности</Copy>
+      <StyledLink style={{ alignSelf: 'end' }} href={policy} target='_blank' rel='noopener noreferrer'>
+        <Copy style={{ color: 'var(--accent)' }}>Политика конфиденциальности</Copy>
       </StyledLink>
-      <StyledLink style={{alignSelf: 'end'}} href={oferta} target='_blank' rel='noopener noreferrer'>
-        <Copy style={{ color: 'var(--accent)'}}>Оферта</Copy>
+      <StyledLink style={{ alignSelf: 'end' }} href={oferta} target='_blank' rel='noopener noreferrer'>
+        <Copy style={{ color: 'var(--accent)' }}>Оферта</Copy>
       </StyledLink>
 
       <Branding>
@@ -30,14 +30,14 @@ const Footer = () => {
           </a>
         </Copy>
       </Branding>
-      <VertFlexIP>
+      {/* <VertFlexIP>
         <Copy style={{ fontSize: '11px'}}>ИП Шевченко Валерий Сергеевич</Copy>
         <Copy style={{ fontSize: '11px'}}>ИНН 632147018327</Copy>
         <Copy style={{ fontSize: '11px'}}>ОГРНИП 324632700039473</Copy>
         <Copy style={{ fontSize: '11px'}}>konspekt@yandex.ru</Copy>
         <Copy style={{ fontSize: '11px'}}>+79162243606</Copy>
         <Copy style={{ fontSize: '11px'}}>г. Тольятти</Copy>
-      </VertFlexIP>
+      </VertFlexIP> */}
 
     </Wrapper>
   );
@@ -49,6 +49,7 @@ const Wrapper = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: end;
+margin-top: 80px;
 gap: 5px;
 
 @media (max-width: ${mediaQueries.phone}) {
