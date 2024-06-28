@@ -39,7 +39,7 @@ module.exports = {
         defer: false,
       },
     },
-     {
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         "icon": "src/assets/logo-with-bg.png"

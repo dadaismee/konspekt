@@ -9,15 +9,11 @@ import ColoredText from "./ColoredText";
 import { Asterisk } from "./ListSection";
 import { Box, Loader } from "./index";
 
-
-
-const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin }) => {
+const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, margin }) => {
   const { title, asterisk, buttonText } = pageData;
   const boxes = pageData.boxes.map((box) => box);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  const types = ['landing', 'register'];
 
   const {
     register,
@@ -29,22 +25,74 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin }) => {
   let name = watch("name");
   let email = watch("email");
   let telegram = watch("telegram") || "—";
-  let tariff = watch("tariff") || selectedTariff;
+  // let tariff = watch("tariff") || selectedTariff;
   // let stream = watch("stream");
+
 
   const onSubmit = async () => {
     setIsLoading(true);
-    await fetch("/.netlify/functions/sendToSheets", {
-      method: "POST",
-      body: JSON.stringify({
-        Name: name,
-        Email: email,
-        Telegram: telegram,
-        Date: Date(),
-        Tariff: type === 'free' ? 'lead' : 'buyer',
-        // Stream: stream,
-      }),
-    });
+
+    try {
+      // Send data to Google Sheets API
+      await fetch('/.netlify/functions/sendToSheets', {
+        method: 'POST',
+        body: JSON.stringify({
+          Name: name,
+          Email: email,
+          Telegram: telegram || '—',
+          Date: Date(),
+          Tariff: selectedTariff,
+        }),
+      });
+
+      // Send data to UniSender
+      const UNISENDER_KEY = '6ij7fqkbfr5y7uk6tpyouztzztr3ggzejstss1eo';
+      const uniSenderResponse = await fetch('https://api.unisender.com/ru/api/subscribe?format=json&api_key=' + encodeURIComponent(UNISENDER_KEY) + '&list_ids=1&fields[email]=' + encodeURIComponent(email) + '&fields[Name]=' + encodeURIComponent(name) + '&fields[Type]=' + encodeURIComponent(selectedTariff) + '&fields[telegram]=' + encodeURIComponent(telegram) + '&double_optin=3&overwrite=1', {
+        method: 'POST',
+      });
+      // const uniSenderResponse = await fetch('https://api.unisender.com/ru/api/subscribe', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     format: 'json',
+      //     api_key: '6ij7fqkbfr5y7uk6tpyouztzztr3ggzejstss1eo',
+      //     list_ids: '1',
+      //     fields: {
+      //       email: email,
+      //       Name: name,
+      //       type: selectedTariff
+      //     },
+      //     double_optin: 0,
+      //   }),
+      // });
+
+      const uniSenderData = await uniSenderResponse.json();
+      if (uniSenderData.error) {
+        console.error('Error sending data to UniSender:', uniSenderData.error);
+      } else {
+        console.log('Data sent successfully to UniSender!');
+      }
+    } catch (error) {
+      console.error('Error sending data:', error);
+    } finally {
+      setIsLoading(false);
+    }
+    // const onSubmit = async () => {
+    //   setIsLoading(true);
+    //   await fetch("/.netlify/functions/sendToSheets", {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       Name: name,
+    //       Email: email,
+    //       Telegram: telegram || '—',
+    //       Date: Date(),
+    //       Tariff: selectedTariff,
+    //       // Tariff: type === 'free' ? 'lead' : 'buyer',
+    // Stream: stream,
+    //   }),
+    // });
     //
     // window.open('https://self.payanyway.ru/1693655679114', '_blank');
 
@@ -59,7 +107,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin }) => {
     // );
 
     {
-      Boolean(type !== 'free') && window.open(
+      Boolean(selectedTariff === 'buyer') && window.open(
         "https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs",
         // "https://konspekt.zenclass.ru/public/t/baac62a5-135b-4017-8043-c53e9ab611eb",
         "_self",
@@ -95,7 +143,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, margin }) => {
       </SectionHeading>
 
       <CTA onSubmit={handleSubmit(onSubmit)}>
-        {Boolean(type === 'free' && isSubmitted) ? (
+        {Boolean(selectedTariff !== 'buyer' && isSubmitted) ? (
           <div>
             <Box height='auto'>
               <ColoredText data={boxes[1]} />
