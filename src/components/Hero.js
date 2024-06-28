@@ -3,19 +3,17 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React from 'react';
 import { styled } from 'styled-components';
 import Typewriter from 'typewriter-effect';
-import { Image } from './Author';
-import Box from './Box';
+import { Image, Box } from './index.js';
 import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
-import test from '../assets/landing_final.mp4';
 
 const Hero = ({ data, handleClick }) => {
-  const { title, typeWriterText, description, buttonText, features } = data;
+  const { title, typeWriterText, description, buttonText, features, video, image } = data;
 
   return (
     <Wrapper>
       <FlexContainer>
-        <Video
+        {Boolean(video) && <Video
           muted
           autoPlay
           playsinline
@@ -38,7 +36,8 @@ const Hero = ({ data, handleClick }) => {
             delay: 0.15,
           }}
           viewport={{ once: true }}
-          src={test} />
+          src={video} />}
+        {Boolean(image) && <Image src={image} />}
         <VertFlex>
           <Box height="100%">
             <Tagline>

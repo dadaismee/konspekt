@@ -22,6 +22,8 @@ export const hero = {
   description: "Бесплатная база ресурсов о чтении, письме и продвинутой работе с информацией",
   typeWriterText: ["на стероидах", "без неров", "как алгоритм", "as it should be"],
   buttonText: "Получить бесплатно",
+  video: "",
+  image: "/base_cover.png"
 };
 
 export const about = {
