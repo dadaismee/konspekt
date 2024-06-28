@@ -1,6 +1,7 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
+import { links } from '../pageData/writing-pro';
 import { SEO, Header, Footer } from '../components';
 
 const privacy = ({ data }) => {
@@ -8,9 +9,9 @@ const privacy = ({ data }) => {
 
   return (
     <Wrapper>
-      <Header/>
+      <Header data={links} />
       <Block dangerouslySetInnerHTML={{ __html: html }} />
-      <Footer/>
+      <Footer />
     </Wrapper>
   );
 };
