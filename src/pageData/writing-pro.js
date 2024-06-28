@@ -32,6 +32,7 @@ export const hero = {
   typeWriterText: ["на стероидах", "без неров", "как алгоритм", "as it should be"],
   buttonText: "Начать конспектировать",
   features: ["30 видеоуроков", "Q&A-сессия раз в неделю", "4 шаблона заметок"],
+  video: "/video/landing_final.mp4",
 };
 
 export const about = {

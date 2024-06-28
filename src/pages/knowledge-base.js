@@ -8,6 +8,7 @@ import {
   Hero,
   RequestForm,
   SEO,
+  Image
 } from "../components/index";
 import {
   about,
