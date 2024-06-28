@@ -3,7 +3,7 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React from 'react';
 import { styled } from 'styled-components';
 import Typewriter from 'typewriter-effect';
-import { Image } from './Author';   
+import { Image } from './Author';
 import Box from './Box';
 import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
@@ -38,7 +38,7 @@ const Hero = ({ data, handleClick }) => {
             delay: 0.15,
           }}
           viewport={{ once: true }}
-          src={test}/>
+          src={test} />
         <VertFlex>
           <Box height="100%">
             <Tagline>
@@ -84,16 +84,16 @@ const Hero = ({ data, handleClick }) => {
                 }}
                 viewport={{ once: true }}>
                 {description}
-              <span style={{ fontFamily: "Coolvetica"}}>
-                            </span>
-              </Description> 
-              <FeaturesContainer>
+                <span style={{ fontFamily: "Coolvetica" }}>
+                </span>
+              </Description>
+              {Boolean(features) && <FeaturesContainer>
                 {features.map(feature => (
-                  <Features key={feature}>{feature}</Features> 
+                  <Features key={feature}>{feature}</Features>
                 ))}
-              </FeaturesContainer> 
+              </FeaturesContainer>}
 
-        </Tagline>
+            </Tagline>
           </Box>
           <ButtonWrapper
             initial={{
@@ -114,8 +114,8 @@ const Hero = ({ data, handleClick }) => {
               delay: 0.35,
             }}
             viewport={{ once: true }}
-            >
-                        {/* <MobileFeaturesContainer>
+          >
+            {/* <MobileFeaturesContainer>
             {features.map(feature => (
               <MobileFeatureBorder>
               <Features key={feature}>{feature}</Features> 
@@ -123,19 +123,19 @@ const Hero = ({ data, handleClick }) => {
             ))}
           </MobileFeaturesContainer> */}
             <ButtonsWrapper
-              style={{ width: "100%"}}
-              onClick={() => handleClick("passive")} 
-          > 
-            <Button fontSize="40px" to='#form'>{buttonText}</Button>
-            {/* <Button 
+              style={{ width: "100%" }}
+              onClick={() => handleClick("passive")}
+            >
+              <Button fontSize="40px" to='#form'>{buttonText}</Button>
+              {/* <Button 
               type="ghost" 
               fontSize="24px" 
               width="calc(var(--right-column-width) - var(--left-column-width))" 
               to='#form'>Получить 1 урок
             </Button>  */}
-          </ButtonsWrapper> 
+            </ButtonsWrapper>
           </ButtonWrapper>
-          </VertFlex>
+        </VertFlex>
       </FlexContainer>
     </Wrapper>
   );
@@ -208,11 +208,11 @@ export const Button = styled(AnchorLink)`
   align-items: center;
   width: ${({ width }) => width || '100%'} ;
   height: ${({ height }) => height || '80px'};
-  font-size: ${({ fontSize }) => fontSize  || '48px'};
+  font-size: ${({ fontSize }) => fontSize || '48px'};
   background-color: ${({ type }) => type === "ghost" ? "transparent" : "var(--accent)"};
   box-sizing: border-box;
   color: ${({ type }) => type === "ghost" ? "var(--accent)" : "var(--text)"} ;
-  ${({ type }) => type === "ghost" ? 
+  ${({ type }) => type === "ghost" ?
     "border: 3px solid var(--accent)" : "border: none"}; 
   font-family: Coolvetica;
   border-radius: 15px;
@@ -243,7 +243,7 @@ export const ButtonWrapper = styled(motion.button)`
   justify-content: center;
   gap: 10px;
   align-items: center;
-  width: ${({ width }) => width || '100%' };
+  width: ${({ width }) => width || '100%'};
   background-color: transparent;
   border: none;
 
