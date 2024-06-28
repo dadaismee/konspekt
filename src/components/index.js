@@ -16,4 +16,3 @@ export { default as SEO } from "./SEO";
 export { default as Reviews } from "./Reviews";
 export { default as VideoPlayer } from "./VideoPlayer.js"
 export { default as Loader } from "./Loader.js";
-export { default as SubscribeForm } from "./SubscribeForm.js";
