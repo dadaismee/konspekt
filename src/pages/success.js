@@ -6,7 +6,7 @@ import { links, requestFormBuy } from "../pageData/writing-pro.js";
 import { Header, Footer } from "../components/index.js";
 
 const SuccessPage = () => {
-  const boxes = requestFormBuy.map((box) => box);
+  const boxes = requestFormBuy.boxes.map((box) => box);
 
   return (
     <>
