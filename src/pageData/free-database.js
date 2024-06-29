@@ -4,10 +4,6 @@ export const links = [
     url: "knowledge-base/#about",
   },
   {
-    name: "для кого",
-    url: "knowledge-base/#audience",
-  },
-  {
     name: "как получить",
     url: "knowledge-base/#form",
   },
@@ -43,7 +39,7 @@ export const about = {
     {
       padding: "0px",
       video:
-        "/video/output.mp4",
+        "/video/base.mp4",
     },
   ],
 };

@@ -173,7 +173,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
                       {errors.name && <p>Введите имя кириллицей</p>}
                     </InputItem>
                   )}
-                  {Boolean(type === 'landing') && <InputItem>
+                  {Boolean(selectedTariff !== 'subscriber') && <InputItem>
                     <Input
                       type="text"
                       placeholder="Telegram"
