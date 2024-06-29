@@ -18,7 +18,7 @@ function VideoPlayer({ videoSrc }) {
 
   return (
     <Wrapper>
-      <Video ref={videoRef} src={videoSrc} type="video/mp4" onClick={handleClick}/>
+      <Video ref={videoRef} src={videoSrc} type="video/mp4" onClick={handleClick} />
       {!isPlaying && (
         <PlayIcon
           src={play}

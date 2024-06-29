@@ -8,7 +8,6 @@ import {
   Hero,
   RequestForm,
   SEO,
-  Image
 } from "../components/index";
 import {
   about,
@@ -36,7 +35,6 @@ const KnowledgeBasePage = () => {
       <Hero data={hero} selectedTariff={'lead'} handleClick={handleClick} />
       {/* </FirstScreen> */}
       <BasicSection id="about" pageData={about} grids={grids_3} />
-      <BasicSection id="audience" pageData={audience} grids={grids_4} />
       <RequestForm id="form" grids={grids_3}
         pageData={/* Boolean(selectedTariff) ? requestFormBuy
           : requestFormFree */ requestForm} selectedTariff='magnet_lead' type="free" />
