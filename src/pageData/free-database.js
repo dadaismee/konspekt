@@ -8,6 +8,10 @@ export const links = [
     url: "knowledge-base/#form",
   },
   {
+    name: 'курс по превращению прочитанного в тексты',
+    url: '/',
+  },
+  {
     name: 'контакты',
     url: '/#contact',
   }
@@ -15,7 +19,7 @@ export const links = [
 
 export const hero = {
   title: "Библиотека цифровой продуктивности",
-  description: "Бесплатная база ресурсов о чтении, письме и продвинутой работе с информацией",
+  description: "Бесплатная база ресурсов о чтении, письме и продвинутой работе с информацией от школы «Конспект»",
   typeWriterText: ["на стероидах", "без неров", "как алгоритм", "as it should be"],
   buttonText: "Получить бесплатно",
   video: "",
@@ -39,10 +43,34 @@ export const about = {
     {
       padding: "0px",
       video:
-        "/video/base.mp4",
+        "/video/knowledge-base.mp4",
     },
   ],
 };
+
+
+export const aboutCourse = {
+  title: "Ещё у нас есть курс",
+  type: "basic",
+  boxes: [
+    {
+      mainText:
+        "О том, как преодолеть пропасть между чтением чужих и написанием своих публикаций с помощью системы заметок и инструментов",
+      spanText: ["преодолеть пропасть между чтением", "и написанием", "публикаций"],
+    },
+    {
+      mainText:
+        "Как делать готовые публикации в 2 раза быстрее",
+      spanText: ["в 2 раза быстрее"],
+    },
+    {
+      padding: "0px",
+      video:
+        "/video/output.mp4",
+    },
+  ],
+  buttonText: "Подробнее про курс"
+}
 
 export const audience = {
   title: "Кому подойдёт",

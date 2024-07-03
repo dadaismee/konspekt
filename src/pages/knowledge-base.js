@@ -11,7 +11,7 @@ import {
 } from "../components/index";
 import {
   about,
-  audience,
+  aboutCourse,
   contact,
   hero,
   requestForm,
@@ -38,6 +38,8 @@ const KnowledgeBasePage = () => {
       <RequestForm id="form" grids={grids_3}
         pageData={/* Boolean(selectedTariff) ? requestFormBuy
           : requestFormFree */ requestForm} selectedTariff='magnet_lead' type="free" />
+
+      <BasicSection id="about" pageData={aboutCourse} grids={grids_3} />
       <Contact id="contact" pageData={contact} />
       <Footer /> </>);
 };
