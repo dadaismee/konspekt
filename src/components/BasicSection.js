@@ -5,9 +5,10 @@ import { mediaQueries } from '../styles/GlobalStyles.js'
 import { GridContainer } from '../styles/GlobalStyles';
 import { SectionHeading } from '../styles/TextStyles';
 import { Asterisk } from './ListSection';
+import { Button, ButtonWrapper } from './Hero.js';
 
 const BasicSection = ({ pageData, grids, id }) => {
-  const { title, asterisk, type } = pageData;
+  const { title, asterisk, type, buttonText } = pageData;
   const data = pageData.boxes.map((box, index) => ({
     ...box,
     grid: grids[index],
@@ -47,7 +48,34 @@ const BasicSection = ({ pageData, grids, id }) => {
         </GridContainer>
       )}
       {Boolean(asterisk) && <Asterisk>{asterisk}</Asterisk>}
-    </Wrapper>
+      {Boolean(buttonText) && (
+        <ButtonWrapper
+          style={{ marginTop: '20px' }}
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            y: 20,
+          }}
+          transition={{
+            ease: [0.165, 0.84, 0.44, 1],
+            duration: 1,
+            delay: 0.35,
+          }}
+          viewport={{ once: true }}
+        >
+          <Button fontSize='40px' to='/'>{buttonText}</Button>
+
+        </ButtonWrapper>
+      )
+      }
+    </Wrapper >
   );
 };
 
