@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import {
   BasicSection,
@@ -48,7 +48,7 @@ export const Head = () => (
   <SEO
     title='Библиотека цифровой продуктивности'
     description='Ресурсы для оптимизации написания текстов, чтения и поиска источников и другой академической работы'
-    keywords=''
+    keywords='продуктивность, библиотека, notion, obsidian, roam research, zotero, академическое письмо, курс по академическому письму, mendeley, latex, overleaf'
   />
 );
 
