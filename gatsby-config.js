@@ -36,16 +36,7 @@ module.exports = {
         webvisor: true,
         trackHash: true,
         afterBody: true,
-        defer: true,
-        useCDN: true,
-        params: {
-          // Pass UTM parameters
-          utm_source: '${utm.source}',
-          utm_medium: '${utm.medium}',
-          utm_campaign: '${utm.campaign}',
-          utm_content: '${utm.content}',
-          utm_term: '${utm.term}'
-        }
+        defer: false,
       },
     },
     {
