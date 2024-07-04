@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import {
   BasicSection,
@@ -25,8 +25,6 @@ const KnowledgeBasePage = () => {
   const handleClick = (tariffName) => {
     setSelectedTariff(tariffName);
   }
-
-  console.log(selectedTariff);
 
   return (
     <>
