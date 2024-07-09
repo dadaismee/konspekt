@@ -131,7 +131,7 @@ const Pricing = ({ pageData, id, handleClick }) => {
                 viewport={{ once: true }}
                 onClick={() => handleClick(tariff.name)}
                 width='100%'>
-                <Button type="ghost" height="100%" to="#form" >
+                <Button height="100%" to="#form" >
                   {tariff.price}
                 </Button>
               </ButtonWrapper>

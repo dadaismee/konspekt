@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { MainFeature, MenuAndFootnote, MainText, SectionHeading } from "../styles/TextStyles";
+import { MainFeature, MenuAndFootnote, MainText, SectionHeading, SmallThin, SmallerText } from "../styles/TextStyles";
 import Box from "./Box";
 import { GridContainer, FlexContainer, mediaQueries } from "../styles/GlobalStyles.js";
 import ColoredText from "./ColoredText";
@@ -38,18 +38,21 @@ const Reviews = ({ pageData, id }) => {
         {reviewItems.map((reviewItem, index) => {
           const { author, image, score, data, longText } = reviewItem;
           return (
-            <Box type='review' fontSize='24px'> 
+            <Box type='review' fontSize='24px'>
               <FlexContainer type='review' >
-                <div style={{display: 'flex', alignItems: 'start', justifyContent: 'space-between', gap: '20px'}}>
+                <div style={{ display: 'flex', alignItems: 'start', justifyContent: 'space-between', gap: '20px' }}>
                   <Container>
                     <Avatar src={image} />
-                    <MainText style={{ color: 'var(--accent)'}} >{reviewItem.author}</MainText>
+                    <FlexContainer>
+                      <SmallerText style={{ color: 'var(--accent)' }} >{reviewItem.author}</SmallerText>
+                      <MenuAndFootnote style={{ fontSize: "20px" }}>{reviewItem.authorJob}</MenuAndFootnote>
+                    </FlexContainer>
                   </Container>
                   <Score>{score}</Score>
                 </div>
-                <ColoredText type='review' height='auto' component={MenuAndFootnote} data={data} />
+                <ColoredText type='review' height='auto' component={SmallThin} style={{ fontFamily: "Coolvetica Lite" }} data={data} />
                 {Boolean(longText) && <div style={{ display: 'flex', justifyContent: 'end' }}>
-                ↓
+                  ↓
                 </div>}
               </FlexContainer>
             </Box>
@@ -81,7 +84,7 @@ height: 60px;
 }
 `;
 
-const Score = styled(MainText)``;
+const Score = styled(SmallerText)``;
 
 const Container = styled.div`
 display: flex;

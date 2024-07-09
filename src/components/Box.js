@@ -24,7 +24,7 @@ const types = {
   }
 };
 
-const Box = ({ children, grid, type, padding, fontSize, isOpen, height, width }) => {
+const Box = ({ children, grid, type, padding, fontSize, isOpen, height, width, bgColor, border }) => {
   return (
     <Wrapper
       initial={{
@@ -47,9 +47,11 @@ const Box = ({ children, grid, type, padding, fontSize, isOpen, height, width })
       viewport={{ once: true }}
       style={{ maxHeight: isOpen ? 'auto' : 'auto' }}
       height={height}
+      bgColor={bgColor}
       width={width}
       fontSize={fontSize}
       padding={padding}
+      border={border}
       type={type}
       grid={grid}>
       {children}
@@ -61,12 +63,13 @@ export default Box;
 
 const Wrapper = styled(motion.div)`
   border-radius: 15px;
-  border: 3px solid #000;
+  border: ${({ border }) => border || "3px solid #000"};
   padding: ${({ padding }) => padding || '30px'};
   grid-area: ${({ grid }) => grid};
   ${({ type }) => types[`${type}`]}
   height: ${({ height }) => height || 'auto'};
   width: ${({ width }) => width || 'auto'};
+  background-color: ${({ bgColor }) => bgColor || "transparent"};
   display: flex;
   flex-direction: column;
   justify-content: start;
