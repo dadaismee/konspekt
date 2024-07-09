@@ -364,7 +364,7 @@ export const reviews = {
     },
 
     {
-      author: "Валерия Андрюшечкина",
+      author: "Валерия А.",
       image: "/reviews_avatars/lera-a_1.png",
       score: "8/10",
       longText: true,
