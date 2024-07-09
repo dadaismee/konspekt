@@ -10,7 +10,7 @@ export const Heading = styled(motion.h1)`
   line-height: 105%; /* 136.5px */
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 10vw;
+    font-size: 15vw;
     text-align: left;
   }
 `;
@@ -20,7 +20,7 @@ export const SectionHeading = styled(motion.h2)`
   font-size: 96px;
   line-height: 105%; /* 136.5px */
   margin: 180px 0 20px;
-  margin-top: ${({ margin }) => margin };
+  margin-top: ${({ margin }) => margin};
 
   @media (max-width: ${mediaQueries.phone}) {
     font-size: 12vw;
@@ -59,6 +59,19 @@ export const MainText = styled(motion.p)`
   }
 `;
 
+export const SmallerText = styled(motion.p)`
+  color: var(--text);
+  font-size: 32px;
+  line-height: 95%;
+  /* margin-bottom: 10px; */
+
+  @media (max-width: ${mediaQueries.phone}) {
+    font-size: 20px;
+  }
+`;
+
+
+
 export const MenuAndFootnote = styled(motion.p)`
   color: var(--text);
   font-size: 24px;
@@ -68,6 +81,19 @@ export const MenuAndFootnote = styled(motion.p)`
     font-size: 16px;
   }
 `;
+
+export const SmallThin = styled(motion.p)`
+  color: var(--text);
+  font-size: 24px;
+  font-family: Coolvetica Lite;
+  line-height: 115%; /* 136.5px */
+
+  @media (max-width: ${mediaQueries.phone}) {
+    font-size: 16px;
+  }
+`;
+
+
 
 export const Features = styled(motion.p)`
   font-size: 20px;

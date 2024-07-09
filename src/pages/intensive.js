@@ -32,7 +32,7 @@ import {
   results,
   reviews,
   links
-} from "../pageData/writing-pro.js";
+} from "../pageData/intensive-data.js";
 import "../styles/layout.css";
 
 const IndexPage = () => {

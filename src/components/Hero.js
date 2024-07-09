@@ -229,7 +229,7 @@ export const Button = styled(AnchorLink)`
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;
     height: 80px;
-    font-size: 32px;
+    font-size: 24px;
     line-height: 80%;
     background-color: ${({ type }) => type === "ghost" ? "var(--accent)" : "none"};
     color: var(--text) ;
@@ -293,9 +293,7 @@ const Video = styled(motion.video)`
   box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.125);
 
   @media (max-width: ${mediaQueries.phone}) {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
+    display: none;
   }
 `;
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { mediaQueries } from '../styles/GlobalStyles';
 
-const Image = ({ src }) => {
+const Image = ({ src, width, height }) => {
   return (
     <Wrapper
       initial={{
@@ -24,16 +24,21 @@ const Image = ({ src }) => {
         delay: 0.15,
       }}
       viewport={{ once: true }}
-      src={src}></Wrapper>
+      src={src}
+      width={width}
+      height={height}
+    >
+    </Wrapper>
   )
 }
 export default Image;
 
 export const Wrapper = styled(motion.img)`
-  width: var(--left-column-width);
-  max-height: var(--left-column-width);
+  width: ${({ width }) => width || "var(--left-column-width)"};
+  height: ${({ height }) => height || "var(--left-column-width)"};
   border-radius: 15px;
   box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.125);
+  object-fit: cover;
 
   @media (max-width: ${mediaQueries.phone}) {
     width: 100%;
