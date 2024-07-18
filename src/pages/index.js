@@ -28,7 +28,6 @@ import {
   process,
   program,
   requestFormBuy,
-  requestFormFree,
   results,
   reviews,
   links
@@ -54,7 +53,7 @@ const IndexPage = () => {
       <BasicSection pageData={audience} grids={grids_4} />
       <ListSection pageData={outcomes} />
       <BasicSection id="results" pageData={results} grids={grids_3} />
-      <BasicSection id="process" pageData={process} grids={grids_3} />
+      <BasicSection id="process" pageData={process} grids={grids_4} />
       <Pricing id="pricing" pageData={pricing}
         selectedTariff={selectedTariff} handleClick={handleClick} />
       <Program id="program" pageData={program} />
