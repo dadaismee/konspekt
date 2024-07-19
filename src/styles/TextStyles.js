@@ -86,7 +86,8 @@ export const SmallThin = styled(motion.p)`
   color: var(--text);
   font-size: 24px;
   font-family: Coolvetica Lite;
-  line-height: 115%; /* 136.5px */
+  line-height: 130%; /* 136.5px */
+  letter-spacing: 0px;
 
   @media (max-width: ${mediaQueries.phone}) {
     font-size: 16px;
