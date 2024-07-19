@@ -5,6 +5,7 @@ import {
   MainText,
   MenuAndFootnote,
   SectionHeading,
+  SmallThin,
 } from '../styles/TextStyles';
 import Box from './Box';
 
@@ -110,7 +111,7 @@ const Question = styled(MainText)`
   text-align: left;
 `;
 
-const Answer = styled(MenuAndFootnote)``;
+const Answer = styled(SmallThin)``;
 
 const VertFlex = styled.div`
   display: flex;
