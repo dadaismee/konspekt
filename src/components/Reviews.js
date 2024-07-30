@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { MainFeature, MenuAndFootnote, MainText, SectionHeading, SmallThin, SmallerText } from "../styles/TextStyles";
+import { MenuAndFootnote, SectionHeading, SmallThin, SmallerText } from "../styles/TextStyles";
 import Box from "./Box";
 import { GridContainer, FlexContainer, mediaQueries } from "../styles/GlobalStyles.js";
 import ColoredText from "./ColoredText";
@@ -36,7 +36,7 @@ const Reviews = ({ pageData, id }) => {
       </SectionHeading>
       <BoxesWrapper>
         {reviewItems.map((reviewItem, index) => {
-          const { author, image, score, data, longText } = reviewItem;
+          const { author, image, score, data, longText, reviewLink } = reviewItem;
           return (
             <Box type='review' fontSize='24px'>
               <FlexContainer type='review' >
@@ -51,9 +51,12 @@ const Reviews = ({ pageData, id }) => {
                   <Score>{score}</Score>
                 </div>
                 <ColoredText type='review' height='auto' component={SmallThin} style={{ fontFamily: "Coolvetica Lite" }} data={data} />
-                {Boolean(longText) && <div style={{ display: 'flex', justifyContent: 'end' }}>
+                {/* {Boolean(longText) && <div style={{ display: 'flex', justifyContent: 'end' }}>
                   ↓
-                </div>}
+                </div>} */}
+                {Boolean(reviewLink) && <a href={reviewLink}>
+                  <MenuAndFootnote>Ссылка на отзыв</MenuAndFootnote>
+                </a>}
               </FlexContainer>
             </Box>
           );
@@ -98,9 +101,8 @@ export const BoxesWrapper = styled(motion.div)`
   overflow-x: scroll;
   overflow-y: hidden;
   height: auto;
-  width: 100%;
-  margin: 10px -60px 0px -60px;
   padding: 0px 60px;
+  margin: 10px -60px 0px -60px;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
