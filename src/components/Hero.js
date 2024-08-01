@@ -6,9 +6,10 @@ import Typewriter from 'typewriter-effect';
 import { Image, Box } from './index.js';
 import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
+import { Asterisk } from './ListSection.js';
 
 const Hero = ({ data, handleClick }) => {
-  const { title, typeWriterText, description, buttonText, features, video, image } = data;
+  const { title, typeWriterText, description, buttonText, features, video, image, asterisk } = data;
 
   return (
     <Wrapper>
@@ -134,6 +135,26 @@ const Hero = ({ data, handleClick }) => {
             </Button>  */}
             </ButtonsWrapper>
           </ButtonWrapper>
+          {Boolean(asterisk) && <Asterisk 
+            initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            y: 20,
+          }}
+          transition={{
+            ease: [0.165, 0.84, 0.44, 1],
+            duration: 1,
+            delay: 0.65,
+          }}
+          viewport={{ once: true }}
+            style={{ marginTop: '-10px', fontFamily: 'Coolvetica Lite'}}>{asterisk}</Asterisk>}
         </VertFlex>
       </FlexContainer>
     </Wrapper>
