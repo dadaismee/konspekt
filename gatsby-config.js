@@ -10,6 +10,14 @@ module.exports = {
     siteUrl: `https://konspekt.io`,
   },
   plugins: [
+     {
+      resolve: "gatsby-plugin-carrotquest",
+      options: {
+        carrotquestId: "63783-5e7ebf08607ba92f5f125df1d2",
+        mobileDelay: 2000, // Optional. Задержка для mobile devices.
+        desktopDelay: 500, // Optional. Задержка для other devices.
+      },
+    },
     {
       resolve: `gatsby-plugin-amplitude-analytics`,
       options: {
