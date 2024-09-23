@@ -6,8 +6,11 @@ import {
   MenuAndFootnote,
   SectionHeading,
   SmallThin,
+  SmallerText,
 } from '../styles/TextStyles';
 import Box from './Box';
+import { Grid } from './ListSection';
+import { mediaQueries } from '../styles/GlobalStyles';
 
 const variants = {
   open: { rotate: 0 },
@@ -48,7 +51,7 @@ const FAQ = ({ pageData, id }) => {
         {title}
       </SectionHeading>
 
-      <VertFlex>
+      <Grid>
         {questions.map((faqItem, index) => {
           const { question, answer } = faqItem;
           return (
@@ -89,7 +92,7 @@ const FAQ = ({ pageData, id }) => {
             </Box>
           );
         })}
-      </VertFlex>
+      </Grid>
     </Wrapper>
   );
 };
@@ -105,13 +108,17 @@ const Toggle = styled(motion.div)`
   cursor: pointer;
 `;
 
-const Question = styled(MainText)`
+const Question = styled(SmallerText)`
   cursor: pointer;
   width: 100%;
   text-align: left;
 `;
 
-const Answer = styled(SmallThin)``;
+const Answer = styled(SmallThin)`
+  @media (max-width: ${mediaQueries.phone}) {
+    font-size: 24px;
+  }
+`;
 
 const VertFlex = styled.div`
   display: flex;

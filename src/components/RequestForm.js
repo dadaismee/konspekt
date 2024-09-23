@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { mediaQueries } from "../styles/GlobalStyles";
-import { MenuAndFootnote, SectionHeading } from "../styles/TextStyles";
+import { MenuAndFootnote, SectionHeading, SmallerText } from "../styles/TextStyles";
 import ColoredText from "./ColoredText";
 import { Asterisk } from "./ListSection";
 import { Box, Loader } from "./index";
@@ -155,7 +155,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
               {Boolean(type !== 'register' || selectedTariff) && <Box fontSize="40px" grid={grids[0]}>
                 {/* Boolean(selectedTariff) ? <ColoredText data={selectedTariff === 'passive' ? boxes[0] : boxes[2]}></ColoredText> : <ColoredText data
              ={boxes[0]}></ColoredText>*/}
-                <ColoredText data={boxes[0]} />
+                <ColoredText component={SmallerText} data={boxes[0]} />
               </Box>}
               <Box fontSize="20px">
                 <FlexVertical>
