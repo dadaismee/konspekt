@@ -55,7 +55,7 @@ export const MainText = styled(motion.p)`
   /* margin-bottom: 10px; */
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 24px;
+    font-size: 20px;
   }
 `;
 
@@ -66,7 +66,7 @@ export const SmallerText = styled(motion.p)`
   /* margin-bottom: 10px; */
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 20px;
+    font-size: 24px;
   }
 `;
 
@@ -78,7 +78,7 @@ export const MenuAndFootnote = styled(motion.p)`
   line-height: 105%; /* 136.5px */
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 16px;
+    font-size: 20px;
   }
 `;
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Box, ColoredText, Image, VideoPlayer } from '../components/index';
 import { mediaQueries } from '../styles/GlobalStyles.js'
 import { GridContainer } from '../styles/GlobalStyles';
-import { SectionHeading } from '../styles/TextStyles';
+import { SectionHeading, SmallerText } from '../styles/TextStyles';
 import { Asterisk } from './ListSection';
 import { Button, ButtonWrapper } from './Hero.js';
 
@@ -41,7 +41,7 @@ const BasicSection = ({ pageData, grids, id }) => {
         <GridContainer>
           {data.map((box) => (
             <Box grid={box.grid} padding={box.padding} key={box.mainText}>
-              {Boolean(box.mainText) && <ColoredText data={box} key={box.mainText} />}
+              {Boolean(box.mainText) && <ColoredText component={SmallerText} data={box} key={box.mainText} />}
               {Boolean(box.video) && <VideoPlayer videoSrc={box.video} />}
               {Boolean(box.image) && <Image height={box.imageHeight} width={box.imageWidth} src={box.image} />}
             </Box>

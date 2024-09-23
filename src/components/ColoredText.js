@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import { MainText } from '../styles/TextStyles';
+import { mediaQueries } from '../styles/GlobalStyles';
 
 const ColoredText = ({ data, component, height, type, lineHeight }) => {
   const { mainText, spanText } = data;
@@ -21,5 +22,9 @@ export const Text = styled(({ component: Component = MainText, ...props }) => <C
   line-height: ${({ lineHeight }) => lineHeight || '100%'};
   span {
     color: var(--accent);
+  }
+
+  @media (max-width: ${mediaQueries.phone}) {
+    font-size: 24px;
   }
 `;

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Box, ColoredText } from '../components/index';
-import { mediaQueries } from '../styles/GlobalStyles';
-import { MenuAndFootnote, SectionHeading } from '../styles/TextStyles';
+import { Flex, mediaQueries } from '../styles/GlobalStyles';
+import { MenuAndFootnote, SectionHeading, SmallThin, SmallerText } from '../styles/TextStyles';
 
 const PageSection = ({ pageData, id }) => {
   const { title, asterisk } = pageData;
@@ -31,13 +31,15 @@ const PageSection = ({ pageData, id }) => {
         viewport={{ once: true }}>
         {title}
       </SectionHeading>
-      <Box type='list'>
+      <Box type='list' fontSize='32px'>
+        <Grid>
         {data.map((box, index) => (
-          <ListItem>
+          <ListItem gridArea={box.gridArea}>
             <Circle>{index + 1}</Circle>
-            <ColoredText data={box} key={box.mainText} />
+            <ColoredText component={SmallerText} data={box} key={box.mainText} />
           </ListItem>
         ))}
+        </Grid>
       </Box>
       {Boolean(asterisk) && <Asterisk 
         initial={{
@@ -75,10 +77,11 @@ export const Asterisk = styled(MenuAndFootnote)`
 
 export const ListItem = styled.ol`
   display: flex;
-  gap: 30px;
-  align-items: center;
+  gap: 10px;
+  align-items: start;
   align-self: flex-start;
   margin-bottom: 20px;
+  grid-column: ${({gridArea}) => gridArea };
 
   @media (max-width: ${mediaQueries.phone}) {
     align-items: center;
@@ -103,5 +106,19 @@ export const Circle = styled.li`
     max-width: 40px;
     height: 40px;
     font-size: 20px;
+  }
+`;
+
+export const Grid = styled.div`
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  grid-auto-flow: row dense;
+  column-gap: 20px;
+  row-gap: 20px;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    display: flex; 
+    flex-direction: column;
+    gap: 10px;
   }
 `;

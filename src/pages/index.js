@@ -59,7 +59,8 @@ const IndexPage = () => {
       <Program id="program" pageData={program} />
       <Reviews id="reviews"
         pageData={reviews} />
-      <Author pageData={author} /> <FAQ
+      <Author pageData={author} /> 
+      <FAQ
         pageData={faq} />
       <RequestForm id="form" grids={grids_3}
         pageData={/* Boolean(selectedTariff) ? requestFormBuy
