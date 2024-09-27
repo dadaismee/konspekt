@@ -89,6 +89,13 @@ export const SmallThin = styled(motion.p)`
   line-height: 130%; /* 136.5px */
   letter-spacing: 0px;
 
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   @media (max-width: ${mediaQueries.phone}) {
     font-size: 16px;
   }

@@ -55,7 +55,7 @@ const Pricing = ({ pageData, id, handleClick }) => {
                       <MenuAndFootnote>→</MenuAndFootnote>
                       <VertFlex style={{ gap: '0px' }}>
                         <MenuAndFootnote>{feature.mainText}</MenuAndFootnote>
-                        <MenuAndFootnote style={{ fontFamily: 'Coolvetica Lite', lineHeight: "90%", color: 'var(--asterisk)' }}>{feature.spanText}</MenuAndFootnote>
+                        <MenuAndFootnote style={{ fontFamily: 'Coolvetica Lite', lineHeight: "100%", color: 'var(--asterisk); marginTop: "10px"' }}>{feature.spanText}</MenuAndFootnote>
                       </VertFlex>
                       {/* <ColoredText component={MenuAndFootnote} lineHeight='100%' data={feature} key={feature.mainText} /> */}
                     </FlexArrow>
