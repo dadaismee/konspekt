@@ -98,15 +98,16 @@ align-items: center;
 export const BoxesWrapper = styled(motion.div)`
   display: flex;
   gap: 1.38vw; 
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
   height: auto;
   padding: 0px 60px;
   margin: 10px -60px 0px -60px;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 
-  &:-webkit-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+
+  &::-webkit-scrollbar {
     display: none;
   }
 

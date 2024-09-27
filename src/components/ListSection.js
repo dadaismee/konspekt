@@ -81,7 +81,7 @@ export const ListItem = styled.ol`
   align-items: start;
   align-self: flex-start;
   margin-bottom: 20px;
-  grid-column: ${({gridArea}) => gridArea };
+  width: 100%;
 
   @media (max-width: ${mediaQueries.phone}) {
     align-items: center;
@@ -111,8 +111,7 @@ export const Circle = styled.li`
 
 export const Grid = styled.div`
   display: grid; 
-  grid-template-columns: repeat(2, 1fr); 
-  grid-auto-flow: row dense;
+  grid-template-columns: calc(100% - var(--right-column-width)) calc(100% - var(--left-column-width)); 
   column-gap: 20px;
   row-gap: 20px;
 
