@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Box, ColoredText } from '../components/index';
 import { Flex, mediaQueries } from '../styles/GlobalStyles';
-import { MenuAndFootnote, SectionHeading, SmallThin, SmallerText } from '../styles/TextStyles';
+import { Features, MenuAndFootnote, SectionHeading, SmallThin, SmallerText } from '../styles/TextStyles';
 
 const PageSection = ({ pageData, id }) => {
   const { title, asterisk } = pageData;
@@ -69,16 +69,16 @@ export default PageSection;
 
 const Wrapper = styled.section``;
 
-export const Asterisk = styled(MenuAndFootnote)`
+export const Asterisk = styled(Features)`
   margin-top: 10px;
   width: 100%;
-  color: var(--asterisk);
+  color: var(--text);
 `;
 
 export const ListItem = styled.ol`
   display: flex;
   gap: 10px;
-  align-items: start;
+  align-items: center;
   align-self: flex-start;
   margin-bottom: 20px;
   width: 100%;
@@ -111,7 +111,8 @@ export const Circle = styled.li`
 
 export const Grid = styled.div`
   display: grid; 
-  grid-template-columns: calc(100% - var(--right-column-width)) calc(100% - var(--left-column-width)); 
+  grid-template-columns: repeat(2, auto);
+  {/* grid-template-columns: calc(100% - var(--right-column-width)) calc(100% - var(--left-column-width)); */}
   column-gap: 20px;
   row-gap: 20px;
 
