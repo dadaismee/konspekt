@@ -9,7 +9,7 @@ const RegisterPage = () => {
   return (
     <Wrapper>
       <Header data={links} />
-      <RequestForm id="form" grids={grids_3} pageData={requestFormBuyPromo} margin='80px' buttonText='Оплатить' />
+      <RequestForm id="form" grids={grids_3} pageData={requestFormBuyPromo} margin='80px' selectedTariff='buyer' type="free" buttonText='Оплатить' />
       <Contact id="contact" pageData={contact} />
       <FooterWrapper>
         <Footer />

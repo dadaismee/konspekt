@@ -50,23 +50,6 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
       const uniSenderResponse = await fetch('https://api.unisender.com/ru/api/subscribe?format=json&api_key=' + encodeURIComponent(UNISENDER_KEY) + '&list_ids=1&fields[email]=' + encodeURIComponent(email) + '&fields[Name]=' + encodeURIComponent(name) + '&fields[Type]=' + encodeURIComponent(selectedTariff) + '&fields[telegram]=' + encodeURIComponent(telegram) + '&double_optin=3&overwrite=1', {
         method: 'POST',
       });
-      // const uniSenderResponse = await fetch('https://api.unisender.com/ru/api/subscribe', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     format: 'json',
-      //     api_key: '6ij7fqkbfr5y7uk6tpyouztzztr3ggzejstss1eo',
-      //     list_ids: '1',
-      //     fields: {
-      //       email: email,
-      //       Name: name,
-      //       type: selectedTariff
-      //     },
-      //     double_optin: 0,
-      //   }),
-      // });
 
       const uniSenderData = await uniSenderResponse.json();
       if (uniSenderData.error) {
@@ -106,14 +89,15 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
     //   "_self",
     // );
 
-    {
-      window.open(
+    Boolean(selectedTariff === 'free-course') && window.open(
+      "https://konspekt.zenclass.ru/public/product/832e13c7-8b0d-4e5f-8220-81d2f0094d95/tariffs")
+
+    Boolean(selectedTariff === "buyer" && window.open(
         "https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs",
         // "https://konspekt.zenclass.ru/public/t/baac62a5-135b-4017-8043-c53e9ab611eb",
-        "_self",
-      )
-    }
-    setIsSubmitted(true);
+        "_self"),
+
+    setIsSubmitted(true));
   };
 
   return (
@@ -173,8 +157,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
                       {errors.name && <p>Введите имя кириллицей</p>}
                     </InputItem>
                   )}
-                  {/* {Boolean(selectedTariff === 'buyer') && <InputItem> */}
-                  <InputItem>
+                  {Boolean(selectedTariff === 'buyer') && <InputItem> 
                     <Input
                       type="text"
                       placeholder="Telegram"
@@ -185,7 +168,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
                       })}
                     />
                     {errors.telegram && <p>Введите ник в Telegram c @ в начале)</p>}
-                  </InputItem>
+                  </InputItem>}
                   <InputItem>
                     <Input
                       type="email"
