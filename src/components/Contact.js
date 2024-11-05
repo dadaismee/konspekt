@@ -32,6 +32,31 @@ const Contact = ({ pageData, id }) => {
       </SectionHeading>
 
       <FlexContainer>
+        <ButtonWrapper
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            y: 20,
+          }}
+          transition={{
+            ease: [0.165, 0.84, 0.44, 1],
+            duration: 1,
+            delay: 0.3,
+          }}
+          viewport={{ once: true }}>
+          <a
+            href='https://t.me/konspektsupport'
+            target='_blank'>
+            <Button>Написать в Телеграм</Button>
+          </a>
+      </ButtonWrapper>
       <ButtonWrapper
         initial={{
           opacity: 0,
@@ -55,31 +80,6 @@ const Contact = ({ pageData, id }) => {
           href='mailto:konspekt.school@yandex.ru?subject=Курс «Конспекты, которые пригодятся»&body=Добрый день! %0D%0A %0D%0A У меня есть вопрос про курс «Конспекты, которые пригодятся»: …'
           target='_blank'>
           <Button>Написать на почту</Button>
-        </a>
-      </ButtonWrapper>
-<ButtonWrapper
-        initial={{
-          opacity: 0,
-          y: 20,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        exit={{
-          opacity: 0,
-          y: 20,
-        }}
-        transition={{
-          ease: [0.165, 0.84, 0.44, 1],
-          duration: 1,
-          delay: 0.3,
-        }}
-        viewport={{ once: true }}>
-        <a
-          href='https://t.me/konspektsupport'
-          target='_blank'>
-          <Button>Написать в Телеграм</Button>
         </a>
       </ButtonWrapper>
 
