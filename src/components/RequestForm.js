@@ -107,7 +107,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
     // );
 
     {
-      Boolean(selectedTariff === 'buyer') && window.open(
+      window.open(
         "https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs",
         // "https://konspekt.zenclass.ru/public/t/baac62a5-135b-4017-8043-c53e9ab611eb",
         "_self",
@@ -173,7 +173,8 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
                       {errors.name && <p>Введите имя кириллицей</p>}
                     </InputItem>
                   )}
-                  {Boolean(selectedTariff === 'buyer') && <InputItem>
+                  {/* {Boolean(selectedTariff === 'buyer') && <InputItem> */}
+                  <InputItem>
                     <Input
                       type="text"
                       placeholder="Telegram"
@@ -184,7 +185,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
                       })}
                     />
                     {errors.telegram && <p>Введите ник в Telegram c @ в начале)</p>}
-                  </InputItem>}
+                  </InputItem>
                   <InputItem>
                     <Input
                       type="email"
