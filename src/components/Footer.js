@@ -11,7 +11,7 @@ import oferta from '../assets/agreement.pdf';
 const Footer = () => {
   return (
     <Wrapper>
-      <Copy>Школа «Конспект» © 2023-{new Date().getFullYear()}</Copy>
+      <Copy>Школа «Конспект» © {new Date().getFullYear()}</Copy>
       <StyledLink style={{ alignSelf: 'end' }} href={policy} target='_blank' rel='noopener noreferrer'>
         <Copy style={{ color: 'var(--accent)' }}>Политика конфиденциальности</Copy>
       </StyledLink>
