@@ -1,17 +1,24 @@
-import { navigate } from 'gatsby';
 import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { mediaQueries } from "../styles/GlobalStyles";
-import { MenuAndFootnote, SectionHeading, SmallerText } from "../styles/TextStyles";
+import { MainText, MenuAndFootnote, SectionHeading, SmallerText } from "../styles/TextStyles";
 import ColoredText from "./ColoredText";
 import { Asterisk } from "./ListSection";
 import { Box, Loader } from "./index";
+import { pricing } from "../pageData/writing-pro";
 
-const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, margin }) => {
-  const { title, asterisk, buttonText } = pageData;
+const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, type, userType, margin }) => {
+  const { title, asterisk } = pageData;
   const boxes = pageData.boxes.map((box) => box);
+  const tariffs = pricing.tariffs.map(tariff => tariff);
+  const getTariffPrice = (tariffName) => {
+      const tariff = tariffs.find(t => t.name === tariffName);
+      return tariff ? tariff.price : null; 
+  };
+  const price = getTariffPrice(selectedTariff);
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -22,10 +29,10 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
     formState: { errors },
   } = useForm();
 
-  let name = watch("name");
+  let userName = watch("name");
   let email = watch("email");
   let telegram = watch("telegram") || "—";
-  // let tariff = watch("tariff") || selectedTariff;
+   let tariff = watch("tariff") || selectedTariff;
   // let stream = watch("stream");
 
 
@@ -37,7 +44,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
       await fetch('/.netlify/functions/sendToSheets', {
         method: 'POST',
         body: JSON.stringify({
-          Name: name,
+          Name: userName,
           Email: email,
           Telegram: telegram || '—',
           Date: Date(),
@@ -47,7 +54,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
 
       // Send data to UniSender
       const UNISENDER_KEY = '6ij7fqkbfr5y7uk6tpyouztzztr3ggzejstss1eo';
-      const uniSenderResponse = await fetch('https://api.unisender.com/ru/api/subscribe?format=json&api_key=' + encodeURIComponent(UNISENDER_KEY) + '&list_ids=1&fields[email]=' + encodeURIComponent(email) + '&fields[Name]=' + encodeURIComponent(name) + '&fields[Type]=' + encodeURIComponent(selectedTariff) + '&fields[telegram]=' + encodeURIComponent(telegram) + '&double_optin=3&overwrite=1', {
+      const uniSenderResponse = await fetch('https://api.unisender.com/ru/api/subscribe?format=json&api_key=' + encodeURIComponent(UNISENDER_KEY) + '&list_ids=1&fields[email]=' + encodeURIComponent(email) + '&fields[Name]=' + encodeURIComponent(userName) + '&fields[Type]=' + encodeURIComponent(selectedTariff) + '&fields[telegram]=' + encodeURIComponent(telegram) + '&double_optin=3&overwrite=1', {
         method: 'POST',
       });
 
@@ -81,21 +88,16 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
 
     // Logic for 2 active and passive tariffs
 
-    // Boolean(selectedTariff === 'active' || tariff === 'active') && window.open(
-    //     "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
-    //     "_self",
-    // Boolean(selectedTariff === 'passive' || tariff === 'passive') && window.open(
-    //   "https://konspekt.zenclass.ru/public/t/baac62a5-135b-4017-8043-c53e9ab611eb",
-    //   "_self",
-    // );
+    Boolean(selectedTariff === "active" && window.open(
+        "https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs",
+        "_self"),
+
+    Boolean(selectedTariff === 'self-paced') && window.open(
+       "https://konspekt.zenclass.ru/public/course/b8ad2556-efe5-482b-ad29-ef0fa39292d8",
+       "_self"),
 
     Boolean(selectedTariff === 'free-course') && window.open(
-      "https://konspekt.zenclass.ru/public/product/832e13c7-8b0d-4e5f-8220-81d2f0094d95/tariffs")
-
-    Boolean(selectedTariff === "buyer" && window.open(
-        "https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs",
-        // "https://konspekt.zenclass.ru/public/t/baac62a5-135b-4017-8043-c53e9ab611eb",
-        "_self"),
+      "https://konspekt.zenclass.ru/public/product/832e13c7-8b0d-4e5f-8220-81d2f0094d95/tariffs"),
 
     setIsSubmitted(true));
   };
@@ -127,7 +129,7 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
       </SectionHeading>
 
       <CTA onSubmit={handleSubmit(onSubmit)}>
-        {Boolean(selectedTariff !== 'buyer' && isSubmitted) ? (
+        {Boolean(type === 'free' && isSubmitted) ? (
           <div>
             <Box height='auto'>
               <ColoredText data={boxes[1]} />
@@ -154,10 +156,10 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
                           pattern: /^[а-яА-ЯЁё]+/g,
                         })}
                       />
-                      {errors.name && <p>Введите имя кириллицей</p>}
+                      {errors.name&& <p>Введите имя кириллицей</p>}
                     </InputItem>
                   )}
-                  {Boolean(selectedTariff === 'buyer') && <InputItem> 
+                  {Boolean(type !== 'free') && <InputItem> 
                     <Input
                       type="text"
                       placeholder="Telegram"
@@ -181,22 +183,22 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
                     />
                     {errors.email && <p>Введите адрес почты</p>}
                   </InputItem>
-                  {/* {Boolean(selectedTariff) && <InputItem>
+                  {/* {Boolean(type !== 'free') && <InputItem> 
                   <InputSelect
                     name="Тариф"
                     {...register("tariff", {
                       required: true,
                     })}
                   >
-                    <option value="" disabled selected={selectedTariff !== 'passive' || tariff !== 'active'}>
+                    <option value="" disabled selected={selectedTariff !== 'self-paced' || tariff !== 'active'}>
                       Тариф
                     </option>
-                    <option value="passive" selected={selectedTariff === 'passive' ? true : false}>«Курс» — самостоятельный тариф</option>
+                    <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false} >«Сам(-а)»</option>
                     <option value="active" selected={selectedTariff === 'active' ? true : false}>
-                      «Спринт» — тариф с преподавателем
+                      «Спринт»
                     </option>
                   </InputSelect>
-                </InputItem>} */}
+                </InputItem>} */ }
                   {/* {(Boolean(selectedTariff === "active") || Boolean(tariff === "active")) && (
                   <InputItem>
                     <InputSelect
@@ -270,12 +272,12 @@ const RequestForm = ({ pageData, grids, id, selectedTariff, type, userType, marg
                 type="submit"
                 height="100%"
               >
-                {Boolean(isLoading) ? <Loader /> : buttonText}
+                {Boolean(isLoading) ? <Loader /> : `Купить за ${price}`}
               </Button>
             </ButtonWrapper>
           </FormWrapper>)}
       </CTA>
-          {Boolean(asterisk) && <Asterisk
+          {Boolean(selectedTariff === 'active') && <Asterisk
     initial={{
       opacity: 0,
       y: 20,

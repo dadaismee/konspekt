@@ -17,4 +17,5 @@ export { default as Reviews } from "./Reviews";
 export { default as VideoPlayer } from "./VideoPlayer.js"
 export { default as Loader } from "./Loader.js";
 export { default as Image } from "./Image.js";
+export { default as AnnouncementBar } from "./AnnouncementBar.js";
 
