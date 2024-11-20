@@ -5,7 +5,11 @@ import { mediaQueries } from '../styles/GlobalStyles';
 
 const ColoredText = ({ data, component, height, type, lineHeight }) => {
   const { mainText, spanText } = data;
-  const replacedText = mainText.replace(
+  const typograf = (text) => {
+    const prepositionsPattern = /(\s)(и|из|к|или|в|с|на|не|по|для|от)(\s)/g;
+      return text.replace(prepositionsPattern, ' $2&nbsp;');
+       }
+  const replacedText = typograf(mainText).replace(
     new RegExp(spanText.join('|'), 'g'),
     (match) => `<span>${match}</span>`
   );
