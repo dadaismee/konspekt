@@ -183,22 +183,23 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, type, u
                     />
                     {errors.email && <p>Введите адрес почты</p>}
                   </InputItem>
-                  {/* {Boolean(type !== 'free') && <InputItem> 
+                  {Boolean(type !== 'free') && <InputItem> 
                   <InputSelect
                     name="Тариф"
                     {...register("tariff", {
                       required: true,
                     })}
+                    onChange={(e) => handleClick(e.target.value)}
                   >
                     <option value="" disabled selected={selectedTariff !== 'self-paced' || tariff !== 'active'}>
                       Тариф
                     </option>
-                    <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false} >«Сам(-а)»</option>
+                    <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false}>«Сам(а)»</option>
                     <option value="active" selected={selectedTariff === 'active' ? true : false}>
                       «Спринт»
                     </option>
                   </InputSelect>
-                </InputItem>} */ }
+                </InputItem>} 
                   {/* {(Boolean(selectedTariff === "active") || Boolean(tariff === "active")) && (
                   <InputItem>
                     <InputSelect

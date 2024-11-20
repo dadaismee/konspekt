@@ -66,7 +66,7 @@ const IndexPage = () => {
         pageData={faq} />
       <RequestForm id="form" grids={grids_3}
         pageData={/* Boolean(selectedTariff) ? requestFormBuy
-          : requestFormFree */ requestFormBuy} selectedTariff={selectedTariff || 'active'} type="landing" />
+          : requestFormFree */ requestFormBuy} handleClick={handleClick} selectedTariff={selectedTariff || 'active'} type="landing" />
       <Contact id="contact" pageData={contact} />
       <Footer /> </>);
 };
