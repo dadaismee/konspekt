@@ -35,7 +35,7 @@ const KnowledgeBasePage = () => {
       <BasicSection id="about" pageData={about} grids={grids_3} />
       <RequestForm id="form" grids={grids_3}
         pageData={/* Boolean(selectedTariff) ? requestFormBuy
-          : requestFormFree */ requestForm} selectedTariff='magnet_lead' type="free" />
+          : requestFormFree */ requestForm} selectedTariff='knowledge-base' type="free" />
 
       <BasicSection id="about" pageData={aboutCourse} grids={grids_3} />
       <Contact id="contact" pageData={contact} />

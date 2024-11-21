@@ -38,7 +38,7 @@ const Pricing = ({ pageData, id, handleClick }) => {
       <Flex>
         {tariffs.length > 1 ?
           tariffs.map((tariff, index) => (
-            <FlexContainer>
+            <FlexContainer> 
               <Box height="100%">
                 <MainFeature
                   style={{
@@ -48,7 +48,6 @@ const Pricing = ({ pageData, id, handleClick }) => {
                 >
                   {tariff.title}
                 </MainFeature>
-
                 <BoxGrid>
                   {tariff.features.map((feature) => (
                     <FlexArrow>
@@ -62,7 +61,6 @@ const Pricing = ({ pageData, id, handleClick }) => {
                   ))}
                 </BoxGrid>
               </Box>
-
 
               <ButtonWrapper
                 initial={{
@@ -84,12 +82,12 @@ const Pricing = ({ pageData, id, handleClick }) => {
                 }}
                 viewport={{ once: true }}
                 onClick={() => handleClick(tariff.name)}
-                width='var(--left-column-width)'              >
+                >
                 <Button to="#form" >
                   {tariff.price}
                 </Button>
               </ButtonWrapper>
-            </FlexContainer>
+            </FlexContainer> 
           ))
           :
           tariffs.map((tariff, index) => (
@@ -176,7 +174,7 @@ gap: 10px;
 `
 const BoxGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: ${({ type }) => type === '1tariff' ? 'repeat(2, 1fr)' : 'none'};
   width: ${({ width }) => width || 'auto'};
   gap: 30px;
 

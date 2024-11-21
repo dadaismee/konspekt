@@ -15,6 +15,7 @@ import {
   RequestForm,
   SEO,
   Reviews,
+  AnnouncementBar
 } from "../components/index";
 import {
   about,
@@ -35,16 +36,17 @@ import {
 import "../styles/layout.css";
 
 const IndexPage = () => {
-  const [selectedTariff, setSelectedTariff] = useState();
+  const [selectedTariff, setSelectedTariff] = useState('active');
 
   const handleClick = (tariffName) => {
     setSelectedTariff(tariffName);
   }
 
-  console.log(selectedTariff);
+  console.log('selectedTariff', selectedTariff)
 
   return (
     <>
+      <AnnouncementBar />
       <FirstScreen>
         <Header data={links} />
         <Hero data={hero} selectedTariff={selectedTariff} handleClick={handleClick} />
@@ -64,7 +66,7 @@ const IndexPage = () => {
         pageData={faq} />
       <RequestForm id="form" grids={grids_3}
         pageData={/* Boolean(selectedTariff) ? requestFormBuy
-          : requestFormFree */ requestFormBuy} selectedTariff='buyer' type="landing" />
+          : requestFormFree */ requestFormBuy} handleClick={handleClick} selectedTariff={selectedTariff || 'active'} type="landing" />
       <Contact id="contact" pageData={contact} />
       <Footer /> </>);
 };
@@ -83,7 +85,7 @@ const grids_4 = [
 export const grids_3 = ["1 / 1 / 1 / 3", "2 / 1 / 2 / 3", "1 / 3 / 3 / 6"];
 
 const FirstScreen = styled.div`
-height: 100dvh;
+height: 95dvh;
 display: flex;
 flex-direction: column;
 justify-content: center;

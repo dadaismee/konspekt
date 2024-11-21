@@ -5,10 +5,15 @@ import { grids_3 } from '../pages/index.js';
 import { requestFormBuy, links } from '../pageData/writing-pro.js';
 
 const RegisterPage = () => {
+    const [selectedTariff, setSelectedTariff] = useState('active');
+
+    const handleClick = (tariffName) => {
+        setSelectedTariff(tariffName);
+      }
   return (
     <Wrapper>
       <Header data={links} />
-      <RequestForm id="form" grids={grids_3} pageData={requestFormBuy} selectedTariff='buyer' type="landing" margin='80px' buttonText='Оплатить' />
+      <RequestForm id="form" grids={grids_3} pageData={requestFormBuy} selectedTariff={selectedTariff} handleClick={handleClick} type="landing" margin='80px' buttonText='Оплатить' />
       <FooterWrapper>
         <Footer />
       </FooterWrapper>

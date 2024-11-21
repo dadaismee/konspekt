@@ -124,9 +124,9 @@ const Hero = ({ data, handleClick }) => {
           </MobileFeaturesContainer> */}
             <ButtonsWrapper
               style={{ width: "100%" }}
-              onClick={() => handleClick("passive")}
+              //onClick={() => handleClick("passive")}
             >
-              <Button fontSize="40px" to='#form'>{buttonText}</Button>
+              <Button fontSize="40px" to='#pricing'>{buttonText}</Button>
               {/* <Button 
               type="ghost" 
               fontSize="24px" 
@@ -167,7 +167,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 85dvh;
+  height: 80dvh;
 
   @media (max-width: ${mediaQueries.phone}) {
     align-items: stretch;
