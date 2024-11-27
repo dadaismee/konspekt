@@ -34,7 +34,7 @@ const FreeCoursePage = () => {
     <>
       {/* <FirstScreen> */}
       <Header data={links} />
-      <Hero data={hero} selectedTariff={'lead'} handleClick={handleClick} />
+      <Hero data={hero} type="free" selectedTariff={'free-course'} handleClick={handleClick} />
       {/* </FirstScreen> */}
       <BasicSection id="problems" pageData={problems} grids={grids_3} />
       <ListSection id="outcomes" pageData={outcomes} />
