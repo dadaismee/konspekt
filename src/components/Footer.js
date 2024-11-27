@@ -25,7 +25,7 @@ const Footer = () => {
         <Image src={code} style={{ marginRight: '5px' }} />
         <Copy>
           by{' '}
-          <a href='https://valerii.sh' target='_blank'>
+          <a href='https://vsdesigner.netlify.app/' target='_blank'>
             v—sh
           </a>
         </Copy>
