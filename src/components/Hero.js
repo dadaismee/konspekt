@@ -8,7 +8,7 @@ import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
 import { Asterisk } from './ListSection.js';
 
-const Hero = ({ data, handleClick }) => {
+const Hero = ({ data, type, handleClick }) => {
   const { title, typeWriterText, description, buttonText, features, video, image, asterisk } = data;
 
   return (
@@ -126,7 +126,7 @@ const Hero = ({ data, handleClick }) => {
               style={{ width: "100%" }}
               //onClick={() => handleClick("passive")}
             >
-              <Button fontSize="40px" to='#pricing'>{buttonText}</Button>
+              <Button fontSize="40px" to={type === 'free' ? '#form' : '#pricing'}>{buttonText}</Button>
               {/* <Button 
               type="ghost" 
               fontSize="24px" 

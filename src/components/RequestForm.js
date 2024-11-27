@@ -273,7 +273,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, type, u
                 type="submit"
                 height="100%"
               >
-                {Boolean(isLoading) ? <Loader /> : `Купить за ${price}`}
+                {Boolean(isLoading) ? <Loader /> : price }
               </Button>
             </ButtonWrapper>
           </FormWrapper>)}

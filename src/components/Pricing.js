@@ -8,7 +8,8 @@ import { Asterisk } from "./ListSection";
 
 const Pricing = ({ pageData, id, handleClick }) => {
   const { title, type, asterisk, boxes } = pageData;
-  const tariffs = pageData.tariffs.map((tariff) => tariff);
+  let tariffs = pageData.tariffs.map((tariff) => tariff);
+  tariffs = tariffs.slice(0,2);
 
   return (
     <Wrapper id={id}>
