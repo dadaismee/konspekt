@@ -38,7 +38,7 @@ const AnnouncementBar = () => {
       }}
       viewport={{ once: true }}>
       <Link style={{fontSize: '20px'}} to='#form'>
-        Скидка 25% на январский поток до 30 ноября
+        Скидка 15% на январский поток до 15 декабря
       </Link>
     </Bar>
     );
