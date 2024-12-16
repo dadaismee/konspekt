@@ -8,7 +8,7 @@ import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
 import { Asterisk } from './ListSection.js';
 
-const Hero = ({ data, type, handleClick }) => {
+const Hero = ({ data, type, toggleGift }) => {
   const { title, typeWriterText, description, buttonText, features, video, image, asterisk } = data;
 
   return (
@@ -127,12 +127,12 @@ const Hero = ({ data, type, handleClick }) => {
               //onClick={() => handleClick("passive")}
             >
               <Button fontSize="40px" to={type === 'free' ? '#form' : '#pricing'}>{buttonText}</Button>
-              {/* <Button 
-              type="ghost" 
+              {/* {Boolean(type !== 'free') && <Button 
               fontSize="24px" 
               width="calc(var(--right-column-width) - var(--left-column-width))" 
-              to='#form'>Получить 1 урок
-            </Button>  */}
+              onClick={() => toggleGift(true)}
+              to='#form'>Купить<br/>в подарок
+            </Button>} */}
             </ButtonsWrapper>
           </ButtonWrapper>
           {Boolean(asterisk) && <Asterisk 
@@ -233,9 +233,10 @@ export const Button = styled(AnchorLink)`
   box-sizing: border-box;
   color: ${({ type }) => type === "ghost" ? "var(--accent)" : "var(--text)"} ;
   ${({ type }) => type === "ghost" ?
-    "border: 3px solid var(--accent)" : "border: none"}; 
+    "border: 3px solid var(--accent)" : "border: 3px solid transparent"}; 
   font-family: Coolvetica;
   border-radius: 15px;
+  line-height: 100%;
   transition: var(--transition);
 
   &:hover {
@@ -243,7 +244,7 @@ export const Button = styled(AnchorLink)`
     box-shadow: ${({ type }) => type === "ghost" ? "none" : "0px 0px 50px rgba(235, 235, 235, 0.5)"};
     background-color: ${({ type }) => type === "ghost" ? "var(--accent)" : "none"};
     color: var(--text);
-    border: none;
+    border: border: 3px solid transparent;
     cursor: pointer;
   }
 
@@ -252,8 +253,8 @@ export const Button = styled(AnchorLink)`
     height: 80px;
     font-size: 24px;
     line-height: 80%;
-    background-color: ${({ type }) => type === "ghost" ? "var(--accent)" : "none"};
-    color: var(--text) ;
+    //background-color: ${({ type }) => type === "ghost" ? "var(--accent)" : "none"};
+    //color: var(--text) ;
   }
 `;
 
@@ -274,7 +275,7 @@ export const ButtonWrapper = styled(motion.button)`
 
 export const ButtonsWrapper = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 10px;
   width: 100%;
 `
 

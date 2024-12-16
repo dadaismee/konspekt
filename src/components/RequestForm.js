@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
-import { mediaQueries } from "../styles/GlobalStyles";
+import { mediaQueries, Flex } from "../styles/GlobalStyles";
 import { MainText, MenuAndFootnote, SectionHeading, SmallerText } from "../styles/TextStyles";
 import ColoredText from "./ColoredText";
 import { Asterisk } from "./ListSection";
 import { Box, Loader } from "./index";
 import { pricing } from "../pageData/writing-pro";
 
-const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, type, userType, margin }) => {
+const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleGift, isGift, type, userType, margin }) => {
   const { title, asterisk } = pageData;
   const boxes = pageData.boxes.map((box) => box);
   const tariffs = pricing.tariffs.map(tariff => tariff);
@@ -32,9 +32,10 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, type, u
   let userName = watch("name");
   let email = watch("email");
   let telegram = watch("telegram") || "—";
-   let tariff = watch("tariff") || selectedTariff;
-  // let stream = watch("stream");
+  let tariff = watch("tariff") || selectedTariff;
+  let gift = isGift;
 
+  console.log("gift", gift);
 
   const onSubmit = async () => {
     setIsLoading(true);
@@ -49,12 +50,13 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, type, u
           Telegram: telegram || '—',
           Date: Date(),
           Tariff: selectedTariff,
+          Gift: gift, 
         }),
       });
 
       // Send data to UniSender
       const UNISENDER_KEY = '6ij7fqkbfr5y7uk6tpyouztzztr3ggzejstss1eo';
-      const uniSenderResponse = await fetch('https://api.unisender.com/ru/api/subscribe?format=json&api_key=' + encodeURIComponent(UNISENDER_KEY) + '&list_ids=1&fields[email]=' + encodeURIComponent(email) + '&fields[Name]=' + encodeURIComponent(userName) + '&fields[Type]=' + encodeURIComponent(selectedTariff) + '&fields[telegram]=' + encodeURIComponent(telegram) + '&double_optin=3&overwrite=1', {
+      const uniSenderResponse = await fetch('https://api.unisender.com/ru/api/subscribe?format=json&api_key=' + encodeURIComponent(UNISENDER_KEY) + '&list_ids=1&fields[email]=' + encodeURIComponent(email) + '&fields[Name]=' + encodeURIComponent(userName) + '&fields[Type]=' + encodeURIComponent(selectedTariff) + '&fields[isGift]=' + encodeURIComponent(gift) + '&fields[telegram]=' + encodeURIComponent(telegram) + '&double_optin=3&overwrite=1', {
         method: 'POST',
       });
 
@@ -88,17 +90,30 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, type, u
 
     // Logic for 2 active and passive tariffs
 
-    Boolean(selectedTariff === "active" && window.open(
+    // active tariff
+    Boolean(selectedTariff === "active" && !isGift && window.open(
         "https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs",
         "_self"),
 
-    Boolean(selectedTariff === 'self-paced') && window.open(
+    // gift active tariff
+    Boolean(selectedTariff === "active" && isGift) && window.open(
+        "https://konspekt.zenclass.ru/public/t/35cc2d86-2c6f-46f3-8353-f9097f3ef12e",
+        "_self"),
+
+    // self-paced
+    Boolean(selectedTariff === 'self-paced' && !isGift) && window.open(
        "https://konspekt.zenclass.ru/public/course/b8ad2556-efe5-482b-ad29-ef0fa39292d8",
+       "_self"),
+
+    // self-paced gift
+    Boolean(selectedTariff === 'self-paced' && isGift) && window.open(
+       "https://konspekt.zenclass.ru/public/t/c0dfffb1-cabe-4bbe-a467-6c8f543dac18",
        "_self"),
 
     Boolean(selectedTariff === 'free-course') && window.open(
       "https://konspekt.zenclass.ru/public/product/832e13c7-8b0d-4e5f-8220-81d2f0094d95/tariffs"),
 
+      console.log("tariff", selectedTariff, isGift),
     setIsSubmitted(true));
   };
 
@@ -141,15 +156,48 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, type, u
               {Boolean(type !== 'register' || selectedTariff) && <Box fontSize="40px" grid={grids[0]}>
                 {/* Boolean(selectedTariff) ? <ColoredText data={selectedTariff === 'passive' ? boxes[0] : boxes[2]}></ColoredText> : <ColoredText data
              ={boxes[0]}></ColoredText>*/}
-                <ColoredText component={SmallerText} data={boxes[0]} />
+                <ColoredText component={SmallerText} data={isGift ? boxes[2] : boxes[0]} />
               </Box>}
               <Box fontSize="20px">
                 <FlexVertical>
+                  <Flex>
+
+                  {/* {Boolean(type !== 'free') && <InputSelect
+                    name="Подарок"
+                    {...register("gift", {
+                      required: true,
+                    })}
+                    onChange={(e) => toggleGift(e.target.value)}
+                  >
+                    <option value="—" selected={!isGift ? true : false}>Себе</option>
+                    <option value="gift" selected={isGift? true : false}>
+                      В подарок
+                    </option>
+                  </InputSelect>} */}
+
+                  {Boolean(type !== 'free') &&
+                  <InputSelect
+                    name="Тариф"
+                    {...register("tariff", {
+                      required: true,
+                    })}
+                    onChange={(e) => handleClick(e.target.value)}
+                  >
+                    <option value="" disabled selected={selectedTariff !== 'self-paced' || tariff !== 'active'}>
+                      Тариф
+                    </option>
+                    <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false}>Сам(а)</option>
+                    <option value="active" selected={selectedTariff === 'active' ? true : false}>
+                      С группой 
+                    </option>
+                  </InputSelect>}
+                </Flex>
+
                   {Boolean(type !== 'register') && (
                     <InputItem>
                       <Input
-                        type="text"
-                        placeholder="Имя"
+                        type="text"req
+                        placeholder={isGift ? "Ваше имя" : "Имя" }
                         {...register("name", {
                           required: true,
                           maxLength: 20,
@@ -159,7 +207,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, type, u
                       {errors.name&& <p>Введите имя кириллицей</p>}
                     </InputItem>
                   )}
-                  {Boolean(type !== 'free') && <InputItem> 
+                  {Boolean(type !== 'free' && !isGift) && <InputItem> 
                     <Input
                       type="text"
                       placeholder="Telegram"
@@ -174,7 +222,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, type, u
                   <InputItem>
                     <Input
                       type="email"
-                      placeholder="Почта"
+                      placeholder={isGift ? "Ваша почта" : "Почта"}
                       {...register("email", {
                         required: true,
                         pattern:
@@ -183,23 +231,8 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, type, u
                     />
                     {errors.email && <p>Введите адрес почты</p>}
                   </InputItem>
-                  {Boolean(type !== 'free') && <InputItem> 
-                  <InputSelect
-                    name="Тариф"
-                    {...register("tariff", {
-                      required: true,
-                    })}
-                    onChange={(e) => handleClick(e.target.value)}
-                  >
-                    <option value="" disabled selected={selectedTariff !== 'self-paced' || tariff !== 'active'}>
-                      Тариф
-                    </option>
-                    <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false}>«Сам(а)»</option>
-                    <option value="active" selected={selectedTariff === 'active' ? true : false}>
-                      «Спринт»
-                    </option>
-                  </InputSelect>
-                </InputItem>} 
+
+
                   {/* {(Boolean(selectedTariff === "active") || Boolean(tariff === "active")) && (
                   <InputItem>
                     <InputSelect
@@ -307,7 +340,7 @@ export default RequestForm;
 const Wrapper = styled.section``;
 
 const Input = styled.input`
-padding: 15px;
+padding: 12.5px;
 border-radius: 15px;
 border: none;
 /* width: 100%; */
@@ -320,16 +353,13 @@ font-family: Coolvetica;
 `;
 
 const InputSelect = styled.select`
-padding: 15px;
+padding: 12.5px;
 border-radius: 15px;
 border: none;
-/* width: 100%; */
+width: 100%;
 font-size: 24px;
 font-family: Coolvetica;
-
-&:first-child {
-  color: grey;
-}
+color: grey;
 
 @media (max-width: ${mediaQueries.phone}) {
   font-size: 20px;

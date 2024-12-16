@@ -30,7 +30,7 @@ const KnowledgeBasePage = () => {
     <>
       {/* <FirstScreen> */}
       <Header data={links} />
-      <Hero data={hero} selectedTariff={'lead'} handleClick={handleClick} />
+      <Hero data={hero} selectedTariff={'lead'} type='free' handleClick={handleClick} />
       {/* </FirstScreen> */}
       <BasicSection id="about" pageData={about} grids={grids_3} />
       <RequestForm id="form" grids={grids_3}

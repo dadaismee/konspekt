@@ -17,7 +17,7 @@ exports.handler = async (event) => {
     const data = JSON.parse(event.body);
     const email = data.Email;
     const tariff = data.Tariff; // Assuming "tariff" exists in the request
-    const stream = data.Stream;
+    const stream = data.Gift;
 
     // Find the row with matching email
     const rows = await sheet.getRows();

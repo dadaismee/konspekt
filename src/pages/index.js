@@ -31,22 +31,29 @@ import {
   requestFormBuy,
   results,
   reviews,
-  links
+  links,
+  gift_certificate
 } from "../pageData/writing-pro.js";
 import "../styles/layout.css";
 
 const IndexPage = () => {
   const [selectedTariff, setSelectedTariff] = useState('active');
+  const [isGift, setIsGift] = useState(false); 
 
   const handleClick = (tariffName) => {
     setSelectedTariff(tariffName);
   }
 
-  console.log('selectedTariff', selectedTariff)
+  const toggleGift = () => {
+    setIsGift(prev => !prev); // Toggle gift state
+  };
+
+  //console.log('selectedTariff', selectedTariff)
+  //console.log('isGift', isGift)
 
   return (
     <>
-      <AnnouncementBar />
+      {/* <AnnouncementBar /> */}
       <FirstScreen>
         <Header data={links} />
         <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
@@ -58,6 +65,7 @@ const IndexPage = () => {
       <BasicSection id="process" pageData={process} grids={grids_4} />
       <Pricing id="pricing" pageData={pricing}
         selectedTariff={selectedTariff} handleClick={handleClick} />
+      {/* <BasicSection id="gift-certificate" pageData={gift_certificate} grids={grids_3} /> */}
       <Program id="program" pageData={program} />
       <Reviews id="reviews"
         pageData={reviews} />
@@ -65,8 +73,12 @@ const IndexPage = () => {
       <FAQ
         pageData={faq} />
       <RequestForm id="form" grids={grids_3}
-        pageData={/* Boolean(selectedTariff) ? requestFormBuy
-          : requestFormFree */ requestFormBuy} handleClick={handleClick} selectedTariff={selectedTariff || 'active'} type="landing" />
+        pageData={requestFormBuy} 
+        handleClick={handleClick} 
+        toggleGift={toggleGift} 
+        selectedTariff={selectedTariff || 'active'} 
+        isGift={isGift|| false} 
+        type="landing" />
       <Contact id="contact" pageData={contact} />
       <Footer /> </>);
 };

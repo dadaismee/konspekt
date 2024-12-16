@@ -20,7 +20,7 @@ export const GridContainer = styled.div`
 
 export const Flex = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 10px;
 
   @media (max-width: ${mediaQueries.phone}) {
     flex-direction: column;
