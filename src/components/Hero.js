@@ -127,12 +127,12 @@ const Hero = ({ data, type, toggleGift }) => {
               //onClick={() => handleClick("passive")}
             >
               <Button fontSize="40px" to={type === 'free' ? '#form' : '#pricing'}>{buttonText}</Button>
-              {/* {Boolean(type !== 'free') && <Button 
+              {Boolean(type !== 'free') && <Button 
               fontSize="24px" 
               width="calc(var(--right-column-width) - var(--left-column-width))" 
               onClick={() => toggleGift(true)}
-              to='#form'>Купить<br/>в подарок
-            </Button>} */}
+              to='#gift-certificate'>Купить<br/>в подарок
+            </Button>}
             </ButtonsWrapper>
           </ButtonWrapper>
           {Boolean(asterisk) && <Asterisk 

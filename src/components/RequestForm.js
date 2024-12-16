@@ -162,7 +162,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                 <FlexVertical>
                   <Flex>
 
-                  {/* {Boolean(type !== 'free') && <InputSelect
+                  {Boolean(type !== 'free') && <InputSelect
                     name="Подарок"
                     {...register("gift", {
                       required: true,
@@ -173,7 +173,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                     <option value="gift" selected={isGift? true : false}>
                       В подарок
                     </option>
-                  </InputSelect>} */}
+                  </InputSelect>}
 
                   {Boolean(type !== 'free') &&
                   <InputSelect
