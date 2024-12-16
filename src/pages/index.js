@@ -65,7 +65,7 @@ const IndexPage = () => {
       <BasicSection id="process" pageData={process} grids={grids_4} />
       <Pricing id="pricing" pageData={pricing}
         selectedTariff={selectedTariff} handleClick={handleClick} />
-      {/* <BasicSection id="gift-certificate" pageData={gift_certificate} grids={grids_3} /> */}
+      <BasicSection id="gift-certificate" pageData={gift_certificate} grids={grids_3} />
       <Program id="program" pageData={program} />
       <Reviews id="reviews"
         pageData={reviews} />
