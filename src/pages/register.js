@@ -6,14 +6,30 @@ import { requestFormBuy, links } from '../pageData/writing-pro.js';
 
 const RegisterPage = () => {
     const [selectedTariff, setSelectedTariff] = useState('active');
+    const [isGift, setIsGift] = useState(false); 
 
     const handleClick = (tariffName) => {
         setSelectedTariff(tariffName);
       }
+
+  const toggleGift = () => {
+    setIsGift(prev => !prev); 
+  };
+
   return (
     <Wrapper>
       <Header data={links} />
-      <RequestForm id="form" grids={grids_3} pageData={requestFormBuy} selectedTariff={selectedTariff} handleClick={handleClick} type="landing" margin='80px' buttonText='Оплатить' />
+      <RequestForm 
+        id="form" 
+        grids={grids_3} 
+        pageData={requestFormBuy} 
+        selectedTariff={selectedTariff} 
+        isGift={isGift || false} 
+        toggleGift={toggleGift} 
+        handleClick={handleClick} 
+        type="landing" 
+        margin='80px' 
+        buttonText='Оплатить' />
       <FooterWrapper>
         <Footer />
       </FooterWrapper>
