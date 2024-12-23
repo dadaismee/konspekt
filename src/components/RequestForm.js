@@ -111,7 +111,8 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
        "_self"),
 
     Boolean(selectedTariff === 'free-course') && window.open(
-      "https://konspekt.zenclass.ru/public/product/832e13c7-8b0d-4e5f-8220-81d2f0094d95/tariffs"),
+      "https://konspekt.zenclass.ru/public/course/b8ad2556-efe5-482b-ad29-ef0fa39292d8"),
+      //"https://konspekt.zenclass.ru/public/product/832e13c7-8b0d-4e5f-8220-81d2f0094d95/tariffs"),
 
       console.log("tariff", selectedTariff, isGift),
     setIsSubmitted(true));
