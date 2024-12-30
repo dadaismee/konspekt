@@ -55,7 +55,7 @@ const IndexPage = () => {
 
   return (
     <>
-      {/* <AnnouncementBar /> */}
+      <AnnouncementBar />
       <FirstScreen>
         <Header data={links} />
         <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
