@@ -187,9 +187,9 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                     <option value="" disabled selected={selectedTariff !== 'self-paced' || tariff !== 'active'}>
                       Тариф
                     </option>
-                    <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false}>Сам(а)</option>
+                    <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false}>«Сам(а)»</option>
                     <option value="active" selected={selectedTariff === 'active' ? true : false}>
-                      С группой 
+                      «С группой»
                     </option>
                   </InputSelect>}
                 </Flex>
