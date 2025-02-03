@@ -5,8 +5,9 @@ import { grids_3 } from '../pages/index.js';
 import { requestFormBuy, links } from '../pageData/writing-pro.js';
 
 const RegisterPage = () => {
-    const [selectedTariff, setSelectedTariff] = useState('active');
     const [isGift, setIsGift] = useState(false); 
+    const [tariffFromHash, setTariffFromHash] = useState()
+    const [selectedTariff, setSelectedTariff] = useState('active' || selectedTariff || tariffFromHash);
 
     const handleClick = (tariffName) => {
         setSelectedTariff(tariffName);
@@ -15,6 +16,23 @@ const RegisterPage = () => {
   const toggleGift = () => {
     setIsGift(prev => !prev); 
   };
+
+  useEffect(() => {
+    const extractHash = () => {
+        const hashValue = window.location.hash.substr(1); // Remove the '#' character
+        const hash = hashValue.split('/')[0]; // Get the part before the first '/'
+        if (hash) {
+          setTariffFromHash(hash)
+          handleClick(hash); // Pass to parent handler
+      }
+    };
+    extractHash(); // Run on component mount
+
+    window.addEventListener("hashchange", extractHash); // Listen for hash changes
+    return () => window.removeEventListener("hashchange", extractHash); // Cleanup listener
+  }, []);
+
+  console.log("poops", selectedTariff)
 
   return (
     <Wrapper>
@@ -52,5 +70,3 @@ const Wrapper = styled.div`
   height: 93dvh;
 
 `
-
-

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import {
   Author,
@@ -39,8 +39,8 @@ import {
 import "../styles/layout.css";
 
 const IndexPage = () => {
-  const [selectedTariff, setSelectedTariff] = useState('active');
   const [isGift, setIsGift] = useState(false); 
+  const [selectedTariff, setSelectedTariff] = useState('active');
 
   const handleClick = (tariffName) => {
     setSelectedTariff(tariffName);
