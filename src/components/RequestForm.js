@@ -21,6 +21,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [tariffFromHash, setTariffFromHash] = useState(selectedTariff || "");
 
   const {
     register,
@@ -36,6 +37,22 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
   let gift = isGift;
 
   console.log("gift", gift);
+
+  // Extract hash and update state
+    useEffect(() => {
+      const extractHash = () => {
+        const hash = window.location.hash.substr(1); // Remove the '#' character
+        if (hash) {
+          setTariffFromHash(hash); // Update local state with hash value
+          handleClick(hash); // Pass the hash state to parent handler if needed
+        }
+      };
+
+      extractHash(); // Run on component mount
+
+      window.addEventListener("hashchange", extractHash); // Listen for hash changes
+      return () => window.removeEventListener("hashchange", extractHash); // Cleanup listener
+    }, [handleClick]);
 
   const onSubmit = async () => {
     setIsLoading(true);
@@ -53,7 +70,6 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
           Gift: gift, 
         }),
       });
-
       // Send data to UniSender
       const UNISENDER_KEY = '6ij7fqkbfr5y7uk6tpyouztzztr3ggzejstss1eo';
       const uniSenderResponse = await fetch('https://api.unisender.com/ru/api/subscribe?format=json&api_key=' + encodeURIComponent(UNISENDER_KEY) + '&list_ids=1&fields[email]=' + encodeURIComponent(email) + '&fields[Name]=' + encodeURIComponent(userName) + '&fields[Type]=' + encodeURIComponent(selectedTariff) + '&fields[isGift]=' + encodeURIComponent(gift) + '&fields[telegram]=' + encodeURIComponent(telegram) + '&double_optin=3&overwrite=1', {
@@ -163,7 +179,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                 <FlexVertical>
                   <Flex>
 
-                  {Boolean(type !== 'free') && <InputSelect
+                  {/* {Boolean(type !== 'free') && <InputSelect
                     name="Подарок"
                     {...register("gift", {
                       required: true,
@@ -174,7 +190,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                     <option value="gift" selected={isGift? true : false}>
                       В подарок
                     </option>
-                  </InputSelect>}
+                  </InputSelect>}*/}
 
                   {Boolean(type !== 'free') &&
                   <InputSelect
@@ -183,6 +199,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                       required: true,
                     })}
                     onChange={(e) => handleClick(e.target.value)}
+                    value={tariffFromHash || tariff}
                   >
                     <option value="" disabled selected={selectedTariff !== 'self-paced' || tariff !== 'active'}>
                       Тариф
