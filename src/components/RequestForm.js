@@ -21,7 +21,6 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [tariffFromHash, setTariffFromHash] = useState(selectedTariff || "");
 
   const {
     register,
@@ -36,24 +35,9 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
   let tariff = watch("tariff") || selectedTariff;
   let gift = isGift;
 
-  console.log("gift", gift);
-
   // Extract hash and update state
-    useEffect(() => {
-      const extractHash = () => {
-        const hashValue = window.location.hash.substr(1); // Remove the '#' character
-        const hash = hashValue.split('/')[0]; // Get the part before the first '/'
-        if (hash) {
-          setTariffFromHash(hash); // Update local state with hash value
-          handleClick(hash); // Pass the hash state to parent handler if needed
-        }
-      };
 
-      extractHash(); // Run on component mount
-
-      window.addEventListener("hashchange", extractHash); // Listen for hash changes
-      return () => window.removeEventListener("hashchange", extractHash); // Cleanup listener
-    }, [handleClick]);
+  console.log(selectedTariff)
 
   const onSubmit = async () => {
     setIsLoading(true);
@@ -200,9 +184,8 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                       required: true,
                     })}
                     onChange={(e) => handleClick(e.target.value)}
-                    value={tariffFromHash || tariff}
                   >
-                    <option value="" disabled selected={selectedTariff !== 'self-paced' || tariff !== 'active'}>
+                    <option value="" disabled>
                       Тариф
                     </option>
                     <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false}>«Сам(а)»</option>
