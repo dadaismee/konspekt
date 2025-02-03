@@ -41,7 +41,8 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
   // Extract hash and update state
     useEffect(() => {
       const extractHash = () => {
-        const hash = window.location.hash.substr(1); // Remove the '#' character
+        const hashValue = window.location.hash.substr(1); // Remove the '#' character
+        const hash = hashValue.split('/')[0]; // Get the part before the first '/'
         if (hash) {
           setTariffFromHash(hash); // Update local state with hash value
           handleClick(hash); // Pass the hash state to parent handler if needed
