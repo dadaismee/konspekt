@@ -60,7 +60,7 @@ const IndexPage = () => {
         <Header data={links} />
         <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
-      <BasicSection id="about" pageData={about} grids={grids_3} />
+      {/* <BasicSection id="about" pageData={about} grids={grids_3} /> */}
       <BasicSection pageData={audience} grids={grids_4} />
       <ListSection pageData={outcomes} />
       <BasicSection id="results" pageData={results} grids={grids_3} />
@@ -68,7 +68,7 @@ const IndexPage = () => {
       <Pricing id="pricing" pageData={pricing}
         selectedTariff={selectedTariff} handleClick={handleClick} />
       {/* <BasicSection id="trial" pageData={trial} grids={grids_3} /> */}
-      <BasicSection id="gift-certificate" pageData={gift_certificate} grids={grids_3} />
+      {/* <BasicSection id="gift-certificate" pageData={gift_certificate} grids={grids_3} /> */}
       <Program id="program" pageData={program} />
       <Reviews id="reviews"
         pageData={reviews} />
