@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { RequestForm, Header, Footer } from '../components/index.js';
+import { RequestForm, Header, Footer, SEO } from '../components/index.js';
 import styled from "styled-components";
 import { grids_3 } from '../pages/index.js';
 import { requestFormBuy, links } from '../pageData/writing-pro.js';
@@ -70,3 +70,10 @@ const Wrapper = styled.div`
   height: 93dvh;
 
 `
+export const Head = () => (
+  <SEO
+    title='Регистрация на курс «Система письма»'
+    description='Практический курс продвинутых техник и инструментов академического письма. Оптимизируете чтение и научитесь писать статьи быстрее и глубже — от чтения литературы до автоматической сборки черновика'
+    keywords='академическое письмо, курс, курс академического письма, написать статью, шевченко, валерий шевченко, написать текст, zettelkasten, цеттелькастен, зеттелькастен, продуктивность, научная статья, Pandoc, Zotero, Obsidian, Markdown, нон-фикшн'
+  />
+);
