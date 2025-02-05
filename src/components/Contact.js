@@ -52,7 +52,7 @@ const Contact = ({ pageData, id }) => {
           }}
           viewport={{ once: true }}>
           <a
-            href='https://t.me/konspektsupport'
+            href='https://t.me/konspekt_support'
             target='_blank'>
             <Button>Написать в Телеграм</Button>
           </a>
