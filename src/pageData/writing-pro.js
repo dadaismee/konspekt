@@ -11,10 +11,10 @@ export const links = [
     name: 'программа',
     url: '/#program',
   },
-  {
-    name: 'сертификат',
-    url: '/#gift-certificate',
-  },
+  //{
+  //  name: 'сертификат',
+  //  url: '/#gift-certificate',
+  //},
   {
     name: 'отзывы',
     url: '/#reviews',
