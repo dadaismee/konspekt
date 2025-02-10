@@ -17,7 +17,8 @@ exports.handler = async (event) => {
     const data = JSON.parse(event.body);
     const email = data.Email;
     const tariff = data.Tariff; // Assuming "tariff" exists in the request
-    const stream = data.Gift;
+    const telegram = data.Telegram;
+    const gift = data.Gift;
 
     // Find the row with matching email
     const rows = await sheet.getRows();
@@ -39,7 +40,8 @@ exports.handler = async (event) => {
       // Matching email found, only send email and tariff
       matchingRow.Email = email;
       matchingRow.Tariff = tariff;
-      matchingRow.Stream = stream;
+      matchingRow.Telegram = telegram;
+      matchingRow.Gift = gift;
       await matchingRow.save();
       console.log(`Email and tariff updated for email: ${email}`);
       return {
