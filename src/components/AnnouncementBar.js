@@ -38,7 +38,7 @@ const AnnouncementBar = () => {
       }}
       viewport={{ once: true }}>
       <Link style={{fontSize: '20px'}} to='#form'>
-        Новогодняя скидка 15% на январский поток до 7 января
+        В марте цены поднимутся — успейте записаться до 17 февраля!
       </Link>
     </Bar>
     );
