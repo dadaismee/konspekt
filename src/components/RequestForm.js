@@ -37,8 +37,6 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
 
   // Extract hash and update state
 
-  console.log(selectedTariff)
-
   const onSubmit = async () => {
     setIsLoading(true);
 
@@ -72,32 +70,14 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
     } finally {
       setIsLoading(false);
     }
-    // const onSubmit = async () => {
-    //   setIsLoading(true);
-    //   await fetch("/.netlify/functions/sendToSheets", {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       Name: name,
-    //       Email: email,
-    //       Telegram: telegram || '—',
-    //       Date: Date(),
-    //       Tariff: selectedTariff,
-    //       // Tariff: type === 'free' ? 'lead' : 'buyer',
-    // Stream: stream,
-    //   }),
-    // });
-    //
-    // window.open('https://self.payanyway.ru/1693655679114', '_blank');
-
-    // Logic for 2 active and passive tariffs
 
     // active tariff
-    Boolean(selectedTariff === "active" && !isGift && window.open(
-        "https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs",
-        "_self"),
+    //Boolean(selectedTariff === "active" && !isGift && window.open(
+    //    "https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs",
+    //    "_self"),
 
     // gift active tariff
-    Boolean(selectedTariff === "active" && isGift) && window.open(
+    Boolean(selectedTariff === "active" && isGift && window.open(
         "https://konspekt.zenclass.ru/public/t/35cc2d86-2c6f-46f3-8353-f9097f3ef12e",
         "_self"),
 
@@ -158,7 +138,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
               {Boolean(type !== 'register' || selectedTariff) && <Box fontSize="40px" grid={grids[0]}>
                 {/* Boolean(selectedTariff) ? <ColoredText data={selectedTariff === 'passive' ? boxes[0] : boxes[2]}></ColoredText> : <ColoredText data
              ={boxes[0]}></ColoredText>*/}
-                <ColoredText component={SmallerText} data={isGift ? boxes[2] : boxes[0]} />
+                <ColoredText component={SmallerText} data={isSubmitted ? boxes[2] : boxes[0]} />
               </Box>}
               <Box fontSize="20px">
                 <FlexVertical>
