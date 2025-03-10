@@ -72,9 +72,9 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
     }
 
     // active tariff
-    //Boolean(selectedTariff === "active" && !isGift && window.open(
-    //    "https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs",
-    //    "_self"),
+    Boolean(selectedTariff === "active" && !isGift && window.open(
+        "https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs",
+        "_self"),
 
     // gift active tariff
     Boolean(selectedTariff === "active" && isGift && window.open(
@@ -96,7 +96,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
       //"https://konspekt.zenclass.ru/public/product/832e13c7-8b0d-4e5f-8220-81d2f0094d95/tariffs"),
 
       console.log("tariff", selectedTariff, isGift),
-    setIsSubmitted(true));
+    setIsSubmitted(true)));
   };
 
   return (
