@@ -75,5 +75,11 @@ module.exports = {
       },
       __key: 'pageData',
     },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+      },
+    },
   ],
 };
