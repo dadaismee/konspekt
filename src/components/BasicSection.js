@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Box, ColoredText, Image, VideoPlayer } from '../components/index';
-import { mediaQueries } from '../styles/GlobalStyles.js'
+import { VertFlex, mediaQueries } from '../styles/GlobalStyles.js'
 import { GridContainer } from '../styles/GlobalStyles';
 import { SectionHeading, SmallerText } from '../styles/TextStyles';
 import { Asterisk } from './ListSection';
 import { Button, ButtonWrapper } from './Hero.js';
+import { HorFlex } from './FAQ.js';
 
 const BasicSection = ({ pageData, grids, id }) => {
   const { title, asterisk, type, buttonText } = pageData;
@@ -41,7 +42,11 @@ const BasicSection = ({ pageData, grids, id }) => {
         <GridContainer>
           {data.map((box) => (
             <Box grid={box.grid} padding={box.padding} key={box.mainText}>
-              {Boolean(box.mainText) && <ColoredText data={box} key={box.mainText} />}
+              {Boolean(box.mainText) && (
+                <VertFlex>
+                <ColoredText data={box} key={box.mainText} />
+                {Boolean(box.smallImage) && <Image src={box.smallImage} width="100%" height="120px"/>}
+                </VertFlex>)}
               {Boolean(box.video) && <VideoPlayer videoSrc={box.video} />}
               {Boolean(box.image) && <Image height={box.imageHeight} width={box.imageWidth} src={box.image} />}
             </Box>

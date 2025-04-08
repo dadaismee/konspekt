@@ -8,7 +8,8 @@ import {
   SmallThin,
   SmallerText,
 } from '../styles/TextStyles';
-import Box from './Box';
+import { Image, Box } from './index.js';
+//import Box from './Box';
 import { Grid } from './ListSection';
 import { mediaQueries } from '../styles/GlobalStyles';
 
@@ -53,7 +54,7 @@ const FAQ = ({ pageData, id }) => {
 
       <Grid>
         {questions.map((faqItem, index) => {
-          const { question, answer } = faqItem;
+          const { question, answer, image } = faqItem;
           return (
             <Box key={index} isOpen={isOpen[index]}>
               <VertFlex>
@@ -67,6 +68,7 @@ const FAQ = ({ pageData, id }) => {
                   <Question onClick={() => toggleOpen(index)}>
                     {question}
                   </Question>
+                  {Boolean(image) && <Image src={image} width="120px" height="120px"/>}
                 </HorFlex>
                 {/* {isOpen[index] && (
                   <Answer initial={{ opacity: 0 }} animate={{ opacity: 1 }}>

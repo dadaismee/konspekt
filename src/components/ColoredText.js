@@ -1,10 +1,11 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { MainText } from '../styles/TextStyles';
+import { MainText, SmallerText } from '../styles/TextStyles';
 import { mediaQueries } from '../styles/GlobalStyles';
+import { HorFlex } from './FAQ';
 
 const ColoredText = ({ data, component, height, type, lineHeight }) => {
-  const { mainText, spanText } = data;
+  const { mainText, spanText, image } = data;
   const typograf = (text) => {
     const prepositionsPattern = /(\s)(и|из|к|или|в|с|на|не|по|для|от)(\s)/g;
       return text.replace(prepositionsPattern, ' $2&nbsp;');
@@ -14,12 +15,14 @@ const ColoredText = ({ data, component, height, type, lineHeight }) => {
     (match) => `<span>${match}</span>`
   );
 
-  return <Text type={type} component={component} height={height} lineHeight={lineHeight} dangerouslySetInnerHTML={{ __html: replacedText }} />;
+  return (
+    <Text type={type} component={component} height={height} lineHeight={lineHeight} dangerouslySetInnerHTML={{ __html: replacedText }} />
+  )
 };
 
 export default ColoredText;
 
-export const Text = styled(({ component: Component = MainText, ...props }) => <Component {...props} />)`
+export const Text = styled(({ component: Component = SmallerText, ...props }) => <Component {...props} />)`
   overflow: ${({ type }) => type === 'review' ? 'scroll' : 'none' }; 
   text-align: left;
   height: ${({height}) => height || 'auto'};

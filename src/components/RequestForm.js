@@ -394,7 +394,7 @@ font-family: Coolvetica;
 color: var(--text) !important;
 background-color: var(--accent);
 border-radius: 15px;
-border: 3px solid var(--accent);
+border: 3px solid var(--text);
 transition: var(--transition);
 
 &:hover {

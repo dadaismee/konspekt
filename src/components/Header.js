@@ -80,6 +80,7 @@ export const Logo = styled.img`
   width: 60px;
   height:60px;
   border-radius: 15px;
+  border: 1px solid var(--text);
   transition: var(--transition);
 
   @media (max-width: ${mediaQueries.phone}) {

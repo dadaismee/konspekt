@@ -64,6 +64,13 @@ const Hero = ({ data, type, toggleGift }) => {
                 {title}
 
               </SiteHeading>
+              {/* <Typewriter 
+                options={{
+                  strings: typeWriterText,
+                  autoStart: true,
+                  loop: true,
+                  }}
+              /> */}
               <Description
                 initial={{
                   opacity: 0,
@@ -234,7 +241,7 @@ export const Button = styled(AnchorLink)`
   box-sizing: border-box;
   color: ${({ type }) => type === "ghost" ? "var(--accent)" : "var(--text)"} ;
   ${({ type }) => type === "ghost" ?
-    "border: 3px solid var(--accent)" : "border: 3px solid transparent"}; 
+    "border: 3px solid var(--accent)" : "border: 2px solid var(--text)"}; 
   font-family: Coolvetica;
   border-radius: 15px;
   line-height: 100%;
@@ -263,7 +270,6 @@ export const ButtonWrapper = styled(motion.button)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
   align-items: center;
   width: ${({ width }) => width || '100%'};
   background-color: transparent;
@@ -276,7 +282,6 @@ export const ButtonWrapper = styled(motion.button)`
 
 export const ButtonsWrapper = styled.div`
   display: flex;
-  gap: 10px;
   width: 100%;
 `
 

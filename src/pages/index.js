@@ -29,6 +29,8 @@ import {
   process,
   program,
   requestFormBuy,
+  problem,
+  solution,
   trial,
   aboutFreeCourse,
   results,
@@ -60,7 +62,10 @@ const IndexPage = () => {
         <Header data={links} />
         <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
-      <BasicSection id="about" pageData={about} grids={grids_3} /> 
+      <FAQ
+        pageData={problem} />
+      <BasicSection id="about" pageData={solution} grids={grids_3} /> 
+      {/*<BasicSection id="about" pageData={about} grids={grids_3} /> */}
       <BasicSection pageData={audience} grids={grids_4} />
       <ListSection pageData={outcomes} />
       <BasicSection id="results" pageData={results} grids={grids_3} />

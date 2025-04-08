@@ -30,7 +30,7 @@ export const Flex = styled.div`
 export const VertFlex = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: space-between;
   height: 100%;
   gap: 20px;
 `

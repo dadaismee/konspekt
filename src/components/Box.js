@@ -62,8 +62,8 @@ const Box = ({ children, grid, type, padding, fontSize, isOpen, height, width, b
 export default Box;
 
 const Wrapper = styled(motion.div)`
-  border-radius: 15px;
-  border: ${({ border }) => border || "3px solid #000"};
+  border-radius: 10px;
+  border: ${({ border }) => border || "2px solid #000"};
   padding: ${({ padding }) => padding || '30px'};
   grid-area: ${({ grid }) => grid};
   ${({ type }) => types[`${type}`]}

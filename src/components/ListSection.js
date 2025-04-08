@@ -93,12 +93,13 @@ export const Circle = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 64px;
-  max-width: 64px;
-  height: 64px;
+  max-width: 40px;
+  min-width: 40px;
+  height: 40px;
   border-radius: 100%;
+  border: 2px solid var(--text);
   background-color: var(--accent);
-  font-size: 40px;
+  font-size: 32px;
 
   @media (max-width: ${mediaQueries.phone}) {
     display: none;
