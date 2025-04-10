@@ -38,7 +38,7 @@ const AnnouncementBar = () => {
       }}
       viewport={{ once: true }}>
       <Link style={{fontSize: '20px'}} to='#form'>
-        В марте цены поднимутся — успейте записаться до 17 февраля!
+        Тариф «Сам(а) подорожает 14 апреля — успейте сейчас
       </Link>
     </Bar>
     );
