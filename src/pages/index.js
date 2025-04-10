@@ -40,7 +40,7 @@ import "../styles/layout.css";
 
 const IndexPage = () => {
   const [isGift, setIsGift] = useState(false); 
-  const [selectedTariff, setSelectedTariff] = useState('active');
+  const [selectedTariff, setSelectedTariff] = useState('self-paced');
 
   const handleClick = (tariffName) => {
     setSelectedTariff(tariffName);
@@ -55,7 +55,7 @@ const IndexPage = () => {
 
   return (
     <>
-      {/* <AnnouncementBar /> */}
+      <AnnouncementBar />
       <FirstScreen>
         <Header data={links} />
         <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />

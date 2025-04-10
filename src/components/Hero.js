@@ -40,6 +40,26 @@ const Hero = ({ data, type, toggleGift }) => {
           src={video} />}
         {Boolean(image) && <Image src={image} />}
         <VertFlex>
+          {Boolean(asterisk) && <Asterisk 
+            initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            y: 20,
+          }}
+          transition={{
+            ease: [0.165, 0.84, 0.44, 1],
+            duration: 1,
+            delay: 0.65,
+          }}
+          viewport={{ once: true }}
+            style={{ marginTop: '-10px', fontFamily: 'Coolvetica Lite'}}>{asterisk}</Asterisk>}
           <Box height="100%">
             <Tagline>
               <SiteHeading
@@ -136,26 +156,6 @@ const Hero = ({ data, type, toggleGift }) => {
 
             </ButtonsWrapper>
           </ButtonWrapper>
-          {Boolean(asterisk) && <Asterisk 
-            initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          exit={{
-            opacity: 0,
-            y: 20,
-          }}
-          transition={{
-            ease: [0.165, 0.84, 0.44, 1],
-            duration: 1,
-            delay: 0.65,
-          }}
-          viewport={{ once: true }}
-            style={{ marginTop: '-10px', fontFamily: 'Coolvetica Lite'}}>{asterisk}</Asterisk>}
         </VertFlex>
       </FlexContainer>
     </Wrapper>
