@@ -28,7 +28,7 @@ export const Text = styled(({ component: Component = SmallerText, ...props }) =>
   height: ${({height}) => height || 'auto'};
   line-height: ${({ lineHeight }) => lineHeight || '100%'};
   span {
-    color: var(--accent);
+    font-family: "Coolvetica";
   }
 
   @media (max-width: ${mediaQueries.phone}) {

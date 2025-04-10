@@ -62,14 +62,14 @@ const Box = ({ children, grid, type, padding, fontSize, isOpen, height, width, b
 export default Box;
 
 const Wrapper = styled(motion.div)`
-  border-radius: 10px;
+  border-radius: 15px;
   border: ${({ border }) => border || "2px solid #000"};
   padding: ${({ padding }) => padding || '30px'};
   grid-area: ${({ grid }) => grid};
   ${({ type }) => types[`${type}`]}
   height: ${({ height }) => height || 'auto'};
   width: ${({ width }) => width || 'auto'};
-  background-color: ${({ bgColor }) => bgColor || "transparent"};
+  background-color: ${({ bgColor }) => bgColor || "var(--accent)"};
   display: flex;
   flex-direction: column;
   justify-content: start;

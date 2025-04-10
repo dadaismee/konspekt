@@ -7,6 +7,7 @@ export const Heading = styled(motion.h1)`
   width: var(--column-right-width);
   font-size: 5.36vw; //130px;
   font-size: auto;
+  font-family: "Coolvetica";
   line-height: 105%; /* 136.5px */
 
   @media (max-width: ${mediaQueries.phone}) {
@@ -18,6 +19,7 @@ export const Heading = styled(motion.h1)`
 export const SectionHeading = styled(motion.h2)`
   color: var(--text);
   font-size: 96px;
+  font-family: "Coolvetica";
   line-height: 105%; /* 136.5px */
   margin: 180px 0 20px;
   margin-top: ${({ margin }) => margin};
@@ -32,6 +34,7 @@ export const MainFeature = styled.h3`
   color: var(--text);
   font-size: 64px;
   line-height: 95%; /* 136.5px */
+  font-family: "Coolvetica";
 
   @media (max-width: ${mediaQueries.phone}) {
     font-size: 10vw;
@@ -52,6 +55,7 @@ export const MainText = styled(motion.p)`
   color: var(--text);
   font-size: 40px;
   line-height: 95%;
+  fint-family: "Coolvetica";
   /* margin-bottom: 10px; */
 
   @media (max-width: ${mediaQueries.phone}) {
@@ -105,6 +109,7 @@ export const SmallThin = styled(motion.p)`
 
 export const Features = styled(motion.p)`
   font-size: 20px;
+  font-family: "Coolvetica";
 
   @media (max-width: ${mediaQueries.phone}) {
     font-size: 16px;

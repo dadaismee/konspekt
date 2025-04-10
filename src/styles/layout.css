@@ -162,10 +162,11 @@ section {
 }
 
 :root {
-  --main: #F2E781;
+  --main: #649567;
   --text: #000;
   --asterisk: #3d4f33;
   --accent: #f8f8f8;
+  --accent: #ffe;
   --left-column-width: 516px;
   --right-column-width: 784px;
   --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -178,7 +179,7 @@ html {
 body {
   background-color: var(--main);
   margin: 30px 60px 20px;
-  font-family: 'Coolvetica';
+  font-family: 'Coolvetica Lite';
 }
 
 ::-webkit-scrollbar {

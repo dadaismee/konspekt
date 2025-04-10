@@ -45,7 +45,7 @@ const BasicSection = ({ pageData, grids, id }) => {
               {Boolean(box.mainText) && (
                 <VertFlex>
                 <ColoredText data={box} key={box.mainText} />
-                {Boolean(box.smallImage) && <Image src={box.smallImage} width="100%" height="120px"/>}
+                {Boolean(box.smallImage) && <Image src={box.smallImage} width="100%" height="80px"/>}
                 </VertFlex>)}
               {Boolean(box.video) && <VideoPlayer videoSrc={box.video} />}
               {Boolean(box.image) && <Image height={box.imageHeight} width={box.imageWidth} src={box.image} />}
