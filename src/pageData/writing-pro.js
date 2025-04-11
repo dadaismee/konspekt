@@ -312,7 +312,7 @@ export const pricing = {
     //},
     {
       title: "Сам(а)",
-      name: "self-paced",
+      name: "writing-system_self-paced",
       features: [
         {
           mainText: "30 видеоуроков и лонгриды:",
@@ -335,11 +335,13 @@ export const pricing = {
           spanText: ["после — 1 990₽/мес"],
         }
       ],
-      price: "Купить за 9 990 ₽",
+      price: "24 990 ₽",
+      oldPrice: "39 990 ₽",
+      buyButtonText: "Купить",
     },
     {
       title: "С группой",
-      name: "active",
+      name: "writing-system_practice",
       features: [
         {
           mainText: "Всё из «Курса», но с дедлайнами:",
@@ -362,18 +364,51 @@ export const pricing = {
           spanText: ["эссе от 300 до 1000 слов, опубликованное в веб-журнале школы «Конспект»"],
         },
       ],
-      price: "Записаться в вейтлист",
+      price: "49 990 ₽",
+      oldPrice: "39 990 ₽",
+      buyButtonText: "Купить",
+      buyButtonColor: "var(--podlozhka)"
     }, 
     {
-      title: "Бесплатный курс",
-      name: "free-course",
-      features: [],
-      price: "Получить бесплатно"
-    }
+      title: "С экспертом",
+      name: "writing-system_with-expert",
+      features: [
+        {
+          mainText: "Всё из «Курса», но с дедлайнами:",
+          spanText: ["видеоуроки, лонгриды, задания, шаблоны, сообщество"],
+        },
+        {
+          mainText: "4 встречи с преподавателем и 6 недель работы:",
+          spanText: ["часовые занятия для отработки навыков и ответов на вопросы"],
+        },
+        {
+          mainText: "Обратная связь: ",
+          spanText: ["проверка домашних заданий и комментарии дважды в неделю"],
+        },
+        {
+          mainText: "Работа в парах и группах:",
+          spanText: ["случайный напарник на весь курс, чтобы проверять структуру заметок и читать эссе друг друга"],
+        },
+        {
+          mainText: "Публикация в конце курса:",
+          spanText: ["эссе от 300 до 1000 слов, опубликованное в веб-журнале школы «Конспект»"],
+        },
+      ],
+      price: "119 990 ₽",
+      oldPrice: "149 990 ₽",
+      buyButtonText: "Связаться",
+    }, 
   ],
   //asterisk: "*цена со скидкой 15% до 7 января. Без неё — 19 990 ₽" 
   //asterisk: "*Также есть рассрочка на 3 месяца — 6663 ₽/мес" 
 };
+
+export const freeCourseData = {
+  title: "Бесплатный курс",
+  name: "free-course",
+  features: [],
+  price: "Получить бесплатно"
+}
 
 export const gift_certificate = {
   title: "Курс можно подарить",

@@ -228,7 +228,7 @@ export const Button = styled(AnchorLink)`
   justify-content: center;
   align-items: center;
   width: ${({ width }) => width || '100%'} ;
-  height: ${({ height }) => height || '80px'};
+  height: ${({ height }) => height || '70px'};
   font-size: ${({ fontSize }) => fontSize || '40px'};
   background-color: ${({ type }) => type === "ghost" ? "transparent" : "var(--accent)"};
   box-sizing: border-box;
