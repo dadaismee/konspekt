@@ -63,6 +63,24 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
       <TariffsContainer>
         {tariffs.map((tariff, index) => (
           <TariffCard
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: 20,
+            }}
+            transition={{
+              ease: [0.165, 0.84, 0.44, 1],
+              duration: 1,
+              delay: index * 0.12,
+            }}
+            viewport={{ once: true }}
             key={tariff.name}
             isActive={selectedTariff === tariff.name}
             isAlternate={index % 2 === 1}
@@ -176,7 +194,6 @@ const Wrapper = styled.section`
   }
 
   @media (max-width: 640px) {
-    max-width: 640px;
     padding: 10px;
   }
 `;
@@ -191,14 +208,14 @@ const TariffsContainer = styled.div`
   }
 `;
 
-const TariffCard = styled.div`
+const TariffCard = styled(motion.div)`
   flex: 1;
   //border: 1px solid #000;
   border-radius: 15px;
   padding: 30px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
   background-color: ${(props) =>
     props.isAlternate ? "var(--accent)" : "var(--podlozhka)"};
 
@@ -335,7 +352,7 @@ const ToggleIcon = styled.span`
 const FeaturesList = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 
   @media (max-width: 768px) {
     display: ${(props) => (props.isMobileHidden ? "none" : "flex")};
@@ -360,8 +377,8 @@ const FeatureArrow = styled.div`
   }
 `;
 
-const FeatureText = styled.div`
-  font-size: 24px;
+const FeatureText = styled(Features)`
+  //font-size: 24px;
   line-height: 105%;
   color: #000;
   flex: 1;
