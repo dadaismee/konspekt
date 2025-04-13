@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Box } from "../components/index";
+import Typograf from "../components/Typograf.js";
 import {
   Flex,
   mediaQueries,
@@ -11,6 +12,7 @@ import {
   MainFeature,
   MainText,
   MenuAndFootnote,
+  Features,
   SectionHeading,
 } from "../styles/TextStyles";
 import { Button, ButtonWrapper } from "./Hero";
@@ -69,7 +71,10 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
               <VertFlex style={{ gap: "0px"}}>
                 <TariffTitle>{tariff.title}</TariffTitle>
                 <TariffMeta>
-                    <p>{tariff.capacity || "МНОГО МЕСТ"}</p>
+                    <VertFlex style={{ gap: "0px", justifyContent: "flex-end"}}>
+                      <Features>{tariff.timing || "МНОГО МЕСТ"}</Features>
+                      <Features style={{ fontFamily: "Coolvetica Lite" }}>{tariff.startDate || "МНОГО МЕСТ"}</Features>
+                    </VertFlex>
                   <PriceContainer>
                     <OldPrice>{tariff.oldPrice || "39 990 ₽"}</OldPrice>
                     <CurrentPrice>{tariff.price || "27 993 ₽"}</CurrentPrice>
@@ -132,7 +137,7 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
         ))}
       </TariffsContainer>
 
-      <Button fontSize='32px'>Полное сравнение тарифов</Button>
+      {/* <Button fontSize='32px'>Полное сравнение тарифов</Button> */}
 
       {Boolean(asterisk) && (
         <Asterisk
@@ -188,7 +193,7 @@ const TariffsContainer = styled.div`
 
 const TariffCard = styled.div`
   flex: 1;
-  border: 1px solid #000;
+  //border: 1px solid #000;
   border-radius: 15px;
   padding: 30px;
   display: flex;
@@ -252,7 +257,7 @@ const PriceContainer = styled.div`
 `;
 
 const OldPrice = styled.div`
-  font-size: 20px;
+  font-size: 24px;
   line-height: 105%;
   text-decoration: line-through;
   font-family: "Coolvetica Lite";
@@ -274,7 +279,7 @@ const CurrentPrice = styled.div`
   }
 `;
 
-const TariffDescription = styled.div`
+const TariffDescription = styled(MenuAndFootnote)`
   font-size: 24px;
   line-height: 105%;
   color: #000;
@@ -286,7 +291,7 @@ const TariffDescription = styled.div`
 
 const BuyButton = styled(Button)`
   padding: 20px;
-  border: 1px solid #000;
+  //border: 1px solid #000;
   border-radius: 15px;
   font-size: 32px;
   line-height: 105%;
