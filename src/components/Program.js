@@ -4,7 +4,7 @@ import { Box } from '../components/index';
 import { Features, MenuAndFootnote, SectionHeading, SmallerText } from '../styles/TextStyles';
 import { Text } from './ColoredText';
 import { Asterisk, Circle, ListItem } from './ListSection';
-import { typograf } from './Typograf';
+import { typograf } from './typograf.js';
 
 const Program = ({ pageData, id }) => {
   const { title, asterisk } = pageData;

@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
 import { mediaQueries } from './GlobalStyles';
-import { Typograf } from '../components/Typograf.js';
 
 export const Heading = styled(motion.h1)`
   color: var(--text);
