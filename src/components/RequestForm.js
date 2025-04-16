@@ -36,7 +36,6 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
   let gift = isGift;
 
   // Extract hash and update state
-
   const onSubmit = async () => {
     setIsLoading(true);
 
@@ -50,7 +49,8 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
           Telegram: telegram || '—',
           Date: Date(),
           Tariff: selectedTariff,
-          Gift: gift, 
+          Gift: '—',
+          License: false, 
         }),
       });
       // Send data to UniSender
@@ -71,32 +71,41 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
       setIsLoading(false);
     }
 
-    // active tariff
-    //Boolean(selectedTariff === "active" && !isGift && window.open(
-    //    "https://konspekt.zenclass.ru/public/product/731e4edc-9279-40a8-ad40-668820810803/tariffs",
-    //    "_self"),
+    // self-paced
+    Boolean(selectedTariff === 'self-paced' && !isGift && window.open(
+       "https://konspekt.zenclass.ru/public/t/cdd3c94c-f791-4b5c-b5f0-b754e9d3d998",
+       "_self"),
 
-    // gift active tariff
-    Boolean(selectedTariff === "active" && isGift && window.open(
-        "https://konspekt.zenclass.ru/public/t/35cc2d86-2c6f-46f3-8353-f9097f3ef12e",
+    //Boolean(selectedTariff === 'self-paced' && !isGift && window.open(
+    //   "https://konspekt.zenclass.ru/public/course/b8ad2556-efe5-482b-ad29-ef0fa39292d8",
+    //   "_self"),
+
+    // practice tariff
+    Boolean(selectedTariff === "practice" && !isGift) && window.open(
+        "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
         "_self"),
 
-    // self-paced
-    Boolean(selectedTariff === 'self-paced' && !isGift) && window.open(
-       "https://konspekt.zenclass.ru/public/course/b8ad2556-efe5-482b-ad29-ef0fa39292d8",
-       "_self"),
+    // expert tariff
+    Boolean(selectedTariff === "expert" && !isGift && window.open(
+        "https://t.me/konspekt_support",
+        "_self"),
+
+    // gift active tariff
+    //Boolean(selectedTariff === "active" && isGift && window.open(
+    //    "https://konspekt.zenclass.ru/public/t/35cc2d86-2c6f-46f3-8353-f9097f3ef12e",
+    //    "_self"),
 
     // self-paced gift
-    Boolean(selectedTariff === 'self-paced' && isGift) && window.open(
-       "https://konspekt.zenclass.ru/public/t/c0dfffb1-cabe-4bbe-a467-6c8f543dac18",
-       "_self"),
+    //Boolean(selectedTariff === 'self-paced' && isGift) && window.open(
+    //   "https://konspekt.zenclass.ru/public/t/c0dfffb1-cabe-4bbe-a467-6c8f543dac18",
+    //   "_self"),
 
     Boolean(selectedTariff === 'free-course') && window.open(
       "https://konspekt.zenclass.ru/public/course/b8ad2556-efe5-482b-ad29-ef0fa39292d8"),
       //"https://konspekt.zenclass.ru/public/product/832e13c7-8b0d-4e5f-8220-81d2f0094d95/tariffs"),
 
       console.log("tariff", selectedTariff, isGift),
-    setIsSubmitted(true));
+    setIsSubmitted(true)));
   };
 
   return (
@@ -156,7 +165,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                     </option>
                   </InputSelect>}*/}
 
-                  {/*{Boolean(type !== 'free') &&
+                  {Boolean(type !== 'free') &&
                   <InputSelect
                     name="Тариф"
                     {...register("tariff", {
@@ -167,13 +176,14 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                     <option value="" disabled>
                       Тариф
                     </option>
-                    <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false}>«Сам(а)»</option>
-                    <option value="active" selected={selectedTariff === 'active' ? true : false}>
-                      «С группой»
+                    <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false}>Сам(а)</option>
+                    <option value="practice" selected={selectedTariff === 'practice' ? true : false}>
+                      Практика
+                    </option>
+                    <option value="expert" selected={selectedTariff === 'expert' ? true : false}>
+                      С экспертом
                     </option>
                   </InputSelect>}
-                </Flex>
-                */}
 
                   {Boolean(type !== 'register') && (
                     <InputItem>
@@ -288,12 +298,12 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                 type="submit"
                 height="100%"
               >
-                {Boolean(isLoading) ? <Loader /> : price }
+                {Boolean(isLoading) ? <Loader /> : Boolean(selectedTariff === 'expert') ? "Связаться": `Купить за ${price}`}
               </Button>
             </ButtonWrapper>
           </FormWrapper>)}
       </CTA>
-          {Boolean(selectedTariff === 'active') && <Asterisk
+          {Boolean(selectedTariff === 'practice') && <Asterisk
     initial={{
       opacity: 0,
       y: 20,

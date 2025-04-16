@@ -31,16 +31,17 @@ const PageSection = ({ pageData, id }) => {
         viewport={{ once: true }}>
         {title}
       </SectionHeading>
-      <Box type='list' fontSize='32px'>
-        <Grid>
+      <div style={{   width: "var(--right-column-width)" }}>
+      <Box type='list' fontSize='24px'>
         {data.map((box, index) => (
           <ListItem gridArea={box.gridArea}>
             <Circle>{index + 1}</Circle>
             <ColoredText component={SmallerText} data={box} key={box.mainText} />
           </ListItem>
         ))}
-        </Grid>
       </Box>
+      </div>
+
       {Boolean(asterisk) && <Asterisk 
         initial={{
           opacity: 0,
@@ -67,7 +68,8 @@ const PageSection = ({ pageData, id }) => {
 
 export default PageSection;
 
-const Wrapper = styled.section``;
+const Wrapper = styled.section`
+`;
 
 export const Asterisk = styled(Features)`
   margin-top: 10px;

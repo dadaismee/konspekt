@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Box } from '../components/index';
-import { MenuAndFootnote, SectionHeading } from '../styles/TextStyles';
+import { Features, MenuAndFootnote, SectionHeading, SmallerText } from '../styles/TextStyles';
 import { Text } from './ColoredText';
 import { Asterisk, Circle, ListItem } from './ListSection';
+import { typograf } from './typograf.js';
 
 const Program = ({ pageData, id }) => {
   const { title, asterisk } = pageData;
@@ -32,16 +33,17 @@ const Program = ({ pageData, id }) => {
         viewport={{ once: true }}>
         {title}
       </SectionHeading>
+      <div style={{   width: "var(--right-column-width)" }}>
       <Box type='list'>
         {data.map((box, index) => (
           <ListItem>
             <Circle>{index}</Circle>
             <Flex>
-              <Text key={box.mainText}>{box.mainText}</Text>
+              <SmallerText key={box.mainText}>{box.mainText}</SmallerText>
               {Boolean(box.subText) && (
-                <Asterisk style={{ color: 'var(--asterisk)', margin: '0' }}>
-                  {box.subText}
-                </Asterisk>
+                <MenuAndFootnote style={{ fontFamily: "Coolvetica Lite", margin: '0' }}>
+                  {typograf(box.subText)}
+                </MenuAndFootnote>
               )}
             </Flex>
             {/* <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignSelf: 'center', maxWidth: '25%'}}>
@@ -51,6 +53,7 @@ const Program = ({ pageData, id }) => {
           </ListItem>
         ))}
       </Box>
+      </div>
       {Boolean(asterisk) && <Asterisk>{asterisk}</Asterisk>}
     </Wrapper>
   );

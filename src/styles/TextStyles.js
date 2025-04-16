@@ -5,7 +5,7 @@ import { mediaQueries } from './GlobalStyles';
 export const Heading = styled(motion.h1)`
   color: var(--text);
   width: var(--column-right-width);
-  font-size: 5.36vw; //130px;
+  font-size: 64px; //4.5vw; //130px;
   font-size: auto;
   line-height: 105%; /* 136.5px */
 
@@ -17,7 +17,7 @@ export const Heading = styled(motion.h1)`
 
 export const SectionHeading = styled(motion.h2)`
   color: var(--text);
-  font-size: 96px;
+  font-size: 80px;
   line-height: 105%; /* 136.5px */
   margin: 180px 0 20px;
   margin-top: ${({ margin }) => margin};

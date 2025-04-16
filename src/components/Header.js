@@ -3,8 +3,9 @@ import { Link, GatsbyImage } from 'gatsby';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React from 'react';
 import { styled } from 'styled-components';
-import { mediaQueries } from '../styles/GlobalStyles';
+import { Flex, VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import logo from '../assets/logo-with-bg.png';
+import { MainText, SmallerText } from '../styles/TextStyles';
 
 const Header = ({ data }) => {
   const links = data;
@@ -30,7 +31,13 @@ const Header = ({ data }) => {
       viewport={{ once: true }}>
 
       <Link to='/'>
-        <Logo src={logo} alt={logo} />
+        <Flex style={{ alignItems: "center"}}>
+          <Logo src={logo} alt={logo} />
+            <VertFlex style={{ display: "block"}}>
+            <SmallerText>Konspekt</SmallerText>
+            <SmallerText>school</SmallerText>
+            </VertFlex>
+        </Flex>
       </Link>
 
       <Navbar>
@@ -98,6 +105,7 @@ const Navbar = styled.nav`
 
 const AnchorLinkEl = styled(AnchorLink)`
   font-size: 20px;
+  font-family: 'Coolvetica Lite';
   transition: var(--transition);
 
   &:hover {

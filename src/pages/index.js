@@ -40,10 +40,11 @@ import "../styles/layout.css";
 
 const IndexPage = () => {
   const [isGift, setIsGift] = useState(false); 
-  const [selectedTariff, setSelectedTariff] = useState('self-paced');
+  const [selectedTariff, setSelectedTariff] = useState('practice');
 
   const handleClick = (tariffName) => {
     setSelectedTariff(tariffName);
+    console.log("poops", tariffName);
   }
 
   const toggleGift = () => {
@@ -63,13 +64,13 @@ const IndexPage = () => {
       <BasicSection id="about" pageData={about} grids={grids_3} /> 
       <BasicSection pageData={audience} grids={grids_4} />
       <ListSection pageData={outcomes} />
-      <BasicSection id="results" pageData={results} grids={grids_3} />
-      <BasicSection id="process" pageData={process} grids={grids_4} />
+      {/* <BasicSection id="results" pageData={results} grids={grids_3} /> */}
+      {/* <BasicSection id="process" pageData={process} grids={grids_4} /> */}
+      <Program id="program" pageData={program} />
       <Pricing id="pricing" pageData={pricing}
         selectedTariff={selectedTariff} handleClick={handleClick} />
       {/* <BasicSection id="trial" pageData={trial} grids={grids_3} /> */}
       {/* <BasicSection id="gift-certificate" pageData={gift_certificate} grids={grids_3} /> */}
-      <Program id="program" pageData={program} />
       <Reviews id="reviews"
         pageData={reviews} />
       <Author pageData={author} /> 
@@ -77,7 +78,7 @@ const IndexPage = () => {
         pageData={requestFormBuy} 
         handleClick={handleClick} 
         toggleGift={toggleGift} 
-        selectedTariff={selectedTariff || 'active'} 
+        selectedTariff={selectedTariff || 'practice'} 
         isGift={isGift|| false} 
         type="landing" />
       <FAQ

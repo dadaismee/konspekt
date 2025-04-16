@@ -63,28 +63,30 @@ export default Box;
 
 const Wrapper = styled(motion.div)`
   border-radius: 15px;
-  border: ${({ border }) => border || "3px solid #000"};
+  //border: ${({ border }) => border || "3px solid #000"};
   padding: ${({ padding }) => padding || '30px'};
   grid-area: ${({ grid }) => grid};
   ${({ type }) => types[`${type}`]}
   height: ${({ height }) => height || 'auto'};
   width: ${({ width }) => width || 'auto'};
-  background-color: ${({ bgColor }) => bgColor || "transparent"};
+  background-color: ${({ bgColor }) => bgColor || "var(--podlozhka)"};
   display: flex;
   flex-direction: column;
   justify-content: start;
   gap: 10px;
 
   @media (max-width: ${mediaQueries.phone}) {
+  width: 100%;
+  padding: 20px;
   gap: 10px;
   }
   &:last-child {
     display: ${({ type }) => type !== 'review' ? 'flex' : 'block'};
     justify-content: space-evenly;
-    align-items: center;
+    align-items: start;
 
     ${Text} {
-      font-size:  ${({ fontSize }) => fontSize || '64px'};
+      font-size:  ${({ fontSize }) => fontSize || '48px'};
 
       @media (max-width: ${mediaQueries.phone}) {
         font-size: 24px;

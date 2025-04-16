@@ -4,6 +4,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import Typewriter from 'typewriter-effect';
 import { Image, Box } from './index.js';
+import { typograf } from './typograf.js';
 import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
 import { Asterisk } from './ListSection.js';
@@ -81,8 +82,7 @@ const Hero = ({ data, type, toggleGift }) => {
                   delay: 0.25,
                 }}
                 viewport={{ once: true }}>
-                {title}
-
+                {typograf(title)}
               </SiteHeading>
               <Description
                 initial={{
@@ -103,7 +103,7 @@ const Hero = ({ data, type, toggleGift }) => {
                   delay: 0.25,
                 }}
                 viewport={{ once: true }}>
-                {description}
+                {typograf(description)}
                 <span style={{ fontFamily: "Coolvetica" }}>
                 </span>
               </Description>
@@ -146,7 +146,7 @@ const Hero = ({ data, type, toggleGift }) => {
               style={{ width: "100%" }}
               //onClick={() => handleClick("passive")}
             >
-              <Button fontSize="40px" to={type === 'free' ? '#form' : '#pricing'}>{buttonText}</Button>
+              <Button fontSize="32px" to={type === 'free' ? '#form' : '#pricing'}>{buttonText}</Button>
               {/* {Boolean(type !== 'free') && <Button 
               fontSize="24px" 
               width="calc(var(--right-column-width) - var(--left-column-width))" 
@@ -228,7 +228,7 @@ export const Button = styled(AnchorLink)`
   justify-content: center;
   align-items: center;
   width: ${({ width }) => width || '100%'} ;
-  height: ${({ height }) => height || '80px'};
+  height: ${({ height }) => height || '70px'};
   font-size: ${({ fontSize }) => fontSize || '40px'};
   background-color: ${({ type }) => type === "ghost" ? "transparent" : "var(--accent)"};
   box-sizing: border-box;

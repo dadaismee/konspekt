@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 const Bar = styled(motion.div)`
     background-color: var(--accent); 
     background-color: rgb(255, 255, 255, 0.50); 
+    background-color: var(--podlozhka); 
     color: var(--text); 
     padding: 10px;
     text-align: center;
@@ -18,7 +19,7 @@ const Bar = styled(motion.div)`
 
 const AnnouncementBar = () => {
   return (
-    <Bar to='#form'
+    <Bar to='#pricing'
       initial={{
         opacity: 0,
         y: 0,
@@ -37,8 +38,8 @@ const AnnouncementBar = () => {
         delay: 0.1,
       }}
       viewport={{ once: true }}>
-      <Link style={{fontSize: '20px'}} to='#form'>
-        Тариф «Сам(а) подорожает 14 апреля — успейте сейчас
+      <Link style={{fontSize: '20px'}} to='#pricing'>
+       Скидка 40% на новые тарифы до 28 апреля
       </Link>
     </Bar>
     );

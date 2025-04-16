@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { MainText } from '../styles/TextStyles';
+import { MainText, SmallerText } from '../styles/TextStyles';
 import { mediaQueries } from '../styles/GlobalStyles';
 
 const ColoredText = ({ data, component, height, type, lineHeight }) => {
@@ -19,13 +19,15 @@ const ColoredText = ({ data, component, height, type, lineHeight }) => {
 
 export default ColoredText;
 
-export const Text = styled(({ component: Component = MainText, ...props }) => <Component {...props} />)`
+export const Text = styled(({ component: Component = SmallerText, ...props }) => <Component {...props} />)`
   overflow: ${({ type }) => type === 'review' ? 'scroll' : 'none' }; 
   text-align: left;
   height: ${({height}) => height || 'auto'};
+  font-family: 'Coolvetica Lite';
   line-height: ${({ lineHeight }) => lineHeight || '100%'};
   span {
-    color: var(--accent);
+    font-family: 'Coolvetica';
+    //color: var(--accent);
   }
 
   @media (max-width: ${mediaQueries.phone}) {
