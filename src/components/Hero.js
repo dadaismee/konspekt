@@ -4,7 +4,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import Typewriter from 'typewriter-effect';
 import { Image, Box } from './index.js';
-import { typograf } from "./typograf"
+import { typograf } from "./typograf.js"
 import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
 import { Asterisk } from './ListSection.js';
