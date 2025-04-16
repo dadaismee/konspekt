@@ -44,8 +44,8 @@ const Reviews = ({ pageData, id }) => {
                   <Container>
                     <Avatar src={image} />
                     <FlexContainer>
-                      <SmallerText style={{ color: 'var(--accent)' }} >{reviewItem.author}</SmallerText>
-                      <MenuAndFootnote style={{ fontSize: "20px" }}>{reviewItem.authorJob}</MenuAndFootnote>
+                      <SmallerText>{reviewItem.author}</SmallerText>
+                      <MenuAndFootnote style={{ fontSize: "20px", fontFamily: 'Coolvetica Lite' }}>{reviewItem.authorJob}</MenuAndFootnote>
                     </FlexContainer>
                   </Container>
                   <Score>{score}</Score>
@@ -79,7 +79,7 @@ const Wrapper = styled.section`
 const Avatar = styled(motion.img)`
 width: 100px;
 height: 100px;
-border-radius: 100%;
+border-radius: 15px;
 
 @media (max-width: ${mediaQueries.phone}) {
 width: 60px;

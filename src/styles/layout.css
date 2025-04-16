@@ -172,6 +172,11 @@ section {
   --right-column-width: 784px;
   --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+@media (max-width: 768px) {
+  :root {
+    --right-column-width: 100%; /* Mobile width */
+  }
+}
 
 html {
   position: relative;

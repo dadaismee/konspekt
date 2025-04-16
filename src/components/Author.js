@@ -3,8 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 import author from '../assets/author.png';
 import { Box, ColoredText, Image } from '../components/index';
-import { Flex, mediaQueries } from '../styles/GlobalStyles';
-import { MainFeature, SectionHeading } from '../styles/TextStyles';
+import { Flex, VertFlex, mediaQueries } from '../styles/GlobalStyles';
+import { MainFeature, SectionHeading, MainText, SmallerText } from '../styles/TextStyles';
 import { Asterisk } from './ListSection';
 
 const Author = ({ pageData, id }) => {
@@ -34,16 +34,18 @@ const Author = ({ pageData, id }) => {
         {title}
       </SectionHeading>
       <Flex>
-        <Image src={author} />
-        < Box type='author' fontSize='40px'>
-          {Boolean(boxes.mainText) && <MainFeature
+        <Image 
+          width='calc(var(--left-column-width)/2)' 
+          height='calc(var(--left-column-width)/2)' 
+          src={author} />
+        <Box type='author' width='100%' fontSize='24px'>
+          {Boolean(boxes.mainText) && <MainText
             style={{
-              color: 'var(--accent)',
               display: 'flex',
               alignSelf: 'start',
             }}>
             {boxes.mainText}
-          </MainFeature>}
+          </MainText>}
           <div style={{ display: 'grid', gap: '3px' }}>
             {boxes.steps.map((step) => (
               <ColoredText data={step} key={step.mainText} />
