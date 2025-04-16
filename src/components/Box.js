@@ -76,6 +76,7 @@ const Wrapper = styled(motion.div)`
   gap: 10px;
 
   @media (max-width: ${mediaQueries.phone}) {
+  padding: 20px;
   gap: 10px;
   }
   &:last-child {

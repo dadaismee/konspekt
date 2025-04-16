@@ -1,21 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-
-const typograf = (text) => {
-  const prepositionsPattern = /(\s)(и|из|к|или|в|с|на|не|по|для|от)(\s)/g;
-  return text.replace(prepositionsPattern, ' $2&nbsp;');
+export const typograf = (text) => {
+  const prepositionsPattern = /(\s)(и|из|к|или|без|в|с|на|не|по|для|от)(\s)/g;
+  return text.replace(prepositionsPattern, (match, p1, p2, p3) => {
+    return `${p1}${p2}\u00A0`;
+  });
 };
-
-const Typograf = ({Component}) => {
-  const StyledTypograf = styled(Component)`
-  `;
-
-  return ({ children, ...props }) => {
-    const processedText = typograf(children);
-    return (
-      <StyledTypograf {...props} dangerouslySetInnerHTML={{ __html: processedText }} />
-    );
-  };
-};
-
-export default Typograf;

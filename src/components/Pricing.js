@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Box } from "../components/index";
-import Typograf from "../components/Typograf.js";
+import Typograf from "./typograf.js";
 import {
   Flex,
   mediaQueries,
@@ -96,6 +96,7 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
                   <PriceContainer>
                     <OldPrice>{tariff.oldPrice || "39 990 ₽"}</OldPrice>
                     <CurrentPrice>{tariff.price || "27 993 ₽"}</CurrentPrice>
+                    <PriceExpiry>{tariff.priceExpiry}</PriceExpiry>
                   </PriceContainer>
                 </TariffMeta>
               </VertFlex>
@@ -105,9 +106,12 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
               </TariffDescription>
             </TariffHeader>
 
-            <BuyButton color={tariff.buyButtonColor} onClick={() => handleClick(tariff.name)} to="#form">
+            <ButtonWrapper
+            onClick={() => handleClick(tariff.name)}>
+            <BuyButton color={tariff.buyButtonColor} to="#form">
               {tariff.buyButtonText}
             </BuyButton>
+            </ButtonWrapper>
 
             {/* Mobile toggle button */}
             <ToggleButton
@@ -115,8 +119,8 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
               isExpanded={expandedTariff === tariff.name}
             >
               {expandedTariff === tariff.name
-                ? "Скрыть особенности"
-                : "Показать особенности"}
+                ? "Скрыть детали"
+                : "Показать детали"}
               <ToggleIcon isExpanded={expandedTariff === tariff.name}>
                 {expandedTariff === tariff.name ? "↑" : "↓"}
               </ToggleIcon>
@@ -220,7 +224,6 @@ const TariffCard = styled(motion.div)`
     props.isAlternate ? "var(--accent)" : "var(--podlozhka)"};
 
   @media (max-width: 991px) {
-    width: 100%;
   }
 
   @media (max-width: 640px) {
@@ -284,6 +287,17 @@ const OldPrice = styled.div`
     font-size: 16px;
   }
 `;
+
+const PriceExpiry = styled.div`
+  border: 1px dashed var(--text);
+  border-radius: 15px;
+  transform: rotate(3);
+  background-color: transparent;
+  color: var(--text);
+  font-size: 16px;
+  font-family: "Coolvetica Lite";
+  padding: 6px;
+`
 
 const CurrentPrice = styled.div`
   font-size: 40px;

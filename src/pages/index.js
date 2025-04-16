@@ -40,10 +40,11 @@ import "../styles/layout.css";
 
 const IndexPage = () => {
   const [isGift, setIsGift] = useState(false); 
-  const [selectedTariff, setSelectedTariff] = useState('self-paced');
+  const [selectedTariff, setSelectedTariff] = useState('practice');
 
   const handleClick = (tariffName) => {
     setSelectedTariff(tariffName);
+    console.log("poops", tariffName);
   }
 
   const toggleGift = () => {

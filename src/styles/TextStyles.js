@@ -6,7 +6,7 @@ import { Typograf } from '../components/Typograf.js';
 export const Heading = styled(motion.h1)`
   color: var(--text);
   width: var(--column-right-width);
-  font-size: 5.36vw; //130px;
+  font-size: 5vw; //130px;
   font-size: auto;
   line-height: 105%; /* 136.5px */
 
