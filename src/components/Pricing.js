@@ -129,16 +129,6 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
             <AnimatePresence>
               <FeaturesList
                 initial={{ height: "auto" }}
-                animate={{
-                  height:
-                    expandedTariff === tariff.name || window.innerWidth > 768
-                      ? "auto"
-                      : 0,
-                  opacity:
-                    expandedTariff === tariff.name || window.innerWidth > 768
-                      ? 1
-                      : 0,
-                }}
                 transition={{ duration: 0.3 }}
                 isMobileHidden={expandedTariff !== tariff.name}
               >

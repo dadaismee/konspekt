@@ -78,7 +78,7 @@ const IndexPage = () => {
         pageData={requestFormBuy} 
         handleClick={handleClick} 
         toggleGift={toggleGift} 
-        selectedTariff={selectedTariff || 'active'} 
+        selectedTariff={selectedTariff || 'practice'} 
         isGift={isGift|| false} 
         type="landing" />
       <FAQ
