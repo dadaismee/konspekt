@@ -50,7 +50,7 @@ export const Button = styled.button`
 
 export const MainText = styled(motion.p)`
   color: var(--text);
-  font-size: 40px;
+  font-size: 36px;
   line-height: 95%;
   /* margin-bottom: 10px; */
 
