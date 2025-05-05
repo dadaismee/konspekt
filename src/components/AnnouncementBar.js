@@ -39,7 +39,7 @@ const AnnouncementBar = () => {
       }}
       viewport={{ once: true }}>
       <Link style={{fontSize: '20px'}} to='#pricing'>
-       Скидка 40% на новые тарифы до 5 мая
+       Скидка 20% на новые тарифы до 19 мая
       </Link>
     </Bar>
     );
