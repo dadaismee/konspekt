@@ -95,7 +95,7 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
                   <PriceContainer>
                     <OldPrice>{tariff.oldPrice || "39 990 ₽"}</OldPrice>
                     <CurrentPrice>{tariff.price || "27 993 ₽"}</CurrentPrice>
-                    <PriceExpiry>{tariff.priceExpiry}</PriceExpiry>
+                    {/* <PriceExpiry>{tariff.priceExpiry}</PriceExpiry> */}
                   </PriceContainer>
                 </TariffMeta>
               </VertFlex>
