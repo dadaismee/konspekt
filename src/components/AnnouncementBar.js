@@ -39,7 +39,7 @@ const AnnouncementBar = () => {
       }}
       viewport={{ once: true }}>
       <Link style={{fontSize: '20px'}} to='#pricing'>
-       Скидка 20% на новые тарифы до 19 мая
+       Старт курса — 29 июня
       </Link>
     </Bar>
     );
