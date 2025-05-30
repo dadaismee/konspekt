@@ -94,8 +94,8 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
                       <Features style={{ fontFamily: "Coolvetica Lite" }}>{tariff.startDate || "МНОГО МЕСТ"}</Features>
                     </VertFlex>
                   <PriceContainer>
-                    <OldPrice>{tariff.oldPrice || "39 990 ₽"}</OldPrice>
-                    <CurrentPrice>{tariff.price || "27 993 ₽"}</CurrentPrice>
+                    <OldPrice>{tariff.oldPrice }</OldPrice>
+                    <CurrentPrice>{tariff.price }</CurrentPrice>
                     {/* <PriceExpiry>{tariff.priceExpiry}</PriceExpiry> */}
                   </PriceContainer>
                 </TariffMeta>
