@@ -17,6 +17,7 @@ import {
 import { Button, ButtonWrapper } from "./Hero";
 import { Asterisk } from "./ListSection";
 import { motion, AnimatePresence } from "framer-motion";
+import { typograf } from "./typograf";
 
 const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
   const { title, asterisk } = pageData;
@@ -137,7 +138,7 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
                     <FeatureItem key={idx}>
                       <FeatureArrow>→</FeatureArrow>
                       <FeatureText>
-                        {feature.mainText}{" "}
+                        {typograf(feature.mainText)}{" "}
                         <FeatureSubtext>{feature.spanText}</FeatureSubtext>
                       </FeatureText>
                     </FeatureItem>
