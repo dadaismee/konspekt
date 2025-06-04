@@ -15,7 +15,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
   const tariffs = pricing.tariffs.map(tariff => tariff);
   const getTariffPrice = (tariffName) => {
       const tariff = tariffs.find(t => t.name === tariffName);
-      return tariff ? tariff.price : null; 
+        return tariff ? `Купить за ${tariff.price}` : "Получить бесплатно"; 
   };
   const price = getTariffPrice(selectedTariff);
 
@@ -298,7 +298,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                 type="submit"
                 height="100%"
               >
-                {Boolean(isLoading) ? <Loader /> : Boolean(selectedTariff === 'expert') ? "Связаться": `Купить за ${price}`}
+                {Boolean(isLoading) ? <Loader /> : Boolean(selectedTariff === 'expert') ? "Связаться": price}
               </Button>
             </ButtonWrapper>
           </FormWrapper>)}
