@@ -62,7 +62,7 @@ export const MainText = styled(motion.p)`
 export const SmallerText = styled(motion.p)`
   color: var(--text);
   font-size: 32px;
-  line-height: 95%;
+  line-height: 105%;
   /* margin-bottom: 10px; */
 
   @media (max-width: ${mediaQueries.phone}) {
