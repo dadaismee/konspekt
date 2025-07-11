@@ -104,8 +104,6 @@ const Hero = ({ data, type, toggleGift }) => {
                 }}
                 viewport={{ once: true }}>
                 {typograf(description)}
-                <span style={{ fontFamily: "Coolvetica" }}>
-                </span>
               </Description>
               {Boolean(features) && <FeaturesContainer>
                 {features.map(feature => (
@@ -217,9 +215,9 @@ export const FlexContainer = styled.div`
 
 const Description = styled(MainText)`
   font-family: Coolvetica Lite;
-  line-height: 90%;
+  line-height: 100%;
   @media (max-width: ${mediaQueries.phone}) {
-    width: 100%;
+  width: 100%;
   }
 `;
 

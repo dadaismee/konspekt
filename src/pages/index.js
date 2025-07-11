@@ -56,15 +56,15 @@ const IndexPage = () => {
 
   return (
     <>
-      {/* <AnnouncementBar /> */}
+      <AnnouncementBar />
       <FirstScreen>
         <Header data={links} />
         <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
       <BasicSection id="about" pageData={about} grids={grids_3} /> 
       <BasicSection pageData={audience} grids={grids_3} />
-      <ListSection pageData={outcomes} />
       <BasicSection id="results" pageData={results} grids={grids_3} />
+      <ListSection pageData={outcomes} />
       {/* <BasicSection id="process" pageData={process} grids={grids_4} /> */}
       <Program id="program" pageData={program} />
       <Pricing id="pricing" pageData={pricing}
@@ -72,8 +72,6 @@ const IndexPage = () => {
       {/* <BasicSection id="trial" pageData={trial} grids={grids_3} /> */}
       <Reviews id="reviews"
         pageData={reviews} />
-      <Author pageData={author} /> 
-      <BasicSection id="gift-certificate" pageData={gift_certificate} grids={grids_3} />
       <RequestForm id="form" grids={grids_3}
         pageData={requestFormBuy} 
         handleClick={handleClick} 
@@ -81,6 +79,8 @@ const IndexPage = () => {
         selectedTariff={selectedTariff || 'practice'} 
         isGift={isGift|| false} 
         type="landing" />
+      <Author pageData={author} /> 
+      <BasicSection id="gift-certificate" pageData={gift_certificate} grids={grids_3} />
       <FAQ
         pageData={faq} />
       {/* <BasicSection id="about" pageData={aboutFreeCourse} grids={grids_3} /> */}

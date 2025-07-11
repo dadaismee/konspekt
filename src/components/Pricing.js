@@ -101,7 +101,7 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
                 </TariffMeta>
               </VertFlex>
               <TariffDescription>
-                {tariff.description ||
+                {typograf(tariff.description) ||
                   "Для тех, кто хочет освоить систему работы с текстами в комфортном темпе"}
               </TariffDescription>
             </TariffHeader>

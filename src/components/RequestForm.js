@@ -81,9 +81,9 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
     //   "_self"),
 
     // practice tariff
-    Boolean(selectedTariff === "practice" && !isGift) && window.open(
-        "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
-        "_self"),
+    // Boolean(selectedTariff === "practice" && !isGift) && window.open(
+    //     "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
+    //     "_self"),
 
     // expert tariff
     Boolean(selectedTariff === "expert" && !isGift && window.open(
@@ -180,9 +180,9 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                     <option value="practice" selected={selectedTariff === 'practice' ? true : false}>
                       Практика
                     </option>
-                    <option value="expert" selected={selectedTariff === 'expert' ? true : false}>
-                      С экспертом
-                    </option>
+                    {/* <option value="expert" selected={selectedTariff === 'expert' ? true : false}> */}
+                    {/*   С экспертом */}
+                    {/* </option> */}
                   </InputSelect>}
 
                   {Boolean(type !== 'register') && (
@@ -298,7 +298,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                 type="submit"
                 height="100%"
               >
-                {Boolean(isLoading) ? <Loader /> : Boolean(selectedTariff === 'expert') ? "Связаться": price}
+                {Boolean(isLoading) ? <Loader /> : Boolean(selectedTariff === 'practice') ? "Записаться в лист ожидания": price}
               </Button>
             </ButtonWrapper>
           </FormWrapper>)}

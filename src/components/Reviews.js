@@ -102,7 +102,7 @@ export const BoxesWrapper = styled(motion.div)`
   overflow-y: hidden;
   height: auto;
   padding: 0px 60px;
-  margin: 10px -60px 0px -60px;
+  margin: 0px -60px;
 
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
