@@ -18,7 +18,7 @@ const Bar = styled(motion.div)`
 
 const AnnouncementBar = () => {
   return (
-    <Bar to='#pricing'
+    <Bar to='#form'
       initial={{
         opacity: 0,
         y: 0,
@@ -37,7 +37,7 @@ const AnnouncementBar = () => {
         delay: 0.1,
       }}
       viewport={{ once: true }}>
-      <Link style={{fontSize: '20px'}} to='#pricing'>
+      <Link style={{fontSize: '20px'}} to='#form'>
        Записаться в лист ожидания со скидкой 10% →
       </Link>
     </Bar>

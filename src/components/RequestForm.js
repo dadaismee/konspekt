@@ -86,9 +86,9 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
     //     "_self"),
 
     // expert tariff
-    Boolean(selectedTariff === "expert" && !isGift && window.open(
-        "https://t.me/konspekt_support",
-        "_self"),
+    // Boolean(selectedTariff === "expert" && !isGift && window.open(
+    //     "https://t.me/konspekt_support",
+    //     "_self"),
 
     // gift active tariff
     //Boolean(selectedTariff === "active" && isGift && window.open(
@@ -105,7 +105,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
       //"https://konspekt.zenclass.ru/public/product/832e13c7-8b0d-4e5f-8220-81d2f0094d95/tariffs"),
 
       console.log("tariff", selectedTariff, isGift),
-    setIsSubmitted(true)));
+    setIsSubmitted(true));
   };
 
   return (
@@ -180,9 +180,9 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                     <option value="practice" selected={selectedTariff === 'practice' ? true : false}>
                       Практика
                     </option>
-                    {/* <option value="expert" selected={selectedTariff === 'expert' ? true : false}> */}
-                    {/*   С экспертом */}
-                    {/* </option> */}
+                    <option value="personal" selected={selectedTariff === 'personal' ? true : false}>
+                      Личный
+                    </option>
                   </InputSelect>}
 
                   {Boolean(type !== 'register') && (
@@ -298,7 +298,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                 type="submit"
                 height="100%"
               >
-                {Boolean(isLoading) ? <Loader /> : Boolean(selectedTariff === 'practice') ? "Записаться в лист ожидания": price}
+                {Boolean(isLoading) ? <Loader /> : Boolean(selectedTariff === 'practice' || selectedTariff === 'personal') ? "Записаться в лист ожидания": price}
               </Button>
             </ButtonWrapper>
           </FormWrapper>)}
