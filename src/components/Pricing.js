@@ -96,7 +96,7 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
                   <PriceContainer>
                     <OldPrice>{tariff.oldPrice }</OldPrice>
                     <CurrentPrice>{tariff.price }</CurrentPrice>
-                    {/* <PriceExpiry>{tariff.priceExpiry}</PriceExpiry> */}
+                    {/* {Boolean(tariff.priceExpiry) && <PriceExpiry>{tariff.priceExpiry}</PriceExpiry>} */}
                   </PriceContainer>
                 </TariffMeta>
               </VertFlex>
@@ -301,7 +301,7 @@ const CurrentPrice = styled.div`
 `;
 
 const TariffDescription = styled(MenuAndFootnote)`
-  font-size: 24px;
+  font-size: 22px;
   line-height: 105%;
   color: #000;
 
