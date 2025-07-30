@@ -79,8 +79,8 @@ export const Asterisk = styled(Features)`
 
 export const ListItem = styled.ol`
   display: flex;
-  gap: 10px;
-  align-items: center;
+  gap: 20px;
+  align-items: start;
   align-self: flex-start;
   margin-bottom: 20px;
   width: 100%;
@@ -113,7 +113,7 @@ export const Circle = styled.li`
 
 export const Grid = styled.div`
   display: grid; 
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, 1fr);
   {/* grid-template-columns: calc(100% - var(--right-column-width)) calc(100% - var(--left-column-width)); */}
   column-gap: 20px;
   row-gap: 20px;

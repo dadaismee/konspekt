@@ -309,7 +309,7 @@ const MobileFeatureBorder = styled.div`
 
 const Video = styled(motion.video)`
   width: var(--left-column-width);
-  max-height: var(--left-column-width);
+  height: var(--left-column-width);
   border-radius: 15px;
   box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.125);
 

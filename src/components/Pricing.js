@@ -94,7 +94,7 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
                       <Features style={{ fontFamily: "Coolvetica Lite" }}>{tariff.startDate || "МНОГО МЕСТ"}</Features>
                     </VertFlex>
                   <PriceContainer>
-                    <OldPrice>{tariff.oldPrice }</OldPrice>
+                    {/* <OldPrice>{tariff.oldPrice }</OldPrice> */}
                     <CurrentPrice>{tariff.price }</CurrentPrice>
                     {/* {Boolean(tariff.priceExpiry) && <PriceExpiry>{tariff.priceExpiry}</PriceExpiry>} */}
                   </PriceContainer>
@@ -211,7 +211,7 @@ const TariffCard = styled(motion.div)`
   flex-direction: column;
   gap: 30px;
   background-color: ${(props) =>
-    props.isAlternate ? "var(--accent)" : "var(--podlozhka)"};
+    props.isAlternate ? "var(--podlozhka)" : "var(--accent)"};
 
   @media (max-width: 991px) {
   }

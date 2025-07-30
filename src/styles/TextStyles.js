@@ -10,8 +10,7 @@ export const Heading = styled(motion.h1)`
   line-height: 105%; /* 136.5px */
 
   @media (max-width: ${mediaQueries.phone}) {
-    font-size: 15vw;
-    text-align: left;
+    font-size: 10vw;
   }
 `;
 
@@ -105,10 +104,15 @@ export const SmallThin = styled(motion.p)`
 
 export const Features = styled(motion.p)`
   font-size: 20px;
+  width: 100%;
 
   @media (max-width: ${mediaQueries.phone}) {
     font-size: 16px;
   }
+`
+
+export const ThinFeatures = styled(Features)`
+  font-family: 'Coolvetica Lite';
 `
 
 export const FooterText = styled.p`

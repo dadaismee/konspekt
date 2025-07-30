@@ -60,4 +60,8 @@ const Author = ({ pageData, id }) => {
 
 export default Author;
 
-const Wrapper = styled.section``;
+const Wrapper = styled.section`
+  @media (max-width: ${mediaQueries.phone}) {
+    display: none;
+  }
+`;

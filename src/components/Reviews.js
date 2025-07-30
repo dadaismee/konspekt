@@ -69,10 +69,8 @@ const Reviews = ({ pageData, id }) => {
 export default Reviews;
 
 const Wrapper = styled.section`
-  position: relative;
-
   @media (max-width: ${mediaQueries.phone}) {
-  width: auto;
+  width: 100%;
   }
   `;
 

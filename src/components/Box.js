@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import { styled } from 'styled-components';
-import { mediaQueries } from '../styles/GlobalStyles';
+import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Text } from './ColoredText';
+import { Features, FooterText, MenuAndFootnote, SmallThin, ThinFeatures } from '../styles/TextStyles';
+import VideoPlayer from './VideoPlayer';
 
 const types = {
   basic: {
@@ -24,7 +26,7 @@ const types = {
   }
 };
 
-const Box = ({ children, grid, type, padding, fontSize, isOpen, height, width, bgColor, border }) => {
+const Box = ({ children, grid, type, padding, fontSize, isOpen, height, width, bgColor, border, videoData }) => {
   return (
     <Wrapper
       initial={{
@@ -55,7 +57,21 @@ const Box = ({ children, grid, type, padding, fontSize, isOpen, height, width, b
       type={type}
       grid={grid}>
       {children}
+        {videoData && videoData.length > 0 && (
+        <VideoFlexContainer>
+          {videoData.map((review, index) => (
+            <VideoWrapper key={index}>
+              <VideoPlayer videoSrc={review.video} borderRadius="1000px" />
+              <VideoVertFlex>
+                <Features>{review.author}</Features>
+                <ThinFeatures>{review.occupation}</ThinFeatures>
+              </VideoVertFlex>
+            </VideoWrapper>
+          ))}
+        </VideoFlexContainer>
+      )}
     </Wrapper>
+    
   );
 };
 
@@ -76,7 +92,6 @@ const Wrapper = styled(motion.div)`
   gap: 10px;
 
   @media (max-width: ${mediaQueries.phone}) {
-  width: 100%;
   padding: 20px;
   gap: 10px;
   }
@@ -94,3 +109,31 @@ const Wrapper = styled(motion.div)`
     }
   }
 `;
+
+const VideoFlexContainer = styled.div`
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+  padding-top: 20px;
+  border-radius: 20px;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    flex-direction: column;
+  }
+
+`
+
+const VideoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 150px;
+  width: 100%;
+`
+
+const VideoVertFlex = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+`
+
