@@ -27,6 +27,7 @@ const Image = ({ src, width, height }) => {
       src={src}
       width={width}
       height={height}
+      loading="lazy"
     >
     </Wrapper>
   )
@@ -41,7 +42,6 @@ export const Wrapper = styled(motion.img)`
   object-fit: cover;
 
   @media (max-width: ${mediaQueries.phone}) {
-    width: 100%;
-    height: 100%;
+    display: none;
   }
 `;

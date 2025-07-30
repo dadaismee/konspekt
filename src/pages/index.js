@@ -15,7 +15,8 @@ import {
   RequestForm,
   SEO,
   Reviews,
-  AnnouncementBar
+  AnnouncementBar,
+  VideoReviews
 } from "../components/index";
 import {
   about,
@@ -34,6 +35,7 @@ import {
   results,
   reviews,
   links,
+  videoReviews,
   gift_certificate
 } from "../pageData/writing-pro.js";
 import "../styles/layout.css";
@@ -56,22 +58,23 @@ const IndexPage = () => {
 
   return (
     <>
-      <AnnouncementBar />
+      {/* <AnnouncementBar /> */}
       <FirstScreen>
         <Header data={links} />
         <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
       <BasicSection id="about" pageData={about} grids={grids_3} /> 
       <BasicSection pageData={audience} grids={grids_3} />
-      <BasicSection id="results" pageData={results} grids={grids_3} />
-      <ListSection pageData={outcomes} />
-      {/* <BasicSection id="process" pageData={process} grids={grids_4} /> */}
-      <Program id="program" pageData={program} />
+      {/* <VideoReviews pageData={videoReviews} /> */}
+      <BasicSection id="results" pageData={results} grids={grids_4} />
+      {/* <ListSection pageData={outcomes} /> */}
+      <BasicSection id="process" pageData={process} grids={grids_3} />
       <Pricing id="pricing" pageData={pricing}
         selectedTariff={selectedTariff} handleClick={handleClick} />
       {/* <BasicSection id="trial" pageData={trial} grids={grids_3} /> */}
-      <Reviews id="reviews"
-        pageData={reviews} />
+      <Reviews id="reviews" pageData={reviews} />
+      <Program id="program" pageData={program} />
+      <Author pageData={author} /> 
       <RequestForm id="form" grids={grids_3}
         pageData={requestFormBuy} 
         handleClick={handleClick} 
@@ -79,8 +82,7 @@ const IndexPage = () => {
         selectedTariff={selectedTariff || 'practice'} 
         isGift={isGift|| false} 
         type="landing" />
-      <Author pageData={author} /> 
-      <BasicSection id="gift-certificate" pageData={gift_certificate} grids={grids_3} />
+      {/* <BasicSection id="gift-certificate" pageData={gift_certificate} grids={grids_3} /> */}
       <FAQ
         pageData={faq} />
       {/* <BasicSection id="about" pageData={aboutFreeCourse} grids={grids_3} /> */}

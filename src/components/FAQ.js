@@ -108,7 +108,7 @@ const Toggle = styled(motion.div)`
   cursor: pointer;
 `;
 
-const Question = styled(SmallerText)`
+const Question = styled(MenuAndFootnote)`
   cursor: pointer;
   width: 100%;
   text-align: left;

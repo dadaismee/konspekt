@@ -57,31 +57,31 @@ const Contact = ({ pageData, id }) => {
             <Button>Написать в Телеграм</Button>
           </a>
       </ButtonWrapper>
-      <ButtonWrapper
-        initial={{
-          opacity: 0,
-          y: 20,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        exit={{
-          opacity: 0,
-          y: 20,
-        }}
-        transition={{
-          ease: [0.165, 0.84, 0.44, 1],
-          duration: 1,
-          delay: 0.3,
-        }}
-        viewport={{ once: true }}>
-        <a
-          href='mailto:konspekt.school@yandex.ru'
-          target='_blank'>
-          <Button>Написать на почту</Button>
-        </a>
-      </ButtonWrapper>
+      {/* <ButtonWrapper */}
+      {/*   initial={{ */}
+      {/*     opacity: 0, */}
+      {/*     y: 20, */}
+      {/*   }} */}
+      {/*   whileInView={{ */}
+      {/*     opacity: 1, */}
+      {/*     y: 0, */}
+      {/*   }} */}
+      {/*   exit={{ */}
+      {/*     opacity: 0, */}
+      {/*     y: 20, */}
+      {/*   }} */}
+      {/*   transition={{ */}
+      {/*     ease: [0.165, 0.84, 0.44, 1], */}
+      {/*     duration: 1, */}
+      {/*     delay: 0.3, */}
+      {/*   }} */}
+      {/*   viewport={{ once: true }}> */}
+      {/*   <a */}
+      {/*     href='mailto:konspekt.school@yandex.ru' */}
+      {/*     target='_blank'> */}
+      {/*     <Button>Написать на почту</Button> */}
+      {/*   </a> */}
+      {/* </ButtonWrapper> */}
 
       </FlexContainer>
     </Wrapper>

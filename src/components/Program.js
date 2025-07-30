@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Box } from '../components/index';
 import { Features, MenuAndFootnote, SectionHeading, SmallerText } from '../styles/TextStyles';
 import { Text } from './ColoredText';
-import { Asterisk, Circle, ListItem } from './ListSection';
+import { Asterisk, Circle, Grid, ListItem } from './ListSection';
 import { typograf } from './typograf.js';
 
 const Program = ({ pageData, id }) => {
@@ -33,11 +33,13 @@ const Program = ({ pageData, id }) => {
         viewport={{ once: true }}>
         {title}
       </SectionHeading>
-      <div style={{   width: "var(--right-column-width)" }}>
-      <Box type='list'>
+      {/* <div style={{   width: "var(--right-column-width)" }}> */}
+      {/* <Box type='list'> */}
+      <Grid>
         {data.map((box, index) => (
+          <Box>
           <ListItem>
-            <Circle>{index}</Circle>
+            <Circle>{index + 1}</Circle>
             <Flex>
               <SmallerText key={box.mainText}>{box.mainText}</SmallerText>
               {Boolean(box.subText) && (
@@ -45,15 +47,24 @@ const Program = ({ pageData, id }) => {
                   {typograf(box.subText)}
                 </MenuAndFootnote>
               )}
+
+              <div style={{ marginTop: "-5px"}}>
+               {box.results && box.results.map((result, index) => (
+                  <Features key={index}>{result}</Features>
+               ))}
+              </div>
+
             </Flex>
             {/* <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignSelf: 'center', maxWidth: '25%'}}>
               <MenuAndFootnote style={{ color: 'var(--accent)'}}>Артефакт: </MenuAndFootnote>
               <MenuAndFootnote>{box.artifact}</MenuAndFootnote>
             </div> */}
           </ListItem>
+          </Box>
         ))}
-      </Box>
-      </div>
+      {/* </Box> */}
+      {/* </div> */}
+      </Grid>
       {Boolean(asterisk) && <Asterisk>{asterisk}</Asterisk>}
     </Wrapper>
   );
@@ -66,6 +77,6 @@ const Wrapper = styled.section``;
 export const Flex = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 20px;
   width: 100%;
 `;

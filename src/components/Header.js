@@ -105,7 +105,6 @@ const Navbar = styled.nav`
 
 const AnchorLinkEl = styled(AnchorLink)`
   font-size: 20px;
-  font-family: 'Coolvetica Lite';
   transition: var(--transition);
 
   &:hover {
