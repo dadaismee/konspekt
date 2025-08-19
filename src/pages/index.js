@@ -68,12 +68,12 @@ const IndexPage = () => {
       {/* <VideoReviews pageData={videoReviews} /> */}
       <BasicSection id="results" pageData={results} grids={grids_4} />
       {/* <ListSection pageData={outcomes} /> */}
+      <Program id="program" pageData={program} />
       <BasicSection id="process" pageData={process} grids={grids_3} />
+      <Reviews id="reviews" pageData={reviews} />
       <Pricing id="pricing" pageData={pricing}
         selectedTariff={selectedTariff} handleClick={handleClick} />
       {/* <BasicSection id="trial" pageData={trial} grids={grids_3} /> */}
-      <Reviews id="reviews" pageData={reviews} />
-      <Program id="program" pageData={program} />
       <Author pageData={author} /> 
       <RequestForm id="form" grids={grids_3}
         pageData={requestFormBuy} 
