@@ -1,15 +1,16 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import styled from 'styled-components';
-import author from '../assets/author.png';
 import { Box, ColoredText, Image } from '../components/index';
 import { Flex, VertFlex, mediaQueries } from '../styles/GlobalStyles';
-import { MainFeature, SectionHeading, MainText, SmallerText } from '../styles/TextStyles';
+import { SmallThin, MenuAndFootnote, SectionHeading, MainText, SmallerText } from '../styles/TextStyles';
 import { Asterisk } from './ListSection';
+import { FlexContainer } from './Hero';
+import { FeatureArrow, FeatureItem, FeatureText } from './Pricing';
+import { typograf } from './typograf';
 
 const Author = ({ pageData, id }) => {
-  const { title, asterisk, boxes } = pageData;
-  // const img = getImage(author);
+  const { title, asterisk, teamMembers } = pageData;
   return (
     <Wrapper id={id}>
       <SectionHeading
@@ -34,24 +35,33 @@ const Author = ({ pageData, id }) => {
         {title}
       </SectionHeading>
       <Flex>
-        <Image 
-          width='calc(var(--left-column-width)/2)' 
-          height='calc(var(--left-column-width)/2)' 
-          src={author} />
-        <Box type='author' width='100%' fontSize='24px'>
-          {Boolean(boxes.mainText) && <MainText
-            style={{
-              display: 'flex',
-              alignSelf: 'start',
-            }}>
-            {boxes.mainText}
-          </MainText>}
-          <div style={{ display: 'grid', gap: '3px' }}>
-            {boxes.steps.map((step) => (
-              <ColoredText data={step} key={step.mainText} />
-            ))}
-          </div>
-        </Box>
+
+        {teamMembers.map((teamMember, index) => {
+          const { name, occupation, image, regalia, reviewLink } = teamMember;
+          return (
+          <Box type='review' width='50%' fontSize='24px'>
+            <Container>
+              <Avatar src={image} />
+              <VertFlex>
+                <div style={{ display: "flex", flexDirection: "column", gap: "5px"}}>
+                  <MainText>{name}</MainText>
+                  <MenuAndFootnote style={{ fontSize: "20px", fontFamily: 'Coolvetica Lite' }}>{occupation}</MenuAndFootnote>
+                </div>
+                <br/>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: "15px"}}>
+                {regalia.map((item, index) => (
+                    <FeatureItem key={index}>
+                      <FeatureArrow>→</FeatureArrow>
+                      <ColoredText height='auto' component={MenuAndFootnote} style={{ fontFamily: "Coolvetica Lite" }} data={item} />
+                    </FeatureItem>
+                  ))}
+                </div>
+
+                </VertFlex>
+            </Container>
+          </Box>
+          )})}
       </Flex>
       {Boolean(asterisk) && <Asterisk>{asterisk}</Asterisk>}
     </Wrapper >
@@ -65,3 +75,16 @@ const Wrapper = styled.section`
     display: none;
   }
 `;
+
+
+const Avatar = styled(motion.img)`
+width: 200px;
+height: 200px;
+border-radius: 15px;
+`
+
+const Container = styled.div`
+display: flex;
+gap: 20px;
+align-items: start;
+`

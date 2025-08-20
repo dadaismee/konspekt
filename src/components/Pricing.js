@@ -365,13 +365,13 @@ const FeaturesList = styled(motion.div)`
   }
 `;
 
-const FeatureItem = styled.div`
+export const FeatureItem = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 10px;
 `;
 
-const FeatureArrow = styled.div`
+export const FeatureArrow = styled.div`
   font-size: 24px;
   line-height: 105%;
   color: #000;
@@ -381,7 +381,7 @@ const FeatureArrow = styled.div`
   }
 `;
 
-const FeatureText = styled(Features)`
+export const FeatureText = styled(Features)`
   //font-size: 24px;
   line-height: 105%;
   color: #000;
