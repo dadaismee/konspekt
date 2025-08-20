@@ -74,7 +74,7 @@ const Wrapper = styled.section`
   }
   `;
 
-const Avatar = styled(motion.img)`
+export const Avatar = styled(motion.img)`
 width: 100px;
 height: 100px;
 border-radius: 15px;
@@ -87,7 +87,7 @@ height: 60px;
 
 const Score = styled(SmallerText)``;
 
-const Container = styled.div`
+export const Container = styled.div`
 display: flex;
 gap: 20px;
 align-items: center;
