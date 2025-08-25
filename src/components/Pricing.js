@@ -94,8 +94,8 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
                       <Features style={{ fontFamily: "Coolvetica Lite" }}>{tariff.startDate || "МНОГО МЕСТ"}</Features>
                     </VertFlex>
                   <PriceContainer>
-                    {/* <OldPrice>{tariff.oldPrice }</OldPrice> */}
                     <CurrentPrice>{tariff.price }</CurrentPrice>
+                    <OldPrice>{tariff.oldPrice }</OldPrice>
                     {/* {Boolean(tariff.priceExpiry) && <PriceExpiry>{tariff.priceExpiry}</PriceExpiry>} */}
                   </PriceContainer>
                 </TariffMeta>
@@ -269,7 +269,6 @@ const PriceContainer = styled.div`
 const OldPrice = styled.div`
   font-size: 24px;
   line-height: 105%;
-  text-decoration: line-through;
   font-family: "Coolvetica Lite";
   color: #000;
 
