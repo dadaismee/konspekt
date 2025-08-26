@@ -3,7 +3,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Text } from './ColoredText';
-import { Features, FooterText, MenuAndFootnote, SmallThin, ThinFeatures } from '../styles/TextStyles';
+import { Features, ThinFeatures } from '../styles/TextStyles';
 import VideoPlayer from './VideoPlayer';
 
 const types = {
