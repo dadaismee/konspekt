@@ -581,7 +581,7 @@ export const author = {
   teamMembers: [
     {
       name: "Валерий Шевченко",
-      occupation: "разработал курс и ведёт «Личный» тариф",
+      occupation: "автор курса и преподаватель",
       image: "/reviews_avatars/valerii_2.png",
       regalia: [
         {
@@ -606,7 +606,7 @@ export const author = {
     },
     {
       name: "Елизавета Рыдван",
-      occupation: "ведёт занятия и даёт обратную связь",
+      occupation: "куратор курса — даёт обратную связь",
       image: "/reviews_avatars/liza-r.png",
       regalia: [
         {
