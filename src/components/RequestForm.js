@@ -77,10 +77,6 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
        "https://konspekt.zenclass.ru/public/t/cdd3c94c-f791-4b5c-b5f0-b754e9d3d998",
        "_self"),
 
-    //Boolean(selectedTariff === 'self-paced' && !isGift && window.open(
-    //   "https://konspekt.zenclass.ru/public/course/b8ad2556-efe5-482b-ad29-ef0fa39292d8",
-    //   "_self"),
-
     // practice tariff
     Boolean(selectedTariff === "practice" && !isGift) && window.open(
         "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
@@ -91,21 +87,11 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
         "https://konspekt.zenclass.ru/public/t/5fa33134-aa28-44cd-a6d8-b2046eeb3cc6",
         "_self"),
 
-    // gift active tariff
-    //Boolean(selectedTariff === "active" && isGift && window.open(
-    //    "https://konspekt.zenclass.ru/public/t/35cc2d86-2c6f-46f3-8353-f9097f3ef12e",
-    //    "_self"),
-
-    // self-paced gift
-    //Boolean(selectedTariff === 'self-paced' && isGift) && window.open(
-    //   "https://konspekt.zenclass.ru/public/t/c0dfffb1-cabe-4bbe-a467-6c8f543dac18",
-    //   "_self"),
-
     Boolean(selectedTariff === 'free-course') && window.open(
-      "https://konspekt.zenclass.ru/public/course/b8ad2556-efe5-482b-ad29-ef0fa39292d8"),
+      "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505"),
       //"https://konspekt.zenclass.ru/public/product/832e13c7-8b0d-4e5f-8220-81d2f0094d95/tariffs"),
 
-      console.log("tariff", selectedTariff, isGift),
+      // console.log("tariff", selectedTariff, isGift),
     setIsSubmitted(true)));
   };
 
