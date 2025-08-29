@@ -46,7 +46,6 @@ const IndexPage = () => {
 
   const handleClick = (tariffName) => {
     setSelectedTariff(tariffName);
-    console.log("poops", tariffName);
   }
 
   const toggleGift = () => {
@@ -58,7 +57,7 @@ const IndexPage = () => {
 
   return (
     <>
-      {/* <AnnouncementBar /> */}
+      <AnnouncementBar />
       <FirstScreen>
         <Header data={links} />
         <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
