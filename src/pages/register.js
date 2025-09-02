@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { RequestForm, Header, Footer, SEO } from '../components/index.js';
 import styled from "styled-components";
 import { grids_3 } from '../pages/index.js';
-import { requestFormBuy, links } from '../pageData/writing-pro.js';
+import { requestFormBuy, links } from '../pageData/data.course.writing-system.js';
 
 const RegisterPage = () => {
     const [isGift, setIsGift] = useState(false); 

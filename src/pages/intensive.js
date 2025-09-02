@@ -20,7 +20,7 @@ import {
   outcomes,
   links,
   problems
-} from "../pageData/data.free.course.js";
+} from "../pageData/data.course.intensive.js";
 import "../styles/layout.css";
 
 const FreeCoursePage = () => {

@@ -8,7 +8,6 @@ import {
   Footer,
   Header,
   Hero,
-  Work,
   HowWorks,
   ListSection,
   Pricing,
@@ -17,7 +16,6 @@ import {
   SEO,
   Reviews,
   AnnouncementBar,
-  Cards,
   VideoReviews
 } from "../components/index";
 import {
@@ -41,7 +39,6 @@ import {
   gift_certificate
 } from "../pageData/data.course.writing-system.js";
 import "../styles/layout.css";
-import courses from "../pageData/index.json";
 
 const IndexPage = () => {
   const [isGift, setIsGift] = useState(false); 
@@ -55,7 +52,6 @@ const IndexPage = () => {
     setIsGift(prev => !prev); // Toggle gift state
   };
 
-  console.log("poops", courses);
   //console.log('selectedTariff', selectedTariff)
   //console.log('isGift', isGift)
 
@@ -66,14 +62,29 @@ const IndexPage = () => {
         <Header data={links} />
         <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
-      <Work />
-      {/* <Cards data={courses} /> */}
       <BasicSection id="about" pageData={about} grids={grids_3} /> 
+      <BasicSection pageData={audience} grids={grids_3} />
+      {/* <VideoReviews pageData={videoReviews} /> */}
+      <BasicSection id="results" pageData={results} grids={grids_4} />
+      {/* <ListSection pageData={outcomes} /> */}
+      <Program id="program" pageData={program} />
+      <BasicSection id="process" pageData={process} grids={grids_3} />
       <Reviews id="reviews" pageData={reviews} />
       <Pricing id="pricing" pageData={pricing}
         selectedTariff={selectedTariff} handleClick={handleClick} />
       {/* <BasicSection id="trial" pageData={trial} grids={grids_3} /> */}
       <Author pageData={author} /> 
+      <RequestForm id="form" grids={grids_3}
+        pageData={requestFormBuy} 
+        handleClick={handleClick} 
+        toggleGift={toggleGift} 
+        selectedTariff={selectedTariff || 'practice'} 
+        isGift={isGift|| false} 
+        type="landing" />
+      {/* <BasicSection id="gift-certificate" pageData={gift_certificate} grids={grids_3} /> */}
+      <FAQ
+        pageData={faq} />
+      {/* <BasicSection id="about" pageData={aboutFreeCourse} grids={grids_3} /> */}
       <Contact id="contact" pageData={contact} />
       <Footer /> </>);
 };

@@ -7,7 +7,7 @@ import { MainText, MenuAndFootnote, SectionHeading, SmallerText } from "../style
 import ColoredText from "./ColoredText";
 import { Asterisk } from "./ListSection";
 import { Box, Loader } from "./index";
-import { pricing } from "../pageData/writing-pro";
+import { pricing } from "../pageData/data.course.writing-system";
 
 const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleGift, isGift, type, userType, margin }) => {
   const { title, asterisk } = pageData;

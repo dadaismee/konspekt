@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Box from "../components/Box.js";
 import ColoredText from "../components/ColoredText.js";
-import { links, requestFormBuy } from "../pageData/writing-pro.js";
+import { links, requestFormBuy } from "../pageData/data.course.writing-system.js";
 import { Header, Footer } from "../components/index.js";
 
 const SuccessPage = () => {

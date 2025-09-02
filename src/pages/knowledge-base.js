@@ -16,7 +16,7 @@ import {
   hero,
   requestForm,
   links
-} from "../pageData/free-database.js";
+} from "../pageData/data.free.database.js";
 import "../styles/layout.css";
 
 const KnowledgeBasePage = () => {
