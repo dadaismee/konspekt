@@ -111,6 +111,11 @@ ul {
   list-style: none;
 }
 
+li {
+  line-height: 110%;;
+  margin-left: 20px;
+}
+
 blockquote,
 q {
   quotes: none;
@@ -162,19 +167,27 @@ section {
 }
 
 :root {
-  --main: #649567;
-  --text: #000;
+  --main: #F2F0E9;
+    /* #649567; */
+  --text: #282828;
+    /* #000; */
   --asterisk: #3d4f33;
-  --podlozhka: #92B595;
-  --accent: #F1F1F1;
+  --podlozhka: #fff;
+    /* #92B595; */
+  --accent: #89CD8D;
+    /* #649567; */
+    /* #F1F1F1; */
 
+  --font-family: 'Coolvetica';
   --left-column-width: 516px;
   --right-column-width: 784px;
-  --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 
+  --flex-gap: 0.69vw;
   --border-radius-ext: 25px;
   --border-radius-int: 15px;
   --grid-columns: repeat(7, 1fr);
+  --grid-repeat: repeat(4, 1fr);
   --card-width: 25.19vw;
   --card-max-width: 362.8px;
   --main-shadow: 20px 20px 20px 0px rgba(0, 0, 0, 0.25);
@@ -192,7 +205,7 @@ html {
 body {
   background-color: var(--main);
   margin: 30px 60px 20px;
-  font-family: 'Coolvetica';
+  font-family: var(--font-family);
 }
 
 ::-webkit-scrollbar {

@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { motion } from 'framer-motion';
 
 const Bar = styled(motion.div)`
-    background-color: var(--podlozhka); 
+    background-color: var(--accent); 
     font-family: 'Coolvetica Lite';
     color: var(--asterisk); 
     padding: 10px;
@@ -38,7 +38,7 @@ const AnnouncementBar = () => {
       }}
       viewport={{ once: true }}>
       <Link style={{fontSize: '20px'}} to='https://konspekt.zenclass.ru/public/product/decd2b90-7e7c-4a65-8a4a-15fa0bb53573/tariffs'>
-       Новый 4-дневный интенсив «Система письма» — 15-18 сентября
+       4-дневный интенсив «Система письма» — 15-18 сентября
       </Link>
     </Bar>
     );

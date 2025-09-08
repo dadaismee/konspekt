@@ -2,6 +2,18 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { mediaQueries } from '../styles/GlobalStyles';
 import { menuAndTags } from '../styles/TextStyles';
+import courses from "../pageData/index.json";
+
+export const getTagsData = (courseFiles) => {
+  let tags = ['Все'];
+  courseFiles
+    .map((courseFile) => courseFile.tags)
+    .forEach((tagSet) => tagSet.map((tag) => tags.push(tag)));
+  console.log('tags', tags);
+  return [...new Set(tags)];
+};
+
+const tagsData = getTagsData(courses);
 
 const Tags = ({ activeTag, handleClick }) => {
   return (
@@ -20,11 +32,12 @@ const Tags = ({ activeTag, handleClick }) => {
 
 export default Tags;
 
-export const tagsData = [
-  'Все',
-  'Zotero',
-  'pop'
-];
+// export const tagsData = [
+//   'Все',
+//   'Zotero',
+//   'pop'
+// ];
+
 
 const Wrapper = styled.div`
   display: inline-flex;

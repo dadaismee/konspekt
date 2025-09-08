@@ -16,7 +16,8 @@ import {
   SEO,
   Reviews,
   AnnouncementBar,
-  VideoReviews
+  VideoReviews,
+  About
 } from "../components/index";
 import {
   about,
@@ -37,8 +38,10 @@ import {
   links,
   videoReviews,
   gift_certificate
-} from "../pageData/data.course.writing-system.js";
+} from "../pageData/data.course.simple-writing-system.js";
 import "../styles/layout.css";
+import { getFrontmatter } from "../components/extractFrontmatter.js";
+import courses from "../pageData/index.json"
 
 const IndexPage = () => {
   const [isGift, setIsGift] = useState(false); 
@@ -52,24 +55,22 @@ const IndexPage = () => {
     setIsGift(prev => !prev); // Toggle gift state
   };
 
-  //console.log('selectedTariff', selectedTariff)
-  //console.log('isGift', isGift)
+  const courseData = getFrontmatter(courses, "simple-writing-system");
 
   return (
     <>
-      <AnnouncementBar />
       <FirstScreen>
         <Header data={links} />
-        <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
+        <Hero data={courseData} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
-      <BasicSection id="about" pageData={about} grids={grids_3} /> 
-      <BasicSection pageData={audience} grids={grids_3} />
-      {/* <VideoReviews pageData={videoReviews} /> */}
-      <BasicSection id="results" pageData={results} grids={grids_4} />
-      {/* <ListSection pageData={outcomes} /> */}
+      <About data={courseData} id="about"/>
+      {/* <BasicSection id="about" pageData={about} grids={grids_3} />  */}
+      {/* <BasicSection pageData={audience} grids={grids_3} /> */}
+      {/* <BasicSection id="results" pageData={results} grids={grids_4} /> */}
+      <ListSection pageData={outcomes} />
       <Program id="program" pageData={program} />
-      <BasicSection id="process" pageData={process} grids={grids_3} />
-      <Reviews id="reviews" pageData={reviews} />
+      {/* <BasicSection id="process" pageData={process} grids={grids_3} /> */}
+      {/* <Reviews id="reviews" pageData={reviews} /> */}
       <Pricing id="pricing" pageData={pricing}
         selectedTariff={selectedTariff} handleClick={handleClick} />
       {/* <BasicSection id="trial" pageData={trial} grids={grids_3} /> */}

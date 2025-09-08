@@ -5,7 +5,7 @@ import { mediaQueries } from './GlobalStyles';
 export const Heading = styled(motion.h1)`
   color: var(--text);
   width: var(--column-right-width);
-  font-size: 64px; //4.5vw; //130px;
+  font-size: 4.5vw; //130px;
   font-size: auto;
   line-height: 105%; /* 136.5px */
 
@@ -18,7 +18,7 @@ export const SectionHeading = styled(motion.h2)`
   color: var(--text);
   font-size: 80px;
   line-height: 105%; /* 136.5px */
-  margin: 180px 0 20px;
+  margin: 120px 0 20px;
   margin-top: ${({ margin }) => margin};
 
   @media (max-width: ${mediaQueries.phone}) {
@@ -85,7 +85,7 @@ export const SmallThin = styled(motion.p)`
   color: var(--text);
   font-size: 24px;
   font-family: Coolvetica Lite;
-  line-height: 130%; /* 136.5px */
+  line-height: 100%; /* 136.5px */
   letter-spacing: 0px;
 
   scrollbar-width: none; /* Firefox */
@@ -158,7 +158,7 @@ export const logoAndCardTitles = styled.h4`
 
 export const cardTags = styled.p`
   color: var(--color-text);
-  font-size: 13px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: 100%; /* 13px */
@@ -183,7 +183,6 @@ export const menuAndTags = styled.button`
   background-color: transparent;
   text-align: left;
 `;
-
 
 export const sectionTitle = styled.h3`
   color: var(--color-text);

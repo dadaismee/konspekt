@@ -78,8 +78,8 @@ const Box = ({ children, grid, type, padding, fontSize, isOpen, height, width, b
 export default Box;
 
 const Wrapper = styled(motion.div)`
-  border-radius: 15px;
-  //border: ${({ border }) => border || "3px solid #000"};
+  border-radius: 10px;
+  border: ${({ border }) => border || "1px solid var(--text)"};
   padding: ${({ padding }) => padding || '30px'};
   grid-area: ${({ grid }) => grid};
   ${({ type }) => types[`${type}`]}
@@ -92,8 +92,8 @@ const Wrapper = styled(motion.div)`
   gap: 10px;
 
   @media (max-width: ${mediaQueries.phone}) {
-  padding: 20px;
-  gap: 10px;
+    padding: 20px;
+    gap: 10px;
   }
   &:last-child {
     display: ${({ type }) => type !== 'review' ? 'flex' : 'block'};

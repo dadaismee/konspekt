@@ -6,11 +6,15 @@ import { mediaQueries } from '../styles/GlobalStyles';
 
 const Cards = ({ data, filter }) => {
   const cards = data.map((card) => {
-    const { tags } = card; // Access tags directly from the card object
-    return {
-      ...card, // Spread the card properties
-      isFiltered: filter !== 'Все' ? tags.includes(filter) : true, // Add isFiltered property
-    };
+    if (Boolean(card.tags)) {
+      const { tags } = card; // Access tags directly from the card object
+      return {
+        ...card, // Spread the card properties
+        isFiltered: filter !== 'Все' ? tags.includes(filter) : true, // Add isFiltered property
+      };
+    } else {
+      return card;
+    }
   });
 
   const filteredCards = cards.filter((card) => card.isFiltered);
@@ -26,6 +30,7 @@ const Cards = ({ data, filter }) => {
           animation={card.animation}
           title={card.title}
           description={card.description}
+          difficulty={card.difficulty}
           tags={card.tags}
           soon={card.soon}
         />
@@ -39,9 +44,9 @@ export default Cards;
 export const CardsWrapper = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: var(--grid-repeat);
   // grid-template-rows: repeat(2, 1fr);
-  gap: 1.38vw; //20px;
+  gap: var(--flex-gap);
   padding: 20px 0px;
   overflow-x: scroll;
   -ms-overflow-style: none; /* IE and Edge */

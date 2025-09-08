@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import styled from 'styled-components';
-import { Box, ColoredText, Image } from '../components/index';
+import { Box, Card, ColoredText, Image } from '../components/index';
 import { Flex, VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { SmallThin, MenuAndFootnote, SectionHeading, MainText, SmallerText } from '../styles/TextStyles';
 import { Asterisk } from './ListSection';

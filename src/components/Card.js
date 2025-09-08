@@ -3,12 +3,16 @@ import { Link } from 'gatsby';
 import React from 'react';
 import { styled } from 'styled-components';
 import { mediaQueries } from '../styles/GlobalStyles';
-import { cardTags, logoAndCardTitles, paragraph } from '../styles/TextStyles';
+import { FooterText, MenuAndFootnote, SmallThin, SmallerText, cardTags, logoAndCardTitles, paragraph } from '../styles/TextStyles';
+import { typograf } from './typograf';
+import Skill from './Skill';
 
-const Card = ({ image, animation, title, description, tags, index, to, soon }) => {
-  const cardTags = tags.map((tag, index) => <Tag key={index}>{tag}</Tag>);
+const Card = ({ image, animation, title, description, tags, difficulty,index, to, soon }) => {
+  let cardTags = [];
+  if (Boolean(tags)) {
+    cardTags = tags.map((tag, index) => <Tag key={index}>{tag}</Tag>);
+  }
   return (
-    <Link to={to}>
       <Wrapper
         initial={{
           opacity: 0,
@@ -33,21 +37,19 @@ const Card = ({ image, animation, title, description, tags, index, to, soon }) =
         {Boolean(soon) && <Badge>СКОРО</Badge>}
         <Image src={image} loading="lazy" alt={title} />
         {Boolean(animation) && <Animation src={animation} loop autoPlay />}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <div
             style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <Title>{title}</Title>
+            <Title>{typograf(title)}</Title>
             <Description>
-              {description[0].toUpperCase() + description.slice(1)}
+              {typograf(description)}
             </Description>
           </div>
-          <TagsWrapper>{cardTags}</TagsWrapper>
-        </div>
-        {/* <Link to={to}> */}
-        {/*   <Button>Предзапись</Button> */}
-        {/* </Link> */}
+          {/* <TagsWrapper>{cardTags}</TagsWrapper> */}
+        {Boolean(difficulty) && <p style={{ fontFamily: "Coolvetica Lite"}}>Сложность: {difficulty}</p> }
+        <Link to={to}>
+          <Button>Подробнее</Button>
+        </Link>
       </Wrapper>
-    </Link>
   );
 };
 
@@ -67,23 +69,23 @@ const hoverStyles = {
 };
 
 const Wrapper = styled(motion.div)`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   position: relative;
   box-sizing: border-box;
+  border: 1px solid var(--text);
   background-color: var(--podlozhka);
-  width: calc((100vw - (120px + 20px * 3)) / 4);
-  min-height: calc(var(--card-max-width) * 1.35);
   height: auto;
   padding: 1.38vw; // 20px;
-  gap: 1.38vw; //20px;
+  gap: 10px; //1.38vw; //20px;
 
-  border-radius: 25px;
+  border-radius: 7.5px;
   transition: var(--transition);
 
   &:hover {
     background: var(--accent);
     box-shadow: var(--main-shadow);
-    transform: translateY(-10px);
+    transform: translateY(-15px);
   }
 
   * {
@@ -105,17 +107,18 @@ const Badge = styled.div`
   top: 10px;
   width: auto;
   padding: 10px;
-  color: var(--accent);
+  color: var(--podlozhka);
   background-color: var(--text);
   border-radius: 15px;
   text-align: center;
   z-index: 1;
-  font-size: 13px;
+  font-size: 16px;
 `;
 
 const Image = styled.img`
   height: 12.5vw;
-  border-radius: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--text);
   object-fit: cover;
   width: 100%;
 
@@ -140,11 +143,11 @@ const Animation = styled.video`
 
 
 
-const Title = styled(logoAndCardTitles)``;
+const Title = styled(MenuAndFootnote)``;
 
-const Description = styled(paragraph)`
+const Description = styled(SmallThin)`
+  font-size: 20px;
   @media (max-width: ${mediaQueries.phone}) {
-    /* display: none; */
   }
 `;
 
@@ -163,7 +166,7 @@ const Tag = styled(cardTags)`
   transition: var(--transition);
 
   ${Wrapper}:hover & {
-    color: var(--color-text);
+    color: var(--text);
   }
 
   @media (max-width: ${mediaQueries.phone}) {
@@ -181,11 +184,13 @@ const Button = styled(motion.button)`
   margin-top: 20px;
 
   border-radius: 15px;
+  border: 1px solid var(--text);
+  background: var(--accent);
   font-size: 20px;
   font-weight: 700;
   line-height: 100%; /* 20px */
   transition: var(--transition);
-  transition-delay: 0.125s;
+  transition-delay: 0.2s;
   ${Wrapper}:hover & {
     background: var(--podlozhka);
     cursor: pointer;

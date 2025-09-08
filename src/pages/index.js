@@ -8,40 +8,16 @@ import {
   Footer,
   Header,
   Hero,
-  Work,
-  HowWorks,
-  ListSection,
+  Work as Courses,
   Pricing,
-  Program,
-  RequestForm,
   SEO,
   Reviews,
+  About,
   AnnouncementBar,
-  Cards,
-  VideoReviews
+  MainHero,
 } from "../components/index";
-import {
-  about,
-  audience,
-  author,
-  contact,
-  faq,
-  hero,
-  outcomes,
-  pricing,
-  process,
-  program,
-  requestFormBuy,
-  trial,
-  aboutFreeCourse,
-  results,
-  reviews,
-  links,
-  videoReviews,
-  gift_certificate
-} from "../pageData/data.course.writing-system.js";
 import "../styles/layout.css";
-import courses from "../pageData/index.json";
+import { links, hero, author, contact, about, courses, reviews } from "../pageData/data.home.js"
 
 const IndexPage = () => {
   const [isGift, setIsGift] = useState(false); 
@@ -55,9 +31,6 @@ const IndexPage = () => {
     setIsGift(prev => !prev); // Toggle gift state
   };
 
-  console.log("poops", courses);
-  //console.log('selectedTariff', selectedTariff)
-  //console.log('isGift', isGift)
 
   return (
     <>
@@ -66,13 +39,8 @@ const IndexPage = () => {
         <Header data={links} />
         <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
-      <Work />
-      {/* <Cards data={courses} /> */}
-      <BasicSection id="about" pageData={about} grids={grids_3} /> 
-      <Reviews id="reviews" pageData={reviews} />
-      <Pricing id="pricing" pageData={pricing}
-        selectedTariff={selectedTariff} handleClick={handleClick} />
-      {/* <BasicSection id="trial" pageData={trial} grids={grids_3} /> */}
+      <Courses id="courses"/>
+      <About data={about} id="about"/>
       <Author pageData={author} /> 
       <Contact id="contact" pageData={contact} />
       <Footer /> </>);
@@ -89,7 +57,11 @@ const grids_4 = [
   "1 / 3 / 4 / 6",
 ];
 
-export const grids_3 = ["1 / 1 / 1 / 3", "2 / 1 / 2 / 3", "1 / 3 / 3 / 6"];
+export const grids_3 = [
+  "1 / 1 / 1 / 3", 
+  "2 / 1 / 2 / 3", 
+  "1 / 3 / 3 / 6"
+];
 
 const FirstScreen = styled.div`
 height: 95dvh;

@@ -95,19 +95,12 @@ align-items: center;
 
 export const BoxesWrapper = styled(motion.div)`
   display: flex;
-  gap: 1.38vw; 
-  overflow-x: auto;
-  overflow-y: hidden;
+  gap: var(--flex-gap);
   height: auto;
   padding: 10px 60px;
   margin: 0px -60px;
-
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  overflow: auto;
+  overflow-y: hidden;
 
   @media (max-width: ${mediaQueries.phone}) {
     padding: 0 20px;

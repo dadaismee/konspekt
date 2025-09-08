@@ -6,8 +6,7 @@ export const mediaQueries = {
 
 export const GridContainer = styled.div`
   display: grid;
-  row-gap: 10px;
-  column-gap: 20px;
+  gap: var(--flex-gap);
   justify-content: space-between;
   grid-template-columns: repeat(5, 17.2vw);
 
@@ -32,7 +31,7 @@ export const VertFlex = styled.div`
   flex-direction: column;
   align-items: start;
   height: 100%;
-  gap: 20px;
+  gap: var(--flex-gap);
 `
 
 export const FlexContainer = styled.div`

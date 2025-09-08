@@ -115,8 +115,7 @@ export const Grid = styled.div`
   display: grid; 
   grid-template-columns: repeat(2, 1fr);
   {/* grid-template-columns: calc(100% - var(--right-column-width)) calc(100% - var(--left-column-width)); */}
-  column-gap: 20px;
-  row-gap: 20px;
+  gap: var(--flex-gap);
 
   @media (max-width: ${mediaQueries.phone}) {
     display: flex; 

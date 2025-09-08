@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { styled } from 'styled-components';
 import { Cards, Tags } from '../components/index';
 import { mediaQueries } from '../styles/GlobalStyles';
-import { sectionTitle } from '../styles/TextStyles';
+import { sectionTitle, MainText, SectionHeading } from '../styles/TextStyles';
 import courses from "../pageData/index.json";
 
 const Work = () => {
@@ -16,7 +16,7 @@ const Work = () => {
 
   return (
     <Wrapper
-      id='work'
+      id='courses'
       initial={{
         opacity: 0,
       }}
@@ -28,10 +28,8 @@ const Work = () => {
         delay: 0.5,
       }}
       viewport={{ once: true }}>
-      <TitleWrapper>
-        <SectionTitle>Курсы</SectionTitle>
-      </TitleWrapper>
-      <Tags activeTag={activeTag} handleClick={selectTag} />
+      <SectionHeading>Курсы</SectionHeading>
+      {/* <Tags activeTag={activeTag} handleClick={selectTag} /> */}
       <Cards data={courses} filter={activeTag} />
     </Wrapper>
   );
@@ -40,6 +38,9 @@ const Work = () => {
 export default Work;
 
 const Wrapper = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+
   @media (max-width: ${mediaQueries.phone}) {
     padding-top: 40px;
   }

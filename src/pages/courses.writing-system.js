@@ -37,8 +37,10 @@ import {
   links,
   videoReviews,
   gift_certificate
-} from "../pageData/data.course.1.zotero.js";
+} from "../pageData/data.course.writing-system.js";
 import "../styles/layout.css";
+import { getFrontmatter } from "../components/extractFrontmatter.js";
+import courses from "../pageData/index.json"
 
 const IndexPage = () => {
   const [isGift, setIsGift] = useState(false); 
@@ -57,10 +59,9 @@ const IndexPage = () => {
 
   return (
     <>
-      {/* <AnnouncementBar /> */}
       <FirstScreen>
         <Header data={links} />
-        <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
+        <Hero data={getFrontmatter(courses, "writing-system")} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
       <BasicSection id="about" pageData={about} grids={grids_3} /> 
       <BasicSection pageData={audience} grids={grids_3} />

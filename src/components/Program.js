@@ -77,6 +77,6 @@ const Wrapper = styled.section``;
 export const Flex = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--flex-gap);
   width: 100%;
 `;

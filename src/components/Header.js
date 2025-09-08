@@ -5,7 +5,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { Flex, VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import logo from '../assets/logo-with-bg.png';
-import { MainText, SmallerText } from '../styles/TextStyles';
+import { MainText, MenuAndFootnote, SmallerText } from '../styles/TextStyles';
 
 const Header = ({ data }) => {
   const links = data;
@@ -31,12 +31,12 @@ const Header = ({ data }) => {
       viewport={{ once: true }}>
 
       <Link to='/'>
-        <Flex style={{ alignItems: "center"}}>
+        <Flex style={{ gap: "10px", alignItems: "center"}}>
           <Logo src={logo} alt={logo} />
-            <VertFlex style={{ display: "block"}}>
-            <SmallerText>Konspekt</SmallerText>
-            <SmallerText>school</SmallerText>
-            </VertFlex>
+          <div style={{ display: "flex", flexDirection: "column", justifyContent: "start"}}>
+            <MenuAndFootnote>Школа</MenuAndFootnote>
+            <MenuAndFootnote>Конспект</MenuAndFootnote>
+          </div>
         </Flex>
       </Link>
 
@@ -85,7 +85,8 @@ const Wrapper = styled(motion.header)`
 
 export const Logo = styled.img`
   width: 60px;
-  height:60px;
+  height: 60px;
+  border: 1px solid var(--text);
   border-radius: 15px;
   transition: var(--transition);
 

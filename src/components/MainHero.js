@@ -3,17 +3,19 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React from 'react';
 import { styled } from 'styled-components';
 import Typewriter from 'typewriter-effect';
-import { Image, Box } from './index.js';
+import { Image, Box, Work } from './index.js';
 import { typograf } from './typograf.js';
 import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
 import { Asterisk } from './ListSection.js';
 
-const Hero = ({ data, type, toggleGift }) => {
+const MainHero = ({ data, type, toggleGift }) => {
   const { title, typeWriterText, description, buttonText, to, features, video, image, asterisk } = data;
 
   return (
-    <Wrapper>
+    <MainWrapper>
+
+    <TextWrapper>
       <FlexContainer>
 
         <VertFlex>
@@ -61,32 +63,6 @@ const Hero = ({ data, type, toggleGift }) => {
                 {typograf(title)}
               </SiteHeading>
               {Boolean(typeWriterText) && <VertFlex><SiteHeading>
-                <Typewriter 
-                  options={{
-                    strings: typeWriterText,
-                    autoStart: true,
-                    loop: true,
-                    typeSpeed: 50,
-                  }}
-                  initial={{
-                    opacity: 0,
-                    y: 20,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    y: 20,
-                  }}
-                  transition={{
-                    ease: [0.165, 0.84, 0.44, 1],
-                    duration: 1,
-                    delay: 0.25,
-                  }}
-                  viewport={{ once: true }}
-                />
                 </SiteHeading></VertFlex>}
               <Description
                 initial={{
@@ -109,6 +85,31 @@ const Hero = ({ data, type, toggleGift }) => {
                 viewport={{ once: true }}>
                 {typograf(description)}
               </Description>
+              <Typewriter 
+                options={{
+                  strings: typeWriterText,
+                  autoStart: true,
+                  loop: true,
+                  typeSpeed: 50,
+                }}
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                transition={{
+                  ease: [0.165, 0.84, 0.44, 1],
+                  duration: 1,
+                  delay: 0.25,
+                }}
+                viewport={{ once: true }}/>
               {Boolean(features) && <FeaturesContainer>
                 {features.map(feature => (
                   <Features key={feature}>{feature}</Features>
@@ -117,87 +118,21 @@ const Hero = ({ data, type, toggleGift }) => {
 
             </Tagline>
           </Box>
-          <ButtonWrapper
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              y: 20,
-            }}
-            transition={{
-              ease: [0.165, 0.84, 0.44, 1],
-              duration: 1,
-              delay: 0.35,
-            }}
-            viewport={{ once: true }}
-          >
-            {/* <MobileFeaturesContainer>
-            {features.map(feature => (
-              <MobileFeatureBorder>
-              <Features key={feature}>{feature}</Features> 
-              </MobileFeatureBorder>
-            ))}
-          </MobileFeaturesContainer> */}
-            <ButtonsWrapper
-              style={{ width: "100%" }}
-              //onClick={() => handleClick("passive")}
-            >
-              <Button fontSize="32px" to={to}>{buttonText}</Button>
-              {/* {Boolean(type !== 'free') && <Button 
-              fontSize="24px" 
-              width="calc(var(--right-column-width) - var(--left-column-width))" 
-              onClick={() => toggleGift(true)}
-              to='#gift-certificate'>Купить<br/>в подарок
-            </Button>} */}
-
-            </ButtonsWrapper>
-          </ButtonWrapper>
         </VertFlex>
-
-        {Boolean(video) && <Video
-          muted
-          autoPlay
-          playsinline
-          loop
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          exit={{
-            opacity: 0,
-            y: 20,
-          }}
-          transition={{
-            ease: [0.165, 0.84, 0.44, 1],
-            duration: 1,
-            delay: 0.15,
-          }}
-          viewport={{ once: true }}
-          src={video} />}
-
-        {Boolean(image) && <Image src={image} />}
       </FlexContainer>
-    </Wrapper>
+    </TextWrapper>
+      <Work />
+    </MainWrapper>
+
+
   );
 };
 
-export default Hero;
+export default MainHero;
 
-const Wrapper = styled.div`
+const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 80dvh;
 
   @media (max-width: ${mediaQueries.phone}) {
     align-items: stretch;
@@ -349,3 +284,12 @@ const Video = styled(motion.video)`
   }
 `;
 
+const MainWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: space-between;
+  gap: 10px;
+  margin-top: 60px;
+  padding: 20px 0px;
+  justify-content: space-around;
+`
