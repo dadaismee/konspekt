@@ -90,7 +90,7 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
                 <TariffTitle>{tariff.title}</TariffTitle>
                 <TariffMeta>
                     <VertFlex style={{ gap: "0px", justifyContent: "flex-end"}}>
-                      <Features>{tariff.timing || "МНОГО МЕСТ"}</Features>
+                      <Features>{tariff.timing || "много мест"}</Features>
                       <Features style={{ fontFamily: "Coolvetica Lite" }}>{tariff.startDate || "МНОГО МЕСТ"}</Features>
                     </VertFlex>
                   <PriceContainer>
@@ -100,10 +100,13 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
                   </PriceContainer>
                 </TariffMeta>
               </VertFlex>
-              <TariffDescription>
-                {typograf(tariff.description) ||
-                  "Для тех, кто хочет освоить систему работы с текстами в комфортном темпе"}
-              </TariffDescription>
+              <Flex style={{ alignItems: "space-evenly"}}>
+                <TariffDescription>
+                  {typograf(tariff.description) ||
+                    "Для тех, кто хочет освоить систему работы с текстами в комфортном темпе"}
+                </TariffDescription>
+                {Boolean(tariff.social) && <Features style={{ fontFamily: "Coolvetica Lite"}}>{tariff.social}</Features>}
+              </Flex>
             </TariffHeader>
 
             <ButtonWrapper
@@ -193,11 +196,13 @@ const Wrapper = styled.section`
 `;
 
 const TariffsContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: var(--right-column-width) var(--left-column-width);
   gap: 20px;
   margin-bottom: 20px;
 
   @media (max-width: 991px) {
+    display: flex;
     flex-direction: column;
   }
 `;
@@ -293,6 +298,7 @@ const CurrentPrice = styled.div`
   line-height: 110%;
   color: #000;
   font-weight: 400;
+  text-align: right;
 
   @media (max-width: 640px) {
     font-size: 32px;
@@ -302,6 +308,7 @@ const CurrentPrice = styled.div`
 const TariffDescription = styled(MenuAndFootnote)`
   font-size: 22px;
   line-height: 105%;
+  width: 100%;
   color: #000;
 
   @media (max-width: 640px) {

@@ -7,7 +7,7 @@ import { requestFormBuy, links } from '../pageData/writing-pro.js';
 const RegisterPage = () => {
     const [isGift, setIsGift] = useState(false); 
     const [tariffFromHash, setTariffFromHash] = useState()
-    const [selectedTariff, setSelectedTariff] = useState('practice' || selectedTariff || tariffFromHash);
+    const [selectedTariff, setSelectedTariff] = useState('main' || selectedTariff || tariffFromHash);
 
     const handleClick = (tariffName) => {
         setSelectedTariff(tariffName);
