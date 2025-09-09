@@ -15,7 +15,8 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
   const tariffs = pricing.tariffs.map(tariff => tariff);
   const getTariffPrice = (tariffName) => {
       const tariff = tariffs.find(t => t.name === tariffName);
-        return tariff ? `Начать бесплатно`: "Получить бесплатно"; 
+        const whichTariff = tariffName === 'social' ? "Связаться" : `Начать бесплатно`;
+        return tariff ? whichTariff : "Получить бесплатно"; 
         // return tariff ? `Начать за ${tariff.oldPrice}` : "Получить бесплатно"; 
   };
   const price = getTariffPrice(selectedTariff);
@@ -78,13 +79,13 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
        "_self"),
 
     // practice tariff
-    Boolean(selectedTariff === "practice" && !isGift) && window.open(
+    Boolean(selectedTariff === "main" && !isGift) && window.open(
         "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
         "_self"),
 
     // expert tariff
-    Boolean(selectedTariff === "personal" && !isGift && window.open(
-        "https://konspekt.zenclass.ru/public/t/5fa33134-aa28-44cd-a6d8-b2046eeb3cc6",
+    Boolean(selectedTariff === "social" && !isGift && window.open(
+        "https://t.me/konspekt_support",
         "_self"),
 
     Boolean(selectedTariff === 'free-course') && window.open(
@@ -164,11 +165,11 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                       Тариф
                     </option>
                     {/* <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false}>Сам(а)</option> */}
-                    <option value="practice" selected={selectedTariff === 'practice' ? true : false}>
-                      Практика
+                    <option value="main" selected={selectedTariff === 'main' ? true : false}>
+                      Поддерживающий
                     </option>
-                    <option value="personal" selected={selectedTariff === 'personal' ? true : false}>
-                      Личный
+                    <option value="social" selected={selectedTariff === 'social' ? true : false}>
+                      Льготный
                     </option>
                   </InputSelect>}
 
@@ -290,26 +291,26 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
             </ButtonWrapper>
           </FormWrapper>)}
       </CTA>
-          {Boolean(selectedTariff === 'practice' || selectedTariff === 'personal') && <Asterisk
-    initial={{
-      opacity: 0,
-      y: 20,
-    }}
-    whileInView={{
-      opacity: 1,
-      y: 0,
-    }}
-    exit={{
-      opacity: 0,
-      y: 20,
-    }}
-    transition={{
-      ease: [0.165, 0.84, 0.44, 1],
-      duration: 1,
-      delay: 0.4,
-    }}
-    viewport={{ once: true }}
-  >{asterisk}</Asterisk>}
+  {/*         {Boolean(selectedTariff === 'main' || selectedTariff === 'social') && <Asterisk */}
+  {/*   initial={{ */}
+  {/*     opacity: 0, */}
+  {/*     y: 20, */}
+  {/*   }} */}
+  {/*   whileInView={{ */}
+  {/*     opacity: 1, */}
+  {/*     y: 0, */}
+  {/*   }} */}
+  {/*   exit={{ */}
+  {/*     opacity: 0, */}
+  {/*     y: 20, */}
+  {/*   }} */}
+  {/*   transition={{ */}
+  {/*     ease: [0.165, 0.84, 0.44, 1], */}
+  {/*     duration: 1, */}
+  {/*     delay: 0.4, */}
+  {/*   }} */}
+  {/*   viewport={{ once: true }} */}
+  {/* >{asterisk}</Asterisk>} */}
     </Wrapper>
   );
 };
