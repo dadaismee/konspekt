@@ -41,7 +41,7 @@ export const hero = {
   // features: ["«Система письма» — курс для исследователей и студентов-гуманитариев"],
   // features: ["4 недели", "настроенный Obsidian", "17 гайдов и шпаргалок", "8 Q&A и коворкингов"],
   // video: "/video/landing.mp4",
-  image: "/writing-system.jpg",
+  image: "/writing-system.png",
   buttonText: "Помочь себе и другим",
   // asterisk: "Онлайн-курс для студентов, аспирантов и исследователей «Система письма»" 
 };
