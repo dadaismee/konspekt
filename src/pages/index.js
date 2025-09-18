@@ -19,8 +19,10 @@ import {
   VideoReviews
 } from "../components/index";
 import {
+  problem,
   about,
   audience,
+  principles,
   author,
   contact,
   faq,
@@ -57,15 +59,17 @@ const IndexPage = () => {
 
   return (
     <>
-      <AnnouncementBar />
+      {/* <AnnouncementBar /> */}
       <FirstScreen>
         <Header data={links} />
         <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
+      <BasicSection id="problem" pageData={problem} grids={grids_3} /> 
       <BasicSection id="about" pageData={about} grids={grids_3} /> 
       <BasicSection pageData={audience} grids={grids_3} />
+      <Program pageData={principles} />
       {/* <VideoReviews pageData={videoReviews} /> */}
-      <BasicSection id="results" pageData={results} grids={grids_4} />
+      <BasicSection id="results" pageData={results} grids={grids_3} />
       {/* <ListSection pageData={outcomes} /> */}
       <Program id="program" pageData={program} />
       <BasicSection id="process" pageData={process} grids={grids_3} />

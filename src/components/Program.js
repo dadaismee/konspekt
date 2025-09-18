@@ -43,13 +43,13 @@ const Program = ({ pageData, id }) => {
             <Flex>
               <SmallerText key={box.mainText}>{box.mainText}</SmallerText>
               {Boolean(box.subText) && (
-                <MenuAndFootnote style={{ fontFamily: "Coolvetica Lite", margin: '0' }}>
+                <MenuAndFootnote style={{ fontFamily: "Coolvetica Lite", margin: '20px 0px 0px' }}>
                   {typograf(box.subText)}
                 </MenuAndFootnote>
               )}
 
-              <div style={{ marginTop: "-5px"}}>
-               {box.results && box.results.map((result, index) => (
+              <div style={{ marginTop: "20px"}}>
+               {Boolean(box.results) && box.results.map((result, index) => (
                   <Features key={index}>{result}</Features>
                ))}
               </div>
@@ -77,6 +77,5 @@ const Wrapper = styled.section``;
 export const Flex = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
   width: 100%;
 `;

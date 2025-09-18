@@ -82,7 +82,6 @@ export const ListItem = styled.ol`
   gap: 20px;
   align-items: start;
   align-self: flex-start;
-  margin-bottom: 20px;
   width: 100%;
 
   @media (max-width: ${mediaQueries.phone}) {
