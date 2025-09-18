@@ -166,7 +166,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                     </option>
                     {/* <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false}>Сам(а)</option> */}
                     <option value="main" selected={selectedTariff === 'main' ? true : false}>
-                      Поддерживающий
+                      Основной
                     </option>
                     <option value="social" selected={selectedTariff === 'social' ? true : false}>
                       Льготный
