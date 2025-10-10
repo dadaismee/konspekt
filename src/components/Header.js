@@ -5,7 +5,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { Flex, VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import logo from '../assets/logo-with-bg.png';
-import { MainText, SmallerText } from '../styles/TextStyles';
+import { MainText, MenuAndFootnote, SmallerText } from '../styles/TextStyles';
 
 const Header = ({ data }) => {
   const links = data;
@@ -31,11 +31,10 @@ const Header = ({ data }) => {
       viewport={{ once: true }}>
 
       <Link to='/'>
-        <Flex style={{ alignItems: "center"}}>
+        <Flex style={{ gap: "10px", alignItems: "center"}}>
           <Logo src={logo} alt={logo} />
             <VertFlex style={{ display: "block"}}>
-            <SmallerText>Konspekt</SmallerText>
-            <SmallerText>school</SmallerText>
+            <MenuAndFootnote>Konspekt</MenuAndFootnote>
             </VertFlex>
         </Flex>
       </Link>

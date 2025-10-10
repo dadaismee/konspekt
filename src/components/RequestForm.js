@@ -79,11 +79,17 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
        "_self"),
 
     // practice tariff
-    Boolean(selectedTariff === "main" && !isGift) && window.open(
+    Boolean(selectedTariff === "practice" && !isGift) && window.open(
         "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
         "_self"),
 
-    // expert tariff
+    // personal tariff
+
+    Boolean(selectedTariff === "practice" && !isGift) && window.open(
+        "https://konspekt.zenclass.ru/public/t/5fa33134-aa28-44cd-a6d8-b2046eeb3cc6",
+        "_self"),
+
+    // social tariff
     Boolean(selectedTariff === "social" && !isGift && window.open(
         "https://t.me/konspekt_support",
         "_self"),
@@ -92,7 +98,6 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
       "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505"),
       //"https://konspekt.zenclass.ru/public/product/832e13c7-8b0d-4e5f-8220-81d2f0094d95/tariffs"),
 
-      // console.log("tariff", selectedTariff, isGift),
     setIsSubmitted(true)));
   };
 
@@ -165,11 +170,11 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                       Тариф
                     </option>
                     {/* <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false}>Сам(а)</option> */}
-                    <option value="main" selected={selectedTariff === 'main' ? true : false}>
-                      Основной
+                    <option value="practice" selected={selectedTariff === 'practice' ? true : false}>
+                      Практика
                     </option>
-                    <option value="social" selected={selectedTariff === 'social' ? true : false}>
-                      Льготный
+                    <option value="personal" selected={selectedTariff === 'personal' ? true : false}>
+                      Личный
                     </option>
                   </InputSelect>}
 

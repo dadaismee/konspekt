@@ -44,7 +44,7 @@ import "../styles/layout.css";
 
 const IndexPage = () => {
   const [isGift, setIsGift] = useState(false); 
-  const [selectedTariff, setSelectedTariff] = useState('main');
+  const [selectedTariff, setSelectedTariff] = useState('practice');
 
   const handleClick = (tariffName) => {
     setSelectedTariff(tariffName);
@@ -82,7 +82,7 @@ const IndexPage = () => {
         pageData={requestFormBuy} 
         handleClick={handleClick} 
         toggleGift={toggleGift} 
-        selectedTariff={selectedTariff || 'main'} 
+        selectedTariff={selectedTariff || 'practice'} 
         isGift={isGift|| false} 
         type="landing" />
       {/* <BasicSection id="gift-certificate" pageData={gift_certificate} grids={grids_3} /> */}
