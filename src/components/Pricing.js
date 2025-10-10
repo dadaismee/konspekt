@@ -197,7 +197,8 @@ const Wrapper = styled.section`
 
 const TariffsContainer = styled.div`
   display: grid;
-  grid-template-columns: var(--right-column-width) var(--left-column-width);
+  // grid-template-columns: var(--right-column-width) var(--left-column-width);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   margin-bottom: 20px;
 
