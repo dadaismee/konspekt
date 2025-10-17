@@ -37,8 +37,8 @@ const AnnouncementBar = () => {
         delay: 0.1,
       }}
       viewport={{ once: true }}>
-      <Link style={{fontFamily: "Coolvetica", fontSize: '20px'}} to='https://konspekt.zenclass.ru/public/product/decd2b90-7e7c-4a65-8a4a-15fa0bb53573/tariffs'>
-       Новый 4-дневный интенсив «Система письма» — 16-19 сентября
+      <Link style={{fontFamily: "Coolvetica", fontSize: '20px'}} to='#form'>
+       Последний день скидки 15 % на ноябрьский поток ⏳
       </Link>
     </Bar>
     );

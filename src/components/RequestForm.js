@@ -16,8 +16,8 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
   const getTariffPrice = (tariffName) => {
       const tariff = tariffs.find(t => t.name === tariffName);
         const whichTariff = tariffName === 'social' ? "Связаться" : `Начать бесплатно`;
-        return tariff ? whichTariff : "Получить бесплатно"; 
-        // return tariff ? `Начать за ${tariff.oldPrice}` : "Получить бесплатно"; 
+        // return tariff ? whichTariff : "Получить бесплатно"; 
+        return tariff ? `Начать за ${tariff.oldPrice}` : "Получить бесплатно"; 
   };
   const price = getTariffPrice(selectedTariff);
 
@@ -296,26 +296,26 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
             </ButtonWrapper>
           </FormWrapper>)}
       </CTA>
-  {/*         {Boolean(selectedTariff === 'main' || selectedTariff === 'social') && <Asterisk */}
-  {/*   initial={{ */}
-  {/*     opacity: 0, */}
-  {/*     y: 20, */}
-  {/*   }} */}
-  {/*   whileInView={{ */}
-  {/*     opacity: 1, */}
-  {/*     y: 0, */}
-  {/*   }} */}
-  {/*   exit={{ */}
-  {/*     opacity: 0, */}
-  {/*     y: 20, */}
-  {/*   }} */}
-  {/*   transition={{ */}
-  {/*     ease: [0.165, 0.84, 0.44, 1], */}
-  {/*     duration: 1, */}
-  {/*     delay: 0.4, */}
-  {/*   }} */}
-  {/*   viewport={{ once: true }} */}
-  {/* >{asterisk}</Asterisk>} */}
+          <Asterisk
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            y: 20,
+          }}
+          transition={{
+            ease: [0.165, 0.84, 0.44, 1],
+            duration: 1,
+            delay: 0.4,
+          }}
+          viewport={{ once: true }}
+        >{asterisk}</Asterisk>
     </Wrapper>
   );
 };
