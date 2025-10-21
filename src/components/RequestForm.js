@@ -84,8 +84,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
         "_self"),
 
     // personal tariff
-
-    Boolean(selectedTariff === "practice" && !isGift) && window.open(
+    Boolean(selectedTariff === "personal" && !isGift) && window.open(
         "https://konspekt.zenclass.ru/public/t/5fa33134-aa28-44cd-a6d8-b2046eeb3cc6",
         "_self"),
 

@@ -33,7 +33,7 @@
     "gatsby-transformer-remark": "^6.12.0",
     "gatsby-transformer-sharp": "^5.12.0",
     "google-spreadsheet": "^3.3.0",
-    "netlify-cli": "^17.33.5",
+    "netlify-cli": "^17.38.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
