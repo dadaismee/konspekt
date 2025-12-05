@@ -112,7 +112,8 @@ ul {
 }
 
 li {
-  line-height: 110%;;
+  line-height: 110%;
+  ;
   margin-left: 20px;
 }
 
@@ -168,15 +169,15 @@ section {
 
 :root {
   --main: #F2F0E9;
-    /* #649567; */
+  /* #649567; */
   --text: #282828;
-    /* #000; */
+  /* #000; */
   --asterisk: #3d4f33;
   --podlozhka: #fff;
-    /* #92B595; */
+  /* #92B595; */
   --accent: #89CD8D;
-    /* #649567; */
-    /* #F1F1F1; */
+  /* #649567; */
+  /* #F1F1F1; */
 
   --font-family: 'Coolvetica';
   --left-column-width: 516px;
@@ -192,9 +193,11 @@ section {
   --card-max-width: 362.8px;
   --main-shadow: 20px 20px 20px 0px rgba(0, 0, 0, 0.25);
 }
+
 @media (max-width: 768px) {
   :root {
-    --right-column-width: 100%; /* Mobile width */
+    --right-column-width: 100%;
+    /* Mobile width */
   }
 }
 

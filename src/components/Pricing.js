@@ -86,16 +86,16 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
             isAlternate={index % 2 === 1}
           >
             <TariffHeader>
-              <VertFlex style={{ gap: "0px"}}>
+              <VertFlex style={{ gap: "0px" }}>
                 <TariffTitle>{tariff.title}</TariffTitle>
                 <TariffMeta>
-                    <VertFlex style={{ gap: "0px", justifyContent: "flex-end"}}>
-                      <Features>{tariff.timing || "МНОГО МЕСТ"}</Features>
-                      <Features style={{ fontFamily: "Coolvetica Lite" }}>{tariff.startDate || "МНОГО МЕСТ"}</Features>
-                    </VertFlex>
+                  <VertFlex style={{ gap: "0px", justifyContent: "flex-end" }}>
+                    <Features>{tariff.timing || "МНОГО МЕСТ"}</Features>
+                    <Features style={{ fontFamily: "Coolvetica Lite" }}>{tariff.startDate || "МНОГО МЕСТ"}</Features>
+                  </VertFlex>
                   <PriceContainer>
-                    <CurrentPrice>{tariff.price }</CurrentPrice>
-                    <OldPrice>{tariff.oldPrice }</OldPrice>
+                    <CurrentPrice>{tariff.price}</CurrentPrice>
+                    <OldPrice>{tariff.oldPrice}</OldPrice>
                     {/* {Boolean(tariff.priceExpiry) && <PriceExpiry>{tariff.priceExpiry}</PriceExpiry>} */}
                   </PriceContainer>
                 </TariffMeta>
@@ -107,10 +107,10 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
             </TariffHeader>
 
             <ButtonWrapper
-            onClick={() => handleClick(tariff.name)}>
-            <BuyButton color={tariff.buyButtonColor} to="#form">
-              {tariff.buyButtonText}
-            </BuyButton>
+              onClick={() => handleClick(tariff.name)}>
+              <BuyButton color={tariff.buyButtonColor} to="#form">
+                {tariff.buyButtonText}
+              </BuyButton>
             </ButtonWrapper>
 
             {/* Mobile toggle button */}
@@ -316,7 +316,7 @@ const BuyButton = styled(Button)`
   font-size: 32px;
   line-height: 105%;
   cursor: pointer;
-  background-color: ${({ color }) => color };
+  background-color: ${({ color }) => color};
   text-align: center;
 
   @media (max-width: 640px) {

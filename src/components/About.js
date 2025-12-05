@@ -21,7 +21,7 @@ const About = ({ data }) => {
           <Text>{typograf(problem)}</Text>
           <br/>
 
-        <SmallerText>Трансформация: </SmallerText>
+        <SmallerText>Решение: </SmallerText>
         <Text dangerouslySetInnerHTML={{ __html: typograf(promise) }} />
         <br/>
 

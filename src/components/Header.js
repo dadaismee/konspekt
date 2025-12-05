@@ -31,10 +31,10 @@ const Header = ({ data }) => {
       viewport={{ once: true }}>
 
       <Link to='/'>
-        <Flex style={{ gap: "10px", alignItems: "center"}}>
+        <Flex style={{ gap: "10px", alignItems: "center" }}>
           <Logo src={logo} alt={logo} />
-          <div style={{ display: "flex", flexDirection: "column", justifyContent: "start"}}>
-            <MenuAndFootnote>Школа</MenuAndFootnote>
+          <div style={{ display: "flex", flexDirection: "column", justifyContent: "start" }}>
+            {/* <MenuAndFootnote>Школа</MenuAndFootnote> */}
             <MenuAndFootnote>Конспект</MenuAndFootnote>
           </div>
         </Flex>

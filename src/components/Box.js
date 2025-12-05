@@ -57,7 +57,7 @@ const Box = ({ children, grid, type, padding, fontSize, isOpen, height, width, b
       type={type}
       grid={grid}>
       {children}
-        {videoData && videoData.length > 0 && (
+      {videoData && videoData.length > 0 && (
         <VideoFlexContainer>
           {videoData.map((review, index) => (
             <VideoWrapper key={index}>
@@ -71,7 +71,7 @@ const Box = ({ children, grid, type, padding, fontSize, isOpen, height, width, b
         </VideoFlexContainer>
       )}
     </Wrapper>
-    
+
   );
 };
 

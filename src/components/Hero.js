@@ -17,26 +17,26 @@ const Hero = ({ data, type, toggleGift }) => {
       <FlexContainer>
 
         <VertFlex>
-          {Boolean(asterisk) && <Asterisk 
+          {Boolean(asterisk) && <Asterisk
             initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          exit={{
-            opacity: 0,
-            y: 20,
-          }}
-          transition={{
-            ease: [0.165, 0.84, 0.44, 1],
-            duration: 1,
-            delay: 0.65,
-          }}
-          viewport={{ once: true }}
-            style={{ marginTop: '-10px', fontFamily: 'Coolvetica Lite'}}>{asterisk}</Asterisk>}
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: 20,
+            }}
+            transition={{
+              ease: [0.165, 0.84, 0.44, 1],
+              duration: 1,
+              delay: 0.65,
+            }}
+            viewport={{ once: true }}
+            style={{ marginTop: '-10px', fontFamily: 'Coolvetica Lite' }}>{asterisk}</Asterisk>}
           <Box height="100%">
             <Tagline>
               <SiteHeading
@@ -61,7 +61,7 @@ const Hero = ({ data, type, toggleGift }) => {
                 {typograf(title)}
               </SiteHeading>
               {Boolean(typeWriterText) && <VertFlex><SiteHeading>
-                <Typewriter 
+                <Typewriter
                   options={{
                     strings: typeWriterText,
                     autoStart: true,
@@ -87,7 +87,7 @@ const Hero = ({ data, type, toggleGift }) => {
                   }}
                   viewport={{ once: true }}
                 />
-                </SiteHeading></VertFlex>}
+              </SiteHeading></VertFlex>}
               <Description
                 initial={{
                   opacity: 0,
@@ -146,7 +146,7 @@ const Hero = ({ data, type, toggleGift }) => {
           </MobileFeaturesContainer> */}
             <ButtonsWrapper
               style={{ width: "100%" }}
-              //onClick={() => handleClick("passive")}
+            //onClick={() => handleClick("passive")}
             >
               <Button fontSize="32px" to={to}>{buttonText}</Button>
               {/* {Boolean(type !== 'free') && <Button 

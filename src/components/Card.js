@@ -7,49 +7,49 @@ import { FooterText, MenuAndFootnote, SmallThin, SmallerText, cardTags, logoAndC
 import { typograf } from './typograf';
 import Skill from './Skill';
 
-const Card = ({ image, animation, title, description, tags, difficulty,index, to, soon }) => {
+const Card = ({ image, animation, title, description, tags, difficulty, index, to, soon }) => {
   let cardTags = [];
   if (Boolean(tags)) {
     cardTags = tags.map((tag, index) => <Tag key={index}>{tag}</Tag>);
   }
   return (
-      <Wrapper
-        initial={{
-          opacity: 0,
-          y: 20,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        exit={{
-          opacity: 0,
-          y: 20,
-        }}
-        transition={{
-          ease: [0.165, 0.84, 0.44, 1],
-          duration: 1,
-          delay: 0.5 + index * 0.15,
-        }}
-        viewport={{ once: true }}
-        whileTap={hoverStyles.on}
-        transformTemplate={({ y }) => `translateY(-${y}px)`}>
-        {Boolean(soon) && <Badge>СКОРО</Badge>}
-        <Image src={image} loading="lazy" alt={title} />
-        {Boolean(animation) && <Animation src={animation} loop autoPlay />}
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <Title>{typograf(title)}</Title>
-            <Description>
-              {typograf(description)}
-            </Description>
-          </div>
-          {/* <TagsWrapper>{cardTags}</TagsWrapper> */}
-        {Boolean(difficulty) && <p style={{ fontFamily: "Coolvetica Lite"}}>Сложность: {difficulty}</p> }
-        <Link to={to}>
-          <Button>Подробнее</Button>
-        </Link>
-      </Wrapper>
+    <Wrapper
+      initial={{
+        opacity: 0,
+        y: 20,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      exit={{
+        opacity: 0,
+        y: 20,
+      }}
+      transition={{
+        ease: [0.165, 0.84, 0.44, 1],
+        duration: 1,
+        delay: 0.5 + index * 0.15,
+      }}
+      viewport={{ once: true }}
+      whileTap={hoverStyles.on}
+      transformTemplate={({ y }) => `translateY(-${y}px)`}>
+      {Boolean(soon) && <Badge>СКОРО</Badge>}
+      <Image src={image} loading="lazy" alt={title} />
+      {Boolean(animation) && <Animation src={animation} loop autoPlay />}
+      <div
+        style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <Title>{typograf(title)}</Title>
+        <Description>
+          {typograf(description)}
+        </Description>
+      </div>
+      {/* <TagsWrapper>{cardTags}</TagsWrapper> */}
+      {Boolean(difficulty) && <p style={{ fontFamily: "Coolvetica Lite" }}>Сложность: {difficulty}</p>}
+      <Link to={to}>
+        <Button>Подробнее</Button>
+      </Link>
+    </Wrapper>
   );
 };
 
