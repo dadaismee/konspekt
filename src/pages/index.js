@@ -65,7 +65,7 @@ const IndexPage = () => {
         <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
       <BasicSection id="problem" pageData={problem} grids={grids_3} /> 
-      <BasicSection id="about" pageData={about} grids={grids_3} /> 
+      {/* <BasicSection id="about" pageData={about} grids={grids_3} />  */}
       <BasicSection pageData={audience} grids={grids_3} />
       {/* <VideoReviews pageData={videoReviews} /> */}
       {/* <BasicSection id="results" pageData={results} grids={grids_3} /> */}
