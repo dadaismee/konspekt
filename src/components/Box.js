@@ -110,7 +110,7 @@ const Wrapper = styled(motion.div)`
   }
 `;
 
-const VideoFlexContainer = styled.div`
+export const VideoFlexContainer = styled.div`
   display: flex;
   justify-content: start;
   gap: 20px;
@@ -123,7 +123,7 @@ const VideoFlexContainer = styled.div`
 
 `
 
-const VideoWrapper = styled.div`
+export const VideoWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
@@ -131,7 +131,7 @@ const VideoWrapper = styled.div`
   width: 100%;
 `
 
-const VideoVertFlex = styled.div`
+export const VideoVertFlex = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;

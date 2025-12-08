@@ -1,21 +1,24 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { Skill, Image } from '../components/index';
+import { Skill, Image, VideoPlayer } from '../components/index';
 import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
-import { MainText, SectionHeading, SmallThin, SmallerText, paragraph, sectionTitle } from '../styles/TextStyles';
+import { Features, MainText, SectionHeading, SmallThin, SmallerText, ThinFeatures, paragraph, sectionTitle } from '../styles/TextStyles';
 import { typograf } from './typograf';
+import { Grid } from './ListSection';
+import { VideoFlexContainer, VideoVertFlex, VideoWrapper } from './Box';
 
 const About = ({ data }) => {
-  const { problem, promise, sectionTitle, audience } = data;
+  const { problem, promise, sectionTitle, audience, videoData } = data;
   const skillsMap = skills.map((skill, index) => (
     <Skill key={index} index={index} title={skill.title} level={skill.level} />
   ));
 
   return (
+    <>
+    <Title>{sectionTitle  ||"Что и зачем"}</Title>
     <Wrapper id='about'>
+      <Grid>
       <AboutBlock column='1 / 3'>
-        <Title>{sectionTitle  ||"Что и зачем"}</Title>
-
         <VertFlex>
           <SmallerText>Проблема: </SmallerText>
           <Text>{typograf(problem)}</Text>
@@ -31,26 +34,47 @@ const About = ({ data }) => {
         </VertFlex>
 
       </AboutBlock>
-      <AboutBlock column='7 / 7'>
-        <Title></Title>
-        <SmallerText>Что получите: </SmallerText>
-          <Text>
-            Пукать и какть
-          </Text>
-          {/* <img src="/courses.notes.png" alt="course logo" width="100%" /> */}
-        <SmallerText>Как устроен курс: </SmallerText>
-        <Text dangerouslySetInnerHTML={{ __html: typograf("<p>Два года мы делали курс «Система письма»: 130+ PhD-студентов, исследователей и преподавателей из Кембриджа, Баухауз Веймар, «Шанинки», ИТМО и других мест прошли его.</p><p>Мы взяли изе него лучшее и «сжали» в самостоятельный продукт, который не требует месяц обучения, чтобы начать им пользоваться.</p>") }}/>
+      <AboutBlock column='4 / 7'>
+        <VertFlex>
+          <MainText>Как работает система</MainText>
+          <video style={{width: "100%", borderRadius: "10px"}} src="/video/demo.mp4" controls />
+          <br/>
+        <SmallerText>Небольшая история: </SmallerText>
+        <Text dangerouslySetInnerHTML={{ __html: typograf("<p>Два года мы делали курс «Система письма»: Более 130 PhD-студентов, исследователей и преподавателей из Кембриджа, Баухауз Веймар, «Шанинки», ИТМО и других мест прошли его и внедрили нашу систему в свою работу.</p>") }} />
+
+        <VideoFlexContainer>
+          {videoData.map((review, index) => (
+            <VideoWrapper key={index}>
+              <VideoPlayer videoSrc={review.video} borderRadius="1000px" />
+              <VideoVertFlex>
+                <Features>{review.author}</Features>
+                <ThinFeatures>{review.occupation}</ThinFeatures>
+              </VideoVertFlex>
+            </VideoWrapper>
+          ))}
+        </VideoFlexContainer>
+
+        <Text dangerouslySetInnerHTML={{ __html: typograf("Мы взяли из курса лучшее и «сжали» в самостоятельный продукт, который не требует месяца обучения.") }} />
+        </VertFlex>
       </AboutBlock>
+      </Grid>
 
     </Wrapper>
+    </>
   );
 };
 
 export default About;
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex; 
+  flex-direction: column;
+  background-color: var(--podlozhka);
+  padding: 30px;
+  border-radius: var(--border-radius-int);
+  border: 1px solid var(--text);
+  // display: grid;
+  // grid-template-columns: repeat(2, 1fr);
   gap: var(--flex-gap);
 
   @media (max-width: ${mediaQueries.phone}) {
