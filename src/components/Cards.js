@@ -3,6 +3,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { Card } from '../components/index';
 import { mediaQueries } from '../styles/GlobalStyles';
+import { MainText } from '../styles/TextStyles';
 
 const Cards = ({ data, filter }) => {
   const cards = data.map((card) => {
@@ -17,11 +18,13 @@ const Cards = ({ data, filter }) => {
     }
   });
 
-  const filteredCards = cards.filter((card) => card.isFiltered);
+  // const filteredCards = cards.filter((card) => card.isFiltered);
 
   return (
+    <>
+    <MainText>Продукты</MainText>
     <CardsWrapper>
-      {filteredCards.map((card, index) => (
+      {data.map((card, index) => (
         <Card
           key={index}
           index={index}
@@ -36,6 +39,7 @@ const Cards = ({ data, filter }) => {
         />
       ))}
     </CardsWrapper>
+    </>
   );
 };
 

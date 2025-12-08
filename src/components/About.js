@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { Skill } from '../components/index';
+import { Skill, Image } from '../components/index';
 import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { MainText, SectionHeading, SmallThin, SmallerText, paragraph, sectionTitle } from '../styles/TextStyles';
 import { typograf } from './typograf';
@@ -26,30 +26,22 @@ const About = ({ data }) => {
         <br/>
 
         <SmallerText>Для кого: </SmallerText>
-        <Text>
-          {audience}</Text>
+        <Text dangerouslySetInnerHTML={{ __html: typograf(audience) }} />
         <br/>
         </VertFlex>
 
       </AboutBlock>
       <AboutBlock column='7 / 7'>
-        <Title>зщ</Title>
+        <Title></Title>
         <SmallerText>Что получите: </SmallerText>
           <Text>
-            
+            Пукать и какть
           </Text>
-          <img src="/courses.notes.png" alt="course logo" width="100%" />
+          {/* <img src="/courses.notes.png" alt="course logo" width="100%" /> */}
         <SmallerText>Как устроен курс: </SmallerText>
-        <Text>
-          Смотрите видеоуроки, делаете задания, получаете обратную связь преподавателя
-          <img src="/courses.notes.png" alt="course logo" width="100%" />
-          </Text>
+        <Text dangerouslySetInnerHTML={{ __html: typograf("<p>Два года мы делали курс «Система письма»: 130+ PhD-студентов, исследователей и преподавателей из Кембриджа, Баухауз Веймар, «Шанинки», ИТМО и других мест прошли его.</p><p>Мы взяли изе него лучшее и «сжали» в самостоятельный продукт, который не требует месяц обучения, чтобы начать им пользоваться.</p>") }}/>
       </AboutBlock>
 
-      {/* <SkillsBlock> */}
-      {/*   <Title>Чему учим</Title> */}
-      {/*   <Skills>{skillsMap}</Skills> */}
-      {/* </SkillsBlock> */}
     </Wrapper>
   );
 };
