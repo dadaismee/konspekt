@@ -16,7 +16,7 @@ import {
   SEO,
   Reviews,
   AnnouncementBar,
-  VideoReviews
+  About
 } from "../components/index";
 import {
   problem,
@@ -64,20 +64,21 @@ const IndexPage = () => {
         <Header data={links} />
         <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
+      <About data={about} />
       <BasicSection id="problem" pageData={problem} grids={grids_3} /> 
       {/* <BasicSection id="about" pageData={about} grids={grids_3} />  */}
       <BasicSection pageData={audience} grids={grids_3} />
       {/* <VideoReviews pageData={videoReviews} /> */}
       {/* <BasicSection id="results" pageData={results} grids={grids_3} /> */}
       {/* <ListSection pageData={outcomes} /> */}
-      <Program id="program" pageData={program} />
-      <BasicSection id="process" pageData={process} grids={grids_3} />
+      {/* <Program id="program" pageData={program} /> */}
+      {/* <BasicSection id="process" pageData={process} grids={grids_3} /> */}
       <Pricing id="pricing" pageData={pricing}
         selectedTariff={selectedTariff} handleClick={handleClick} />
       {/* <BasicSection id="trial" pageData={trial} grids={grids_3} /> */}
       <Program pageData={principles} />
       <Reviews id="reviews" pageData={reviews} />
-      <Author pageData={author} /> 
+      {/* <Author pageData={author} />  */}
       <RequestForm id="form" grids={grids_3}
         pageData={requestFormBuy} 
         handleClick={handleClick} 

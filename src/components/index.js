@@ -19,3 +19,4 @@ export { default as Loader } from "./Loader.js";
 export { default as Image } from "./Image.js";
 export { default as AnnouncementBar } from "./AnnouncementBar.js";
 export { default as VideoReviews } from "./VideoReviews.js";
+export { default as About } from "./About.js";
