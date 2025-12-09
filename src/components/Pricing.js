@@ -90,8 +90,8 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
                 <TariffTitle>{tariff.title}</TariffTitle>
                 <TariffMeta>
                   <VertFlex style={{ gap: "0px", justifyContent: "flex-end" }}>
-                    <Features>{tariff.timing || "МНОГО МЕСТ"}</Features>
-                    <Features style={{ fontFamily: "Coolvetica Lite" }}>{tariff.startDate || "МНОГО МЕСТ"}</Features>
+                    <Features>{tariff.timing}</Features>
+                    <Features style={{ fontFamily: "Coolvetica Lite" }}>{tariff.startDate}</Features>
                   </VertFlex>
                   <PriceContainer>
                     <CurrentPrice>{tariff.price}</CurrentPrice>

@@ -7,7 +7,7 @@ import { MainText, MenuAndFootnote, SectionHeading, SmallerText } from "../style
 import ColoredText from "./ColoredText";
 import { Asterisk } from "./ListSection";
 import { Box, Loader } from "./index";
-import { pricing } from "../pageData/data.course.writing-system";
+import { pricing } from "../pageData/data.infrastructure";
 
 const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleGift, isGift, type, userType, margin }) => {
   const { title, asterisk } = pageData;
@@ -15,8 +15,8 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
   const tariffs = pricing.tariffs.map(tariff => tariff);
   const getTariffPrice = (tariffName) => {
       const tariff = tariffs.find(t => t.name === tariffName);
-        return tariff ? `Начать бесплатно`: "Получить бесплатно"; 
-        // return tariff ? `Начать за ${tariff.oldPrice}` : "Получить бесплатно"; 
+        // return tariff ? `Начать бесплатно`: "Получить бесплатно"; 
+        return tariff ? `Начать за ${tariff.oldPrice}` : "Получить бесплатно"; 
   };
   const price = getTariffPrice(selectedTariff);
 
@@ -165,10 +165,10 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                     </option>
                     {/* <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false}>Сам(а)</option> */}
                     <option value="practice" selected={selectedTariff === 'practice' ? true : false}>
-                      Практика
+                      Система
                     </option>
                     <option value="personal" selected={selectedTariff === 'personal' ? true : false}>
-                      Личный
+                      Сопровождение
                     </option>
                   </InputSelect>}
 
@@ -189,7 +189,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                   {Boolean(type !== 'free' && !isGift) && <InputItem> 
                     <Input
                       type="text"
-                      placeholder="Telegram"
+                      placeholder="Telegram — @ник"
                       {...register("telegram", {
                         required: true,
                         maxLength: 20,
@@ -230,7 +230,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                     </InputSelect>
                   </InputItem>
                 )} */}
-                  <InputItem>
+                  <InputItem style={{ border: "none"}}>
                     <FlexContainer>
                       <Checkbox
                         type="checkbox"
@@ -334,7 +334,7 @@ font-family: Coolvetica;
 const InputSelect = styled.select`
 padding: 12.5px;
 border-radius: 15px;
-border: none;
+border: 1px solid var(--text);
 width: 100%;
 font-size: 24px;
 font-family: Coolvetica;
@@ -438,6 +438,9 @@ color: var(--accent);
 const InputItem = styled.div`
 display: flex;
 flex-direction: column;
+border: 1px solid var(--text);
+border-radius: 15px;
+// background-color: var(--main);
 gap: 10px;
 `;
 
