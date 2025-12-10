@@ -40,7 +40,7 @@ const About = ({ data }) => {
           <video style={{width: "100%", borderRadius: "10px"}} src="/video/demo.mp4" controls />
           <br/>
         <SmallerText>Небольшая история: </SmallerText>
-        <Text dangerouslySetInnerHTML={{ __html: typograf("<p>Два года мы делали курс «Система письма»: Более 130 PhD-студентов, исследователей и преподавателей из Кембриджа, Баухауз Веймар, «Шанинки», ИТМО и других мест прошли его и внедрили нашу систему в свою работу.</p>") }} />
+        <Text dangerouslySetInnerHTML={{ __html: typograf("<p>Два года мы делали курс «Система письма»: Более 130 PhD-студентов, исследователей и преподавателей из Кембриджа, Баухауз Ваймар, «Шанинки», ИТМО и других мест прошли его и внедрили нашу систему в свою работу.</p>") }} />
 
         <VideoFlexContainer>
           {videoData.map((review, index) => (
