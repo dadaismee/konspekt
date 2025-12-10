@@ -2,7 +2,7 @@ import React from "react";
 import { RequestForm, Header, Footer, SEO } from '../components/index.js';
 import styled from "styled-components";
 import { grids_3 } from '../pages/index.js';
-import { requestFormFree, links } from '../pageData/data.course.writing-system.js';
+import { requestFormFree, links } from '../pageData/data.infrastructure.js';
 
 const SubscribePage = () => {
   return (

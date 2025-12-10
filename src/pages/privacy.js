@@ -1,7 +1,7 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import { links } from '../pageData/data.course.writing-system.js';
+import { links } from '../pageData/data.infrastructure.js';
 import { SEO, Header, Footer } from '../components';
 
 const privacy = ({ data }) => {

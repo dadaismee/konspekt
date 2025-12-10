@@ -19,10 +19,10 @@ import {
   VideoReviews
 } from "../components/index";
 import {
-  about,
-  audience,
   author,
   contact,
+  about,
+  audience,
   faq,
   hero,
   outcomes,
@@ -37,7 +37,7 @@ import {
   links,
   videoReviews,
   gift_certificate
-} from "../pageData/data.course.writing-system.js";
+} from "../pageData/data.infrastructure.js";
 import "../styles/layout.css";
 import { getFrontmatter } from "../components/extractFrontmatter.js";
 import courses from "../pageData/index.json"
@@ -63,8 +63,8 @@ const IndexPage = () => {
         <Header data={links} />
         <Hero data={getFrontmatter(courses, "reading")} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
-      <BasicSection id="about" pageData={about} grids={grids_3} /> 
-      <BasicSection pageData={audience} grids={grids_3} />
+      {/* <BasicSection id="about" pageData={about} grids={grids_3} />  */}
+      {/* <BasicSection pageData={audience} grids={grids_3} /> */}
       {/* <VideoReviews pageData={videoReviews} /> */}
       <BasicSection id="results" pageData={results} grids={grids_4} />
       {/* <ListSection pageData={outcomes} /> */}
