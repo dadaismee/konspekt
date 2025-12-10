@@ -79,12 +79,12 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
 
     // practice tariff
     Boolean(selectedTariff === "practice" && !isGift) && window.open(
-        "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505",
+        "https://konspekt.zenclass.ru/public/t/322cd1fe-cbc2-43f0-91b2-6551b987b79c",
         "_self"),
 
     // expert tariff
     Boolean(selectedTariff === "personal" && !isGift && window.open(
-        "https://konspekt.zenclass.ru/public/t/5fa33134-aa28-44cd-a6d8-b2046eeb3cc6",
+        "https://konspekt.zenclass.ru/public/t/ea6b7376-2949-467f-a674-3bbcc0412104",
         "_self"),
 
     Boolean(selectedTariff === 'free-course') && window.open(

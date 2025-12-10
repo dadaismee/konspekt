@@ -11,12 +11,12 @@ import oferta from '../assets/agreement.pdf';
 const Footer = () => {
   return (
     <Wrapper>
-      <Copy>Школа «Конспект» © {new Date().getFullYear()}</Copy>
+      <Copy>«Конспект» © {new Date().getFullYear()}</Copy>
       <StyledLink style={{ alignSelf: 'end' }} href={policy} target='_blank' rel='noopener noreferrer'>
-        <Copy style={{ color: 'var(--accent)' }}>Политика конфиденциальности</Copy>
+        <Copy style={{ textDecoration: "underline" }}>Политика конфиденциальности</Copy>
       </StyledLink>
       <StyledLink style={{ alignSelf: 'end' }} href={oferta} target='_blank' rel='noopener noreferrer'>
-        <Copy style={{ color: 'var(--accent)' }}>Оферта</Copy>
+        <Copy style={{ textDecoration: "underline" }}>Оферта</Copy>
       </StyledLink>
 
       <Branding>
@@ -60,7 +60,9 @@ margin-top: 80px;
 
 const Copy = styled(FooterText)`
 font-weight: 700;
+width: auto;
 `;
+
 const Branding = styled.div`
 display: flex;
 align-items: center;
