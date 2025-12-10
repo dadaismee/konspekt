@@ -57,19 +57,19 @@ const Box = ({ children, grid, type, padding, fontSize, isOpen, height, width, b
       type={type}
       grid={grid}>
       {children}
-      {videoData && videoData.length > 0 && (
-        <VideoFlexContainer>
-          {videoData.map((review, index) => (
-            <VideoWrapper key={index}>
-              <VideoPlayer videoSrc={review.video} borderRadius="1000px" />
-              <VideoVertFlex>
-                <Features>{review.author}</Features>
-                <ThinFeatures>{review.occupation}</ThinFeatures>
-              </VideoVertFlex>
-            </VideoWrapper>
-          ))}
-        </VideoFlexContainer>
-      )}
+      {/* {videoData && videoData.length > 0 && ( */}
+      {/*   <VideoFlexContainer> */}
+      {/*     {videoData.map((review, index) => ( */}
+      {/*       <VideoWrapper key={index}> */}
+      {/*         <VideoPlayer videoSrc={review.video} borderRadius="1000px" /> */}
+      {/*         <VideoVertFlex> */}
+      {/*           <Features>{review.author}</Features> */}
+      {/*           <ThinFeatures>{review.occupation}</ThinFeatures> */}
+      {/*         </VideoVertFlex> */}
+      {/*       </VideoWrapper> */}
+      {/*     ))} */}
+      {/*   </VideoFlexContainer> */}
+      {/* )} */}
     </Wrapper>
 
   );
