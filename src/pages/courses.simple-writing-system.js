@@ -63,13 +63,11 @@ const IndexPage = () => {
         <Header data={links} />
         <Hero data={courseData} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
-      <About data={courseData} id="about"/>
+      {/* <About data={courseData} id="about"/> */}
       {/* <BasicSection id="about" pageData={about} grids={grids_3} />  */}
       {/* <BasicSection pageData={audience} grids={grids_3} /> */}
       {/* <BasicSection id="results" pageData={results} grids={grids_4} /> */}
       <ListSection pageData={outcomes} />
-      <Program id="program" pageData={program} />
-      {/* <BasicSection id="process" pageData={process} grids={grids_3} /> */}
       {/* <Reviews id="reviews" pageData={reviews} /> */}
       <Pricing id="pricing" pageData={pricing}
         selectedTariff={selectedTariff} handleClick={handleClick} />
