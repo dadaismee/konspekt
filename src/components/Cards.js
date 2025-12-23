@@ -18,7 +18,7 @@ const Cards = ({ data, filter }) => {
     }
   });
 
-  // const filteredCards = cards.filter((card) => card.isFiltered);
+  const filteredCards = cards.filter((card) => card.isFiltered);
 
   return (
     <>
