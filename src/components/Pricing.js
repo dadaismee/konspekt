@@ -270,6 +270,7 @@ const OldPrice = styled.div`
   font-size: 24px;
   line-height: 105%;
   font-family: "Coolvetica Lite";
+  text-decoration: line-through;
   color: #000;
 
   @media (max-width: 640px) {

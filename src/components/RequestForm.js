@@ -16,7 +16,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
   const getTariffPrice = (tariffName) => {
       const tariff = tariffs.find(t => t.name === tariffName);
         // return tariff ? `Начать бесплатно`: "Получить бесплатно"; 
-        return tariff ? `Начать за ${tariff.oldPrice}` : "Получить бесплатно"; 
+        return tariff ? `Начать за ${tariff.price}` : "Получить бесплатно"; 
   };
   const price = getTariffPrice(selectedTariff);
 

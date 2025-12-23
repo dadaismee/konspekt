@@ -42,7 +42,7 @@ const About = ({ data }) => {
         <SmallerText>Небольшая история: </SmallerText>
         <Text dangerouslySetInnerHTML={{ __html: typograf("<p>Два года мы делали курс «Система письма»: Более 130 PhD-студентов, исследователей и преподавателей из Кембриджа, Баухауз Ваймар, «Шанинки», ИТМО и других мест прошли его и внедрили нашу систему в свою работу.</p>") }} />
 
-        <VideoFlexContainer>
+        {Boolean(videoData) && <VideoFlexContainer>
           {videoData.map((review, index) => (
             <VideoWrapper key={index}>
               <VideoPlayer videoSrc={review.video} borderRadius="1000px" />
@@ -52,7 +52,7 @@ const About = ({ data }) => {
               </VideoVertFlex>
             </VideoWrapper>
           ))}
-        </VideoFlexContainer>
+        </VideoFlexContainer>}
 
         <Text dangerouslySetInnerHTML={{ __html: typograf("Мы взяли из курса лучшее и «сжали» в самостоятельный продукт, который не требует месяца обучения.") }} />
         </VertFlex>

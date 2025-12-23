@@ -487,9 +487,9 @@ export const pricing = {
         // },
       ],
       price: "14 990 ₽",
-      oldPrice: "4 996 ₽/мес*",
+      oldPrice: "24 990",
       priceExpiry: "до 20 мая",
-      buyButtonText: "Купить",
+      buyButtonText: "Выбрать",
       buyButtonColor: "var(--podlozhka)",
       timing: "",
       startDate: "",
@@ -499,7 +499,7 @@ export const pricing = {
       title: "Сопровождение",
       name: "personal",
       price: "69 990 ₽",
-      oldPrice: "11 665 ₽/мес*",
+      oldPrice: "119 990 ₽",
       buyButtonColor: "var(--accent)",
       priceExpiry: "до 19 мая",
       buyButtonText: "Забронировать место",
@@ -606,7 +606,7 @@ export const trial = {
 }
 
 export const author = {
-  title: "Кто делает курс",
+  title: "Команда",
   teamMembers: [
     {
       name: "Валерий Шевченко",
@@ -615,7 +615,7 @@ export const author = {
       regalia: [
         {
           mainText:
-            "философ науки, дизайнер",
+            "философ науки",
           spanText: [""],
         },
         // {
@@ -635,7 +635,7 @@ export const author = {
     },
     {
       name: "Елизавета Рыдван",
-      occupation: "куратор курса — даёт обратную связь + ведёт «вопрос-ответ»",
+      occupation: "куратор курса",
       image: "/reviews_avatars/liza-r.png",
       regalia: [
         {
@@ -643,11 +643,11 @@ export const author = {
             "исследовательница кино и анимации, режиссёр и продюсер",
           spanText: ["Philosophy of the Social Sciences"],
         },
-        {
-          mainText:
-            "выпускница «Инфраструктуры письма»",
-          spanText: ["выпускница", "«Системы письма»"],
-        },
+        // {
+        //   mainText:
+        //     "выпускница курса «Система письма»",
+        //   spanText: ["выпускница", "«Системы письма»"],
+        // },
         {
           mainText:
             "аспирантка ВГИК имени Герасимова",
