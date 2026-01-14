@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { mediaQueries, Flex } from "../styles/GlobalStyles";
 import { MainText, MenuAndFootnote, SectionHeading, SmallerText } from "../styles/TextStyles";
-import ColoredText from "./ColoredText";
+import ColoredText from "./ColoredText-old";
 import { Asterisk } from "./ListSection";
 import { Box, Loader } from "./index";
 import { pricing } from "../pageData/data.infrastructure";
@@ -165,7 +165,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                     </option>
                     {/* <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false}>Сам(а)</option> */}
                     <option value="practice" selected={selectedTariff === 'practice' ? true : false}>
-                      Система
+                      Практика
                     </option>
                     <option value="personal" selected={selectedTariff === 'personal' ? true : false}>
                       Сопровождение
@@ -431,7 +431,7 @@ border: 3px solid var(--text);
 
 export const StyledLink = styled.a`
 display: flex;
-align-self: center;
+align-self: start;
 color: var(--accent);
 `;
 

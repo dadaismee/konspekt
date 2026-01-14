@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { MenuAndFootnote, SectionHeading, SmallThin, SmallerText } from "../styles/TextStyles";
 import Box from "./Box";
 import { GridContainer, FlexContainer, mediaQueries } from "../styles/GlobalStyles.js";
-import ColoredText from "./ColoredText";
+import ColoredText from "./ColoredText-old.js";
 import { motion } from 'framer-motion';
 import { Button } from './Hero.js'
 
@@ -45,7 +45,7 @@ const Reviews = ({ pageData, id }) => {
                     <Avatar src={image} />
                     <FlexContainer>
                       <SmallerText>{reviewItem.author}</SmallerText>
-                      <MenuAndFootnote style={{ fontSize: "20px", fontFamily: 'Coolvetica Lite' }}>{reviewItem.authorJob}</MenuAndFootnote>
+                      <MenuAndFootnote style={{ fontSize: "20px", fontFamily: 'Coolvetica Lite', justifySelf: 'end' }}>{reviewItem.authorJob}</MenuAndFootnote>
                     </FlexContainer>
                   </Container>
                   <Score>{score}</Score>
