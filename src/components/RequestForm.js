@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { mediaQueries, Flex } from "../styles/GlobalStyles";
 import { MainText, MenuAndFootnote, SectionHeading, SmallerText } from "../styles/TextStyles";
-import ColoredText from "./ColoredText-old";
+import ColoredText from "./ColoredText";
 import { Asterisk } from "./ListSection";
 import { Box, Loader } from "./index";
 import { pricing } from "../pageData/data.infrastructure";

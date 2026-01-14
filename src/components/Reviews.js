@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { MenuAndFootnote, SectionHeading, SmallThin, SmallerText } from "../styles/TextStyles";
 import Box from "./Box";
 import { GridContainer, FlexContainer, mediaQueries } from "../styles/GlobalStyles.js";
-import ColoredText from "./ColoredText-old.js";
+import ColoredText from "./ColoredText.js";
 import { motion } from 'framer-motion';
 import { Button } from './Hero.js'
 
