@@ -149,12 +149,12 @@ const Hero = ({ data, type, toggleGift }) => {
             //onClick={() => handleClick("passive")}
             >
               <Button fontSize="32px" to={to}>{buttonText}</Button>
-              {/* {Boolean(type !== 'free') && <Button 
+              {Boolean(type !== 'free') && <Button 
               fontSize="24px" 
+              type="ghost"
               width="calc(var(--right-column-width) - var(--left-column-width))" 
-              onClick={() => toggleGift(true)}
-              to='#gift-certificate'>Купить<br/>в подарок
-            </Button>} */}
+              to='#pricing'>Посмотреть тарифы
+              </Button>}
 
             </ButtonsWrapper>
           </ButtonWrapper>
@@ -261,9 +261,9 @@ export const Button = styled(AnchorLink)`
   font-size: ${({ fontSize }) => fontSize || '40px'};
   background-color: ${({ type }) => type === "ghost" ? "transparent" : "var(--accent)"};
   box-sizing: border-box;
-  color: ${({ type }) => type === "ghost" ? "var(--accent)" : "var(--text)"} ;
+  color: ${({ type }) => type === "ghost" ? "var(--text)" : "var(--text)"} ;
   ${({ type }) => type === "ghost" ?
-    "border: 3px solid var(--accent)" : "border: 1px solid var(--text)"}; 
+    "border: 1px solid var(--text)" : "border: 1px solid var(--text)"}; 
   font-family: Coolvetica;
   border-radius: 10px;
   line-height: 100%;

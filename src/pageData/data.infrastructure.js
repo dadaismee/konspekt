@@ -40,8 +40,8 @@ export const hero = {
   features: ["в своём темпе", "обратная связь", "настроенный Obsidian/Zotero", "130+ выпускников"],
   video: "/video/landing.mp4",
   // image: "/free_course.png",
-  buttonText: "Посмотреть тарифы",
-  to: "#pricing"
+  buttonText: "Пройти мини-курс в Telegram",
+  to: "https://t.me/KonspektSchoolBot"
   // asterisk: "Онлайн-курс для студентов, аспирантов и исследователей «Система письма»" 
 };
 
