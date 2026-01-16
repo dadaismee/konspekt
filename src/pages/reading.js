@@ -59,7 +59,7 @@ const IndexPage = () => {
     <>
       <FirstScreen>
         <Header data={links} />
-        <Hero data={getFrontmatter(courses, "reading")} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
+        <Hero data={getFrontmatter(courses, "reading")} type="reading" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
       <BasicSection id="about" pageData={problem} grids={grids_3} /> 
       <BasicSection pageData={audience} grids={grids_3} />

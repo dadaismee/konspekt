@@ -149,7 +149,7 @@ const Hero = ({ data, type, toggleGift }) => {
             //onClick={() => handleClick("passive")}
             >
               <Button fontSize="32px" to={to}>{buttonText}</Button>
-              {Boolean(type !== 'free') && <Button 
+              {Boolean(type !== 'free' && type !== 'reading') && <Button 
               fontSize="24px" 
               type="ghost"
               width="calc(var(--right-column-width) - var(--left-column-width))" 
