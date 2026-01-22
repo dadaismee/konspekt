@@ -42,7 +42,8 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
 
     try {
       // Send data to Google Sheets API
-      await fetch('/.netlify/functions/sendToSheets', {
+      // await fetch('/.netlify/functions/sendToSheets', {
+      await fetch('/api/sendToSheets', {
         method: 'POST',
         body: JSON.stringify({
           Name: userName,
