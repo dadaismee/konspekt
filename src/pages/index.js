@@ -39,7 +39,7 @@ import {
   links,
   videoReviews,
   gift_certificate
-} from "../pageData/data.infrastructure.js";
+} from "../pageData/data.painkiller.js";
 import "../styles/layout.css";
 import { getFrontmatter } from "../components/extractFrontmatter.js";
 import courses from "../pageData/index.json"
