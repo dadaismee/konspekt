@@ -223,7 +223,7 @@ const Tagline = styled.div`
 const SiteHeading = styled(Heading)`
   padding: 0;
   margin: 0;
-  line-height: 100%;
+  line-height: 90%;
 
   span {
     color: var(--accent);

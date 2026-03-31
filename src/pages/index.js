@@ -74,7 +74,7 @@ const IndexPage = () => {
       {/* <Pricing id="pricing" pageData={pricing} selectedTariff={selectedTariff} handleClick={handleClick} /> */}
       <Cards id="courses" data={courses} />
       <BasicSection id="about" pageData={about} grids={grids_3}/>
-      <Contact id="contact" pageData={contact} />
+      <Contact id="contact" pageData={contact} type='b2b'/>
       <Footer /> </>);
 };
 

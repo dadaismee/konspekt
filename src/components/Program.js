@@ -45,12 +45,12 @@ const Program = ({ pageData, id }) => {
             <Flex>
               <SmallerText key={box.mainText}>{box.mainText}</SmallerText>
               {Boolean(box.subText) && (
-                <MenuAndFootnote style={{ fontFamily: "Coolvetica Lite", marginBottom: '15px' }}>
+                <MenuAndFootnote style={{ fontFamily: "Coolvetica Lite", marginBottom: '0px' }}>
                   {typograf(box.subText)}
                 </MenuAndFootnote>
               )}
 
-              <div style={{ marginBottom: "10px"}}>
+              <div style={{ marginBottom: "0px"}}>
                {box.results && box.results.map((result, index) => (
                   <Features style={{ fontFamily: "Coolvetica Lite", marginBottom: "15px" }} key={index}>{result}</Features>
                ))}

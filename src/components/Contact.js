@@ -5,7 +5,7 @@ import { SectionHeading } from '../styles/TextStyles';
 import { Button, FlexContainer } from './Hero';
 import { mail } from './mail';
 
-const Contact = ({ pageData, id }) => {
+const Contact = ({ pageData, id, type }) => {
   const { title, buttonText } = pageData;
 
   return (
@@ -54,7 +54,7 @@ const Contact = ({ pageData, id }) => {
           viewport={{ once: true }}>
           <a
             // href='https://t.me/konspekt_support'
-            href={mail}
+            href={Boolean(type === 'b2b') ? mail : 'mailto:valerii.s.shevchenko@gmail.com?subject=Вопрос по «Системе письма»'}
             target='_blank'>
             <Button>{buttonText}</Button>
           </a>

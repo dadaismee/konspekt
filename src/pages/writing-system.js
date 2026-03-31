@@ -7,22 +7,23 @@ import {
   FAQ,
   Footer,
   Header,
-  About,
   Hero,
   HowWorks,
   ListSection,
   Pricing,
   Program,
-  RequestFormReading,
+  RequestForm,
   SEO,
   Reviews,
   AnnouncementBar,
-  VideoReviews
+  VideoReviews,
+  About
 } from "../components/index";
 import {
-  contact,
   about,
   audience,
+  author,
+  contact,
   faq,
   hero,
   outcomes,
@@ -30,19 +31,22 @@ import {
   process,
   program,
   requestFormBuy,
-  principles,
-  results,
   problem,
+  trial,
+  aboutFreeCourse,
+  results,
+  reviews,
   links,
-} from "../pageData/data.reading.js";
-import { author } from "../pageData/data.infrastructure.js";
+  videoReviews,
+  gift_certificate
+} from "../pageData/data.infrastructure.js";
 import "../styles/layout.css";
 import { getFrontmatter } from "../components/extractFrontmatter.js";
 import courses from "../pageData/index.json"
 
 const IndexPage = () => {
-  const [isGift, setIsGift] = useState(false); 
-  const [selectedTariff, setSelectedTariff] = useState('reading-practice');
+  const [isGift, setIsGift] = useState(false);
+  const [selectedTariff, setSelectedTariff] = useState('practice');
 
   const handleClick = (tariffName) => {
     setSelectedTariff(tariffName);
@@ -55,46 +59,42 @@ const IndexPage = () => {
   //console.log('selectedTariff', selectedTariff)
   //console.log('isGift', isGift)
 
+  const courseData = getFrontmatter(courses, "research-infrastructure");
+
   return (
     <>
       <FirstScreen>
         <Header data={links} />
-        <Hero data={hero} type="reading" selectedTariff={selectedTariff} handleClick={handleClick} />
-        {/* <Hero data={getFrontmatter(courses, "reading")} type="reading" selectedTariff={selectedTariff} handleClick={handleClick} /> */}
+        <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
-      <BasicSection id="about" pageData={problem} grids={grids_3} /> 
+      {/* <About data={courseData} id="about"/> */}
+      <BasicSection id="problem" pageData={problem} grids={grids_3} />
       <BasicSection pageData={audience} grids={grids_3} />
-      {/* <BasicSection id="results" pageData={results} grids={grids_3} /> */}
-      {/* <Program id="program" pageData={program} /> */}
-      <Program id="process" pageData={process} />
-      {/* <Program id="principles" pageData={principles} /> */}
-      {/* <Reviews id="reviews" pageData={reviews} /> */}
+      {/* <BasicSection id="results" pageData={results} grids={grids_4} /> */}
+      {/* <ListSection pageData={outcomes} /> */}
+      <Program id="program" pageData={program} />
+      <BasicSection id="process" pageData={process} grids={grids_3} />
       <Pricing id="pricing" pageData={pricing}
         selectedTariff={selectedTariff} handleClick={handleClick} />
+      <Reviews id="reviews" pageData={reviews} />
       {/* <BasicSection id="trial" pageData={trial} grids={grids_3} /> */}
-      <Author pageData={author} /> 
-      <RequestFormReading id="form" grids={grids_3}
-        pageData={requestFormBuy} 
-        handleClick={handleClick} 
-        toggleGift={toggleGift} 
-        selectedTariff={selectedTariff || 'reading-practice'} 
-        isGift={isGift|| false} 
+      {/* <Author pageData={author} /> */}
+      <RequestForm id="form" grids={grids_3}
+        pageData={requestFormBuy}
+        handleClick={handleClick}
+        toggleGift={toggleGift}
+        selectedTariff={selectedTariff || 'practice'}
+        isGift={isGift || false}
         type="landing" />
       {/* <BasicSection id="gift-certificate" pageData={gift_certificate} grids={grids_3} /> */}
-      <FAQ
-        pageData={faq} />
-      {/* <BasicSection id="about" pageData={aboutFreeCourse} grids={grids_3} /> */}
+      {/* <FAQ pageData={faq} /> */}
       <Contact id="contact" pageData={contact} />
       <Footer /> </>);
 };
 
 export default IndexPage;
 
-export const Head = () => (
-  <SEO 
-    title="Лаборатория чтения | Конспект"
-    description="Онлайн-лаборатория, где за 2 недели и 4 занятия вы научитесь извлекать суть из сложных текстов и формулировать собственные идеи"
-  />);
+export const Head = () => <SEO />;
 
 const grids_4 = [
   "1 / 1 / 1 / 3",
