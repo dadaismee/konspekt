@@ -41,7 +41,8 @@ export const hero = {
   video: "/video/landing.mp4",
   // image: "/free_course.png",
   buttonText: "Получить гайд в Телеграм",
-  to: "https://t.me/KonspektSchoolBot"
+  to: "https://t.me/KonspektSchoolBot",
+  smallButtonTo: "#prices",
   // asterisk: "Онлайн-курс для студентов, аспирантов и исследователей «Система письма»" 
 };
 

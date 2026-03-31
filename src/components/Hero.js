@@ -10,7 +10,7 @@ import { Heading, MainText, Features } from '../styles/TextStyles';
 import { Asterisk } from './ListSection.js';
 
 const Hero = ({ data, type, toggleGift }) => {
-  const { title, typeWriterText, description, buttonText, to, features, video, image, asterisk } = data;
+  const { title, typeWriterText, description, buttonText, to, smallButtonText, smallButtonTo, features, video, image, asterisk } = data;
 
   return (
     <Wrapper>
@@ -153,8 +153,7 @@ const Hero = ({ data, type, toggleGift }) => {
               fontSize="24px" 
               type="ghost"
               width="calc(var(--right-column-width) - var(--left-column-width))" 
-              to='#pricing'>Посмотреть тарифы
-              </Button>}
+              to={smallButtonTo}>{smallButtonText || "Посмотреть тарифы"}</Button>}
 
             </ButtonsWrapper>
           </ButtonWrapper>
@@ -223,7 +222,7 @@ const Tagline = styled.div`
 const SiteHeading = styled(Heading)`
   padding: 0;
   margin: 0;
-  line-height: 90%;
+  line-height: 100%;
 
   span {
     color: var(--accent);
@@ -246,6 +245,7 @@ export const FlexContainer = styled.div`
 
 const Description = styled(MainText)`
   font-family: Coolvetica Lite;
+  font-size: 24;
   line-height: 100%;
   @media (max-width: ${mediaQueries.phone}) {
   width: 100%;

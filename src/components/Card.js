@@ -7,7 +7,7 @@ import { FooterText, MenuAndFootnote, SmallThin, SmallerText, cardTags, logoAndC
 import { typograf } from './typograf';
 import Skill from './Skill';
 
-const Card = ({ image, animation, title, description, tags, difficulty, index, to, soon }) => {
+const Card = ({ image, animation, title, description, tags, difficulty, index, to, badge }) => {
   let cardTags = [];
   if (Boolean(tags)) {
     cardTags = tags.map((tag, index) => <Tag key={index}>{tag}</Tag>);
@@ -34,7 +34,7 @@ const Card = ({ image, animation, title, description, tags, difficulty, index, t
       viewport={{ once: true }}
       whileTap={hoverStyles.on}
       transformTemplate={({ y }) => `translateY(-${y}px)`}>
-      {Boolean(soon) && <Badge>СКОРО</Badge>}
+      {Boolean(badge) && <Badge>{badge || "СКОРО"}</Badge>}
       <Image src={image} loading="lazy" alt={title} />
       {Boolean(animation) && <Animation src={animation} loop autoPlay />}
       <div

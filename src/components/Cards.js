@@ -22,7 +22,7 @@ const Cards = ({ data, filter }) => {
 
   return (
     <>
-    <MainText>Продукты</MainText>
+    <MainText style={{ marginTop: "60px"}}>Для исследователей</MainText>
     <CardsWrapper>
       {data.map((card, index) => (
         <Card
