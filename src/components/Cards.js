@@ -3,7 +3,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 import { Card } from '../components/index';
 import { mediaQueries } from '../styles/GlobalStyles';
-import { MainText } from '../styles/TextStyles';
+import { MainText, SectionHeading } from '../styles/TextStyles';
 
 const Cards = ({ data, filter }) => {
   const cards = data.map((card) => {
@@ -22,7 +22,28 @@ const Cards = ({ data, filter }) => {
 
   return (
     <>
-    <MainText style={{ marginTop: "60px"}}>Для исследователей</MainText>
+      <SectionHeading id="courses"
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        exit={{
+          opacity: 0,
+          y: 20,
+        }}
+        transition={{
+          ease: [0.165, 0.84, 0.44, 1],
+          duration: 1,
+          delay: 0.1,
+        }}
+        viewport={{ once: true }}>
+        Решения для исследователей
+      </SectionHeading>
+    {/* <MainText style={{ marginTop: "60px"}}>Для исследователей</MainText> */}
     <CardsWrapper>
       {data.map((card, index) => (
         <Card

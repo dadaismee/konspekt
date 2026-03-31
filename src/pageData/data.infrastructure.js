@@ -9,7 +9,7 @@ export const links = [
   //},
   {
     name: 'программа',
-    url: '/#program',
+    url: '/writing-system#program',
   },
   //{
   //  name: 'сертификат',
@@ -17,16 +17,16 @@ export const links = [
   //},
   {
     name: 'стоимость',
-    url: '/#pricing',
+    url: '/writing-system#pricing',
   },
   {
     name: 'отзывы',
-    url: '/#reviews',
+    url: '/writing-system#reviews',
   },
 
   {
     name: 'контакты',
-    url: '/#contact',
+    url: '/writing-system#contact',
   },
 ];
 
@@ -40,14 +40,15 @@ export const hero = {
   features: ["в своём темпе", "обратная связь", "настроенный Obsidian/Zotero", "130+ выпускников"],
   video: "/video/landing.mp4",
   // image: "/free_course.png",
-  buttonText: "Получить гайд в Телеграм",
-  to: "https://t.me/KonspektSchoolBot",
-  smallButtonTo: "#prices",
+  buttonText: "Начать бесплатно",
+  to: "https://konspekt.zenclass.ru/public/course/731e4edc-9279-40a8-ad40-668820810803",
+  smallButtonTo: "#pricing",
   // asterisk: "Онлайн-курс для студентов, аспирантов и исследователей «Система письма»" 
 };
 
 export const problem = {
   title: "Узнаёте себя?",
+
   type: "basic",
   boxes: [
     {
@@ -839,7 +840,7 @@ export const requestFormBuy = {
   boxes: [
     {
       mainText:
-        "После оплаты пришлём вам на почту ссылку для создания личного кабинета. Если есть вопросы, напишите нам в Телеграм.",
+        "После оплаты пришлём вам на почту ссылку для создания личного кабинета. Если есть вопросы, напишите нам на почту",
       spanText: ["Начните бесплатно прямо сейчас","Старт потока — 10 ноября", "Если есть вопросы", "напишите"],
     },
     {
@@ -968,6 +969,7 @@ export const requestFormFree = {
 
 export const contact = {
   title: "Если остались вопросы",
+  buttonText: "Написать на почту",
   type: "basic",
 };
 

@@ -187,18 +187,18 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                       {errors.name&& <p>Введите имя кириллицей</p>}
                     </InputItem>
                   )}
-                  {Boolean(type !== 'free' && !isGift) && <InputItem> 
-                    <Input
-                      type="text"
-                      placeholder="Telegram — @ник"
-                      {...register("telegram", {
-                        required: true,
-                        maxLength: 20,
-                        pattern: /^@[ea-zA-Z]+/g,
-                      })}
-                    />
-                    {errors.telegram && <p>Введите ник в Telegram c @ в начале)</p>}
-                  </InputItem>}
+                  {/* {Boolean(type !== 'free' && !isGift) && <InputItem>  */}
+                  {/*   <Input */}
+                  {/*     type="text" */}
+                  {/*     placeholder="Telegram — @ник" */}
+                  {/*     {...register("telegram", { */}
+                  {/*       required: true, */}
+                  {/*       maxLength: 20, */}
+                  {/*       pattern: /^@[ea-zA-Z]+/g, */}
+                  {/*     })} */}
+                  {/*   /> */}
+                  {/*   {errors.telegram && <p>Введите ник в Telegram c @ в начале)</p>} */}
+                  {/* </InputItem>} */}
                   <InputItem>
                     <Input
                       type="email"

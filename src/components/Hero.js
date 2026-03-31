@@ -151,6 +151,7 @@ const Hero = ({ data, type, toggleGift }) => {
               <Button fontSize="32px" to={to}>{buttonText}</Button>
               {Boolean(type !== 'free' && type !== 'reading') && <Button 
               fontSize="24px" 
+              style={{ fontFamily: "Coolvetica Lite"}}
               type="ghost"
               width="calc(var(--right-column-width) - var(--left-column-width))" 
               to={smallButtonTo}>{smallButtonText || "Посмотреть тарифы"}</Button>}

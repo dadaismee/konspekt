@@ -3,21 +3,13 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Конспект — система для академической работы`,
-    description: `Готовая система для написания академических текстов`,
+    title: `Конспект | Оптимизируем работу со знанием`,
+    description: `Помогаем исследователям и бизнесам перестать терять знания и автоматизировать рутину`,
     keywords:
       'академическое письмо, курс, курс академического письма, написать статью, шевченко, валерий шевченко, написать текст, zettelkasten, цеттелькастен, зеттелькастен, продуктивность, научная статья, Pandoc, Zotero, Obsidian, Markdown, нон-фикшн',
     siteUrl: `https://konspekt.io`,
   },
   plugins: [
-     {
-      resolve: "gatsby-plugin-carrotquest",
-      options: {
-        carrotquestId: "63783-5e7ebf08607ba92f5f125df1d2",
-        mobileDelay: 2000, // Optional. Задержка для mobile devices.
-        desktopDelay: 500, // Optional. Задержка для other devices.
-      },
-    },
     {
       resolve: `gatsby-plugin-amplitude-analytics`,
       options: {

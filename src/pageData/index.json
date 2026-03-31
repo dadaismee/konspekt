@@ -9,7 +9,7 @@
     ],
     "video": "/video/landing.mp4",
     "image": "/courses.writing-system.png",
-    "url": "research-infrastructure",
+    "url": "writing-system",
     "badge": "ПРОДВИНУТЫЙ",
     "buttonText": "Как это работает?",
     "to": "#about",
@@ -28,19 +28,5 @@
       "occupation": "Университет Манчестера (UK)",
       "video": "/video/olya-review.mp4"
     }]
-  },
-  {
-    "title": "Чтение, которое создаёт новые мысли",
-    "description": "Онлайн-лаборатория по формулированию собственных мыслей из сложных текстов",
-    "tags": [],
-    "image": "/courses.how-to-read.png",
-    "features": ["4 онлайн-занятия", "читаете свой источник", "результат: тезисы + навык"],
-    "url": "reading",
-    "soon": true,
-    "buttonText": "Посмотреть тарифы",
-    "to": "#pricing",
-    "problem": "Вы много читаете, но мало запоминаете и не можете найти нужные идеи, когда нужно писать текст. Или вы даже делаете заметки на полях, но от них нет пользы.",
-    "promise": "Инфраструктура, сохраняющая максимум информации между этапами работы:<ul class='ul'><li>наше приложение установит и соединит <a style='text-decoration: underline' href='https://zotero.org' target='_blank'>Zotero</a>, <a style='text-decoration: underline' href='https://obsidian.md' target='_blank'>Obsidian</a> и <a style='text-decoration: underline' href='https://pandoc.org' target='_blank'>Pandoc</a> — для хранения источников, написания и соединения заметок в сети знания и автоматической сборки библиографии</li><li>настроенная среда Obsidian: справка для быстрого старта, воркбук на 14 дней и 17 гайдов вместо отдельных курсов</li><li>сообщество практиков для поддержки внедрения системы в практику",
-    "audience": "Вы PhD-студент, аспирант или исследователь:<ul><li>работаете с литературой и пишете научные тексты</li><li><strong>хотите больше отдачи от своего интеллектуального труда</strong>: доводить больше идей до публикаций без ущерба качеству</li></ul>"
   }
 ]

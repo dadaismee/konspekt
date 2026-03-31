@@ -3,9 +3,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { SectionHeading } from '../styles/TextStyles';
 import { Button, FlexContainer } from './Hero';
+import { mail } from './mail';
 
 const Contact = ({ pageData, id }) => {
-  const { title } = pageData;
+  const { title, buttonText } = pageData;
 
   return (
     <Wrapper id={id}>
@@ -52,9 +53,10 @@ const Contact = ({ pageData, id }) => {
           }}
           viewport={{ once: true }}>
           <a
-            href='https://t.me/konspekt_support'
+            // href='https://t.me/konspekt_support'
+            href={mail}
             target='_blank'>
-            <Button>Написать в Телеграм</Button>
+            <Button>{buttonText}</Button>
           </a>
       </ButtonWrapper>
       {/* <ButtonWrapper */}

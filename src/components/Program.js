@@ -5,9 +5,11 @@ import { Features, MenuAndFootnote, SectionHeading, SmallerText } from '../style
 import { Text } from './ColoredText';
 import { Asterisk, Circle, Grid, ListItem } from './ListSection';
 import { typograf } from './typograf.js';
+import { Button } from './Hero.js';
+import { mail } from './mail.js';
 
 const Program = ({ pageData, id }) => {
-  const { title, asterisk } = pageData;
+  const { title, asterisk, button } = pageData;
   const data = pageData.boxes.map((box) => ({ ...box }));
 
   return (
@@ -43,16 +45,17 @@ const Program = ({ pageData, id }) => {
             <Flex>
               <SmallerText key={box.mainText}>{box.mainText}</SmallerText>
               {Boolean(box.subText) && (
-                <MenuAndFootnote style={{ fontFamily: "Coolvetica Lite", margin: '0' }}>
+                <MenuAndFootnote style={{ fontFamily: "Coolvetica Lite", marginBottom: '15px' }}>
                   {typograf(box.subText)}
                 </MenuAndFootnote>
               )}
 
-              <div style={{ marginTop: "-5px"}}>
+              <div style={{ marginBottom: "10px"}}>
                {box.results && box.results.map((result, index) => (
-                  <Features key={index}>{result}</Features>
+                  <Features style={{ fontFamily: "Coolvetica Lite", marginBottom: "15px" }} key={index}>{result}</Features>
                ))}
               </div>
+              {Boolean(button) && <Button fontSize='24px' to={mail}>Обсудить проект</Button>}
 
             </Flex>
             {/* <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignSelf: 'center', maxWidth: '25%'}}>

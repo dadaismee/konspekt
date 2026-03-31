@@ -37,6 +37,7 @@ import {
   aboutFreeCourse,
   results,
   reviews,
+  solutions,
   links,
   videoReviews,
   gift_certificate
@@ -68,8 +69,11 @@ const IndexPage = () => {
         <Header data={links} />
         <Hero data={hero} />
       </FirstScreen>
-      <About data={about} />
+      <BasicSection id="problem" pageData={problem} grids={grids_4} />
+      <Program id="business" pageData={solutions} />
+      {/* <Pricing id="pricing" pageData={pricing} selectedTariff={selectedTariff} handleClick={handleClick} /> */}
       <Cards id="courses" data={courses} />
+      <BasicSection id="about" pageData={about} grids={grids_3}/>
       <Contact id="contact" pageData={contact} />
       <Footer /> </>);
 };
