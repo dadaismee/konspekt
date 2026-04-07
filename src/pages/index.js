@@ -29,6 +29,7 @@ import {
   outcomes,
   pricing,
   process,
+  principles,
   program,
   requestFormBuy,
   problem,
@@ -70,9 +71,10 @@ const IndexPage = () => {
       {/* <About data={courseData} id="about"/> */}
       <BasicSection id="problem" pageData={problem} grids={grids_4} />
       <BasicSection pageData={audience} grids={grids_3} />
-      {/* <BasicSection id="results" pageData={results} grids={grids_4} /> */}
+	  {/* <BasicSection id="results" pageData={results} grids={grids_4} /> /*}
       {/* <ListSection pageData={outcomes} /> */}
       <Program id="program" pageData={program} />
+      <Program id="principles" pageData={principles} />
       <BasicSection id="process" pageData={process} grids={grids_4} />
       <Pricing id="pricing" pageData={pricing}
         selectedTariff={selectedTariff} handleClick={handleClick} />
