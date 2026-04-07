@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "presentation": "./build-presentation.sh"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^2.1.4",
