@@ -39,7 +39,7 @@ export const Wrapper = styled(motion.img)`
   height: ${({ height }) => height || "var(--left-column-width)"};
   border-radius: 10px;
   border: 1px solid var(--text);
-  box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.125);
+  box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.125);
   object-fit: cover;
 
   @media (max-width: ${mediaQueries.phone}) {

@@ -20,7 +20,7 @@ import {
   About
 } from "../components/index";
 import {
-  about,
+  aboutCompany,
   audience,
   author,
   contact,
@@ -64,32 +64,26 @@ const IndexPage = () => {
 
   return (
     <>
-      <FirstScreen>
         <Header data={links} />
+      <FirstScreen>
         <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} />
       </FirstScreen>
       {/* <About data={courseData} id="about"/> */}
       <BasicSection id="problem" pageData={problem} grids={grids_4} />
       <BasicSection pageData={audience} grids={grids_3} />
-	  {/* <BasicSection id="results" pageData={results} grids={grids_4} /> /*}
       {/* <ListSection pageData={outcomes} /> */}
-      <Program id="program" pageData={program} />
-      <Program id="principles" pageData={principles} />
-      <BasicSection id="process" pageData={process} grids={grids_4} />
-      <Pricing id="pricing" pageData={pricing}
-        selectedTariff={selectedTariff} handleClick={handleClick} />
+      <BasicSection id="process" pageData={process} grids={grids_3} />
+	  {/* <BasicSection id="system" pageData={results} grids={grids_3} /> */}
+	  {/*<Program id="program" pageData={program} /> */}
+      <Pricing id="pricing" pageData={pricing} selectedTariff={selectedTariff} handleClick={handleClick} />
       <Reviews id="reviews" pageData={reviews} />
+	  { /* <Program id="principles" pageData={principles} /> */}
       {/* <BasicSection id="trial" pageData={trial} grids={grids_3} /> */}
       {/* <Author pageData={author} /> */}
-      <RequestForm id="form" grids={grids_3}
-        pageData={requestFormBuy}
-        handleClick={handleClick}
-        toggleGift={toggleGift}
-        selectedTariff={selectedTariff || 'practice'}
-        isGift={isGift || false}
-        type="landing" />
+	  { /* <RequestForm id="form" grids={grids_3} pageData={requestFormBuy} handleClick={handleClick} toggleGift={toggleGift} selectedTariff={selectedTariff || 'practice'} isGift={isGift || false} type="landing" /> */}
       {/* <BasicSection id="gift-certificate" pageData={gift_certificate} grids={grids_3} /> */}
       {/* <FAQ pageData={faq} /> */}
+      <BasicSection id="about" pageData={aboutCompany} grids={grids_3}/>
       <Contact id="contact" pageData={contact} />
       <Footer /> </>);
 };
@@ -108,7 +102,7 @@ const grids_4 = [
 export const grids_3 = ["1 / 1 / 1 / 3", "2 / 1 / 2 / 3", "1 / 3 / 3 / 6"];
 
 const FirstScreen = styled.div`
-height: 95dvh;
+height: 85dvh;
 display: flex;
 flex-direction: column;
 justify-content: center;

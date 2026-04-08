@@ -196,6 +196,7 @@ export default Hero;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 0px 60px;
   justify-content: space-around;
   height: 80dvh;
 
@@ -271,11 +272,9 @@ export const Button = styled(AnchorLink)`
   transition: var(--transition);
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: ${({ type }) => type === "ghost" ? "none" : "0px 0px 50px rgba(235, 235, 235, 0.5)"};
-    background-color: ${({ type }) => type === "ghost" ? "var(--accent)" : "none"};
-    color: var(--text);
-    border: border: 3px solid transparent;
+    // transform: translateY(-5px);
+    box-shadow: 0px 0px 50px rgba(235, 235, 235, 0.5);
+    background-color: var(--podlozhka);
     cursor: pointer;
   }
 

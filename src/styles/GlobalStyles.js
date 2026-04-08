@@ -8,7 +8,7 @@ export const GridContainer = styled.div`
   display: grid;
   gap: var(--flex-gap);
   justify-content: space-between;
-  grid-template-columns: repeat(5, 17.2vw);
+  grid-template-columns: repeat(5, 17.7vw);
 
   @media (max-width: ${mediaQueries.phone}) {
     display: flex;

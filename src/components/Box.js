@@ -79,6 +79,7 @@ export default Box;
 
 const Wrapper = styled(motion.div)`
   border-radius: 10px;
+  box-shadow: 4px 4px 4px rgba(0,0,0,0.2);
   border: ${({ border }) => border || "1px solid var(--text)"};
   padding: ${({ padding }) => padding || '30px'};
   grid-area: ${({ grid }) => grid};

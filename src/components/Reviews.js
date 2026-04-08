@@ -69,6 +69,7 @@ const Reviews = ({ pageData, id }) => {
 export default Reviews;
 
 const Wrapper = styled.section`
+  padding: 0px 60px;
   @media (max-width: ${mediaQueries.phone}) {
   width: 100%;
   }

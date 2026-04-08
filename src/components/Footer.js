@@ -48,6 +48,7 @@ const Footer = () => {
 export default Footer;
 
 const Wrapper = styled.div`
+padding: 0px 60px;
 display: flex;
 justify-content: space-between;
 align-items: end;

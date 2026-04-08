@@ -59,31 +59,31 @@ const Contact = ({ pageData, id, type }) => {
             <Button>{buttonText}</Button>
           </a>
       </ButtonWrapper>
-      {/* <ButtonWrapper */}
-      {/*   initial={{ */}
-      {/*     opacity: 0, */}
-      {/*     y: 20, */}
-      {/*   }} */}
-      {/*   whileInView={{ */}
-      {/*     opacity: 1, */}
-      {/*     y: 0, */}
-      {/*   }} */}
-      {/*   exit={{ */}
-      {/*     opacity: 0, */}
-      {/*     y: 20, */}
-      {/*   }} */}
-      {/*   transition={{ */}
-      {/*     ease: [0.165, 0.84, 0.44, 1], */}
-      {/*     duration: 1, */}
-      {/*     delay: 0.3, */}
-      {/*   }} */}
-      {/*   viewport={{ once: true }}> */}
-      {/*   <a */}
-      {/*     href='mailto:konspekt.school@yandex.ru' */}
-      {/*     target='_blank'> */}
-      {/*     <Button>Написать на почту</Button> */}
-      {/*   </a> */}
-      {/* </ButtonWrapper> */}
+      <ButtonWrapper
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        exit={{
+          opacity: 0,
+          y: 20,
+        }}
+        transition={{
+          ease: [0.165, 0.84, 0.44, 1],
+          duration: 1,
+          delay: 0.3,
+        }}
+        viewport={{ once: true }}>
+        <a
+          href='https://t.me/konspekt_support'
+          target='_blank'>
+			<Button>Написать в Telegram</Button>
+        </a>
+      </ButtonWrapper>
 
       </FlexContainer>
     </Wrapper>
@@ -92,7 +92,9 @@ const Contact = ({ pageData, id, type }) => {
 
 export default Contact;
 
-const Wrapper = styled.section``;
+const Wrapper = styled.section`
+  padding: 0px 60px;
+`;
 
 const ButtonWrapper = styled(motion.div)`
   width: 100%;

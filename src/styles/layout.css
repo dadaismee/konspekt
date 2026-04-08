@@ -193,6 +193,7 @@ section {
   --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 
   --flex-gap: 0.69vw;
+  --flex-gap: 10px;
   --border-radius-ext: 25px;
   --border-radius-int: 15px;
   --grid-columns: repeat(7, 1fr);
@@ -215,7 +216,7 @@ html {
 
 body {
   background-color: var(--main);
-  margin: 30px 60px 20px;
+  margin: 20px 0px 20px;
   font-family: var(--font-family);
 }
 

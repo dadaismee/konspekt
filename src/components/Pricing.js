@@ -20,7 +20,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { typograf } from "./typograf";
 
 const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
-  const { title, asterisk } = pageData;
+  const { title, to, asterisk } = pageData;
   let tariffs = pageData.tariffs || [];
 
   // State to track which tariff's features are expanded on mobile
@@ -108,7 +108,7 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
 
             <ButtonWrapper
               onClick={() => handleClick(tariff.name)}>
-              <BuyButton color={tariff.buyButtonColor} to="#form">
+              <BuyButton color={tariff.buyButtonColor} to={tariff.to || '#form'}>
                 {tariff.buyButtonText}
               </BuyButton>
             </ButtonWrapper>
@@ -182,6 +182,7 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
 export default Pricing;
 
 const Wrapper = styled.section`
+  padding: 0px 60px;
 
   @media (max-width: 991px) {
     max-width: 991px;
@@ -209,6 +210,7 @@ const TariffCard = styled(motion.div)`
   padding: 30px;
   display: flex;
   flex-direction: column;
+  box-shadow: 4px 4px 4px rgba(0,0,0,0.15);
   gap: 30px;
   background-color: ${(props) =>
     props.isAlternate ? "var(--podlozhka)" : "var(--accent)"};
@@ -384,6 +386,7 @@ export const FeatureArrow = styled.div`
 export const FeatureText = styled(Features)`
   //font-size: 24px;
   line-height: 105%;
+  font-family: Coolvetica Lite;
   color: #000;
   flex: 1;
 

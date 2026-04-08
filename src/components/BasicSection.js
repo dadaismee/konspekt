@@ -55,5 +55,7 @@ const BasicSection = ({ pageData, grids, id }) => {
 
 export default BasicSection;
 
-const Wrapper = styled.section``;
+const Wrapper = styled.section`
+  padding: 0px 60px;
+`;
 

@@ -18,14 +18,14 @@ function VideoPlayer({ videoSrc, borderRadius }) {
 
   return (
     <Wrapper>
-      <Video ref={videoRef} src={videoSrc} borderRadius={borderRadius} type="video/mp4" onClick={handleClick} />
-      {!isPlaying && (
+      <Video ref={videoRef} src={videoSrc} borderRadius={borderRadius} type="video/mp4" controls onClick={handleClick} />
+	{/* {!isPlaying && (
         <PlayIcon
           src={play}
           alt="Play Button"
           onClick={handleClick}
         />
-      )}
+      )} */}
     </Wrapper>
   );
 }

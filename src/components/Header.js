@@ -6,6 +6,7 @@ import { styled } from 'styled-components';
 import { Flex, VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import logo from '../assets/logo-with-bg.png';
 import { MainText, MenuAndFootnote, SmallerText } from '../styles/TextStyles';
+import { Button } from './Hero';
 
 const Header = ({ data }) => {
   const links = data;
@@ -66,6 +67,8 @@ const Header = ({ data }) => {
             {link.name}
           </AnchorLinkEl>
         ))}
+		<Button fontSize="20px" width="180px" height="40px">Начать бесплатно</Button>
+
       </Navbar>
     </Wrapper>
   );
@@ -75,8 +78,16 @@ export default Header;
 
 const Wrapper = styled(motion.header)`
   display: flex;
+  width: auto;
+  padding: 5px 60px;
   justify-content: space-between;
+  // border-bottom: 1px solid rgba(0,0,0,0.2);
   align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  background-color: var(--main);
+  z-index: 1000;
 
 @media (max-width: ${mediaQueries.phone}) {
  display: none;
@@ -97,6 +108,7 @@ export const Logo = styled.img`
 
 const Navbar = styled.nav`
   display: flex;
+  align-items: center;
   gap: 20px;
 
   @media (max-width: ${mediaQueries.phone}) {
@@ -106,6 +118,7 @@ const Navbar = styled.nav`
 
 const AnchorLinkEl = styled(AnchorLink)`
   font-size: 20px;
+  font-family: Coolvetica Lite;
   transition: var(--transition);
 
   &:hover {
