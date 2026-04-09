@@ -19,7 +19,7 @@ import { Asterisk } from "./ListSection";
 import { motion, AnimatePresence } from "framer-motion";
 import { typograf } from "./typograf";
 
-const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
+const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
   const { title, to, asterisk } = pageData;
   let tariffs = pageData.tariffs || [];
 
@@ -107,7 +107,10 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff }) => {
             </TariffHeader>
 
             <ButtonWrapper
-              onClick={() => handleClick(tariff.name)}>
+              onClick={() => {
+                handleClick(tariff.name);
+                if (onBuyClick) onBuyClick(tariff.name);
+              }}>
               <BuyButton color={tariff.buyButtonColor} to={tariff.to || '#form'}>
                 {tariff.buyButtonText}
               </BuyButton>

@@ -9,7 +9,7 @@ import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
 import { Asterisk } from './ListSection.js';
 
-const Hero = ({ data, type, toggleGift }) => {
+const Hero = ({ data, type, toggleGift, onMainButtonClick, onSmallButtonClick }) => {
   const { title, typeWriterText, description, buttonText, to, smallButtonText, smallButtonTo, features, video, image, asterisk } = data;
 
   return (
@@ -148,13 +148,14 @@ const Hero = ({ data, type, toggleGift }) => {
               style={{ width: "100%" }}
             //onClick={() => handleClick("passive")}
             >
-              <Button fontSize="32px" to={to}>{buttonText}</Button>
+              <Button fontSize="32px" to={to} onClick={(e) => { if (onMainButtonClick) onMainButtonClick(e); }}>{buttonText}</Button>
               {Boolean(type !== 'free' && type !== 'reading') && <Button 
               fontSize="24px" 
               style={{ fontFamily: "Coolvetica Lite"}}
               type="ghost"
               width="calc(var(--right-column-width) - var(--left-column-width))" 
-              to={smallButtonTo}>{smallButtonText || "Посмотреть тарифы"}</Button>}
+              to={smallButtonTo}
+              onClick={(e) => { if (onSmallButtonClick) onSmallButtonClick(e); }}>{smallButtonText || "Посмотреть тарифы"}</Button>}
 
             </ButtonsWrapper>
           </ButtonWrapper>

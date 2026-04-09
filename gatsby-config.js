@@ -37,6 +37,9 @@ module.exports = {
         trackHash: true,
         afterBody: true,
         defer: false,
+		clickmap: true,
+		trackLinks: true,
+		accurateTrackBounce: true,
       },
     },
     {
