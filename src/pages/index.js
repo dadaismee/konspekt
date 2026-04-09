@@ -45,7 +45,7 @@ import {
 import "../styles/layout.css";
 import { getFrontmatter } from "../components/extractFrontmatter.js";
 import courses from "../pageData/index.json";
-import { METRIKA_ID } from "../components/TrackedScreen";
+import { METRIKA_ID, getCurrentScreen } from "../components/TrackedScreen";
 
 const IndexPage = () => {
   const [isGift, setIsGift] = useState(false);
@@ -67,28 +67,28 @@ const IndexPage = () => {
   const handleMainButtonClick = () => {
     console.log('[Click] hero_main_click');
     if (typeof window.ym !== "undefined") {
-      window.ym(METRIKA_ID, "reachGoal", "hero_main_click");
+      window.ym(METRIKA_ID, "reachGoal", "hero_main_click", { from_screen: getCurrentScreen() });
     }
   };
 
   const handleSmallButtonClick = () => {
     console.log('[Click] hero_small_click');
     if (typeof window.ym !== "undefined") {
-      window.ym(METRIKA_ID, "reachGoal", "hero_small_click");
+      window.ym(METRIKA_ID, "reachGoal", "hero_small_click", { from_screen: getCurrentScreen() });
     }
   };
 
   const handlePricingBuyClick = (planName) => {
     console.log('[Click] pricing_buy_click', { plan_id: planName });
     if (typeof window.ym !== "undefined") {
-      window.ym(METRIKA_ID, "reachGoal", "pricing_buy_click", { plan_id: planName });
+      window.ym(METRIKA_ID, "reachGoal", "pricing_buy_click", { plan_id: planName, from_screen: getCurrentScreen() });
     }
   };
 
   const handleHeaderButtonClick = () => {
     console.log('[Click] header_start_click');
     if (typeof window.ym !== "undefined") {
-      window.ym(METRIKA_ID, "reachGoal", "header_start_click");
+      window.ym(METRIKA_ID, "reachGoal", "header_start_click", { from_screen: getCurrentScreen() });
     }
   };
 
