@@ -67,7 +67,7 @@ const Header = ({ data }) => {
             {link.name}
           </AnchorLinkEl>
         ))}
-		<Button fontSize="20px" width="180px" height="40px">Начать бесплатно</Button>
+		<Button to="https://konspekt.zenclass.ru/public/course/731e4edc-9279-40a8-ad40-668820810803" fontSize="20px" width="180px" height="40px">Начать бесплатно</Button>
 
       </Navbar>
     </Wrapper>
