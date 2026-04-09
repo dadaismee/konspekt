@@ -85,9 +85,16 @@ const IndexPage = () => {
     }
   };
 
+  const handleHeaderButtonClick = () => {
+    console.log('[Click] header_start_click');
+    if (typeof window.ym !== "undefined") {
+      window.ym(METRIKA_ID, "reachGoal", "header_start_click");
+    }
+  };
+
   return (
     <>
-        <Header data={links} />
+        <Header data={links} onButtonClick={handleHeaderButtonClick} />
       <TrackedScreen id="hero">
         <FirstScreen>
           <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} onMainButtonClick={handleMainButtonClick} onSmallButtonClick={handleSmallButtonClick} />

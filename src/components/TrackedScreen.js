@@ -33,7 +33,8 @@ const TrackedScreen = ({ id, children }) => {
         screen_id: id,
         view_num: next,
       });
-      console.log(`[Metrika] screen_view: ${id}, view_num: ${next}`);
+	  return;
+      // console.log(`[Metrika] screen_view: ${id}, view_num: ${next}`);
     } else {
       console.log(`[Metrika] (no ym) screen_view: ${id}, view_num: ${next}`);
     }

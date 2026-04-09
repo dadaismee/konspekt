@@ -23,6 +23,8 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
   const { title, to, asterisk } = pageData;
   let tariffs = pageData.tariffs || [];
 
+  const isExternal = (url) => url && (url.startsWith('http://') || url.startsWith('https://'));
+
   // State to track which tariff's features are expanded on mobile
   const [expandedTariff, setExpandedTariff] = useState(null);
 
@@ -111,7 +113,7 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
                 handleClick(tariff.name);
                 if (onBuyClick) onBuyClick(tariff.name);
               }}>
-              <BuyButton color={tariff.buyButtonColor} to={tariff.to || '#form'}>
+              <BuyButton color={tariff.buyButtonColor} to={tariff.to || '#form'} gatsbyLinkProps={isExternal(tariff.to) ? { target: "_blank" } : undefined}>
                 {tariff.buyButtonText}
               </BuyButton>
             </ButtonWrapper>

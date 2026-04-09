@@ -9,8 +9,10 @@ import { VertFlex, mediaQueries } from '../styles/GlobalStyles';
 import { Heading, MainText, Features } from '../styles/TextStyles';
 import { Asterisk } from './ListSection.js';
 
-const Hero = ({ data, type, toggleGift, onMainButtonClick, onSmallButtonClick }) => {
+const Hero = ({ data, type, toggleGift, onMainButtonClick, onSmallButtonClick, mainButtonExternal }) => {
   const { title, typeWriterText, description, buttonText, to, smallButtonText, smallButtonTo, features, video, image, asterisk } = data;
+
+  const isExternal = (url) => url && (url.startsWith('http://') || url.startsWith('https://'));
 
   return (
     <Wrapper>
@@ -148,13 +150,14 @@ const Hero = ({ data, type, toggleGift, onMainButtonClick, onSmallButtonClick })
               style={{ width: "100%" }}
             //onClick={() => handleClick("passive")}
             >
-              <Button fontSize="32px" to={to} onClick={(e) => { if (onMainButtonClick) onMainButtonClick(e); }}>{buttonText}</Button>
+              <Button fontSize="32px" to={to} gatsbyLinkProps={isExternal(to) ? { target: "_blank" } : undefined} onClick={(e) => { if (onMainButtonClick) onMainButtonClick(e); }}>{buttonText}</Button>
               {Boolean(type !== 'free' && type !== 'reading') && <Button 
               fontSize="24px" 
               style={{ fontFamily: "Coolvetica Lite"}}
               type="ghost"
               width="calc(var(--right-column-width) - var(--left-column-width))" 
               to={smallButtonTo}
+              gatsbyLinkProps={isExternal(smallButtonTo) ? { target: "_blank" } : undefined}
               onClick={(e) => { if (onSmallButtonClick) onSmallButtonClick(e); }}>{smallButtonText || "Посмотреть тарифы"}</Button>}
 
             </ButtonsWrapper>

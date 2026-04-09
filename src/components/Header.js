@@ -8,7 +8,7 @@ import logo from '../assets/logo-with-bg.png';
 import { MainText, MenuAndFootnote, SmallerText } from '../styles/TextStyles';
 import { Button } from './Hero';
 
-const Header = ({ data }) => {
+const Header = ({ data, onButtonClick }) => {
   const links = data;
   return (
     <Wrapper
@@ -67,7 +67,7 @@ const Header = ({ data }) => {
             {link.name}
           </AnchorLinkEl>
         ))}
-		<Button to="https://konspekt.zenclass.ru/public/course/731e4edc-9279-40a8-ad40-668820810803" fontSize="20px" width="180px" height="40px">Начать бесплатно</Button>
+		<Button to="https://konspekt.zenclass.ru/public/course/731e4edc-9279-40a8-ad40-668820810803" fontSize="20px" width="180px" height="40px" gatsbyLinkProps={{ target: "_blank" }} onClick={onButtonClick}>Начать бесплатно</Button>
 
       </Navbar>
     </Wrapper>
