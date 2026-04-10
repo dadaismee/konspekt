@@ -150,7 +150,12 @@ const Hero = ({ data, type, toggleGift, onMainButtonClick, onSmallButtonClick, m
               style={{ width: "100%" }}
             //onClick={() => handleClick("passive")}
             >
-              <Button fontSize="32px" to={to} gatsbyLinkProps={isExternal(to) ? { target: "_blank" } : undefined} onClick={(e) => { if (onMainButtonClick) onMainButtonClick(e); }}>{buttonText}</Button>
+              <Button 
+                fontSize="32px" 
+                to={to} 
+                gatsbyLinkProps={isExternal(to) ? { target: "_blank" } : undefined}
+                onAnchorLinkClick={() => { console.log('[Hero] main button'); if (onMainButtonClick) onMainButtonClick(); }}
+              >{buttonText}</Button>
               {Boolean(type !== 'free' && type !== 'reading') && <Button 
               fontSize="24px" 
               style={{ fontFamily: "Coolvetica Lite"}}
@@ -158,7 +163,7 @@ const Hero = ({ data, type, toggleGift, onMainButtonClick, onSmallButtonClick, m
               width="calc(var(--right-column-width) - var(--left-column-width))" 
               to={smallButtonTo}
               gatsbyLinkProps={isExternal(smallButtonTo) ? { target: "_blank" } : undefined}
-              onClick={(e) => { if (onSmallButtonClick) onSmallButtonClick(e); }}>{smallButtonText || "Посмотреть тарифы"}</Button>}
+              onAnchorLinkClick={() => { console.log('[Hero] small button'); if (onSmallButtonClick) onSmallButtonClick(); }}>{smallButtonText || "Посмотреть тарифы"}</Button>}
 
             </ButtonsWrapper>
           </ButtonWrapper>

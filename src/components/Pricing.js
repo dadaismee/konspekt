@@ -108,12 +108,8 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
               </TariffDescription>
             </TariffHeader>
 
-            <ButtonWrapper
-              onClick={() => {
-                handleClick(tariff.name);
-                if (onBuyClick) onBuyClick(tariff.name);
-              }}>
-              <BuyButton color={tariff.buyButtonColor} to={tariff.to || '#form'} gatsbyLinkProps={isExternal(tariff.to) ? { target: "_blank" } : undefined}>
+            <ButtonWrapper>
+              <BuyButton color={tariff.buyButtonColor} to={tariff.to || '#form'} gatsbyLinkProps={isExternal(tariff.to) ? { target: "_blank" } : undefined} onAnchorLinkClick={() => { console.log('[Pricing] clicked:', tariff.name); handleClick(tariff.name); if (onBuyClick) onBuyClick(tariff.name); }}>
                 {tariff.buyButtonText}
               </BuyButton>
             </ButtonWrapper>
