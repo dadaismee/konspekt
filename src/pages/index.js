@@ -34,6 +34,7 @@ import {
   program,
   requestFormBuy,
   problem,
+  start,
   trial,
   aboutFreeCourse,
   results,
@@ -110,6 +111,9 @@ const IndexPage = () => {
       {/* <ListSection pageData={outcomes} /> */}
       <TrackedScreen id="process">
         <BasicSection id="process" pageData={process} grids={grids_3} />
+      </TrackedScreen>
+      <TrackedScreen id="start">
+        <BasicSection id="start" pageData={start} grids={grids_4} />
       </TrackedScreen>
 	  {/* <BasicSection id="system" pageData={results} grids={grids_3} /> */}
 	  {/*<Program id="program" pageData={program} /> */}

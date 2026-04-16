@@ -4,8 +4,8 @@ export const links = [
   //   url: '/writing-system#program',
   // },
   {
-    name: 'о нас',
-    url: '/#about',
+    name: 'бесплатный тест-драйв',
+    url: '/#start',
   },
   {
     name: 'тарифы',
@@ -34,7 +34,34 @@ export const hero = {
   buttonText: "Начать бесплатно",
   to: "https://konspekt.zenclass.ru/public/course/731e4edc-9279-40a8-ad40-668820810803",
   smallButtonTo: "#pricing",
+  // asterisk: "Займет минуту: регистрация, письмо с доступом и пробный урок — карта не нужна"
 };
+
+export const start = {
+  title: "Как попробовать бесплатно",
+  type: "basic",
+  boxes: [
+    {
+      mainText:
+        "Практика на 20 минут — сделаете картотеку заметок из текста без сложных приложений",
+      spanText: ["Практика", "сделаете картотеку заметок"],
+    },
+    {
+      mainText:
+        "Лонгрид о систематическом письме — как правильно делать заметки, чтобы больше не терять знания",
+      spanText: ["Лонгрид о систематическом письме"],
+    },
+	{
+      mainText:
+        "На видео — как это будет выглядеть →",
+      spanText: ["Лонгрид о систематическом письме"],
+    },
+    {
+      padding: "0px",
+      video: "/video/start-free.mp4",
+    },
+  ],
+}
 
 export const problem = {
   title: "Узнаёте себя?",

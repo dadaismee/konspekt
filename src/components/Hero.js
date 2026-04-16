@@ -19,26 +19,7 @@ const Hero = ({ data, type, toggleGift, onMainButtonClick, onSmallButtonClick, m
       <FlexContainer>
 
         <VertFlex>
-          {Boolean(asterisk) && <Asterisk
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              y: 20,
-            }}
-            transition={{
-              ease: [0.165, 0.84, 0.44, 1],
-              duration: 1,
-              delay: 0.65,
-            }}
-            viewport={{ once: true }}
-            style={{ marginTop: '-10px', fontFamily: 'Coolvetica Lite' }}>{asterisk}</Asterisk>}
+          
           <Box height="100%">
             <Tagline>
               <SiteHeading
@@ -156,17 +137,38 @@ const Hero = ({ data, type, toggleGift, onMainButtonClick, onSmallButtonClick, m
                 gatsbyLinkProps={isExternal(to) ? { target: "_blank" } : undefined}
                 onAnchorLinkClick={() => { console.log('[Hero] main button'); if (onMainButtonClick) onMainButtonClick(); }}
               >{buttonText}</Button>
-              {Boolean(type !== 'free' && type !== 'reading') && <Button 
+              { /* Boolean(type !== 'free' && type !== 'reading') && <Button 
               fontSize="24px" 
               style={{ fontFamily: "Coolvetica Lite"}}
               type="ghost"
               width="calc(var(--right-column-width) - var(--left-column-width))" 
               to={smallButtonTo}
               gatsbyLinkProps={isExternal(smallButtonTo) ? { target: "_blank" } : undefined}
-              onAnchorLinkClick={() => { console.log('[Hero] small button'); if (onSmallButtonClick) onSmallButtonClick(); }}>{smallButtonText || "Посмотреть тарифы"}</Button>}
+              onAnchorLinkClick={() => { console.log('[Hero] small button'); if (onSmallButtonClick) onSmallButtonClick(); }}>{smallButtonText || "Посмотреть тарифы"}</Button> */}
 
             </ButtonsWrapper>
           </ButtonWrapper>
+
+		  {Boolean(asterisk) && <Asterisk
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: 20,
+            }}
+            transition={{
+              ease: [0.165, 0.84, 0.44, 1],
+              duration: 1,
+              delay: 0.65,
+            }}
+            viewport={{ once: true }}
+            style={{ marginTop: '0px', fontFamily: 'Coolvetica Lite' }}>{asterisk}</Asterisk>}
         </VertFlex>
 
         {Boolean(video) && <Video
