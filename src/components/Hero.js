@@ -94,7 +94,7 @@ const Hero = ({ data, type, toggleGift, onMainButtonClick, onSmallButtonClick, m
               </Description>
               {Boolean(features) && <FeaturesContainer>
                 {features.map(feature => (
-                  <Features key={feature}>{feature}</Features>
+                  <Features key={feature}>{typograf(feature)}</Features>
                 ))}
               </FeaturesContainer>}
 

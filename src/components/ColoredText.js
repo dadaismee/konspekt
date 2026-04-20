@@ -12,26 +12,50 @@ export const typograf = (text) => {
 // Separate function to highlight text with spans
 export const highlightText = (text, phrases) => {
   let processedText = text;
-  phrases.forEach(phrase => {
-    const escapedPhrase = phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    processedText = processedText.replace(
-      new RegExp(escapedPhrase, 'g'),
-      (match) => `<span>${match}</span>`
-    );
-  });
+  if (phrases && phrases.forEach) {
+    phrases.forEach(phrase => {
+      const escapedPhrase = phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      processedText = processedText.replace(
+        new RegExp(escapedPhrase, 'g'),
+        (match) => `<span>${match}</span>`
+      );
+    });
+  }
   return processedText;
 };
 
 const ColoredText = ({ data, component, height, type, lineHeight }) => {
-  const { mainText, spanText } = data;
+  const { mainText, spanText, subText } = data;
   
   // First highlight phrases, then apply typography
-  const processedText = typograf(highlightText(mainText, spanText));
+  const processedText = typograf(highlightText(mainText, spanText || []));
 
-  return <Text type={type} component={component} height={height} lineHeight={lineHeight} dangerouslySetInnerHTML={{ __html: processedText }} />;
+  return (
+    <TextWrapper>
+      <Text type={type} component={component} height={height} lineHeight={lineHeight} dangerouslySetInnerHTML={{ __html: processedText }} />
+      {subText && <SubText>{subText}</SubText>}
+    </TextWrapper>
+  );
 };
 
 export default ColoredText;
+
+const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
+
+export const SubText = styled.div`
+  font-family: 'Coolvetica Lite';
+  font-size: 20px;
+  line-height: 100%;
+  color: var(--text);
+
+  @media (max-width: ${mediaQueries.phone}) {
+    font-size: 18px;
+  }
+`;
 
 export const Text = styled(({ component: Component = SmallerText, ...props }) => <Component {...props} />)`
   overflow: ${({ type }) => type === 'review' ? 'scroll' : 'none' }; 
