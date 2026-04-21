@@ -22,6 +22,7 @@ const SEO = ({ title, description, keywords, pathname, children }) => {
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
       <meta name="keywords" content={seo.keywords} />
+	  <meta name="yandex-verification" content="5f7ca410e81dda06" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="robots" content="index, follow" />
       <meta property="og:image" content={`${siteUrl}/src/assets/logo-with-bg.png`} />
