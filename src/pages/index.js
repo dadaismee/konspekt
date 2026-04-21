@@ -102,34 +102,42 @@ const IndexPage = () => {
           <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} onMainButtonClick={handleMainButtonClick} onSmallButtonClick={handleSmallButtonClick} />
         </FirstScreen>
       </TrackedScreen>
+
       <TrackedScreen id="problem">
         <BasicSection id="problem" pageData={problem} grids={grids_3} />
       </TrackedScreen>
+
       <TrackedScreen id="audience">
         <BasicSection pageData={audience} grids={grids_3} />
       </TrackedScreen>
-      <TrackedScreen id="system-components">
+	  { /* <TrackedScreen id="system-components">
         <BasicSection id="system-components" pageData={systemComponents} grids={grids_3} />
-      </TrackedScreen>
+      </TrackedScreen> */}
       {/* <ListSection pageData={outcomes} /> */}
-      <TrackedScreen id="process">
+	  { /* <TrackedScreen id="process">
         <BasicSection id="process" pageData={process} grids={grids_3} />
-      </TrackedScreen>
+      </TrackedScreen> */}
+
       <TrackedScreen id="results">
-        <BasicSection id="results" pageData={results} grids={grids_3} />
+        <BasicSection id="results" pageData={results} grids={grids_4} />
       </TrackedScreen>
-      <TrackedScreen id="trial">
-        <BasicSection id="trial" pageData={trial} grids={grids_4} />
-      </TrackedScreen>
+
       <TrackedScreen id="pricing">
         <Pricing id="pricing" pageData={pricing} selectedTariff={selectedTariff} handleClick={handleClick} onBuyClick={handlePricingBuyClick} />
       </TrackedScreen>
+
+      <TrackedScreen id="trial">
+        <BasicSection id="trial" pageData={trial} grids={grids_3} />
+      </TrackedScreen>
+
       <TrackedScreen id="reviews">
         <Reviews id="reviews" pageData={reviews} />
       </TrackedScreen>
+
       <TrackedScreen id="about">
         <BasicSection id="about" pageData={aboutCompany} grids={grids_3}/>
       </TrackedScreen>
+
       <TrackedScreen id="contact">
         <Contact id="contact" pageData={contact} />
       </TrackedScreen>

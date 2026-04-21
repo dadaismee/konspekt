@@ -127,11 +127,12 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
               </TariffDescription>
             </TariffHeader>
 
-            <ButtonWrapper>
+			  <div style={{ display: "flex", justifyContent: "space-around", gap: "10px" }}>
               <BuyButton color={tariff.buyButtonColor} to={tariff.to || '#form'} gatsbyLinkProps={isExternal(tariff.to) ? { target: "_blank" } : undefined} onAnchorLinkClick={() => { console.log('[Pricing] clicked:', tariff.name); handleClick(tariff.name); if (onBuyClick) onBuyClick(tariff.name); }}>
                 {tariff.buyButtonText}
               </BuyButton>
-            </ButtonWrapper>
+			  {Boolean(tariff.CTAbuttonText) && <BuyButton to={tariff.CTAto}>{tariff.CTAbuttonText}</BuyButton>}
+			</div>
 
             {/* Mobile toggle button */}
             <ToggleButton
@@ -418,7 +419,7 @@ export const FeatureArrow = styled.div`
 export const FeatureText = styled(Features)`
   //font-size: 24px;
   line-height: 105%;
-  font-family: Coolvetica Lite;
+  // font-family: Coolvetica Lite;
   color: #000;
   flex: 1;
 

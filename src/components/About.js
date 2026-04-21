@@ -79,6 +79,7 @@ const Wrapper = styled.div`
 
   @media (max-width: ${mediaQueries.phone}) {
     margin: var(--padding-mobile);
+	padding: 0px;
     display: flex;
     flex-direction: column;
     gap: 40px;

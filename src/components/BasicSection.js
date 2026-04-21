@@ -68,6 +68,7 @@ const BasicSection = ({ pageData, grids, id }) => {
           ))}
         </GridContainer>
       )}
+	  {Boolean(buttonText) && <div style={{ marginTop: "10px"}}><Button to="https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505">{buttonText}</Button></div>}
       {Boolean(asterisk) && <Asterisk>{asterisk}</Asterisk>}
     </Wrapper >
   );
@@ -77,6 +78,10 @@ export default BasicSection;
 
 const Wrapper = styled.section`
   padding: 0px 60px;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    padding: 0px;
+  }
 `;
 
 const Subtitle = styled(motion.div)`
