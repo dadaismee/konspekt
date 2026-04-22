@@ -41,7 +41,8 @@ import {
   reviews,
   links,
   videoReviews,
-  gift_certificate
+  gift_certificate,
+  systemComponents
 } from "../pageData/data.infrastructure-new.js";
 import "../styles/layout.css";
 import { getFrontmatter } from "../components/extractFrontmatter.js";
@@ -101,37 +102,44 @@ const IndexPage = () => {
           <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} onMainButtonClick={handleMainButtonClick} onSmallButtonClick={handleSmallButtonClick} />
         </FirstScreen>
       </TrackedScreen>
-      {/* <About data={courseData} id="about"/> */}
+
       <TrackedScreen id="problem">
-        <BasicSection id="problem" pageData={problem} grids={grids_4} />
+        <BasicSection id="problem" pageData={problem} grids={grids_3} />
       </TrackedScreen>
+
       <TrackedScreen id="audience">
         <BasicSection pageData={audience} grids={grids_3} />
       </TrackedScreen>
+	  { /* <TrackedScreen id="system-components">
+        <BasicSection id="system-components" pageData={systemComponents} grids={grids_3} />
+      </TrackedScreen> */}
       {/* <ListSection pageData={outcomes} /> */}
-      <TrackedScreen id="process">
+	  { /* <TrackedScreen id="process">
         <BasicSection id="process" pageData={process} grids={grids_3} />
+      </TrackedScreen> */}
+
+      <TrackedScreen id="results">
+        <BasicSection id="results" pageData={results} grids={grids_4} />
       </TrackedScreen>
-      <TrackedScreen id="start">
-        <BasicSection id="start" pageData={start} grids={grids_4} />
-      </TrackedScreen>
-	  {/* <BasicSection id="system" pageData={results} grids={grids_3} /> */}
-	  {/*<Program id="program" pageData={program} /> */}
+
       <TrackedScreen id="pricing">
         <Pricing id="pricing" pageData={pricing} selectedTariff={selectedTariff} handleClick={handleClick} onBuyClick={handlePricingBuyClick} />
       </TrackedScreen>
+
+      <TrackedScreen id="trial">
+        <BasicSection id="trial" pageData={trial} grids={grids_3} />
+      </TrackedScreen>
+
       <TrackedScreen id="reviews">
         <Reviews id="reviews" pageData={reviews} />
       </TrackedScreen>
-	  { /* <Program id="principles" pageData={principles} /> */}
-      {/* <BasicSection id="trial" pageData={trial} grids={grids_3} /> */}
-      {/* <Author pageData={author} /> */}
-	  { /* <RequestForm id="form" grids={grids_3} pageData={requestFormBuy} handleClick={handleClick} toggleGift={toggleGift} selectedTariff={selectedTariff || 'practice'} isGift={isGift || false} type="landing" /> */}
-      {/* <BasicSection id="gift-certificate" pageData={gift_certificate} grids={grids_3} /> */}
-      {/* <FAQ pageData={faq} /> */}
+
+	  <FAQ id="faq" pageData={faq} />
+
       <TrackedScreen id="about">
         <BasicSection id="about" pageData={aboutCompany} grids={grids_3}/>
       </TrackedScreen>
+
       <TrackedScreen id="contact">
         <Contact id="contact" pageData={contact} />
       </TrackedScreen>

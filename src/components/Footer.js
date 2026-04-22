@@ -56,8 +56,9 @@ margin-top: 80px;
 gap: 5px;
 
 @media (max-width: ${mediaQueries.phone}) {
-margin: var(--padding-mobile);
-margin-top: 80px;
+  margin: var(--padding-mobile);
+  margin-top: 80px;
+  padding: 0px;
 }
 `;
 

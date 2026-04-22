@@ -94,8 +94,15 @@ const Hero = ({ data, type, toggleGift, onMainButtonClick, onSmallButtonClick, m
               </Description>
               {Boolean(features) && <FeaturesContainer>
                 {features.map(feature => (
-                  <Features key={feature}>{feature}</Features>
+                  <Features key={feature}>{typograf(feature)}</Features>
                 ))}
+			  <div id="heroReview" style={{ display: "flex", width: "auto", gap: "5px" }}>
+				<VertFlex>
+				<Features style={{ fontFamily: "Coolvetica Lite", fontSize: "16px" }}>«Результат очень облегчает жизнь человеку, пишущему диссертацию».</Features>
+				<Features style={{ fontSize: "13px"}}>Ольга Чумичёва, PhD в Manchester Uni</Features>
+				</VertFlex>
+				<Image src="/reviews_avatars/olya_ch_3.png" width="70px" height="70px"/>
+			  </div>
               </FeaturesContainer>}
 
             </Tagline>
@@ -214,6 +221,7 @@ const Wrapper = styled.div`
   @media (max-width: ${mediaQueries.phone}) {
     align-items: stretch;
     height: auto;
+	padding: 0px;
   }
 `;
 
@@ -324,6 +332,7 @@ export const ButtonsWrapper = styled.div`
 const FeaturesContainer = styled.div`
 display: flex; 
 justify-content: space-between; 
+align-items: center;
 width: 100%;
 
   @media (max-width: ${mediaQueries.phone}) {

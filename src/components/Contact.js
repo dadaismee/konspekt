@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import styled from 'styled-components';
+import { mediaQueries } from '../styles/GlobalStyles';
 import { SectionHeading } from '../styles/TextStyles';
 import { Button, FlexContainer } from './Hero';
 import { mail } from './mail';
@@ -94,6 +95,11 @@ export default Contact;
 
 const Wrapper = styled.section`
   padding: 0px 60px;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    padding: 0px;
+  }
+
 `;
 
 const ButtonWrapper = styled(motion.div)`
