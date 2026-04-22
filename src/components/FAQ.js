@@ -99,7 +99,15 @@ const FAQ = ({ pageData, id }) => {
 
 export default FAQ;
 
-const Wrapper = styled.section``;
+const Wrapper = styled.section`
+  padding: 0px 60px;
+
+  @media (max-width: ${mediaQueries.phone}) {
+	padding: 0px;
+  }
+
+
+`;
 
 const Toggle = styled(motion.div)`
   font-size: 60px;

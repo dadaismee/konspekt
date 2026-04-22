@@ -134,6 +134,8 @@ const IndexPage = () => {
         <Reviews id="reviews" pageData={reviews} />
       </TrackedScreen>
 
+	  <FAQ id="faq" pageData={faq} />
+
       <TrackedScreen id="about">
         <BasicSection id="about" pageData={aboutCompany} grids={grids_3}/>
       </TrackedScreen>
