@@ -1,20 +1,8 @@
 export const links = [
-  //{
-  //  name: 'результат',
-  //  url: '/#results',
-  //},
-  //{
-  //  name: 'как устроено',
-  //  url: '/#process',
-  //},
   {
     name: 'программа',
     url: '/writing-system#program',
   },
-  //{
-  //  name: 'сертификат',
-  //  url: '/#gift-certificate',
-  //},
   {
     name: 'стоимость',
     url: '/writing-system#pricing',
@@ -23,7 +11,6 @@ export const links = [
     name: 'отзывы',
     url: '/writing-system#reviews',
   },
-
   {
     name: 'контакты',
     url: '/writing-system#contact',
