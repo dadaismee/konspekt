@@ -1,41 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import {
+  Author,
   BasicSection,
   Contact,
   FAQ,
   Footer,
   Header,
   Hero,
+  HowWorks,
+  ListSection,
   Pricing,
-  Reviews,
+  Program,
+  RequestForm,
   SEO,
+  Reviews,
+  AnnouncementBar,
+  VideoReviews,
+  About,
   TrackedScreen
 } from "../components/index";
 import {
   aboutCompany,
-  agentsSection,
   audience,
+  author,
   contact,
   faq,
   hero,
+  outcomes,
   pricing,
+  process,
+  principles,
+  program,
+  requestFormBuy,
   problem,
+  start,
+  trial,
+  aboutFreeCourse,
   results,
   reviews,
-  trial,
   links,
-  writingSystemSection,
-} from "../pageData/data.saas_home.js";
+  videoReviews,
+  gift_certificate,
+  systemComponents
+} from "../pageData/data.infrastructure-new.js";
 import "../styles/layout.css";
+import { getFrontmatter } from "../components/extractFrontmatter.js";
+import courses from "../pageData/index.json";
 import { METRIKA_ID, getCurrentScreen } from "../components/TrackedScreen";
 
-const IndexPage = () => {
-  const [selectedTariff, setSelectedTariff] = useState('pro');
+const WritingSystemPage = () => {
+  const [isGift, setIsGift] = useState(false);
+  const [selectedTariff, setSelectedTariff] = useState('practice');
 
   const handleClick = (tariffName) => {
     setSelectedTariff(tariffName);
   }
+
+  const toggleGift = () => {
+    setIsGift(prev => !prev); // Toggle gift state
+  };
+
+  const courseData = getFrontmatter(courses, "research-infrastructure");
 
   const handleMainButtonClick = () => {
     console.log('[Click] hero_main_click');
@@ -90,38 +116,32 @@ const IndexPage = () => {
         <Pricing id="pricing" pageData={pricing} selectedTariff={selectedTariff} handleClick={handleClick} onBuyClick={handlePricingBuyClick} />
       </TrackedScreen>
 
+      <TrackedScreen id="trial">
+        <BasicSection id="trial" pageData={trial} grids={grids_3} />
+      </TrackedScreen>
+
       <TrackedScreen id="reviews">
         <Reviews id="reviews" pageData={reviews} />
-      </TrackedScreen>
-
-      <TrackedScreen id="agents">
-        <BasicSection id="agents" pageData={agentsSection} grids={grids_3} />
-      </TrackedScreen>
-
-      <TrackedScreen id="writing-system">
-        <BasicSection id="writing-system" pageData={writingSystemSection} grids={grids_3} />
       </TrackedScreen>
 
 	  <FAQ id="faq" pageData={faq} />
 
       <TrackedScreen id="about">
-        <BasicSection id="about" pageData={aboutCompany} grids={grids_3} />
+        <BasicSection id="about" pageData={aboutCompany} grids={grids_3}/>
       </TrackedScreen>
 
       <TrackedScreen id="contact">
         <Contact id="contact" pageData={contact} />
       </TrackedScreen>
-      <Footer />
-      </>
-  );
+      <Footer /> </>);
 };
 
-export default IndexPage;
+export default WritingSystemPage;
 
 export const Head = () => (
   <SEO
-    title="Конспект — ИИ для работы с источниками"
-    description="Исследуйте источники, а не просто спрашивайте AI. Вопросы к вашим источникам с точным evidence, карта отношений между идеями, один рабочий процесс: источники → вопросы → карта → текст."
+    title="Система письма | Конспект"
+    description="Курс, где вы внедрите единый процесс работы над исследованием — от чтения до написания своего текста и подготовки к публикации"
   />);
 
 const grids_4 = [
@@ -131,7 +151,7 @@ const grids_4 = [
   "1 / 3 / 4 / 6",
 ];
 
-export const grids_3 = ["1 / 1 / 1 / 3", "2 / 1 / 2 / 3", "1 / 3 / 3 / 6"];
+const grids_3 = ["1 / 1 / 1 / 3", "2 / 1 / 2 / 3", "1 / 3 / 3 / 6"];
 
 const FirstScreen = styled.div`
 height: 85dvh;
