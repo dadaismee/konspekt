@@ -10,7 +10,7 @@ import { Heading, MainText, Features } from '../styles/TextStyles';
 import { Asterisk } from './ListSection.js';
 
 const Hero = ({ data, type, toggleGift, onMainButtonClick, onSmallButtonClick, mainButtonExternal }) => {
-  const { title, typeWriterText, description, buttonText, to, smallButtonText, smallButtonTo, features, video, image, asterisk } = data;
+  const { title, typeWriterText, description, buttonText, to, smallButtonText, smallButtonTo, features, video, image, asterisk, heroReview, heroReviewAuthor, heroReviewAuthorImage } = data;
 
   const isExternal = (url) => url && (url.startsWith('http://') || url.startsWith('https://'));
 
@@ -98,10 +98,11 @@ const Hero = ({ data, type, toggleGift, onMainButtonClick, onSmallButtonClick, m
                 ))}
 			  <div id="heroReview" style={{ display: "flex", width: "auto", gap: "5px" }}>
 				<VertFlex>
-				<Features style={{ fontFamily: "Coolvetica Lite", fontSize: "16px" }}>«Результат очень облегчает жизнь человеку, пишущему диссертацию».</Features>
-				<Features style={{ fontSize: "13px"}}>Ольга Чумичёва, PhD в Manchester Uni</Features>
+				<Features style={{ fontFamily: "Coolvetica Lite", fontSize: "16px", fontStyle: "italic" }}>{heroReview}</Features>
+				<Features style={{ fontSize: "13px"}}>{heroReviewAuthor}</Features>
 				</VertFlex>
-				<Image src="/reviews_avatars/olya_ch_3.png" width="70px" height="70px"/>
+								{Boolean(heroReviewAuthorImage)
+									 && <Image src={heroReviewAuthorImage} width="70px" height="70px"/>}
 			  </div>
               </FeaturesContainer>}
 

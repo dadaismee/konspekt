@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Box } from "../components/index";
+import { Box, Image } from "../components/index";
 import {
   Flex,
   mediaQueries,
@@ -12,6 +12,7 @@ import {
   MainText,
   MenuAndFootnote,
   Features,
+	ThinFeatures,
   SectionHeading,
 } from "../styles/TextStyles";
 import { Button, ButtonWrapper } from "./Hero";
@@ -21,7 +22,7 @@ import { typograf } from "./typograf";
 
 const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
   const { title, subtitle, to, asterisk } = pageData;
-  let tariffs = pageData.tariffs || [];
+  let tariffs = pageData.tariffs || []
 
   const isExternal = (url) => url && (url.startsWith('http://') || url.startsWith('https://'));
 
@@ -121,10 +122,16 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
                   </PriceContainer>
                 </TariffMeta>
               </VertFlex>
-              <TariffDescription>
-                {typograf(tariff.description) ||
-                  "Для тех, кто хочет освоить систему работы с текстами в комфортном темпе"}
-              </TariffDescription>
+							<Flex>
+								<VertFlex>
+									<TariffDescription>
+										{typograf(tariff.description) ||
+											"Для тех, кто хочет освоить систему работы с текстами в комфортном темпе"}
+									</TariffDescription>
+									<ThinFeatures>{tariff.exampleTitle}</ThinFeatures>
+								</VertFlex>
+									<Image height="100%" width="50%" src={tariff.exampleGif}/>
+							</Flex>
             </TariffHeader>
 
 			  <div style={{ display: "flex", justifyContent: "space-around", gap: "10px" }}>
@@ -305,7 +312,7 @@ const OldPrice = styled.div`
   font-size: 24px;
   line-height: 105%;
   font-family: "Coolvetica Lite";
-  text-decoration: line-through;
+  // text-decoration: line-through;
   color: #000;
 
   @media (max-width: 640px) {

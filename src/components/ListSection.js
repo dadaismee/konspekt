@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Box, ColoredText } from '../components/index';
 import { Flex, mediaQueries } from '../styles/GlobalStyles';
-import { Features, MenuAndFootnote, SectionHeading, SmallThin, SmallerText } from '../styles/TextStyles';
+import { Features, MenuAndFootnote, SectionHeading, SmallThin, BoldSmallerText } from '../styles/TextStyles';
 
 const PageSection = ({ pageData, id }) => {
   const { title, asterisk } = pageData;
@@ -36,7 +36,7 @@ const PageSection = ({ pageData, id }) => {
         {data.map((box, index) => (
           <ListItem gridArea={box.gridArea}>
             <Circle>{index + 1}</Circle>
-            <ColoredText component={SmallerText} data={box} key={box.mainText} />
+            <ColoredText component={BoldSmallerText} data={box} key={box.mainText} />
           </ListItem>
         ))}
       </Box>
@@ -69,6 +69,7 @@ const PageSection = ({ pageData, id }) => {
 export default PageSection;
 
 const Wrapper = styled.section`
+	margin: 60px;
 `;
 
 export const Asterisk = styled(Features)`

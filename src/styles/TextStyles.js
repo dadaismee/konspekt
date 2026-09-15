@@ -70,6 +70,17 @@ export const SmallerText = styled(motion.p)`
 `;
 
 
+export const BoldSmallerText = styled(motion.p)`
+  color: var(--text);
+  font-size: 32px;
+  line-height: 105%;
+	font-family: 'Coolvetica' !important;
+  /* margin-bottom: 10px; */
+
+  @media (max-width: ${mediaQueries.phone}) {
+    font-size: 24px;
+  }
+`;
 
 export const MenuAndFootnote = styled(motion.p)`
   color: var(--text);

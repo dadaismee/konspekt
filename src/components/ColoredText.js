@@ -43,7 +43,7 @@ export default ColoredText;
 const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 5px;
 `;
 
 export const SubText = styled.div`

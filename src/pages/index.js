@@ -7,31 +7,37 @@ import {
   Footer,
   Header,
   Hero,
+  ListSection,
   Pricing,
   Reviews,
   SEO,
+	Author,
   TrackedScreen
 } from "../components/index";
 import {
+  about,
   aboutCompany,
-  agentsSection,
   audience,
+	author,
+  caseTimeline,
   contact,
   faq,
   hero,
+  outcomes,
   pricing,
   problem,
-  results,
+  process,
   reviews,
   trial,
   links,
+  saasSection,
   writingSystemSection,
-} from "../pageData/data.saas_home.js";
+} from "../pageData/data.agents.js";
 import "../styles/layout.css";
 import { METRIKA_ID, getCurrentScreen } from "../components/TrackedScreen";
 
 const IndexPage = () => {
-  const [selectedTariff, setSelectedTariff] = useState('pro');
+  const [selectedTariff, setSelectedTariff] = useState('agent');
 
   const handleClick = (tariffName) => {
     setSelectedTariff(tariffName);
@@ -41,13 +47,6 @@ const IndexPage = () => {
     console.log('[Click] hero_main_click');
     if (typeof window.ym !== "undefined") {
       window.ym(METRIKA_ID, "reachGoal", "hero_main_click", { from_screen: getCurrentScreen() });
-    }
-  };
-
-  const handleSmallButtonClick = () => {
-    console.log('[Click] hero_small_click');
-    if (typeof window.ym !== "undefined") {
-      window.ym(METRIKA_ID, "reachGoal", "hero_small_click", { from_screen: getCurrentScreen() });
     }
   };
 
@@ -67,10 +66,10 @@ const IndexPage = () => {
 
   return (
     <>
-        <Header data={links} onButtonClick={handleHeaderButtonClick} />
+      <Header data={links} onButtonClick={handleHeaderButtonClick} />
       <TrackedScreen id="hero">
         <FirstScreen>
-          <Hero data={hero} type="landing" selectedTariff={selectedTariff} handleClick={handleClick} onMainButtonClick={handleMainButtonClick} onSmallButtonClick={handleSmallButtonClick} />
+          <Hero data={hero} type="landing" handleClick={handleClick} onMainButtonClick={handleMainButtonClick} />
         </FirstScreen>
       </TrackedScreen>
 
@@ -82,8 +81,8 @@ const IndexPage = () => {
         <BasicSection pageData={audience} grids={grids_3} />
       </TrackedScreen>
 
-      <TrackedScreen id="results">
-        <BasicSection id="results" pageData={results} grids={grids_4} />
+      <TrackedScreen id="process">
+        <ListSection id="process" pageData={process} />
       </TrackedScreen>
 
       <TrackedScreen id="pricing">
@@ -94,25 +93,25 @@ const IndexPage = () => {
         <Reviews id="reviews" pageData={reviews} />
       </TrackedScreen>
 
-      <TrackedScreen id="agents">
-        <BasicSection id="agents" pageData={agentsSection} grids={grids_3} />
+		{/* <TrackedScreen id="saas">
+        <BasicSection id="saas" pageData={saasSection} grids={grids_3} />
       </TrackedScreen>
 
       <TrackedScreen id="writing-system">
         <BasicSection id="writing-system" pageData={writingSystemSection} grids={grids_3} />
-      </TrackedScreen>
+      </TrackedScreen> */}
 
-	  <FAQ id="faq" pageData={faq} />
+      <FAQ id="faq" pageData={faq} />
 
-      <TrackedScreen id="about">
-        <BasicSection id="about" pageData={aboutCompany} grids={grids_3} />
+      <TrackedScreen id="about-company">
+        <Author pageData={author} grids={grids_3} />
       </TrackedScreen>
 
       <TrackedScreen id="contact">
         <Contact id="contact" pageData={contact} />
       </TrackedScreen>
       <Footer />
-      </>
+    </>
   );
 };
 
@@ -120,9 +119,11 @@ export default IndexPage;
 
 export const Head = () => (
   <SEO
-    title="Конспект — ИИ для работы с источниками"
-    description="Исследуйте источники, а не просто спрашивайте AI. Вопросы к вашим источникам с точным evidence, карта отношений между идеями, один рабочий процесс: источники → вопросы → карта → текст."
+    title="Конспект — кастомные инструменты для работы со знанием"
+    description="Кастомные ИИ-агенты и интерфейсы под ваш материал: цитаты со страницами, библиография по ГОСТ, карты связей, планы от дедлайна. Начните с бесплатного аудита."
   />);
+
+const grids_3 = ["1 / 1 / 1 / 3", "2 / 1 / 2 / 3", "1 / 3 / 3 / 6"];
 
 const grids_4 = [
   "1 / 1 / 1 / 3",
@@ -130,8 +131,6 @@ const grids_4 = [
   "3 / 1 / 3 / 3",
   "1 / 3 / 4 / 6",
 ];
-
-export const grids_3 = ["1 / 1 / 1 / 3", "2 / 1 / 2 / 3", "1 / 3 / 3 / 6"];
 
 const FirstScreen = styled.div`
 height: 85dvh;

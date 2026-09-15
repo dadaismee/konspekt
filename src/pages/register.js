@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { RequestForm, Header, Footer, SEO } from '../components/index.js';
 import styled from "styled-components";
-import { grids_3 } from '../pages/index.js';
 import { requestFormBuy, links } from '../pageData/data.infrastructure.js';
+
+const grids_3 = ["1 / 1 / 1 / 3", "2 / 1 / 2 / 3", "1 / 3 / 3 / 6"];
 
 const RegisterPage = () => {
     const [isGift, setIsGift] = useState(false); 
