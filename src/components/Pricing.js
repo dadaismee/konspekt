@@ -122,7 +122,7 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
                   </PriceContainer>
                 </TariffMeta>
               </VertFlex>
-							<Flex>
+							<Flex style={{ display: "grid", gridTemplateColumns: "1fr 1fr"}}>
 								<VertFlex>
 									<TariffDescription>
 										{typograf(tariff.description) ||
@@ -130,7 +130,13 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
 									</TariffDescription>
 									<ThinFeatures>{tariff.exampleTitle}</ThinFeatures>
 								</VertFlex>
-									<Image height="100%" width="50%" src={tariff.exampleGif}/>
+									{Boolean(tariff.exampleLink) ? (
+									<a href={tariff.exampleLink} target="_blank" rel="noopener noreferrer" style={{ display: "block", height: "100%", width: "100%" }}>
+										<Image height="100%" width="100%" src={tariff.exampleGif}/>
+									</a>
+								) : (
+									<Image height="100%" width="100%" src={tariff.exampleGif}/>
+								)}
 							</Flex>
             </TariffHeader>
 

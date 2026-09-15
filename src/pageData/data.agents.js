@@ -230,7 +230,7 @@ timing: "1–2 недели",
       description:
         "ИИ-агент для вашей научной работы — под ваши задачи и источники: не требует платных подписок.",
 			exampleGif: "/video/agent_present.gif",
-			exampleTitle: "Например, агент для теоретика кино →",
+			exampleTitle: "Например, агент теоретика кино, пишущего докторскую →",
 			exampleLink: "https://kinescope.io/hXYf5A95srwofsGWE5qrt6"
     },
     {
@@ -267,7 +267,8 @@ timing: "1–2 недели",
       description:
         "Когда данных много, а ИИ-агент не помогает разобраться, делаем интерфейс, где материал становится видимым.",
 			exampleGif: "/video/timeline.gif",
-			exampleTitle: "Например, таймлайн переписки из массива писем →"
+			exampleTitle: "Например, таймлайн переписки из массива писем →",
+			exampleLink: "https://kinescope.io/tMAzVMNMocw7dN5kcE5zAF"
     },
   ],
 };
@@ -463,7 +464,7 @@ export const requestFormBuy = {
 };
 
 export const contact = {
-  title: "Обсудить задачу",
+  title: "Связаться",
   buttonText: "Написать на почту",
   type: "basic",
 };
