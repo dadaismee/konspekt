@@ -67,7 +67,7 @@ const Header = ({ data, onButtonClick }) => {
             {link.name}
           </AnchorLinkEl>
         ))}
-		<Button to="https://konspekt.zenclass.ru/public/course/731e4edc-9279-40a8-ad40-668820810803" fontSize="20px" width="180px" height="40px" gatsbyLinkProps={{ target: "_blank" }} onAnchorLinkClick={() => { console.log('[Header] clicked'); if (onButtonClick) onButtonClick(); }}>Начать бесплатно</Button>
+		<Button to="https://docs.google.com/forms/d/e/1FAIpQLSfPDTxh1RAOYzphRGJf9_oCip12Pibi68OBprh0CnH4hrpA7g/viewform?usp=dialog" fontSize="20px" width="180px" height="40px" gatsbyLinkProps={{ target: "_blank" }} onAnchorLinkClick={() => { console.log('[Header] clicked'); if (onButtonClick) onButtonClick(); }}>Подать заявку</Button>
 
       </Navbar>
     </Wrapper>

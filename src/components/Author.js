@@ -71,6 +71,8 @@ const Author = ({ pageData, id }) => {
 export default Author;
 
 const Wrapper = styled.section`
+  padding: 0px 60px;
+
   @media (max-width: ${mediaQueries.phone}) {
     display: none;
   }

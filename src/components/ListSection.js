@@ -69,7 +69,11 @@ const PageSection = ({ pageData, id }) => {
 export default PageSection;
 
 const Wrapper = styled.section`
-	margin: 60px;
+  padding: 0px 60px;
+
+  @media (max-width: ${mediaQueries.phone}) {
+    padding: 0px;
+  }
 `;
 
 export const Asterisk = styled(Features)`
