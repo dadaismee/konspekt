@@ -40,7 +40,7 @@ export const FlexContainer = styled.div`
   flex-direction: column;
   gap: ${({type}) => type === 'review' ? '20px' : '10px' };
   width: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) - 60px)' : 'auto' };
-  height: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) - 60px)' : 'auto' };
+  height: ${({ type }) => type === 'review' ? 'auto' : 'auto' };
 
   &:first-child {
     width: 50%;
@@ -51,8 +51,7 @@ export const FlexContainer = styled.div`
   }
 
   @media (max-width: ${mediaQueries.phone}) {
-    height: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) / 1.25)' : '100%'};
-    ridth: ${({ type }) => type === 'review' ? 'calc(var(--left-column-width) / 1.25)' : '100%'};
+    height: ${({ type }) => type === 'review' ? 'auto' : '100%'};
     width: 100%;
     &:first-child {
       width: 100%;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { mediaQueries } from '../styles/GlobalStyles';
 
-const Image = ({ src, width, height }) => {
+const Image = ({ src, width, height, hideOnMobile }) => {
   return (
     <Wrapper
       initial={{
@@ -27,6 +27,7 @@ const Image = ({ src, width, height }) => {
       src={src}
       width={width}
       height={height}
+      hideOnMobile={hideOnMobile}
       loading="lazy"
     >
     </Wrapper>
@@ -43,6 +44,6 @@ export const Wrapper = styled(motion.img)`
   object-fit: cover;
 
   @media (max-width: ${mediaQueries.phone}) {
-    display: none;
+    display: ${({ hideOnMobile }) => (hideOnMobile ? "none" : "block")};
   }
 `;

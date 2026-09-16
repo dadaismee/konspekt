@@ -60,6 +60,7 @@ export const problem = {
       padding: "0px",
       image: "/agent-image.png",
       imageWidth: "100%",
+      imageHeight: "auto",
     },
   ],
 };

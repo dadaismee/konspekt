@@ -204,7 +204,7 @@ const Hero = ({ data, type, toggleGift, onMainButtonClick, onSmallButtonClick, m
           viewport={{ once: true }}
           src={video} />}
 
-        {Boolean(image) && <Image src={image} />}
+        {Boolean(image) && <Image src={image} hideOnMobile />}
       </FlexContainer>
     </Wrapper>
   );
@@ -337,7 +337,10 @@ align-items: center;
 width: 100%;
 
   @media (max-width: ${mediaQueries.phone}) {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
 }
 `
 

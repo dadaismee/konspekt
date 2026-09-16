@@ -98,17 +98,11 @@ align-items: center;
 
 export const BoxesWrapper = styled(motion.div)`
   display: flex;
-  gap: var(--flex-gap);
+  flex-direction: column;
+  gap: 20px;
   height: auto;
-  padding: 10px 60px;
-  margin: 0px -60px;
-  overflow: auto;
-  overflow-y: hidden;
-
-  @media (max-width: ${mediaQueries.phone}) {
-    padding: 0 20px;
-    margin: 0px 20px 0px -20px;
-    gap: 10px;
-  }
+  width: 100%;
+  max-width: var(--left-column-width);
+  overflow: visible scroll;
 `;
 

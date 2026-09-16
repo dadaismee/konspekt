@@ -229,9 +229,3 @@ body {
     margin: 20px;
   }
 }
-
-#heroReview {
-  @media (max-width: ${mediaQueries.phone}) {
-	display: none;
-  }
-}

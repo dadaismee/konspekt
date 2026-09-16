@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Box, Image } from "../components/index";
 import {
-  Flex,
   mediaQueries,
   FlexContainer,
   VertFlex,
@@ -122,13 +121,13 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
                   </PriceContainer>
                 </TariffMeta>
               </VertFlex>
-							<Flex style={{ display: "grid", gridTemplateColumns: "1fr 1fr"}}>
+							<TariffGrid>
 								<VertFlex>
 									<TariffDescription>
 										{typograf(tariff.description) ||
 											"Для тех, кто хочет освоить систему работы с текстами в комфортном темпе"}
 									</TariffDescription>
-									<ThinFeatures>{tariff.exampleTitle}</ThinFeatures>
+									<ExampleTitle>{tariff.exampleTitle}</ExampleTitle>
 								</VertFlex>
 									{Boolean(tariff.exampleLink) ? (
 									<a href={tariff.exampleLink} target="_blank" rel="noopener noreferrer" style={{ display: "block", height: "100%", width: "100%" }}>
@@ -137,7 +136,7 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
 								) : (
 									<Image height="100%" width="100%" src={tariff.exampleGif}/>
 								)}
-							</Flex>
+							</TariffGrid>
             </TariffHeader>
 
 			  <div style={{ display: "flex", justifyContent: "space-around", gap: "10px" }}>
@@ -355,6 +354,22 @@ const TariffDescription = styled(MenuAndFootnote)`
 
   @media (max-width: 640px) {
     font-size: 20px;
+  }
+`;
+
+const TariffGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const ExampleTitle = styled(ThinFeatures)`
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
