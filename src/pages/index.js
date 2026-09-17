@@ -74,7 +74,7 @@ const IndexPage = () => {
       </TrackedScreen>
 
       <TrackedScreen id="problem">
-        <BasicSection id="problem" pageData={problem} grids={grids_3} />
+        <BasicSection id="problem" pageData={problem} grids={grids_4} />
       </TrackedScreen>
 
       <TrackedScreen id="audience">
