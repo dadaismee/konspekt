@@ -81,12 +81,12 @@ const IndexPage = () => {
         <BasicSection pageData={audience} grids={grids_3} />
       </TrackedScreen>
 
-      <TrackedScreen id="process">
-        <ListSection id="process" pageData={process} />
-      </TrackedScreen>
-
       <TrackedScreen id="pricing">
         <Pricing id="pricing" pageData={pricing} selectedTariff={selectedTariff} handleClick={handleClick} onBuyClick={handlePricingBuyClick} />
+      </TrackedScreen>
+
+      <TrackedScreen id="process">
+        <ListSection id="process" pageData={process} />
       </TrackedScreen>
 
       <TrackedScreen id="reviews">

@@ -68,7 +68,7 @@ const BasicSection = ({ pageData, grids, id }) => {
           ))}
         </GridContainer>
       )}
-	  {Boolean(buttonText) && <div style={{ marginTop: "10px"}}><Button to={buttonTo || "https://konspekt.zenclass.ru/public/t/79b6d42c-18dd-46c5-b708-bb5cf68b8505"}>{buttonText}</Button></div>}
+	  {Boolean(buttonText) && <div style={{ marginTop: "10px"}}><Button to={buttonTo}>{buttonText}</Button></div>}
       {Boolean(asterisk) && <Asterisk>{asterisk}</Asterisk>}
     </Wrapper >
   );
