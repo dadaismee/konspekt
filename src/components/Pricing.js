@@ -20,7 +20,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { typograf } from "./typograf";
 
 const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
-  const { title, subtitle, to, asterisk } = pageData;
+  const { title, subtitle, to, buttonText, buttonTo, asterisk } = pageData;
   let tariffs = pageData.tariffs || []
 
   const isExternal = (url) => url && (url.startsWith('http://') || url.startsWith('https://'));
@@ -108,7 +108,7 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
           >
             <TariffHeader>
               <VertFlex style={{ gap: "0px" }}>
-                <TariffTitle>{tariff.title}</TariffTitle>
+                <TariffTitle>{typograf(tariff.title)}</TariffTitle>
                 <TariffMeta>
                   <VertFlex style={{ gap: "0px", justifyContent: "flex-end" }}>
                     <Features>{tariff.timing}</Features>
@@ -121,13 +121,12 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
                   </PriceContainer>
                 </TariffMeta>
               </VertFlex>
-							<TariffGrid>
 								<VertFlex>
 									<TariffDescription>
 										{typograf(tariff.description) ||
 											"Для тех, кто хочет освоить систему работы с текстами в комфортном темпе"}
 									</TariffDescription>
-									<ExampleTitle>{tariff.exampleTitle}</ExampleTitle>
+					{/*<ExampleTitle>{tariff.exampleTitle}</ExampleTitle> */}
 								</VertFlex>
 									{Boolean(tariff.exampleLink) ? (
 									<a href={tariff.exampleLink} target="_blank" rel="noopener noreferrer" style={{ display: "block", height: "100%", width: "100%" }}>
@@ -136,7 +135,6 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
 								) : (
 									<Image height="100%" width="100%" src={tariff.exampleGif}/>
 								)}
-							</TariffGrid>
             </TariffHeader>
 
 			  <div style={{ display: "flex", justifyContent: "space-around", gap: "10px" }}>
@@ -183,6 +181,8 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
       </TariffsContainer>
 
       {/* <Button fontSize='32px'>Полное сравнение тарифов</Button> */}
+
+	  	{Boolean(buttonText) && <div style={{ marginTop: "10px"}}><Button fontSize="32px" to={buttonTo}>{buttonText}</Button></div>}
 
       {Boolean(asterisk) && (
         <Asterisk
@@ -281,7 +281,7 @@ const TariffHeader = styled.div`
 
 const TariffTitle = styled.div`
   font-size: 48px;
-  line-height: 105%;
+  line-height: 80%;
   color: #000;
   font-weight: 400;
 
