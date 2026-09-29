@@ -55,7 +55,7 @@ const Contact = ({ pageData, id, type }) => {
           viewport={{ once: true }}>
           <a
             // href='https://t.me/konspekt_support'
-            href={Boolean(type === 'b2b') ? mail : 'mailto:valerii.s.shevchenko@gmail.com?subject=Вопрос по «Системе письма»'}
+            href={Boolean(type === 'b2b') ? mail : 'mailto:valerii.s.shevchenko@gmail.com?subject=Вопрос по «Конспекту»'}
             target='_blank'>
             <Button>{buttonText}</Button>
           </a>

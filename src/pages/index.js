@@ -16,6 +16,7 @@ import {
 } from "../components/index";
 import {
   about,
+	forBusiness,
   aboutCompany,
   audience,
 	author,
@@ -84,6 +85,10 @@ const IndexPage = () => {
       <TrackedScreen id="pricing">
         <Pricing id="pricing" pageData={pricing} selectedTariff={selectedTariff} handleClick={handleClick} onBuyClick={handlePricingBuyClick} />
       </TrackedScreen>
+
+			<TrackedScreen id="for-business">
+				<BasicSection id="for-business" pageData={forBusiness} grids={grids_3} />
+			</TrackedScreen>
 
       <TrackedScreen id="process">
         <ListSection id="process" pageData={process} />

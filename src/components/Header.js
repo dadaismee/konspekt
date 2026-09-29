@@ -67,8 +67,7 @@ const Header = ({ data, onButtonClick }) => {
             {link.name}
           </AnchorLinkEl>
         ))}
-		<Button to="https://docs.google.com/forms/d/e/1FAIpQLSfPDTxh1RAOYzphRGJf9_oCip12Pibi68OBprh0CnH4hrpA7g/viewform?usp=dialog" fontSize="20px" width="180px" height="40px" gatsbyLinkProps={{ target: "_blank" }} onAnchorLinkClick={() => { console.log('[Header] clicked'); if (onButtonClick) onButtonClick(); }}>Обсудить проект</Button>
-
+		<Button to="mailto:konspekt@yandex.ru?subject=Обсудить: демо на моём материале&body=Здравствуйте!%0AХочу посмотреть, как это работает на моём материале.%0AМоя задача:" fontSize="20px" width="180px" height="40px" onAnchorLinkClick={() => { console.log('[Header] clicked'); if (onButtonClick) onButtonClick(); }}>Запросить демо</Button>
       </Navbar>
     </Wrapper>
   );

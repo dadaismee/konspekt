@@ -280,7 +280,7 @@ export const Button = styled(AnchorLink)`
   align-items: center;
   width: ${({ width }) => width || '100%'} ;
   height: ${({ height }) => height || '70px'};
-  font-size: ${({ fontSize }) => fontSize || '40px'};
+  font-size: ${({ fontSize }) => fontSize || '32px'};
   background-color: ${({ type }) => type === "ghost" ? "transparent" : "var(--accent)"};
   box-sizing: border-box;
   color: ${({ type }) => type === "ghost" ? "var(--text)" : "var(--text)"} ;

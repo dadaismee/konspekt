@@ -25,6 +25,7 @@ import {
   requestFormBuy,
   problem,
   trial,
+  forBusiness,
   reviews,
   links,
 } from "../pageData/data.agents.js";
@@ -58,6 +59,8 @@ const AgentsPage = () => {
         selectedTariff={selectedTariff} handleClick={handleClick} />
 
       <BasicSection id="trial" pageData={trial} grids={grids_3} />
+
+      <BasicSection id="for-business" pageData={forBusiness} grids={grids_3} />
 
       <Reviews id="reviews" pageData={reviews} />
 
