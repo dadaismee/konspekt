@@ -82,7 +82,7 @@ const Contact = ({ pageData, id, type }) => {
         <a
           href='https://t.me/konspekt_support'
           target='_blank'>
-			<Button>Написать в Telegram</Button>
+			<Button>Написать в Телеграм</Button>
         </a>
       </ButtonWrapper>
 
