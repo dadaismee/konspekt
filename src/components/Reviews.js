@@ -98,11 +98,9 @@ align-items: center;
 
 export const BoxesWrapper = styled(motion.div)`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 20px;
   height: auto;
-  width: 100%;
   max-width: var(--left-column-width);
-  overflow: visible scroll;
 `;
 
