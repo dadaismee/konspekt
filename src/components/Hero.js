@@ -96,14 +96,14 @@ const Hero = ({ data, type, toggleGift, onMainButtonClick, onSmallButtonClick, m
                 {features.map(feature => (
                   <Features key={feature}>{typograf(feature)}</Features>
                 ))}
-			  <div id="heroReview" style={{ display: "flex", width: "auto", gap: "5px" }}>
-				<VertFlex>
-				<Features style={{ fontFamily: "Coolvetica Lite", fontSize: "16px", fontStyle: "italic" }}>{heroReview}</Features>
-				<Features style={{ fontSize: "13px"}}>{heroReviewAuthor}</Features>
-				</VertFlex>
+								{Boolean(heroReview) && <div id="heroReview" style={{ display: "flex", width: "auto", gap: "5px" }}>
+					<VertFlex>
+						<Features style={{ fontFamily: "Coolvetica Lite", fontSize: "16px", fontStyle: "italic" }}>{heroReview}</Features>
+						<Features style={{ fontSize: "13px"}}>{heroReviewAuthor}</Features>
+					</VertFlex>
 								{Boolean(heroReviewAuthorImage)
 									 && <Image src={heroReviewAuthorImage} width="70px" height="70px"/>}
-			  </div>
+			  </div>}
               </FeaturesContainer>}
 
             </Tagline>

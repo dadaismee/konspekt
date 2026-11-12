@@ -8,6 +8,7 @@ import {
   Header,
   Hero,
   ListSection,
+	RequestForm,
   Pricing,
   Reviews,
   SEO,
@@ -31,6 +32,7 @@ import {
   reviews,
   trial,
   links,
+	requestFormBuy,
   saasSection,
   writingSystemSection,
 } from "../pageData/data.agents.js";
@@ -78,7 +80,7 @@ const IndexPage = () => {
         <BasicSection id="problem" pageData={problem} grids={grids_4} />
       </TrackedScreen>
 
-      <TrackedScreen id="audience">
+		 <TrackedScreen id="audience">
         <BasicSection pageData={audience} grids={grids_3} />
       </TrackedScreen>
 
@@ -86,9 +88,9 @@ const IndexPage = () => {
         <Pricing id="pricing" pageData={pricing} selectedTariff={selectedTariff} handleClick={handleClick} onBuyClick={handlePricingBuyClick} />
       </TrackedScreen>
 
-			<TrackedScreen id="for-business">
+		{/* <TrackedScreen id="for-business">
 				<BasicSection id="for-business" pageData={forBusiness} grids={grids_3} />
-			</TrackedScreen>
+			</TrackedScreen> */}
 
       <TrackedScreen id="process">
         <ListSection id="process" pageData={process} />
@@ -96,6 +98,10 @@ const IndexPage = () => {
 
       <TrackedScreen id="reviews">
         <Reviews id="reviews" pageData={reviews} />
+      </TrackedScreen>
+
+      <TrackedScreen id="form">
+		{/*<RequestForm id="form" pageData={requestFormBuy} />*/}
       </TrackedScreen>
 
 		{/* <TrackedScreen id="saas">
@@ -108,9 +114,9 @@ const IndexPage = () => {
 
       <FAQ id="faq" pageData={faq} />
 
-      <TrackedScreen id="about-company">
+		{/* <TrackedScreen id="about-company">
         <Author pageData={author} grids={grids_3} />
-      </TrackedScreen>
+      </TrackedScreen> */}
 
       <TrackedScreen id="contact">
         <Contact id="contact" pageData={contact} />

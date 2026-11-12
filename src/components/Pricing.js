@@ -123,26 +123,19 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
               </VertFlex>
 								<VertFlex>
 									<TariffDescription>
-										{typograf(tariff.description) ||
-											"Для тех, кто хочет освоить систему работы с текстами в комфортном темпе"}
+										{typograf(tariff.description)}
 									</TariffDescription>
 					{/*<ExampleTitle>{tariff.exampleTitle}</ExampleTitle> */}
 								</VertFlex>
-									{Boolean(tariff.exampleLink) ? (
+									{/*Boolean(tariff.exampleLink) ? (
 									<a href={tariff.exampleLink} target="_blank" rel="noopener noreferrer" style={{ display: "block", height: "100%", width: "100%" }}>
 										<Image height="100%" width="100%" src={tariff.exampleGif}/>
 									</a>
 								) : (
 									<Image height="100%" width="100%" src={tariff.exampleGif}/>
-								)}
+								) */}
             </TariffHeader>
 
-			  <div style={{ display: "flex", justifyContent: "space-around", gap: "10px" }}>
-              <BuyButton color={tariff.buyButtonColor} to={tariff.to || '#form'} gatsbyLinkProps={isExternal(tariff.to) ? { target: "_blank" } : undefined} onAnchorLinkClick={() => { console.log('[Pricing] clicked:', tariff.name); handleClick(tariff.name); if (onBuyClick) onBuyClick(tariff.name); }}>
-                {tariff.buyButtonText}
-              </BuyButton>
-			  {Boolean(tariff.CTAbuttonText) && <BuyButton to={tariff.CTAto}>{tariff.CTAbuttonText}</BuyButton>}
-			</div>
 
             {/* Mobile toggle button */}
             <ToggleButton
@@ -176,6 +169,13 @@ const Pricing = ({ pageData, id, handleClick, selectedTariff, onBuyClick }) => {
                   ))}
               </FeaturesList>
             </AnimatePresence>
+
+			  <div style={{ display: "flex", justifyContent: "space-around", gap: "10px" }}>
+              <BuyButton color={tariff.buyButtonColor} to={tariff.to || '#form'} gatsbyLinkProps={isExternal(tariff.to) ? { target: "_blank" } : undefined} onAnchorLinkClick={() => { console.log('[Pricing] clicked:', tariff.name); handleClick(tariff.name); if (onBuyClick) onBuyClick(tariff.name); }}>
+                {tariff.buyButtonText}
+              </BuyButton>
+			  {Boolean(tariff.CTAbuttonText) && <BuyButton to={tariff.CTAto}>{tariff.CTAbuttonText}</BuyButton>}
+			</div>
           </TariffCard>
         ))}
       </TariffsContainer>
@@ -272,7 +272,7 @@ const TariffCard = styled(motion.div)`
 const TariffHeader = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 
   @media (max-width: 640px) {
     gap: 15px;
