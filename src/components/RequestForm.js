@@ -7,16 +7,19 @@ import { MainText, MenuAndFootnote, SectionHeading, SmallerText } from "../style
 import ColoredText from "./ColoredText";
 import { Asterisk } from "./ListSection";
 import { Box, Loader } from "./index";
-import { pricing } from "../pageData/data.infrastructure";
+import { pricing as defaultPricing } from "../pageData/data.infrastructure";
 
-const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleGift, isGift, type, userType, margin }) => {
+const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleGift, isGift, type, userType, margin, pricing = defaultPricing, withTask, successMessage }) => {
   const { title, asterisk } = pageData;
   const boxes = pageData.boxes.map((box) => box);
   const tariffs = pricing.tariffs.map(tariff => tariff);
   const getTariffPrice = (tariffName) => {
       const tariff = tariffs.find(t => t.name === tariffName);
-        // return tariff ? `Начать бесплатно`: "Получить бесплатно"; 
-        return tariff ? `Начать за ${tariff.price}` : "Получить бесплатно"; 
+      if (!tariff) return "Получить бесплатно";
+      if (tariff.price === "по запросу" || tariff.price.startsWith("от ")) {
+        return tariff.buyButtonText || "Отправить заявку";
+      }
+      return `Начать за ${tariff.price}`;
   };
   const price = getTariffPrice(selectedTariff);
 
@@ -34,6 +37,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
   let email = watch("email");
   let telegram = watch("telegram") || "—";
   let tariff = watch("tariff") || selectedTariff;
+  let task = watch("task");
   let gift = isGift;
 
   // Extract hash and update state
@@ -51,6 +55,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
           Telegram: telegram || '—',
           Date: Date(),
           Tariff: selectedTariff,
+          Task: task || '—',
           Gift: '—',
           License: false, 
         }),
@@ -123,7 +128,13 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
       </SectionHeading>
 
       <CTA onSubmit={handleSubmit(onSubmit)}>
-        {Boolean(type === 'free' && isSubmitted) ? (
+        {Boolean(isSubmitted && successMessage) ? (
+          <div>
+            <Box height='auto'>
+              <ColoredText component={SmallerText} data={{ mainText: successMessage }} />
+            </Box>
+          </div>
+        ) : Boolean(type === 'free' && isSubmitted) ? (
           <div>
             <Box height='auto'>
               <ColoredText data={boxes[1]} />
@@ -159,18 +170,17 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                     {...register("tariff", {
                       required: true,
                     })}
+                    value={selectedTariff || ""}
                     onChange={(e) => handleClick(e.target.value)}
                   >
                     <option value="" disabled>
                       Тариф
                     </option>
-                    {/* <option value="self-paced" selected={selectedTariff === 'self-paced' ? true : false}>Сам(а)</option> */}
-                    <option value="practice" selected={selectedTariff === 'practice' ? true : false}>
-                      Практика
-                    </option>
-                    <option value="personal" selected={selectedTariff === 'personal' ? true : false}>
-                      Сопровождение
-                    </option>
+                    {tariffs.map((tariffOption) => (
+                      <option key={tariffOption.name} value={tariffOption.name}>
+                        {tariffOption.title}
+                      </option>
+                    ))}
                   </InputSelect>}
 
                   {Boolean(type !== 'register') && (
@@ -211,6 +221,21 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
                     />
                     {errors.email && <p>Введите адрес почты</p>}
                   </InputItem>
+
+                  {Boolean(withTask) && (
+                    <InputItem>
+                      <Input
+                        as="textarea"
+                        rows={3}
+                        placeholder="Опишите задачу"
+                        {...register("task", {
+                          required: true,
+                          maxLength: 300,
+                        })}
+                      />
+                      {errors.task && <p>Коротко опишите задачу</p>}
+                    </InputItem>
+                  )}
 
 
                   {/* {(Boolean(selectedTariff === "active") || Boolean(tariff === "active")) && (
@@ -317,7 +342,9 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
 
 export default RequestForm;
 
-const Wrapper = styled.section``;
+const Wrapper = styled.section`
+margin: 60px;
+`;
 
 const Input = styled.input`
 padding: 12.5px;

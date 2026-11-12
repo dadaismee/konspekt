@@ -101,7 +101,16 @@ const IndexPage = () => {
       </TrackedScreen>
 
       <TrackedScreen id="form">
-		{/*<RequestForm id="form" pageData={requestFormBuy} />*/}
+        <RequestForm
+          grids={grids_3}
+          pageData={requestFormBuy}
+          handleClick={handleClick}
+          selectedTariff={selectedTariff}
+          type="landing"
+          pricing={pricing}
+          withTask
+          successMessage="Спасибо за заявку! Ответим в течение часа. До встречи!"
+        />
       </TrackedScreen>
 
 		{/* <TrackedScreen id="saas">

@@ -12,6 +12,17 @@ exports.handler = async (event) => {
 
     await doc.loadInfo();
     const sheet = doc.sheetsByIndex[0];
+    try {
+      if (!sheet.headerValues) await sheet.loadHeaderRow();
+      if (sheet.headerValues && !sheet.headerValues.includes('Task')) {
+        if (sheet.columnCount < sheet.headerValues.length + 1) {
+          await sheet.resize({ rowCount: sheet.rowCount, columnCount: sheet.headerValues.length + 1 });
+        }
+        await sheet.setHeaderRow([...sheet.headerValues, 'Task']);
+      }
+    } catch (e) {
+      console.error('Could not ensure Task column:', e);
+    }
 
     // Parse data from the request
     const data = JSON.parse(event.body);
@@ -19,6 +30,7 @@ exports.handler = async (event) => {
     const tariff = data.Tariff; // Assuming "tariff" exists in the request
     const telegram = data.Telegram;
     const gift = data.Gift;
+    const task = data.Task;
 
     // Find the row with matching email
     const rows = await sheet.getRows();
@@ -42,6 +54,7 @@ exports.handler = async (event) => {
       matchingRow.Tariff = tariff;
       matchingRow.Telegram = telegram;
       matchingRow.Gift = gift;
+      matchingRow.Task = task;
       await matchingRow.save();
       console.log(`Email and tariff updated for email: ${email}`);
       return {

@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     // req.body уже спарсен как JSON в Vercel
     const data = req.body || {};
     console.log('Request body:', data); // Лог для отладки
-    const { Email: email, Tariff: tariff, Telegram: telegram, Gift: gift } = data;
+    const { Name: name, Email: email, Tariff: tariff, Telegram: telegram, Gift: gift, Date: date, Task: task } = data;
 
     if (!email) {
       return res.status(400).json({ error: 'Email required' });
@@ -25,17 +25,31 @@ export default async function handler(req, res) {
 
     await doc.loadInfo();
     const sheet = doc.sheetsByIndex[0];
+    try {
+      if (!sheet.headerValues) await sheet.loadHeaderRow();
+      if (sheet.headerValues && !sheet.headerValues.includes('Task')) {
+        if (sheet.columnCount < sheet.headerValues.length + 1) {
+          await sheet.resize({ rowCount: sheet.rowCount, columnCount: sheet.headerValues.length + 1 });
+        }
+        await sheet.setHeaderRow([...sheet.headerValues, 'Task']);
+      }
+    } catch (e) {
+      console.error('Could not ensure Task column:', e);
+    }
     const rows = await sheet.getRows();
     const matchingRow = rows.find((row) => row.Email === email);
 
     if (!matchingRow) {
-      await sheet.addRow({ Email: email, Tariff: tariff, Telegram: telegram, Gift: gift });
+      await sheet.addRow({ Name: name, Email: email, Tariff: tariff, Telegram: telegram, Gift: gift, Date: date, Task: task });
       console.log(`New row added: ${email}`);
       return res.status(200).json({ message: `New row added: ${email}` });
     } else {
+      matchingRow.Name = name;
       matchingRow.Tariff = tariff;
       matchingRow.Telegram = telegram;
       matchingRow.Gift = gift;
+      matchingRow.Date = date;
+      matchingRow.Task = task;
       await matchingRow.save();
       console.log(`Updated: ${email}`);
       return res.status(200).json({ message: `Updated: ${email}` });
