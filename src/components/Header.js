@@ -67,7 +67,7 @@ const Header = ({ data, onButtonClick }) => {
             {link.name}
           </AnchorLinkEl>
         ))}
-		<Button to="mailto:konspekt@yandex.ru?subject=Обсудить: демо на моём материале&body=Здравствуйте!%0AХочу посмотреть, как это работает на моём материале.%0AМоя задача:" fontSize="20px" width="180px" height="40px" onAnchorLinkClick={() => { console.log('[Header] clicked'); if (onButtonClick) onButtonClick(); }}>Попробовать</Button>
+		<Button to="#form" fontSize="20px" width="180px" height="40px" onAnchorLinkClick={() => { console.log('[Header] clicked'); if (onButtonClick) onButtonClick(); }}>Попробовать</Button>
       </Navbar>
     </Wrapper>
   );
