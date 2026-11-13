@@ -9,6 +9,10 @@ import { Asterisk } from "./ListSection";
 import { Box, Loader } from "./index";
 import { pricing as defaultPricing } from "../pageData/data.infrastructure";
 
+const SEND_TO_SHEETS_URL = process.env.NODE_ENV === "development"
+  ? "/.netlify/functions/sendToSheets"
+  : (process.env.GATSBY_SEND_TO_SHEETS_URL || "/.netlify/functions/sendToSheets");
+
 const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleGift, isGift, type, userType, margin, pricing = defaultPricing, withTask, successMessage }) => {
   const { title, asterisk } = pageData;
   const boxes = pageData.boxes.map((box) => box);
@@ -46,8 +50,7 @@ const RequestForm = ({ pageData, grids, id, handleClick, selectedTariff, toggleG
 
     try {
       // Send data to Google Sheets API
-      // await fetch('/.netlify/functions/sendToSheets', {
-      await fetch('/api/sendToSheets', {
+      await fetch(SEND_TO_SHEETS_URL, {
         method: 'POST',
         body: JSON.stringify({
           Name: userName,

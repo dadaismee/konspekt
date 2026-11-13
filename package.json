@@ -13,7 +13,8 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "presentation": "./build-presentation.sh"
+    "presentation": "./build-presentation.sh",
+    "server": "node server.js"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^2.1.4",
@@ -42,5 +43,8 @@
     "react-responsive": "^9.0.2",
     "styled-components": "^6.0.8",
     "typewriter-effect": "^2.20.1"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

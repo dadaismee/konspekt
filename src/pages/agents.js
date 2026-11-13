@@ -13,7 +13,6 @@ import {
   SEO,
 } from "../components/index";
 import {
-  about,
   audience,
   aboutCompany,
   contact,
@@ -48,8 +47,6 @@ const AgentsPage = () => {
       <BasicSection id="problem" pageData={problem} grids={grids_3} />
 
       <BasicSection pageData={audience} grids={grids_3} />
-
-      <BasicSection pageData={about} grids={grids_3} />
 
       <BasicSection pageData={outcomes} grids={grids_4} />
 
