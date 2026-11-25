@@ -165,7 +165,7 @@ export const process = {
 export const program = process;
 
 export const pricing = {
-  title: "Тарифы",
+  title: "Предложения",
   tariffs: [
 		{
 			title: "Отчёт + ИИ-ассистент",
@@ -188,7 +188,7 @@ export const pricing = {
           spanText: ["Поможем настроить и починим, если сломается"],
         },
       ],
-			price: "от 70 000 ₽",
+			price: "от 50 000 ₽",
 			timing: "3-5 дней",
       startDate: "от заявки до результата",
 			description: "",
